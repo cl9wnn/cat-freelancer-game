@@ -49,7 +49,6 @@ public class Boost : MonoBehaviour
     public Animator boostAnimator;
     public bool canBoostAd = false;
     public int countOfCofee;
-    public RewardedAds rewardAds;
 
     public bool soundPlayed;
 
@@ -100,9 +99,6 @@ public class Boost : MonoBehaviour
             BoostOn = true;
             boostAnimator.SetTrigger("close");
         }
-        else
-            rewardAds.AdBoost();
-
 }
 
 
