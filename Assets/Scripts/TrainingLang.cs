@@ -26,15 +26,11 @@ public class TrainingLang : MonoBehaviour
 
     void LangLoad()
     {
-#if UNITY_ANDROID && !UNITY_EDITOR
-        string path = Path.Combine(Application.streamingAssetsPath, "Languages/" + PlayerPrefs.GetString("Language") + ".json");
-        UnityWebRequest www = UnityWebRequest.Get(path);
-        www.SendWebRequest();
-       while (!www.isDone) ;
-      json = www.downloadHandler.text;
-#else
-        json = File.ReadAllText(Application.streamingAssetsPath + "/Languages/" + PlayerPrefs.GetString("Language") + ".json");
-#endif
+        string path = PlayerPrefs.GetString("Language");
+        json = (Resources.Load(path) as TextAsset).text;
+
+        Debug.Log("Язык: " + PlayerPrefs.GetString("Language") + " " + (json == null ? " Не загружен" : "Загружен"));
+
         lng = JsonUtility.FromJson<lanng>(json);
     }
 

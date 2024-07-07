@@ -2,6 +2,7 @@
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
+using YG;
 
 
 public class SkinCoin : MonoBehaviour
@@ -32,7 +33,6 @@ public class SkinCoin : MonoBehaviour
     public Sprite[] SprtBoughtBttn;
     public Button[] skinCoin;
     public Image newImg3;
-    private string fileName;
     public Text offlineTimeText;
     public Text offlineTimeInfoText;
     public Text quitText;
@@ -51,12 +51,31 @@ public class SkinCoin : MonoBehaviour
 
     private void Awake()
     {
-        fileName = "SkinOfCoin.BIN";
-        if (File.Exists(Application.persistentDataPath + "/Saves/" + fileName))
-        {
-            SavedData data = MyLoad.LoadFileBinary<SavedData>(fileName);
-            Bbttn = data.bBttn;
-        }
+        if (YandexGame.SDKEnabled)
+            Load();
+    }
+    private void OnEnable()
+    {
+        SaveManager.OnSaveEvent += Save;
+        SaveManager.OnLoadEvent += Load;
+    }
+    private void OnDisable()
+    {
+        SaveManager.OnSaveEvent -= Save;
+        SaveManager.OnLoadEvent -= Load;
+    }
+
+    private void Save()
+    {
+        YandexGame.savesData.skinCoinData = new SkinCoinData(Bbttn);
+    }
+    private void Load()
+    {
+        var data = YandexGame.savesData.skinCoinData;
+
+        if (data == null) return;
+
+        Bbttn = data.bBttn;
     }
 
     private void Start()
@@ -142,7 +161,7 @@ public class SkinCoin : MonoBehaviour
         }
     }
 
-        public void OpenInfoPan()
+    public void OpenInfoPan()
         {
 
         if (indexx == 0)
@@ -163,40 +182,5 @@ public class SkinCoin : MonoBehaviour
             quitText.enabled = false;
             indexx = 0;
         }
-    }
-
- 
-#if UNITY_ANDROID && !UNITY_EDITOR
-    private void OnApplicationPause (bool pause) {
-        if (pause) {
-            SavedData data = new SavedData (bBttn);
-            Save(data);
-        }
-        else{
-            Awake();
-        }
-    }
-
-#else
-    private void OnApplicationQuit()
-    {
-        SavedData data = new SavedData(Bbttn);
-        Save(data);
-    }
-
-#endif
-    private void Save(object Obj)
-    {
-        MySave.SaveFileBinary(Obj, fileName);
-    }
-
-    [Serializable]
-    public class SavedData
-    {
-        public SavedData(int BBttn)
-        {
-            bBttn = BBttn;
-        }
-        public int bBttn;
     }
 }

@@ -1,0 +1,508 @@
+{
+    "idSave": 1,
+    "isFirstSession": false,
+    "language": "ru",
+    "promptDone": false,
+    "money": 1,
+    "newPlayerName": "Hello!",
+    "openLevels": [
+        false,
+        false,
+        false
+    ],
+    "fortuneData": {
+        "longTimer": 0.0,
+        "timer": 20.0,
+        "canAd": false,
+        "doo": false
+    },
+    "gameData": {
+        "score": 1.0,
+        "scrCoins": 1.0,
+        "scoreIncrease": 1.0,
+        "totalClick": 1,
+        "offlineTime": 7200.0,
+        "shopItems": [
+            {
+                "name": "0cec",
+                "cost": 300.0,
+                "bonusIncrease": 0.0,
+                "levelOfItem": 0,
+                "costMultiplier": 1.5,
+                "itsItemPerSec": true,
+                "bonusPerSec": 1.0,
+                "bonusCounter": 0,
+                "itemIndex": 0
+            },
+            {
+                "name": "1cec",
+                "cost": 1000.0,
+                "bonusIncrease": 0.0,
+                "levelOfItem": 0,
+                "costMultiplier": 1.5,
+                "itsItemPerSec": true,
+                "bonusPerSec": 2.0,
+                "bonusCounter": 0,
+                "itemIndex": 0
+            },
+            {
+                "name": "2cec",
+                "cost": 3750.0,
+                "bonusIncrease": 0.0,
+                "levelOfItem": 0,
+                "costMultiplier": 1.5,
+                "itsItemPerSec": true,
+                "bonusPerSec": 6.0,
+                "bonusCounter": 0,
+                "itemIndex": 0
+            },
+            {
+                "name": "3cec",
+                "cost": 12000.0,
+                "bonusIncrease": 0.0,
+                "levelOfItem": 0,
+                "costMultiplier": 1.5,
+                "itsItemPerSec": true,
+                "bonusPerSec": 12.0,
+                "bonusCounter": 0,
+                "itemIndex": 0
+            },
+            {
+                "name": "4cec",
+                "cost": 62000.0,
+                "bonusIncrease": 0.0,
+                "levelOfItem": 0,
+                "costMultiplier": 1.5,
+                "itsItemPerSec": true,
+                "bonusPerSec": 21.0,
+                "bonusCounter": 0,
+                "itemIndex": 0
+            },
+            {
+                "name": "5cec",
+                "cost": 320000.0,
+                "bonusIncrease": 0.0,
+                "levelOfItem": 0,
+                "costMultiplier": 1.5,
+                "itsItemPerSec": true,
+                "bonusPerSec": 60.0,
+                "bonusCounter": 0,
+                "itemIndex": 0
+            },
+            {
+                "name": "6cec",
+                "cost": 1000000.0,
+                "bonusIncrease": 0.0,
+                "levelOfItem": 0,
+                "costMultiplier": 1.5,
+                "itsItemPerSec": true,
+                "bonusPerSec": 155.0,
+                "bonusCounter": 0,
+                "itemIndex": 0
+            },
+            {
+                "name": "7cec",
+                "cost": 3250000.0,
+                "bonusIncrease": 0.0,
+                "levelOfItem": 0,
+                "costMultiplier": 1.5,
+                "itsItemPerSec": true,
+                "bonusPerSec": 355.0,
+                "bonusCounter": 0,
+                "itemIndex": 0
+            },
+            {
+                "name": "8cec",
+                "cost": 11000000.0,
+                "bonusIncrease": 0.0,
+                "levelOfItem": 0,
+                "costMultiplier": 1.5,
+                "itsItemPerSec": true,
+                "bonusPerSec": 800.0,
+                "bonusCounter": 0,
+                "itemIndex": 0
+            },
+            {
+                "name": "9cec",
+                "cost": 30000000.0,
+                "bonusIncrease": 0.0,
+                "levelOfItem": 0,
+                "costMultiplier": 1.5,
+                "itsItemPerSec": true,
+                "bonusPerSec": 2100.0,
+                "bonusCounter": 0,
+                "itemIndex": 0
+            },
+            {
+                "name": "10cec",
+                "cost": 120000000.0,
+                "bonusIncrease": 0.0,
+                "levelOfItem": 0,
+                "costMultiplier": 1.5,
+                "itsItemPerSec": true,
+                "bonusPerSec": 6000.0,
+                "bonusCounter": 0,
+                "itemIndex": 0
+            },
+            {
+                "name": "11cec",
+                "cost": 350000000.0,
+                "bonusIncrease": 0.0,
+                "levelOfItem": 0,
+                "costMultiplier": 1.5,
+                "itsItemPerSec": true,
+                "bonusPerSec": 15000.0,
+                "bonusCounter": 0,
+                "itemIndex": 0
+            },
+            {
+                "name": "12cec",
+                "cost": 1400000000.0,
+                "bonusIncrease": 0.0,
+                "levelOfItem": 0,
+                "costMultiplier": 1.5,
+                "itsItemPerSec": true,
+                "bonusPerSec": 40000.0,
+                "bonusCounter": 0,
+                "itemIndex": 0
+            },
+            {
+                "name": "13cec",
+                "cost": 6000000000.0,
+                "bonusIncrease": 0.0,
+                "levelOfItem": 0,
+                "costMultiplier": 1.5,
+                "itsItemPerSec": true,
+                "bonusPerSec": 90000.0,
+                "bonusCounter": 0,
+                "itemIndex": 0
+            },
+            {
+                "name": "14cec",
+                "cost": 20000000000.0,
+                "bonusIncrease": 0.0,
+                "levelOfItem": 0,
+                "costMultiplier": 1.5,
+                "itsItemPerSec": true,
+                "bonusPerSec": 200000.0,
+                "bonusCounter": 0,
+                "itemIndex": 0
+            },
+            {
+                "name": "15cec",
+                "cost": 80000000000.0,
+                "bonusIncrease": 0.0,
+                "levelOfItem": 0,
+                "costMultiplier": 1.5,
+                "itsItemPerSec": true,
+                "bonusPerSec": 450000.0,
+                "bonusCounter": 0,
+                "itemIndex": 0
+            },
+            {
+                "name": "16cec",
+                "cost": 309999992832.0,
+                "bonusIncrease": 0.0,
+                "levelOfItem": 0,
+                "costMultiplier": 1.5,
+                "itsItemPerSec": true,
+                "bonusPerSec": 1200000.0,
+                "bonusCounter": 0,
+                "itemIndex": 0
+            },
+            {
+                "name": "17cec",
+                "cost": 999999995904.0,
+                "bonusIncrease": 0.0,
+                "levelOfItem": 0,
+                "costMultiplier": 1.5,
+                "itsItemPerSec": true,
+                "bonusPerSec": 2600000.0,
+                "bonusCounter": 0,
+                "itemIndex": 0
+            },
+            {
+                "name": "18cec",
+                "cost": 3000000053248.0,
+                "bonusIncrease": 0.0,
+                "levelOfItem": 0,
+                "costMultiplier": 1.5,
+                "itsItemPerSec": false,
+                "bonusPerSec": 5000000.0,
+                "bonusCounter": 0,
+                "itemIndex": 0
+            },
+            {
+                "name": "19cec",
+                "cost": 4999999913984.0,
+                "bonusIncrease": 0.0,
+                "levelOfItem": 0,
+                "costMultiplier": 1.5,
+                "itsItemPerSec": true,
+                "bonusPerSec": 10000000.0,
+                "bonusCounter": 0,
+                "itemIndex": 0
+            },
+            {
+                "name": "1cl",
+                "cost": 110.0,
+                "bonusIncrease": 1.0,
+                "levelOfItem": 0,
+                "costMultiplier": 1.2999999523162842,
+                "itsItemPerSec": false,
+                "bonusPerSec": 0.0,
+                "bonusCounter": 0,
+                "itemIndex": 0
+            },
+            {
+                "name": "2cl",
+                "cost": 550.0,
+                "bonusIncrease": 3.0,
+                "levelOfItem": 0,
+                "costMultiplier": 1.2999999523162842,
+                "itsItemPerSec": false,
+                "bonusPerSec": 0.0,
+                "bonusCounter": 0,
+                "itemIndex": 0
+            },
+            {
+                "name": "3cl",
+                "cost": 2100.0,
+                "bonusIncrease": 10.0,
+                "levelOfItem": 0,
+                "costMultiplier": 1.2999999523162842,
+                "itsItemPerSec": false,
+                "bonusPerSec": 3.0,
+                "bonusCounter": 0,
+                "itemIndex": 0
+            },
+            {
+                "name": "4cl",
+                "cost": 8000.0,
+                "bonusIncrease": 16.0,
+                "levelOfItem": 0,
+                "costMultiplier": 1.2999999523162842,
+                "itsItemPerSec": false,
+                "bonusPerSec": 3.0,
+                "bonusCounter": 0,
+                "itemIndex": 0
+            },
+            {
+                "name": "5cl",
+                "cost": 28000.0,
+                "bonusIncrease": 27.0,
+                "levelOfItem": 0,
+                "costMultiplier": 1.2999999523162842,
+                "itsItemPerSec": false,
+                "bonusPerSec": 3.0,
+                "bonusCounter": 0,
+                "itemIndex": 0
+            },
+            {
+                "name": "6cl",
+                "cost": 110000.0,
+                "bonusIncrease": 60.0,
+                "levelOfItem": 0,
+                "costMultiplier": 1.2999999523162842,
+                "itsItemPerSec": false,
+                "bonusPerSec": 3.0,
+                "bonusCounter": 0,
+                "itemIndex": 0
+            },
+            {
+                "name": "7cl",
+                "cost": 400000.0,
+                "bonusIncrease": 110.0,
+                "levelOfItem": 0,
+                "costMultiplier": 1.2999999523162842,
+                "itsItemPerSec": false,
+                "bonusPerSec": 3.0,
+                "bonusCounter": 0,
+                "itemIndex": 0
+            },
+            {
+                "name": "8cl",
+                "cost": 1500000.0,
+                "bonusIncrease": 355.0,
+                "levelOfItem": 0,
+                "costMultiplier": 1.2999999523162842,
+                "itsItemPerSec": false,
+                "bonusPerSec": 3.0,
+                "bonusCounter": 0,
+                "itemIndex": 0
+            },
+            {
+                "name": "9cl",
+                "cost": 4200000.0,
+                "bonusIncrease": 800.0,
+                "levelOfItem": 0,
+                "costMultiplier": 1.2999999523162842,
+                "itsItemPerSec": false,
+                "bonusPerSec": 3.0,
+                "bonusCounter": 0,
+                "itemIndex": 0
+            },
+            {
+                "name": "10cl",
+                "cost": 12000000.0,
+                "bonusIncrease": 1600.0,
+                "levelOfItem": 0,
+                "costMultiplier": 1.2999999523162842,
+                "itsItemPerSec": false,
+                "bonusPerSec": 3.0,
+                "bonusCounter": 0,
+                "itemIndex": 0
+            },
+            {
+                "name": "11cl",
+                "cost": 35000000.0,
+                "bonusIncrease": 3000.0,
+                "levelOfItem": 0,
+                "costMultiplier": 1.2999999523162842,
+                "itsItemPerSec": false,
+                "bonusPerSec": 3.0,
+                "bonusCounter": 0,
+                "itemIndex": 0
+            },
+            {
+                "name": "12cl",
+                "cost": 170000000.0,
+                "bonusIncrease": 8500.0,
+                "levelOfItem": 0,
+                "costMultiplier": 1.2999999523162842,
+                "itsItemPerSec": false,
+                "bonusPerSec": 3.0,
+                "bonusCounter": 0,
+                "itemIndex": 0
+            },
+            {
+                "name": "13cl",
+                "cost": 700000000.0,
+                "bonusIncrease": 23000.0,
+                "levelOfItem": 0,
+                "costMultiplier": 1.2999999523162842,
+                "itsItemPerSec": false,
+                "bonusPerSec": 3.0,
+                "bonusCounter": 0,
+                "itemIndex": 0
+            },
+            {
+                "name": "14cl",
+                "cost": 3200000000.0,
+                "bonusIncrease": 60000.0,
+                "levelOfItem": 0,
+                "costMultiplier": 1.2999999523162842,
+                "itsItemPerSec": false,
+                "bonusPerSec": 3.0,
+                "bonusCounter": 0,
+                "itemIndex": 0
+            },
+            {
+                "name": "15cl",
+                "cost": 10000000000.0,
+                "bonusIncrease": 140000.0,
+                "levelOfItem": 0,
+                "costMultiplier": 1.2999999523162842,
+                "itsItemPerSec": false,
+                "bonusPerSec": 3.0,
+                "bonusCounter": 0,
+                "itemIndex": 0
+            },
+            {
+                "name": "16cl",
+                "cost": 35000000512.0,
+                "bonusIncrease": 400000.0,
+                "levelOfItem": 0,
+                "costMultiplier": 1.2999999523162842,
+                "itsItemPerSec": false,
+                "bonusPerSec": 3.0,
+                "bonusCounter": 0,
+                "itemIndex": 0
+            },
+            {
+                "name": "17cl",
+                "cost": 99999997952.0,
+                "bonusIncrease": 700000.0,
+                "levelOfItem": 0,
+                "costMultiplier": 1.2999999523162842,
+                "itsItemPerSec": false,
+                "bonusPerSec": 3.0,
+                "bonusCounter": 0,
+                "itemIndex": 0
+            },
+            {
+                "name": "18cl",
+                "cost": 255000002560.0,
+                "bonusIncrease": 1400000.0,
+                "levelOfItem": 0,
+                "costMultiplier": 1.2999999523162842,
+                "itsItemPerSec": false,
+                "bonusPerSec": 3.0,
+                "bonusCounter": 0,
+                "itemIndex": 0
+            },
+            {
+                "name": "19cl",
+                "cost": 640000000000.0,
+                "bonusIncrease": 3000000.0,
+                "levelOfItem": 0,
+                "costMultiplier": 1.2999999523162842,
+                "itsItemPerSec": false,
+                "bonusPerSec": 3.0,
+                "bonusCounter": 0,
+                "itemIndex": 0
+            },
+            {
+                "name": "20cl",
+                "cost": 1500000026624.0,
+                "bonusIncrease": 5000000.0,
+                "levelOfItem": 0,
+                "costMultiplier": 1.2999999523162842,
+                "itsItemPerSec": false,
+                "bonusPerSec": 1.0,
+                "bonusCounter": 0,
+                "itemIndex": 0
+            }
+        ],
+        "colClicks": 1,
+        "clicks": 0,
+        "maxResult": 0,
+        "OfflineBonus": 0.0
+    },
+    "plotData": {
+        "isEventDone": [
+            false,
+            false,
+            false,
+            false,
+            false
+        ],
+        "total": 1,
+        "isStart": true,
+        "isEnd": false
+    },
+    "progressBarData": {
+        "proydeno": true,
+        "level": 48667,
+        "maxLevelValue": 0.0
+    },
+    "settingsData": {
+        "isMuted": false
+    },
+    "skinCoinData": {
+        "bBttn": 0
+    },
+    "spawnDownData": {
+        "level": 0,
+        "speed": 0.800000011920929,
+        "spawnInterval": 0.5,
+        "isFirstLevel": true,
+        "isLastLevel": true
+    },
+    "statsData": {
+        "totalPlayTime": 133.35015869140626
+    },
+    "timerData": {
+        "maxResult": 1.0
+    }
+}

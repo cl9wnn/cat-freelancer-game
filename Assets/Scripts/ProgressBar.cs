@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 using System.IO;
+using YG;
 
 
 public class ProgressBar : MonoBehaviour
@@ -18,7 +19,6 @@ public class ProgressBar : MonoBehaviour
     public float MaxLevelValue;
     public AudioSource levelUpSound;
 
-    private string fileName;
 
     void Update()
     {
@@ -29,21 +29,35 @@ public class ProgressBar : MonoBehaviour
 
     private void Awake()
     {
-        fileName = "progress.BIN";
-
-        if (File.Exists(Application.persistentDataPath + "/Saves/" + fileName))
-        {
-            SavedData data = MyLoad.LoadFileBinary<SavedData>(fileName);
-            proydeno = data.proydeno;
-            Level = data.level;
-            MaxLevelValue = data.maxLevelValue;
-        }
-        else
-        {
-            MaxLevelValue = 100;
-            Level = 1;
-        }
+        if (YandexGame.SDKEnabled)
+            Load();
     }
+    private void OnEnable()
+    {
+        SaveManager.OnSaveEvent += Save;
+        SaveManager.OnLoadEvent += Load;
+    }
+    private void OnDisable()
+    {
+        SaveManager.OnSaveEvent -= Save;
+        SaveManager.OnLoadEvent -= Load;
+    }
+
+    private void Save()
+    {
+        YandexGame.savesData.progressBarData = new ProgressBarData(proydeno, Level, MaxLevelValue);
+    }
+    private void Load()
+    {
+        var data = YandexGame.savesData.progressBarData;
+
+        if (data == null) return;
+
+        proydeno = data.proydeno;
+        Level = data.level;
+        MaxLevelValue = data.maxLevelValue;
+    }
+
     private void Start() 
     {
         if (Level == 0) Level = 1;
@@ -80,39 +94,5 @@ public class ProgressBar : MonoBehaviour
         {
             progressText.text = LanguageSystem.lng.info[5];
         }
-    }
-
-#if UNITY_ANDROID && !UNITY_EDITOR
-  private void OnApplicationPause (bool pause) {
-    if (pause) {
-      SavedData data = new SavedData (proydeno, Level, MaxLevelValue);
-      Save(data);
-    }
-      else Awake ();
-  }
-#else
-    private void OnApplicationQuit()
-    {
-        SavedData data = new SavedData(proydeno, Level, MaxLevelValue);
-        Save(data);
-    }
-#endif
-    private void Save(object Obj)
-    {
-        MySave.SaveFileBinary(Obj, fileName);
-    }
-
-    [Serializable]
-    private class SavedData
-    {
-        public SavedData(bool _proydeno, int _level, float maxLevelValue)
-        {
-            proydeno = _proydeno;
-            level = _level;
-            this.maxLevelValue = maxLevelValue;
-        }
-        public bool proydeno;
-        public int level;
-        public float maxLevelValue;
     }
 }

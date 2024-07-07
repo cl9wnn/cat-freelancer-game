@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Timers;
 using System.IO;
 using System;
+using YG;
 
 public class Timer : MonoBehaviour
 {
@@ -10,20 +11,41 @@ public class Timer : MonoBehaviour
     private float BPStimer = 0;
     public Text clickPerSec;
     public Achievements achieve;
-    private string fileName;
 
     private float mouseClicks = 0;
     private float maxResult; //для ачивки
 
     private void Awake()
     {
-        fileName = "Timer.BIN";
-        if (File.Exists(Application.persistentDataPath + "/Saves/" + fileName))
-        {
-            SavedData data = MyLoad.LoadFileBinary<SavedData>(fileName);
-            maxResult = data.maxResult;
-        }
+        if (YandexGame.SDKEnabled)
+            Load();
     }
+
+    private void OnEnable()
+    {
+        SaveManager.OnSaveEvent += Save;
+        SaveManager.OnLoadEvent += Load;
+    }
+    private void OnDisable()
+    {
+        SaveManager.OnSaveEvent -= Save;
+        SaveManager.OnLoadEvent -= Load;
+    }
+
+    private void Save()
+    {
+        YandexGame.savesData.timerData = new TimerData(maxResult);
+    }
+    private void Load()
+    {
+        var data = YandexGame.savesData.timerData;
+        
+        if (data == null) return;
+
+        maxResult = data.maxResult;
+    }
+
+
     public float MouseClicks
     {
         get => mouseClicks;
@@ -75,40 +97,6 @@ public class Timer : MonoBehaviour
         {
             MouseClicks++;
         }
-    }
-
-#if UNITY_ANDROID && !UNITY_EDITOR
-    private void OnApplicationPause (bool pause) {
-        if (pause)
-        {
-            SavedData data = new SavedData (maxResult);
-           Save(data);
-        } else {
-            Awake ();
-        }
-    }
-#else
-    private void OnApplicationQuit()
-    {
-        SavedData data = new SavedData(maxResult);
-        Save(data);
-    }
-#endif
-
-    private void Save(object Obj)
-    {
-        MySave.SaveFileBinary(Obj, fileName);
-    }
-
-
-    [Serializable]
-    public class SavedData
-    {
-        public SavedData(float MaxResult)
-        {
-            maxResult = MaxResult;
-        }
-        public float maxResult;
     }
 }
 

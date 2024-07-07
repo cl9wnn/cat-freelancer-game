@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using System.IO;
 using UnityEngine.EventSystems;
 using System;
+using YG;
 
 
 public class Fortune : MonoBehaviour
@@ -22,7 +23,6 @@ public class Fortune : MonoBehaviour
     public Text waitText;
     public float longTimer = 0;
     public float timer = 20;
-    private string fileName;
     public Sprite bttnReady;
     public Sprite bttnLock;
     public Image bttnStart;
@@ -41,17 +41,36 @@ public class Fortune : MonoBehaviour
 
     private void Awake()
     {
-        fileName = "spinTimer.BIN";
-        if (File.Exists(Application.persistentDataPath + "/Saves/" + fileName))
-        {
-            SavedData data = MyLoad.LoadFileBinary<SavedData>(fileName);
-            longTimer = data.longTimer;
-            canAd = data.canAd;
-            doo = data.doo;
-            timer = data.timer;
-            TimeSpan ts = DateTime.UtcNow - data.date;
-            longTimer -= (int)ts.TotalSeconds;
-        }
+        if (YandexGame.SDKEnabled)
+            Load();
+    }
+    private void OnEnable()
+    {
+        SaveManager.OnSaveEvent += Save;
+        SaveManager.OnLoadEvent += Load;
+    }
+    private void OnDisable()
+    {
+        SaveManager.OnSaveEvent -= Save;
+        SaveManager.OnLoadEvent -= Load;
+    }
+
+    private void Save()
+    {
+        YandexGame.savesData.fortuneData = new FortuneData(longTimer, canAd, doo, timer);
+    }
+    private void Load()
+    {
+        var data = YandexGame.savesData.fortuneData;
+
+        if (data == null) return;
+
+        longTimer = data.longTimer;
+        canAd = data.canAd;
+        doo = data.doo;
+        timer = data.timer;
+        TimeSpan ts = DateTime.UtcNow - data.date;
+        longTimer -= (int)ts.TotalSeconds;
     }
 
     public void ChangeLanguage()
@@ -76,28 +95,6 @@ public class Fortune : MonoBehaviour
         can = true;
     }
 
-#if UNITY_ANDROID && !UNITY_EDITOR
-    private void OnApplicationPause (bool pause) {
-        if (pause) {
-            SavedData data = new SavedData (longTimer, canAd, doo, timer);
-           Save(data);
-        } else {
-            Awake ();
-        }
-    }
-#else
-    private void OnApplicationQuit()
-    {
-        SavedData data = new SavedData(longTimer, canAd, doo, timer);
-        print(data.longTimer);
-        Save(data);
-    }
-#endif
-
-    private void Save(object Obj)
-    {
-        MySave.SaveFileBinary(Obj, fileName);
-    }
     void FixedUpdate()
     {
         if (can == true)
@@ -234,25 +231,5 @@ public class Fortune : MonoBehaviour
                 break;
 
         }
-    }
-
-    [Serializable]
-    public class SavedData
-    {
-        public SavedData(float LongTimer, bool CanAd, bool Doo, float Timer)
-        {
-            longTimer = LongTimer;
-            canAd = CanAd;
-            doo = Doo;
-            timer = Timer;
-            date = DateTime.UtcNow;
-
-        }
-
-        public float longTimer;
-        public float timer;
-        public bool canAd;
-        public bool doo;
-        public DateTime date = new DateTime();
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
+using YG;
 public class Stats : MonoBehaviour
 {
     public Text[] stringNames;
@@ -11,17 +12,38 @@ public class Stats : MonoBehaviour
     public Text totalTimeText;
     private float totalPlayTime = 0f;
     private float sessionStartTime;
-    private string fileName;
+
 
     private void Awake()
     {
-        fileName = "Stats.BIN";
-        if (File.Exists(Application.persistentDataPath + "/Saves/" + fileName))
-        {
-            SavedData data = MyLoad.LoadFileBinary<SavedData>(fileName);
-            totalPlayTime = data.totalPlayTime;
-        }
+        if (YandexGame.SDKEnabled)
+            Load();
     }
+    private void OnEnable()
+    {
+        SaveManager.OnSaveEvent += Save;
+        SaveManager.OnLoadEvent += Load;
+    }
+    private void OnDisable()
+    {
+        SaveManager.OnSaveEvent -= Save;
+        SaveManager.OnLoadEvent -= Load;
+    }
+   
+    private void Save()
+    {
+        YandexGame.savesData.statsData = new StatsData(totalPlayTime);
+    }
+    private void Load()
+    {
+        var data = YandexGame.savesData.statsData;
+
+        if (data == null) return;
+
+        totalPlayTime = data.totalPlayTime;
+    }
+
+
     void Start()
     {
         sessionStartTime = Time.time;
@@ -56,39 +78,5 @@ public class Stats : MonoBehaviour
         {
             statsText[i].text = LanguageSystem.lng.statsText[i];
         }
-    }
-
-#if UNITY_ANDROID && !UNITY_EDITOR
-    private void OnApplicationPause (bool pause) {
-        if (pause)
-        {
-            SavedData data = new SavedData (totalPlayTime);
-           Save(data);
-        } else {
-            Awake ();
-        }
-    }
-#else
-    private void OnApplicationQuit()
-    {
-        SavedData data = new SavedData(totalPlayTime);
-        Save(data);
-    }
-#endif
-
-    private void Save(object Obj)
-    {
-        MySave.SaveFileBinary(Obj, fileName);
-    }
-
-
-    [Serializable]
-    public class SavedData
-    {
-        public SavedData(float TotalPlayTime)
-        {
-            totalPlayTime = TotalPlayTime;
-        }
-        public float totalPlayTime;
     }
 }

@@ -1,4 +1,7 @@
 ﻿
+using System.Collections.Generic;
+using static Game;
+
 namespace YG
 {
     [System.Serializable]
@@ -18,7 +21,17 @@ namespace YG
 
         // Ваши сохранения
 
-        // ...
+        public AchievementsData achievementsData;
+        public BoostData boostData;
+        public FortuneData fortuneData;
+        public GameData gameData;
+        public PlotData plotData;
+        public ProgressBarData progressBarData;
+        public SettingsData settingsData;
+        public SkinCoinData skinCoinData;
+        public SpawnDownData spawnDownData;
+        public StatsData statsData;
+        public TimerData timerData;
 
         // Поля (сохранения) можно удалять и создавать новые. При обновлении игры сохранения ломаться не должны
 
@@ -26,9 +39,7 @@ namespace YG
         // Вы можете выполнить какие то действия при загрузке сохранений
         public SavesYG()
         {
-            // Допустим, задать значения по умолчанию для отдельных элементов массива
 
-            openLevels[1] = true;
         }
     }
 }

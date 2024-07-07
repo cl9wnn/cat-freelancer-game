@@ -3,18 +3,20 @@ using UnityEngine;
 using System.IO;
 using UnityEngine.UI;
 using UnityEngine.Networking;
+using System.Collections;
+using YG;
 
 
 public class LanguageSystem : MonoBehaviour
 {
     public Image langBttnImg;
     public Sprite[] flags;
-    public static lang lng = new lang();
+    public static LanguageData lng = new LanguageData();
     private int langIndex = 1;
     public Game game;
     public Boost boost;
     public Plot plot;
-    public Settingss button;
+    public Settings button;
     public Timer timer;
     public SkinCoin skins;
     public SpawnDown spawnDown;
@@ -34,7 +36,8 @@ public class LanguageSystem : MonoBehaviour
             }
             else PlayerPrefs.SetString("Language", "en_US");
         }
-        LangLoad();
+
+        LoadLanguage();
     }
 
     void Start()
@@ -49,18 +52,15 @@ public class LanguageSystem : MonoBehaviour
             }
         }
     }
-    void LangLoad()
+    void LoadLanguage()
     {
-#if UNITY_ANDROID && !UNITY_EDITOR
-        string path = Path.Combine(Application.streamingAssetsPath, "Languages/" + PlayerPrefs.GetString("Language") + ".json");
-        UnityWebRequest www = UnityWebRequest.Get(path);
-        www.SendWebRequest();
-       while (!www.isDone) ;
-      json = www.downloadHandler.text;
-#else
-        json = File.ReadAllText(Application.streamingAssetsPath + "/Languages/" + PlayerPrefs.GetString("Language") + ".json");
-#endif
-        lng = JsonUtility.FromJson<lang>(json);
+        string path = PlayerPrefs.GetString("Language");
+        json = (Resources.Load(path) as TextAsset).text;
+
+        Debug.Log("Язык: " + PlayerPrefs.GetString("Language") + " " + (json == null ? " Не загружен" : "Загружен"));
+
+        lng = JsonUtility.FromJson<LanguageData>(json);
+
         game.ChangeLanguage();
         button.ChangeLanguage();
         skins.ChangeLanguage();
@@ -71,7 +71,6 @@ public class LanguageSystem : MonoBehaviour
         achiev.ChangeLanguage();
         fortune.ChangeLanguage();
         stats.ChangeLanguage();
-
     }
     public void SwitchBttn()
     {
@@ -82,12 +81,15 @@ public class LanguageSystem : MonoBehaviour
         else langIndex = 1;
         PlayerPrefs.SetString("Language", langArray[langIndex - 1]);
         langBttnImg.sprite = flags[langIndex - 1];
-        LangLoad();
+        
+        StopAllCoroutines();
+        LoadLanguage();
+
     }
 
 }
 
-public class lang
+public class LanguageData
 {
     public string[] bonusName;
     public string[] settings;

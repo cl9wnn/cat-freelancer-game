@@ -925,7 +925,7 @@ PlayerSettings:
   webGLCloseOnQuit: 0
   scriptingDefineSymbols:
     Standalone: YG_PLUGIN_YANDEX_GAME
-    WebGL: YG_PLUGIN_YANDEX_GAME
+    WebGL: YG_PLUGIN_YANDEX_GAME;YG_NEWTONSOFT_FOR_SAVES
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:

@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.IO;
+using YG;
 
 
 public class Achievements : MonoBehaviour
@@ -31,28 +32,42 @@ public class Achievements : MonoBehaviour
     public Text[] resultTexts;
     public Text MyAchievememntsText;
     public int index = 0; //для смены страницы
-    private string fileName;
     public AudioSource CloseBook;
     public AudioSource OpenBook;
     public AudioSource GetAchievement;
     public ParticleSystem achieveGlow;
 
 
-
-
-
     private void Awake()
     {
-        fileName = "Achievements.BIN";
-        if (File.Exists(Application.persistentDataPath + "/Saves/" + fileName))
-        {
-            SavedData data = MyLoad.LoadFileBinary<SavedData>(fileName);
-            for (int i = 0; i < isAchievementDone.Length; i++)
-            {
-                isAchievementDone[i] = data.isAchievementDone[i];
-                achievementsCount = data.achievementsCount;
-            }
-        }
+
+        if (YandexGame.SDKEnabled)
+            Load();
+    }
+    private void OnEnable()
+    {
+        SaveManager.OnSaveEvent += Save;
+        SaveManager.OnLoadEvent += Load;
+    }
+    private void OnDisable()
+    {
+        SaveManager.OnSaveEvent -= Save;
+        SaveManager.OnLoadEvent -= Load;
+    }
+
+    private void Save()
+    {
+        YandexGame.savesData.achievementsData = new AchievementsData(isAchievementDone, achievementsCount);
+    }
+    private void Load()
+    {
+        var data = YandexGame.savesData.achievementsData;
+
+        if (data == null) return;
+
+        isAchievementDone = data.isAchievementDone;
+
+        achievementsCount = data.achievementsCount;
     }
 
     private void Start()
@@ -124,42 +139,5 @@ public class Achievements : MonoBehaviour
 
         achievementsCountText.text = AchievementsCount.ToString();
 
-    }
-
-
-#if UNITY_ANDROID && !UNITY_EDITOR
-    private void OnApplicationPause (bool pause) {
-        if (pause)
-        {
-            SavedData data = new SavedData (isAchievementDone, achievementsCount);
-           Save(data);
-        } else {
-            Awake ();
-        }
-    }
-#else
-    private void OnApplicationQuit()
-    {
-        SavedData data = new SavedData(isAchievementDone, achievementsCount);
-        Save(data);
-    }
-#endif
-
-    private void Save(object Obj)
-    {
-        MySave.SaveFileBinary(Obj, fileName);
-    }
-
-
-    [Serializable]
-    public class SavedData
-    {
-        public SavedData(bool[] IsAchievementDone, int AchievementsCount)
-        {
-            isAchievementDone = IsAchievementDone;
-            achievementsCount = AchievementsCount;
-        }
-        public bool[] isAchievementDone;
-        public int achievementsCount;
     }
 }

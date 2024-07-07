@@ -6,12 +6,13 @@ using UnityEngine.UI;
 using System.IO;
 using UnityEngine.EventSystems;
 using System.Runtime.CompilerServices;
+using YG;
 
 public class Boost : MonoBehaviour
 {
 
     public Game gmscript;
-    public Settingss settingss;
+    public Settings settingss;
     public float timer = 20;
     public float longTimer = 7200;
     public bool boostOn = false;
@@ -39,7 +40,6 @@ public class Boost : MonoBehaviour
     public Text startText;
     public Text WatchAdText;
     public Text warningText;
-    private string fileName;
     public GameObject boostPan;
     public GameObject BstBttn;
     public Sprite BstBttnPustaya;
@@ -68,26 +68,46 @@ public class Boost : MonoBehaviour
         }
     }
 
-
     private void Awake()
     {
         soundPlayed = false;
-        fileName = "Booster.BIN";
-        if (File.Exists(Application.persistentDataPath + "/Saves/" + fileName))
-        {
-            SavedData data = MyLoad.LoadFileBinary<SavedData>(fileName);
-            longTimer = data.longTimer;
-            timer = data.timer;
-            TimeSpan ts = DateTime.UtcNow - data.date;
-            if (timer <= 0)
-            {
-                longTimer -= (int)ts.TotalSeconds;
-            }
-            CountOfCofee = data.countOfCoffee;
-            BoostOn = data.boostOn;
-            canBoostAd = data.canBoostAd;
-        }
+
+        if (YandexGame.SDKEnabled)
+            Load();
     }
+    private void OnEnable()
+    {
+        SaveManager.OnSaveEvent += Save;
+        SaveManager.OnLoadEvent += Load;
+    }
+    private void OnDisable()
+    {
+        SaveManager.OnSaveEvent -= Save;
+        SaveManager.OnLoadEvent -= Load;
+    }
+
+    private void Save()
+    {
+        YandexGame.savesData.boostData = new BoostData(longTimer, timer, BoostOn, canBoostAd, countOfCofee);
+    }
+    private void Load()
+    {
+        var data = YandexGame.savesData.boostData;
+
+        if (data == null) return;
+
+        longTimer = data.longTimer;
+        timer = data.timer;
+        TimeSpan ts = DateTime.UtcNow - data.date;
+        if (timer <= 0)
+        {
+            longTimer -= (int)ts.TotalSeconds;
+        }
+        CountOfCofee = data.countOfCoffee;
+        BoostOn = data.boostOn;
+        canBoostAd = data.canBoostAd;
+    }
+
     void Start()
     {
         if (!BoostOn) BstBttn.GetComponent<Animator>().SetTrigger("jump");
@@ -99,7 +119,7 @@ public class Boost : MonoBehaviour
             BoostOn = true;
             boostAnimator.SetTrigger("close");
         }
-}
+    }
 
 
     public void OpenPan()
@@ -109,28 +129,6 @@ public class Boost : MonoBehaviour
     public void ClosePan()
     {
         boostAnimator.SetTrigger("close");
-    }
-
-#if UNITY_ANDROID && !UNITY_EDITOR
-    private void OnApplicationPause (bool pause) {
-        if (pause) {
-            SavedData data = new SavedData (longTimer, timer, boostOn, canBoostAd, countOfCofee);
-           Save(data);
-        } else {
-            Awake ();
-        }
-    }
-#else
-    private void OnApplicationQuit()
-    {
-        SavedData data = new SavedData(longTimer, timer, BoostOn, canBoostAd, countOfCofee);
-        Save(data);
-    }
-#endif
-
-    private void Save(object Obj)
-    {
-        MySave.SaveFileBinary(Obj, fileName);
     }
 
     void FixedUpdate()
@@ -192,25 +190,5 @@ public class Boost : MonoBehaviour
         startText.text = LanguageSystem.lng.boostt[1];
         WatchAdText.text = LanguageSystem.lng.boostt[2];
         warningText.text = LanguageSystem.lng.boostt[5];
-    }
-
-    [Serializable]
-    public class SavedData
-    {
-        public SavedData(float LongTimer, float Timer, bool BoostOn, bool CanBoostAd, int countOfCoffee)
-        {
-            longTimer = LongTimer;
-            timer = Timer;
-            date = DateTime.UtcNow;
-            boostOn = BoostOn;
-            canBoostAd = CanBoostAd;
-            this.countOfCoffee = countOfCoffee;
-        }
-        public int countOfCoffee; // для ачивки
-        public float longTimer;
-        public float timer;
-        public DateTime date = new DateTime();
-        public bool boostOn;
-        public bool canBoostAd;
     }
 }

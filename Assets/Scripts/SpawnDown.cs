@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 using System;
 using System.IO;
+using YG;
 
 
 public class SpawnDown : MonoBehaviour
@@ -19,7 +20,6 @@ public class SpawnDown : MonoBehaviour
     public GameObject itogPanel;
     public Animator animator;
     public Animator dropMoneyPanelAnimator;
-    private string fileName;
     public int totalObjectsToSpawn = 50;
     public int objectsSpawned = 0;
     public Animator[] stars;
@@ -27,7 +27,7 @@ public class SpawnDown : MonoBehaviour
     public Text countdownText;
     public float timerReady = 4;
     public Achievements achieve;
-    public Settingss settingss;
+    public Settings settingss;
     public int level; //для инспектора
 
     public Image levelImg;
@@ -93,31 +93,50 @@ public class SpawnDown : MonoBehaviour
         if (instance == null) instance = this;
         else if (instance != this) Destroy(gameObject);
 
-        fileName = "Spawn.BIN";
-        if (File.Exists(Application.persistentDataPath + "/Saves/" + fileName))
-        {
-            SavedData data = MyLoad.LoadFileBinary<SavedData>(fileName);
-            Level = data.level;
-            spawnInterval = data.spawnInterval;
-            isFirstLevel = data.isFirstLevel;
-            isLastLevel = data.isLastLevel;
-            spez.speed = 0.8f + (Level * 0.3f);
-        }
+        if (YandexGame.SDKEnabled)
+            Load();
     }
-        public void Aсtivate()
-        {
-            if (isFirstLevel) StartCoroutine(HandleCoinsSpawningFirstLevel()); // Запускает корутину - обработчик спавна монет
-            else if (isLastLevel == true && Level == 5) StartCoroutine(HandleCoinsSpawningLastLevel());
-            else StartCoroutine(HandleCoinsSpawning());
-        }
+    private void OnEnable()
+    {
+        SaveManager.OnSaveEvent += Save;
+        SaveManager.OnLoadEvent += Load;
+    }
+    private void OnDisable()
+    {
+        SaveManager.OnSaveEvent -= Save;
+        SaveManager.OnLoadEvent -= Load;
+    }
+
+    private void Save()
+    {
+        YandexGame.savesData.spawnDownData = new SpawnDownData(Level, spez.speed, spawnInterval, isFirstLevel, isLastLevel);
+    }
+    private void Load()
+    {
+        var data = YandexGame.savesData.spawnDownData;
+
+        if (data == null) return;
+
+        Level = data.level;
+        spawnInterval = data.spawnInterval;
+        isFirstLevel = data.isFirstLevel;
+        isLastLevel = data.isLastLevel;
+        spez.speed = 0.8f + (Level * 0.3f);
+    }
+    public void Aсtivate()
+    {
+        if (isFirstLevel) StartCoroutine(HandleCoinsSpawningFirstLevel()); // Запускает корутину - обработчик спавна монет
+        else if (isLastLevel == true && Level == 5) StartCoroutine(HandleCoinsSpawningLastLevel());
+        else StartCoroutine(HandleCoinsSpawning());
+    }
 
     IEnumerator HandleCoinsSpawning() // основная корутина 
     {
         if (!isFirstLevel && isLastLevel && level != 5 || !isFirstLevel && !isLastLevel) dropMoneyPanelAnimator.SetTrigger("open");
-        yield return StartCoroutine(Countdown(3, 0)); 
+        yield return StartCoroutine(Countdown(3, 0));
         clicKnumer.text = "0";
         yield return StartCoroutine(SpawningCoins(totalObjectsToSpawn)); // начинаем спавн монет. дожидаемся его завершения.
-            HandleMoneySpawnCompletion(); // Запускаем обработчик завершения спавна монет
+        HandleMoneySpawnCompletion(); // Запускаем обработчик завершения спавна монет
     }
     IEnumerator HandleCoinsSpawningFirstLevel() //корутина для первого лвла
     {
@@ -169,12 +188,12 @@ public class SpawnDown : MonoBehaviour
         for (int i = 0; i < 2; i++) messageName[i].text = LanguageSystem.lng.moneyDrop[7];
         for (int i = 0; i < 2; i++) StartLvl[i].text = LanguageSystem.lng.moneyDrop[14];
         firstInfoMessage.text = LanguageSystem.lng.moneyDrop[10];
-       LastInfoMessage.text = LanguageSystem.lng.moneyDrop[11];
+        LastInfoMessage.text = LanguageSystem.lng.moneyDrop[11];
         firstAnswerInfoMessage.text = LanguageSystem.lng.moneyDrop[12];
         LastAnswerInfoMessage.text = LanguageSystem.lng.moneyDrop[13];
 
-}
-    IEnumerator Countdown(int from, int to) 
+    }
+    IEnumerator Countdown(int from, int to)
     {
         {
             levelText.text = LanguageSystem.lng.moneyDrop[6] + "\n<color=#FFDA00>" + LanguageSystem.lng.moneyDrop[Level] + "</color>";
@@ -225,11 +244,11 @@ public class SpawnDown : MonoBehaviour
         {
             countStars = 2;
         }
-        else if (procent >= 0.75 && procent <= 1 && Level <5)
+        else if (procent >= 0.75 && procent <= 1 && Level < 5)
         {
             countStars = 3;
             Level++;
-            spawnInterval -= 0.05f; 
+            spawnInterval -= 0.05f;
             spez.speed = 0.8f + (Level * 0.3f);
         }
         else if (procent >= 0.75 && procent <= 1 && Level >= 5)
@@ -257,49 +276,8 @@ public class SpawnDown : MonoBehaviour
 
         RewardMoney.Play();
         dropMoneyPanelAnimator.SetTrigger("close");
-        gmscript.Score += (gmscript.ScoreIncrease * gmscript.Clicks * (10+ 3*Level));
+        gmscript.Score += (gmscript.ScoreIncrease * gmscript.Clicks * (10 + 3 * Level));
         gmscript.Clicks = 0;
         animator.SetTrigger("close");
-    }
-#if UNITY_ANDROID && !UNITY_EDITOR
-    private void OnApplicationPause (bool pause) {
-        if (pause)
-        {
-            SavedData data = new SavedData (level, spez.speed, spawnInterval, isFirstLevel, isLastLevel);
-           Save(data);
-        } else {
-            Awake ();
-        }
-    }
-#else
-    private void OnApplicationQuit()
-    {
-        SavedData data = new SavedData(Level, spez.speed, spawnInterval, isFirstLevel, isLastLevel);
-        Save(data);
-    }
-#endif
-
-    private void Save(object Obj)
-    {
-        MySave.SaveFileBinary(Obj, fileName);
-    }
-
-
-    [Serializable]
-    public class SavedData
-    {
-        public SavedData(int Level, float Speed, float SpawnInterval, bool IsFirstLevel, bool IsLastLevel)
-        {
-            level = Level;
-            speed = Speed;
-            spawnInterval = SpawnInterval;
-            isFirstLevel = IsFirstLevel;
-            isLastLevel = IsLastLevel;
-        }
-        public int level;
-        public float speed;
-        public float spawnInterval;
-        public bool isFirstLevel;
-        public bool isLastLevel;
     }
 }

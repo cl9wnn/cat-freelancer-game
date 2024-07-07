@@ -2,9 +2,11 @@
 using System.IO;
 using UnityEngine.UI;
 using System;
+using YG;
+using UnityEngine.Analytics;
 
 
-public class Settingss : MonoBehaviour {
+public class Settings : MonoBehaviour {
     public GameObject settingsPan;
     public Text resumeText;
     public Text authorsText;
@@ -19,7 +21,6 @@ public class Settingss : MonoBehaviour {
     public Sprite offSprite;
     public bool isMuted;
     public Image buttonImage;
-    private string fileName;
     public GameObject aboutGamePan;
     public Animator settinsAnimator;
     public Animator TurnAroundAnimator;
@@ -28,20 +29,40 @@ public class Settingss : MonoBehaviour {
     public AudioSource OpenSceneMusic;
 
 
-    private void Awake()
+    public void Awake()
     {
-        fileName = "BttnSaveLoad.BIN";
-        if (File.Exists(Application.persistentDataPath + "/Saves/" + fileName))
-        {
-            SavedData data = MyLoad.LoadFileBinary<SavedData>(fileName);
-            isMuted = data.isMuted;
-        }
+        if (YandexGame.SDKEnabled)
+            Load();
+    }
+    private void OnEnable()
+    {
+        SaveManager.OnSaveEvent += Save;
+        SaveManager.OnLoadEvent += Load;
+    }
+    private void OnDisable()
+    {
+        SaveManager.OnSaveEvent -= Save;
+        SaveManager.OnLoadEvent -= Load;
+    }
+
+    private void Save()
+    {
+        YandexGame.savesData.settingsData = new SettingsData(isMuted);
+    }
+    private void Load()
+    {
+        var data = YandexGame.savesData.settingsData;
+
+        if (data == null) return;
+
+        isMuted = data.isMuted;
         if (!plot.isStart) OpenSceneMusic.Play();
         else audioSourceMusic.Play();
 
         audioSourceMusic.mute = isMuted;
         buttonImage.sprite = isMuted ? offSprite : onSprite;
     }
+
 
     void Update ()
     {
@@ -51,7 +72,7 @@ public class Settingss : MonoBehaviour {
     public void ChangeLanguage()
     {
         resumeText.text = LanguageSystem.lng.settings[0];
-        authorsText.text = LanguageSystem.lng.settings[1];
+       // authorsText.text = LanguageSystem.lng.settings[1]; // В ЯИ были вырезаны
         volumeText.text = LanguageSystem.lng.settings[3];
         settingsText.text = LanguageSystem.lng.settings[4];
         languageText.text = LanguageSystem.lng.settings[5];
@@ -100,39 +121,5 @@ public class Settingss : MonoBehaviour {
     public void GooglePlay()
     {
         //Application.OpenURL("ссылка на игру");
-    }
-
-#if UNITY_ANDROID && !UNITY_EDITOR
-    private void OnApplicationPause (bool pause) {
-        if (pause) {
-            SavedData data = new SavedData (isMuted);
-            Save(data);
-        }
-        else{
-            Awake();
-        }
-    }
-
-#else
-    private void OnApplicationQuit()
-    {
-        SavedData data = new SavedData(isMuted);
-        Save(data);
-    }
-
-#endif
-    private void Save(object Obj)
-    {
-        MySave.SaveFileBinary(Obj, fileName);
-    }
-
-    [Serializable]
-    public class SavedData
-    {
-        public SavedData(bool IsMuted)
-        {
-            isMuted = IsMuted;
-        }
-        public bool isMuted;
     }
 }

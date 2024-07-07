@@ -4,12 +4,13 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.IO;
 using Unity.Mathematics;
+using YG;
 
 public class Plot : MonoBehaviour
 
 {
-   public Game gmscript;
-   public bool[] isEventDone;
+    public Game gmscript;
+    public bool[] isEventDone;
     public bool isStart;
     public bool isEnd;
     public GameObject startImg;
@@ -24,14 +25,13 @@ public class Plot : MonoBehaviour
     public Text languageText;
     public GameObject[] eventImg;
     public float[] scoreCoefficent;
-    private string fileName;
     public int total;
     public float moneyReward;
     public AudioSource GetMoney;
     public AudioSource ThrowEvent;
     private float delay = 6;
     public GameObject fingerImg;
-    public Settingss settingss;
+    public Settings settingss;
     public int Total
     {
         get => total;
@@ -40,7 +40,7 @@ public class Plot : MonoBehaviour
 
             total = value;
 
-            for (int i = 0, clicks = 600; i < isEventDone.Length; i++, clicks +=2500)
+            for (int i = 0, clicks = 600; i < isEventDone.Length; i++, clicks += 2500)
             {
                 if (total >= clicks && isEventDone[i] == false) PlotEvent(i);
             }
@@ -49,27 +49,47 @@ public class Plot : MonoBehaviour
 
 
 
-    public void  Awake () 
+    public void Awake()
     {
-      fileName = "Plots.BIN";
-        if (File.Exists(Application.persistentDataPath + "/Saves/" + fileName))
-        {
-            SavedData data = MyLoad.LoadFileBinary<SavedData>(fileName);
-            isStart = data.isStart;
-            isEnd = data.isEnd; 
-            for (int i = 0; i < isEventDone.Length; i++)
-            {
-                isEventDone[i] = data.isEventDone[i];
-            }
-            Total = data.total;
-        }
+        if (YandexGame.SDKEnabled)
+            Load();
+    }
+    private void OnEnable()
+    {
+        SaveManager.OnSaveEvent += Save;
+        SaveManager.OnLoadEvent += Load;
+    }
+    private void OnDisable()
+    {
+        SaveManager.OnSaveEvent -= Save;
+        SaveManager.OnLoadEvent -= Load;
     }
 
-   void Start () 
+    private void Save()
+    {
+        YandexGame.savesData.plotData = new PlotData(isEventDone, Total, isStart, isEnd);
+    }
+    private void Load()
+    {
+        var data = YandexGame.savesData.plotData;
+
+        if (data == null) return;
+
+        isStart = data.isStart;
+        isEnd = data.isEnd;
+        for (int i = 0; i < isEventDone.Length; i++)
+        {
+            isEventDone[i] = data.isEventDone[i];
+        }
+        Total = data.total;
+    }
+
+
+    void Start()
     {
         StartGameEvent();
     }
-   void Update ()
+    void Update()
     {
     }
     public void ChangeLanguage()
@@ -92,7 +112,7 @@ public class Plot : MonoBehaviour
     {
         if (isStart == false)
         {
-            startImg.SetActive(true);   
+            startImg.SetActive(true);
         }
     }
     public void StartGame()
@@ -130,27 +150,6 @@ public class Plot : MonoBehaviour
         if (index == 0 || index == 4) return gmscript.ScoreIncrease * scoreCoefficent[index];
         else return gmscript.Score * scoreCoefficent[index];
     }
- 
-    public void FinalEvent()
-    {
-        if (!isEnd)
-        {
-            endImg.SetActive(true);  //финалочка
-        }
-    }
-    public void EndGame() // начать заново с более сложным уровнем
-    {
-        Application.Quit();
-        string path = Application.persistentDataPath + "/Saves";
-        Directory.Delete(path, true);
-
-        for (int i = 0; i < 40; i++)
-        {
-            gmscript.shopItems[i].cost *= 2;
-            gmscript.shopItems[i].costMultiplier *= 2;
-        }
-        isEnd = true;
-    }
 
     public void ResumeGame()
     {
@@ -158,40 +157,4 @@ public class Plot : MonoBehaviour
         isEnd = true;
 
     }
-
-#if UNITY_ANDROID && !UNITY_EDITOR
-   private void OnApplicationPause (bool pause) {
-      if (pause) {
-         SavedData data = new SavedData (isEventDone, Total, isStart, isEnd);
-         Save(data);
-      }
-      else Awake ();
-   }
-#else
-    private void OnApplicationQuit () {
-      SavedData data = new SavedData (isEventDone, Total, isStart, isEnd);
-      Save(data);
-   }
-#endif
-
-private void Save (object Obj) {
-        MySave.SaveFileBinary (Obj, fileName);
-    }
-
-   [Serializable]
-   public class SavedData
-    {
-        public SavedData(bool[] IsEventDone, int Total, bool IsStart, bool IsEnd) 
-        {
-            isEventDone = IsEventDone;   
-            total = Total;
-            isEnd = IsEnd;
-            isStart = IsStart;
-        }
-      public bool[] isEventDone;
-      public int total;
-        public bool isStart;
-        public bool isEnd;
-   }
-
 }

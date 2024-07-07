@@ -5,6 +5,7 @@ using System.IO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using YG;
 
 public class Game : MonoBehaviour
 {
@@ -41,7 +42,6 @@ public class Game : MonoBehaviour
     public Sprite coinOpen;
     public Sprite coinClose;
     public Text[] BonusNameText;
-    private string fileName;
     [Header("Кнопки товаров")]
     public Button[] shopBttns;
     [Header("Панельки магазина")]
@@ -152,7 +152,7 @@ public class Game : MonoBehaviour
         set
         {
             _score = value;
-
+            Debug.Log("Обращение к Score_set");
             NewImg1();
             NewImg2();
             MoneyScore();
@@ -163,12 +163,11 @@ public class Game : MonoBehaviour
 
             if (_score >= 5000000000000 && !plot.isEnd && !isFinalEventCalled)
             {
-                plot.FinalEvent();
+                //plot.FinalEvent();
                 isFinalEventCalled = true;
             }
 
             for (int i = 0; i < plot.ScoreTextEvent.Length; i++) plot.ScoreTextEvent[i].text = StringMethods.FormatMoney(Score);
-
         }
     }
     private float scrCoins;
@@ -208,62 +207,83 @@ public class Game : MonoBehaviour
 
         language.Initialize();//должно быть выше всех в авейке
         plot.Awake(); // чтобы булева переменная загружалась раньше Score
-        fileName = "mainGame.BIN";
-        if (File.Exists(Application.persistentDataPath + "/Saves/" + fileName))
-        {
-            SavedData data = MyLoad.LoadFileBinary<SavedData>(fileName);
-            Score = data.score;
-            scrCoins = data.scrCoins;
-            shopItems = data.shopItems;
-            ScoreIncrease = data.scoreIncrease;
-            date = data.date;
-            offlineTime = data.offlineTime;
-            TotalClick = data.totalClick;
-            ColClicks = data.colClicks;
-            Clicks = data.clicks;
-            maxResult = data.maxResult;
-            offlineBonus = data.OfflineBonus;
 
-            totalBonusPS = 0;
-            for (int i = 0; i < shopItems.Count; i++)
-            {
-                totalBonusPS += shopItems[i].bonusPerSec * shopItems[i].bonusCounter;
-            }
-            TimeSpan ts = DateTime.UtcNow - date;
-
-            if ((int)ts.TotalSeconds < 60)
-            {
-                absenceText.text = ts.Seconds + LanguageSystem.lng.time[7];
-            }
-            else if ((int)ts.TotalSeconds < 3600)
-            {
-                absenceText.text = ts.Minutes + LanguageSystem.lng.time[2];
-            }
-            else if ((int)ts.TotalSeconds < 86400)
-            {
-                absenceText.text = ts.Hours + LanguageSystem.lng.time[0] + ts.Minutes + LanguageSystem.lng.time[2];
-            }
-            else if ((int)ts.TotalSeconds < 2592000)
-            {
-                absenceText.text = ts.Days + LanguageSystem.lng.time[6] + ts.Hours + LanguageSystem.lng.time[0];
-            }
-
-            if ((int)ts.TotalSeconds >= offlineTime)
-            {
-                FlyPanel.Play();
-                offlineBonus += (offlineTime * totalBonusPS);
-                infoPanAnimator.SetTrigger("open");
-            }
-
-            if ((int)ts.TotalSeconds > 45 && (int)ts.TotalSeconds < offlineTime)
-            {
-                FlyPanel.Play();
-                infoPanAnimator.SetTrigger("open");
-                offlineBonus += ((int)ts.TotalSeconds * totalBonusPS);
-            }
-            DohodOfflineText.text = StringMethods.FormatMoney(offlineBonus);
-        }
+        if (YandexGame.SDKEnabled)
+            Load();
     }
+    private void OnEnable()
+    {
+        SaveManager.OnSaveEvent += Save;
+        SaveManager.OnLoadEvent += Load;
+    }
+    private void OnDisable()
+    {
+        SaveManager.OnSaveEvent -= Save;
+        SaveManager.OnLoadEvent -= Load;
+    }
+
+    private void Save()
+    {
+        YandexGame.savesData.gameData = new GameData(Score, scrCoins, shopItems, ScoreIncrease, offlineTime, TotalClick, colClicks, Clicks, maxResult, offlineBonus);
+    }
+    private void Load()
+    {
+        var data = YandexGame.savesData.gameData;
+
+        if (data == null) return;
+
+        Score = data.score;
+        scrCoins = data.scrCoins;
+        shopItems = data.shopItems;
+        ScoreIncrease = data.scoreIncrease;
+        date = data.date;
+        offlineTime = data.offlineTime;
+        TotalClick = data.totalClick;
+        ColClicks = data.colClicks;
+        Clicks = data.clicks;
+        maxResult = data.maxResult;
+        offlineBonus = data.OfflineBonus;
+
+        totalBonusPS = 0;
+        for (int i = 0; i < shopItems.Count; i++)
+        {
+            totalBonusPS += shopItems[i].bonusPerSec * shopItems[i].bonusCounter;
+        }
+        TimeSpan ts = DateTime.UtcNow - date;
+
+        if ((int)ts.TotalSeconds < 60)
+        {
+            absenceText.text = ts.Seconds + LanguageSystem.lng.time[7];
+        }
+        else if ((int)ts.TotalSeconds < 3600)
+        {
+            absenceText.text = ts.Minutes + LanguageSystem.lng.time[2];
+        }
+        else if ((int)ts.TotalSeconds < 86400)
+        {
+            absenceText.text = ts.Hours + LanguageSystem.lng.time[0] + ts.Minutes + LanguageSystem.lng.time[2];
+        }
+        else if ((int)ts.TotalSeconds < 2592000)
+        {
+            absenceText.text = ts.Days + LanguageSystem.lng.time[6] + ts.Hours + LanguageSystem.lng.time[0];
+        }
+
+        if ((int)ts.TotalSeconds >= offlineTime)
+        {
+            FlyPanel.Play();
+            offlineBonus += (offlineTime * totalBonusPS);
+            infoPanAnimator.SetTrigger("open");
+        }
+
+        if ((int)ts.TotalSeconds > 45 && (int)ts.TotalSeconds < offlineTime)
+        {
+            FlyPanel.Play();
+            infoPanAnimator.SetTrigger("open");
+            offlineBonus += ((int)ts.TotalSeconds * totalBonusPS);
+        }
+        DohodOfflineText.text = StringMethods.FormatMoney(offlineBonus);
+    }
+
 
     private void Start()
     {
@@ -379,7 +399,6 @@ public class Game : MonoBehaviour
                 return;
             }
         }
-
         newImg1.enabled = false;
     }
     void NewImg2() // картинка нью
@@ -465,27 +484,19 @@ public class Game : MonoBehaviour
             yield return new WaitForSeconds(1);
         }
     }
-#if UNITY_ANDROID && !UNITY_EDITOR
-    private void OnApplicationPause (bool pause) {
-         if (pause) {
-            Save();
-        } else {
-            Awake ();
-        }     
-    }
-#else
+
     private void OnApplicationQuit()
     {
         if (Clicks > 0)
         {
             spawnDown.ClosePan();
         }
-        Save();
     }
-#endif
+
 
     public void OnClick()
     {
+        Debug.Log("Старт Кликаний");
         TotalClick++;
         plot.Total++; //счётчик для событий в Plot
         ColClicks++;
@@ -502,8 +513,7 @@ public class Game : MonoBehaviour
         {
             Score += ScoreIncrease * 3; // когда работает буст, умножаем доход на 3
         }
-
-
+        Debug.Log("Конец Кликаний");
     }
     public void Closeeeee()
     {
@@ -537,41 +547,5 @@ public class Game : MonoBehaviour
         [Tooltip("Индекс товара, который будет управляться бонусом (Умножается переменная bonusPerSec этого товара)")]
         public int itemIndex;
 
-    }
-    private void Save()
-    {
-        SavedData data = new SavedData(Score, scrCoins, shopItems, ScoreIncrease, offlineTime, TotalClick, colClicks, Clicks, maxResult, offlineBonus);
-        MySave.SaveFileBinary(data, fileName);
-        Debug.Log(Score);
-    }
-
-    [Serializable]
-    private class SavedData
-    {
-        public SavedData(float Score, float ScrCoins, List<Item> ShopItems, float ScoreIncrease, float OfflineTime, int TotalClick, int ColClicks, int Clicks, int MaxResult, float _offlineBonus)
-        {
-            score = Score;
-            scrCoins = ScrCoins;
-            shopItems = ShopItems;
-            date = DateTime.UtcNow;
-            scoreIncrease = ScoreIncrease;
-            offlineTime = OfflineTime;
-            totalClick = TotalClick;
-            colClicks = ColClicks;
-            clicks = Clicks;
-            maxResult = MaxResult;
-            OfflineBonus = _offlineBonus;
-        }
-        public float score;
-        public float scrCoins;
-        public float scoreIncrease = 1;
-        public int totalClick;
-        public float offlineTime = 3600;
-        public List<Item> shopItems;
-        public DateTime date = new DateTime();
-        public int colClicks;
-        public int clicks;
-        public int maxResult;
-        public float OfflineBonus;
     }
 }
