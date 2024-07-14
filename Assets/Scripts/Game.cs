@@ -477,10 +477,11 @@ public class Game : MonoBehaviour
             float tmp = 0;
             for (int i = 0; i < shopItems.Count; i++)
             {
-                tmp += (shopItems[i].bonusCounter * shopItems[i].bonusPerSec);
-                Score += (shopItems[i].bonusCounter * shopItems[i].bonusPerSec);
+                tmp += shopItems[i].bonusCounter * shopItems[i].bonusPerSec;
             }
+
             PassiveBonusPerSec = tmp;
+            Score += tmp;
             yield return new WaitForSeconds(1);
         }
     }

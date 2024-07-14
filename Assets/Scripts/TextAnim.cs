@@ -5,44 +5,46 @@ using UnityEngine.UI;
 
 public class TextAnim : MonoBehaviour
 {
-    public Camera Animcamera;
-    public GameObject prefab;
-    public Game gm;
-    public Boost bst;
-    public Fortune fort;
-    private GameObject res;
+    [SerializeField] private Canvas _popupCanvas;
 
-    void Start()
+    private ObjectPool _pool;
+
+    private Game _game;
+    private Boost _boost;
+    private Fortune _fortune;
+
+    private Camera _camera;
+
+    private GameObject spawnedPopupText;
+
+    private void Start()
     {
+        _pool = GameSingleton.Instance.Pool;
 
-    }
+        _game = GameSingleton.Instance.Game;
+        _boost = GameSingleton.Instance.Boost;
+        _fortune = GameSingleton.Instance.Fortune;
 
-    void Update()
-    {     
-
+        _camera = Camera.main;
     }
 
     public void OnClick()
     {
-        if (bst.BoostOn == false && fort.doo == false)
+        if (!_boost.BoostOn && !_fortune.doo || _boost.BoostOn || _fortune.doo)
         {
-            res = Instantiate(prefab, Animcamera.ScreenToWorldPoint(Input.mousePosition) + Vector3.forward, Quaternion.identity);
-            res.GetComponentInChildren<Text>().text = "+" + StringMethods.FormatMoney(gm.ScoreIncrease);
-            Destroy(res, 2f);
+            CreateTextPopup();
         }
-        if (bst.BoostOn == true)
-        {
-            res = Instantiate(prefab, Animcamera.ScreenToWorldPoint(Input.mousePosition) + Vector3.forward, Quaternion.identity);
-            res.GetComponentInChildren<Text>().text = "+" + StringMethods.FormatMoney(gm.ScoreIncrease * 3);
-            res.GetComponentInChildren<Text>().color = new Color(255, 215, 0);
-            Destroy(res, 2f);
-        }
-        if (fort.doo == true)
-        {
-            res = (GameObject)Instantiate(prefab, Animcamera.ScreenToWorldPoint(Input.mousePosition) + Vector3.forward, Quaternion.identity);
-            res.GetComponentInChildren<Text>().text = "+" + StringMethods.FormatMoney(gm.ScoreIncrease*3);
-            res.GetComponentInChildren<Text>().color = new Color(255, 215, 0);
-            Destroy(res, 2f);
-        }
+    }
+
+    private void CreateTextPopup()
+    {
+        var position = _camera.ScreenToWorldPoint(Input.mousePosition);
+        position.z = 0;
+
+        spawnedPopupText = _pool.Get();
+        if (spawnedPopupText == null) return;
+
+        spawnedPopupText.transform.SetParent(_popupCanvas.transform, false);
+        spawnedPopupText.transform.position = position;
     }
 }
