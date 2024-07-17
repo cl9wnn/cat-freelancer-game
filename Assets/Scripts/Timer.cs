@@ -82,7 +82,7 @@ public class Timer : MonoBehaviour
         {
             clickPerSec.text = StringMethods.FormatMoney(MouseClicks * gmscript.ScoreIncrease + gmscript.PassiveBonusPerSec) + LanguageSystem.lng.time[1];
 
-            if (bts.BoostOn == true || fort.doo == true)
+            if (bts.BoostOn == true || fort.coffeeRewarded == true)
             {
                 clickPerSec.text = StringMethods.FormatMoney(MouseClicks * gmscript.ScoreIncrease * 3 + gmscript.PassiveBonusPerSec) + LanguageSystem.lng.time[1]; //на время, когда работает буст
             }

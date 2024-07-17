@@ -20,6 +20,9 @@ public class GameSingleton : MonoBehaviour
     private ObjectPool _pool;
     public ObjectPool Pool => ReturnObject(ref _pool);
 
+    private SaveManager _saveManager;
+    public SaveManager SaveManager => ReturnObject(ref _saveManager);
+
     private static T ReturnObject<T>(ref T component) where T : Component
     {
         if (!component) component = FindAnyObjectByType<T>();

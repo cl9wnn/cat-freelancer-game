@@ -19,14 +19,24 @@ public class Settings : MonoBehaviour {
     public AudioSource audioSourceMusic;
     public Sprite onSprite;
     public Sprite offSprite;
-    public bool isMuted;
+
+    public Canvas StartCanvas;
+
+    public bool IsMuted
+    {
+        get => audioSourceMusic.mute;
+        set
+        {
+            audioSourceMusic.mute = value;
+            buttonImage.sprite = IsMuted ? offSprite : onSprite;
+        }
+    }
     public Image buttonImage;
     public GameObject aboutGamePan;
     public Animator settinsAnimator;
     public Animator TurnAroundAnimator;
     public Plot plot;
     public AudioSource AudioOpenSettings;
-    public AudioSource OpenSceneMusic;
 
 
     public void Awake()
@@ -47,28 +57,23 @@ public class Settings : MonoBehaviour {
 
     private void Save()
     {
-        YandexGame.savesData.settingsData = new SettingsData(isMuted);
+        YandexGame.savesData.settingsData = new SettingsData(IsMuted);
     }
     private void Load()
     {
         var data = YandexGame.savesData.settingsData;
 
+        StartCanvas.gameObject.SetActive(!plot.isStart);
+        
         if (data == null) return;
 
-        isMuted = data.isMuted;
-        if (!plot.isStart) OpenSceneMusic.Play();
-        else audioSourceMusic.Play();
+        IsMuted = data.isMuted;
+        
+        
+        if (plot.isStart) audioSourceMusic.Play();
 
-        audioSourceMusic.mute = isMuted;
-        buttonImage.sprite = isMuted ? offSprite : onSprite;
     }
 
-
-    void Update ()
-    {
-        audioSourceMusic.mute = isMuted;
-        buttonImage.sprite = isMuted ? offSprite : onSprite;
-    }
     public void ChangeLanguage()
     {
         resumeText.text = LanguageSystem.lng.settings[0];
@@ -108,7 +113,7 @@ public class Settings : MonoBehaviour {
      }
     public void SwitchMusic()
     {
-        isMuted = !isMuted;
+        IsMuted = !IsMuted;
     }
     public void Vka()
     {

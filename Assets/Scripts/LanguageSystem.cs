@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.Networking;
 using System.Collections;
 using YG;
+using System.Text;
 
 
 public class LanguageSystem : MonoBehaviour
@@ -55,8 +56,9 @@ public class LanguageSystem : MonoBehaviour
     void LoadLanguage()
     {
         string path = PlayerPrefs.GetString("Language");
-        json = (Resources.Load(path) as TextAsset).text;
-
+        
+        json = Resources.Load<TextAsset>(path).text;
+        
         Debug.Log("Язык: " + PlayerPrefs.GetString("Language") + " " + (json == null ? " Не загружен" : "Загружен"));
 
         lng = JsonUtility.FromJson<LanguageData>(json);
@@ -105,12 +107,9 @@ public class LanguageData
     public string[] boostt;
     public string[] infoGame;
     public string[] fortune;
+    public string[] training;
     public string[] moneyDrop;
     public string[] achievements;
     public string[] statsString;
     public string[] statsText;
 }
-
-
-
-

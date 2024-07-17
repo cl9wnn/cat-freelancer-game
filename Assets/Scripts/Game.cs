@@ -76,6 +76,7 @@ public class Game : MonoBehaviour
     public AudioSource FlyPanel;
     public GameObject moneyPref;
 
+    public Canvas moneyPopupCanvas;
 
     public int maxResult; //для ачивки номер 3
 
@@ -268,6 +269,8 @@ public class Game : MonoBehaviour
             absenceText.text = ts.Days + LanguageSystem.lng.time[6] + ts.Hours + LanguageSystem.lng.time[0];
         }
 
+        if (offlineBonus <= 0.01f) return;
+
         if ((int)ts.TotalSeconds >= offlineTime)
         {
             FlyPanel.Play();
@@ -338,6 +341,17 @@ public class Game : MonoBehaviour
         Score += offlineBonus;
         offlineBonus = 0;
         infoPanAnimator.SetTrigger("close");
+
+        GameSingleton.Instance.SaveManager.Save();
+    }
+
+    public void GetOfflineIncomeWithMultiplier(float multiplier)
+    {
+        Score += offlineBonus * multiplier;
+        offlineBonus = 0;
+        infoPanAnimator.SetTrigger("close");
+
+        GameSingleton.Instance.SaveManager.Save();
     }
 
     void Inrct()
@@ -501,16 +515,16 @@ public class Game : MonoBehaviour
         TotalClick++;
         plot.Total++; //счётчик для событий в Plot
         ColClicks++;
-        if (bst.BoostOn == false && fort.doo == false)
+        if (bst.BoostOn == false && fort.coffeeRewarded == false)
         {
             Score += ScoreIncrease;
         }
         if (bst.BoostOn == true)
         {
-            Instantiate(moneyPref, new Vector2(UnityEngine.Random.Range(-2.5f, 2.5f), 5.4f), Quaternion.identity);
+            Instantiate(moneyPref, new Vector2(UnityEngine.Random.Range(-2.5f, 2.5f), 5.4f), Quaternion.identity, moneyPopupCanvas.transform);
             Score += ScoreIncrease * 3; // когда работает буст, умножаем доход на 3
         }
-        if (fort.doo == true)
+        if (fort.coffeeRewarded == true)
         {
             Score += ScoreIncrease * 3; // когда работает буст, умножаем доход на 3
         }

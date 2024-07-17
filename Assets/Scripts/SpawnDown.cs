@@ -69,6 +69,9 @@ public class SpawnDown : MonoBehaviour
     public AudioSource LvlUp;
     public AudioSource PixelMusic;
 
+    [Header("Coins Spawn Canvas")]
+    public Canvas coinsCanvas;
+
 
     private static SpawnDown instance;
     public static SpawnDown Instance
@@ -221,7 +224,7 @@ public class SpawnDown : MonoBehaviour
         {
             Vector2 spawnPosition = new Vector2(UnityEngine.Random.Range(-1.7f, 1.7f), 5.4f);
 
-            lastCoin = Instantiate(obj, spawnPosition, Quaternion.identity);
+            lastCoin = Instantiate(obj, spawnPosition, Quaternion.identity, coinsCanvas.transform);
             objectsSpawned++;
 
             yield return new WaitForSeconds(spawnInterval); // Ожидаем интервал между спавном

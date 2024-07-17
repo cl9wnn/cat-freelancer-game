@@ -30,7 +30,7 @@ public class TextAnim : MonoBehaviour
 
     public void OnClick()
     {
-        if (!_boost.BoostOn && !_fortune.doo || _boost.BoostOn || _fortune.doo)
+        if (!_boost.BoostOn && !_fortune.coffeeRewarded || _boost.BoostOn || _fortune.coffeeRewarded)
         {
             CreateTextPopup();
         }

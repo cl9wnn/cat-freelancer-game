@@ -27,7 +27,7 @@ public class TrainingLang : MonoBehaviour
     void LangLoad()
     {
         string path = PlayerPrefs.GetString("Language");
-        json = (Resources.Load(path) as TextAsset).text;
+        json = Resources.Load<TextAsset>(path).text;
 
         Debug.Log("Язык: " + PlayerPrefs.GetString("Language") + " " + (json == null ? " Не загружен" : "Загружен"));
 

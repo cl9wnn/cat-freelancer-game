@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class ObjectPool : MonoBehaviour
 {
-    public GameObject prefab; 
-    public int initialPoolSize = 10; 
+    public GameObject prefab;
+    public Transform parent;
     public int maxPoolSize = 50; 
 
     private List<GameObject> pool;
@@ -12,13 +12,7 @@ public class ObjectPool : MonoBehaviour
 
     void Start()
     {
-      
         pool = new List<GameObject>();
-
-        for (int i = 0; i < initialPoolSize; i++)
-        {
-            AddNewObjectToPool();
-        }
     }
 
     public GameObject Get()

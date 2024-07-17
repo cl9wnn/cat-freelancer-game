@@ -12,7 +12,7 @@ public class Fortune : MonoBehaviour
 {
     public float speed;
     public bool can = false;
-    public bool doo = false; // буст x3
+    public bool coffeeRewarded = false; // буст x3
     public bool canAd = false;
     public GameObject circle;
     public Game gmscript;
@@ -57,7 +57,7 @@ public class Fortune : MonoBehaviour
 
     private void Save()
     {
-        YandexGame.savesData.fortuneData = new FortuneData(longTimer, canAd, doo, timer);
+        YandexGame.savesData.fortuneData = new FortuneData(longTimer, canAd, coffeeRewarded, timer);
     }
     private void Load()
     {
@@ -67,7 +67,7 @@ public class Fortune : MonoBehaviour
 
         longTimer = data.longTimer;
         canAd = data.canAd;
-        doo = data.doo;
+        coffeeRewarded = data.doo;
         timer = data.timer;
         TimeSpan ts = DateTime.UtcNow - data.date;
         longTimer -= (int)ts.TotalSeconds;
@@ -117,7 +117,7 @@ public class Fortune : MonoBehaviour
 
             float angle = Mathf.Lerp(_startAngle, _finalAngle, t);
             circle.transform.eulerAngles = new Vector3(0, 0, angle);
-            canAd = true;
+            
             bttnStart.sprite = bttnLock;
         }
         if (longTimer > 0)
@@ -150,21 +150,19 @@ public class Fortune : MonoBehaviour
         }
         else ADtBttn.SetActive(false);
 
-
-        if (doo == true)
+        if (coffeeRewarded == true)
         {
             bst.BttnTmer.interactable = false;
             bst.BoostText.text = LanguageSystem.lng.time[8]; ;
             if (timer > 0)
             {
-
                 timer -= Time.fixedDeltaTime;
                 BoostTextt.gameObject.SetActive(true);
                 BoostTextt.text = timer.ToString("0.0") + LanguageSystem.lng.time[3];
             }
             if (timer <= 0)
             {
-                doo = false;
+                coffeeRewarded = false;
                 BoostTextt.gameObject.SetActive(false);
                 bst.BttnTmer.interactable = true;
                 bst.BoostText.text = LanguageSystem.lng.time[4];
@@ -224,12 +222,13 @@ public class Fortune : MonoBehaviour
                 Debug.Log("*1/2 score");
                 break;
             case -315:
-                doo = true;
+                coffeeRewarded = true;
                 winText.text = LanguageSystem.lng.fortune[3];
                 winSound2.Play();
                 Debug.Log("кофе");
                 break;
-
         }
+
+        canAd = true;
     }
 }

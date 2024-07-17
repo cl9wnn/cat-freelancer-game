@@ -117,7 +117,7 @@ public class Plot : MonoBehaviour
     }
     public void StartGame()
     {
-        settingss.OpenSceneMusic.mute = true;
+        
         settingss.audioSourceMusic.Play();
         startImg.SetActive(false);
         isStart = true;

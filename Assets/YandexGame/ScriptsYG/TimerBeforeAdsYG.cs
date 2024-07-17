@@ -106,6 +106,8 @@ public class TimerBeforeAdsYG : MonoBehaviour
 
     private void RestartTimer()
     {
+        Time.timeScale = 1.0f;
+
         secondsPanelObject.SetActive(false);
         onHideTimer?.Invoke();
         objSecCounter = 0;

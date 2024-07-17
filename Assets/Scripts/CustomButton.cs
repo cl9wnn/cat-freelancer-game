@@ -1,23 +1,15 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-public class CustomButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class CustomButton : Button
 {
-    public Button.ButtonClickedEvent onClick;
-
-    private bool isPressed = false;
-
-    public void OnPointerDown(PointerEventData eventData)
+    public override void OnPointerUp(PointerEventData eventData)
     {
-        isPressed = true;
-    }
-
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        if (isPressed)
+        if (IsPressed())
         {
             onClick.Invoke();
         }
-        isPressed = false;
+
+        base.OnPointerUp(eventData);
     }
 }

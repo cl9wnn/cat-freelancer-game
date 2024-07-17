@@ -22,6 +22,7 @@ public class BttnAnimation : MonoBehaviour
 
     private void AnimateButton()
     {
+        StopAllCoroutines();
         StartCoroutine(AnimateButtonCoroutine());
     }
 
