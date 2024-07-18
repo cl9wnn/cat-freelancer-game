@@ -5,11 +5,8 @@ TextureImporter:
   - first:
       213: 1075993247170539406
     second: cat_0
-  - first:
-      213: 3463857228526754693
-    second: cat_1
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -83,6 +80,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -95,6 +93,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -107,18 +106,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -128,10 +116,10 @@ TextureImporter:
       name: cat_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 152
-        width: 6
-        height: 7
+        x: 0
+        y: 0
+        width: 365
+        height: 740
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,27 +129,6 @@ TextureImporter:
       bones: []
       spriteID: e8fa15e4822beee00800000000000000
       internalID: 1075993247170539406
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cat_1
-      rect:
-        serializedVersion: 2
-        x: 50
-        y: 0
-        width: 1410
-        height: 2960
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 58b910b0cc7121030800000000000000
-      internalID: 3463857228526754693
       vertices: []
       indices: 
       edges: []
@@ -178,7 +145,6 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       cat_0: 1075993247170539406
-      cat_1: 3463857228526754693
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
