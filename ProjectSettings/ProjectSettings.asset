@@ -924,7 +924,7 @@ PlayerSettings:
   webGLWebAssemblyBigInt: 0
   webGLCloseOnQuit: 0
   scriptingDefineSymbols:
-    Standalone: YG_PLUGIN_YANDEX_GAME
+    Standalone: YG_PLUGIN_YANDEX_GAME;YG_NEWTONSOFT_FOR_SAVES;YG_TEXT_MESH_PRO
     WebGL: YG_PLUGIN_YANDEX_GAME;YG_NEWTONSOFT_FOR_SAVES
   additionalCompilerArguments: {}
   platformArchitecture: {}
