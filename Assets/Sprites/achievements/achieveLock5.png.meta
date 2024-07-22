@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: e87fa3351de583c4da9402f7c9f9882f
+guid: 60492b94d729d014aa1352be5ae7d521
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4780758110139199365
-    second: chainImg_0
-  - first:
-      213: 4961367967777695760
-    second: chainImg_1
+      213: 1004344567723630562
+    second: achieveLock5_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -112,17 +109,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: chainImg_0
+      name: achieveLock5_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 108
-        height: 746
+        x: 43
+        y: 10
+        width: 430
+        height: 487
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,29 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 58f2aefeb2aa85240800000000000000
-      internalID: 4780758110139199365
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: chainImg_1
-      rect:
-        serializedVersion: 2
-        x: 704
-        y: 0
-        width: 108
-        height: 746
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 018246751e15ad440800000000000000
-      internalID: 4961367967777695760
+      spriteID: 2ef9247201620fd00800000000000000
+      internalID: 1004344567723630562
       vertices: []
       indices: 
       edges: []
@@ -168,8 +157,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      chainImg_0: 4780758110139199365
-      chainImg_1: 4961367967777695760
+      achieveLock5_0: 1004344567723630562
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

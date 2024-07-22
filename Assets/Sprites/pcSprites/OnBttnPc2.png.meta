@@ -1,13 +1,16 @@
 fileFormatVersion: 2
-guid: e87fa3351de583c4da9402f7c9f9882f
+guid: 24d8ae836e1fdcc4bb2050f3b9874c3b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4780758110139199365
-    second: chainImg_0
+      213: -3661643289465471624
+    second: OnBttnPc2_0
   - first:
-      213: 4961367967777695760
-    second: chainImg_1
+      213: 5256746034168051472
+    second: OnBttnPc2_1
+  - first:
+      213: 8105775515142516915
+    second: OnBttnPc2_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -112,17 +115,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: chainImg_0
+      name: OnBttnPc2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 108
-        height: 746
+        x: 910
+        y: 1303
+        width: 16
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,20 +146,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 58f2aefeb2aa85240800000000000000
-      internalID: 4780758110139199365
+      spriteID: 87db73514da3f2dc0800000000000000
+      internalID: -3661643289465471624
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chainImg_1
+      name: OnBttnPc2_1
       rect:
         serializedVersion: 2
-        x: 704
-        y: 0
-        width: 108
-        height: 746
+        x: 0
+        y: 201
+        width: 1400
+        height: 1098
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,8 +167,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 018246751e15ad440800000000000000
-      internalID: 4961367967777695760
+      spriteID: 017b709aaa6b3f840800000000000000
+      internalID: 5256746034168051472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OnBttnPc2_2
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 3
+        width: 815
+        height: 321
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b0f02182ef7d7070800000000000000
+      internalID: 8105775515142516915
       vertices: []
       indices: 
       edges: []
@@ -168,8 +205,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      chainImg_0: 4780758110139199365
-      chainImg_1: 4961367967777695760
+      OnBttnPc2_0: -3661643289465471624
+      OnBttnPc2_1: 5256746034168051472
+      OnBttnPc2_2: 8105775515142516915
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
