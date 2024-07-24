@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TextAnim : MonoBehaviour
+public class PopupTextSpawner : MonoBehaviour
 {
     [SerializeField] private Canvas _popupCanvas;
 
@@ -28,15 +28,7 @@ public class TextAnim : MonoBehaviour
         _camera = Camera.main;
     }
 
-    public void OnClick()
-    {
-        if (!_boost.BoostOn && !_fortune.coffeeRewarded || _boost.BoostOn || _fortune.coffeeRewarded)
-        {
-            CreateTextPopup();
-        }
-    }
-
-    private void CreateTextPopup()
+    public void CreateTextPopup()
     {
         var position = _camera.ScreenToWorldPoint(Input.mousePosition);
         position.z = 0;

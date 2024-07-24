@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FingerDestroy : MonoBehaviour
 {
-    void Update()
+    void Start()
     {
         Destroy(gameObject, 6f);  
     }

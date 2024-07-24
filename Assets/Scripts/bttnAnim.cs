@@ -7,7 +7,6 @@ public class bttnAnim : MonoBehaviour
     public Image[] buttons; // Массив изображений кнопок
     public Sprite[] pushedSprites; // Массив спрайтов для активированных кнопок
     public Sprite[] notPushedSprites; // Массив спрайтов для выключенных кнопок
-    public Image shopImg;
     private bool[] isPushed; // Массив состояний кнопок
 
     void Start()

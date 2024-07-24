@@ -793,7 +793,7 @@ namespace Tayx.Graphy
             m_advancedData = GetComponentInChildren<G_AdvancedData>( true );
 
             m_fpsManager.SetPosition( m_graphModulePosition, m_graphModuleOffset );
-            m_ramManager.SetPosition( m_graphModulePosition, m_graphModuleOffset );
+            m_ramManager.SetPosition( m_graphModulePosition, m_graphModuleOffset );     
             m_audioManager.SetPosition( m_graphModulePosition, m_graphModuleOffset );
             m_advancedData.SetPosition( m_advancedModulePosition, m_advancedModuleOffset );
 

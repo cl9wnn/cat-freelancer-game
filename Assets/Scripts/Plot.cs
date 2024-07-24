@@ -9,13 +9,10 @@ using YG;
 public class Plot : MonoBehaviour
 
 {
-    public Game gmscript;
     public bool[] isEventDone;
     public bool isStart;
     public bool isEnd;
     public GameObject startImg;
-    public GameObject endImg;
-    public Text endText;
     public Text[] FurtherText;
     public Text[] eventText;
     public Text[] rewardText;
@@ -23,7 +20,7 @@ public class Plot : MonoBehaviour
     public string[] plusminusString;
     public Text startGameText;
     public Text languageText;
-    public GameObject[] eventImg;
+    public GameEventAnimation[] eventPanels;
     public float[] scoreCoefficent;
     public int total;
     public float moneyReward;
@@ -31,7 +28,6 @@ public class Plot : MonoBehaviour
     public AudioSource ThrowEvent;
     private float delay = 6;
     public GameObject fingerImg;
-    public Settings settingss;
     public int Total
     {
         get => total;
@@ -40,17 +36,42 @@ public class Plot : MonoBehaviour
 
             total = value;
 
-            for (int i = 0, clicks = 600; i < isEventDone.Length; i++, clicks += 2500)
+            CheckAndTriggerEvents();
+        }
+    }
+    private void CheckAndTriggerEvents()
+    {
+        if (isEventDone == null)
+        {
+            Debug.LogError("isEventDone array is not initialized.");
+            return;
+        }
+
+        int requiredClicks = 600;
+        int increment = 2500;
+
+        for (int i = 0; i < isEventDone.Length; i++)
+        {
+            if (total < requiredClicks)
+                break;
+
+            if (!isEventDone[i])
             {
-                if (total >= clicks && isEventDone[i] == false) PlotEvent(i);
+                PlotEvent(i);
             }
+
+            requiredClicks += increment;
         }
     }
 
-
+    private Game _game;
+    private Settings _settings;
 
     public void Awake()
     {
+        _game = GameSingleton.Instance.Game;
+        _settings = GameSingleton.Instance.Settings;
+
         if (YandexGame.SDKEnabled)
             Load();
     }
@@ -105,7 +126,6 @@ public class Plot : MonoBehaviour
         {
             eventText[i].text = LanguageSystem.lng.events[i];
         }
-        endText.text = LanguageSystem.lng.events[5];
 
     }
     void StartGameEvent()
@@ -117,8 +137,7 @@ public class Plot : MonoBehaviour
     }
     public void StartGame()
     {
-        
-        settingss.audioSourceMusic.Play();
+        _settings.audioSourceMusic.Play();
         startImg.SetActive(false);
         isStart = true;
         Vector2 spawnPosition = new Vector2(-1.8f, 2.05f);
@@ -132,28 +151,28 @@ public class Plot : MonoBehaviour
     public void PlotEvent(int index)
     {
         ThrowEvent.Play();
-        eventImg[index].GetComponent<Animator>().SetTrigger("open");
+        eventPanels[index].ShowPanel();
         eventText[index].text = LanguageSystem.lng.events[index];
         rewardText[index].text = plusminusString[index] + StringMethods.FormatMoney(CounterMoney(index));
         moneyReward = CounterMoney(index);
     }
+
     public void RewardEvent(int index)
     {
-        eventImg[index].GetComponent<Animator>().SetTrigger("close");
+        eventPanels[index].HidePanel();
         isEventDone[index] = true;
-        if (index == 0 || index == 4) gmscript.Score += moneyReward;
-        else gmscript.Score -= moneyReward;
+        if (index == 0 || index == 4) _game.Score += moneyReward;
+        else _game.Score -= moneyReward;
         GetMoney.Play();
     }
     public float CounterMoney(int index)
     {
-        if (index == 0 || index == 4) return gmscript.ScoreIncrease * scoreCoefficent[index];
-        else return gmscript.Score * scoreCoefficent[index];
+        if (index == 0 || index == 4) return _game.ScoreIncrease * scoreCoefficent[index];
+        else return _game.Score * scoreCoefficent[index];
     }
 
     public void ResumeGame()
     {
-        endImg.SetActive(false);
         isEnd = true;
 
     }

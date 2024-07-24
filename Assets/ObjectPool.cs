@@ -4,7 +4,6 @@ using UnityEngine;
 public class ObjectPool : MonoBehaviour
 {
     public GameObject prefab;
-    public Transform parent;
     public int maxPoolSize = 50; 
 
     private List<GameObject> pool;

@@ -12,20 +12,40 @@ public class LanguageSystem : MonoBehaviour
 {
     public Image langBttnImg;
     public Sprite[] flags;
+ 
     public static LanguageData lng = new LanguageData();
+   
     private int langIndex = 1;
-    public Game game;
-    public Boost boost;
-    public Plot plot;
-    public Settings button;
-    public Timer timer;
-    public SkinCoin skins;
-    public SpawnDown spawnDown;
-    public Achievements achiev;
-    public Fortune fortune;
-    public Stats stats;
+    
+    private Game _game;
+    private Plot _plot;
+    private Boost _boost;
+    private Timer _timer;
+    private Stats _stats;
+    private SkinPC _skins;
+    private Fortune _fortune;
+    private Settings _settings;
+    private SpawnDown _spawnDown;
+    private Achievements _achievements;
+
     private string json;
     private string[] langArray = { "ru_RU", "en_US" };
+
+    private void Awake()
+    {
+        _game = GameSingleton.Instance.Game;
+        _plot = GameSingleton.Instance.Plot;
+        _boost = GameSingleton.Instance.Boost;
+        _timer = GameSingleton.Instance.Timer;
+        _stats = GameSingleton.Instance.Stats;
+        _skins = GameSingleton.Instance.Skins;
+        _fortune = GameSingleton.Instance.Fortune;
+        _settings = GameSingleton.Instance.Settings;
+        _spawnDown = GameSingleton.Instance.SpawnDown;
+        _achievements = GameSingleton.Instance.Achievements;
+
+        Initialize();
+    }
 
     public void Initialize ()
     {
@@ -63,16 +83,16 @@ public class LanguageSystem : MonoBehaviour
 
         lng = JsonUtility.FromJson<LanguageData>(json);
 
-        game.ChangeLanguage();
-        button.ChangeLanguage();
-        skins.ChangeLanguage();
-        timer.ChangeLanguage();
-        boost.ChangeLanguage();
-        plot.ChangeLanguage();
-        spawnDown.ChangeLanguage();
-        achiev.ChangeLanguage();
-        fortune.ChangeLanguage();
-        stats.ChangeLanguage();
+        _game.ChangeLanguage();
+        _settings.ChangeLanguage();
+        _skins.ChangeLanguage();
+        _timer.ChangeLanguage();
+        _boost.ChangeLanguage();
+        _plot.ChangeLanguage();
+        _spawnDown.ChangeLanguage();
+        _achievements.ChangeLanguage();
+        _fortune.ChangeLanguage();
+        _stats.ChangeLanguage();
     }
     public void SwitchBttn()
     {

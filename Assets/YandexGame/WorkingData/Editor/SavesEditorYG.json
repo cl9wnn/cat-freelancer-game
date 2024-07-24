@@ -1,5 +1,5 @@
 {
-  "idSave": 165,
+  "idSave": 287,
   "isFirstSession": false,
   "language": "en",
   "promptDone": false,
@@ -12,37 +12,37 @@
   ],
   "achievementsData": {
     "isAchievementDone": [
-      true,
-      true,
       false,
-      true,
       false,
-      true,
+      false,
+      false,
+      false,
+      false,
       false,
       false
     ],
-    "achievementsCount": 4
+    "achievementsCount": 0
   },
   "boostData": {
-    "countOfCoffee": 2,
-    "longTimer": 1866.44531,
-    "timer": -0.000266730785,
-    "date": "2024-07-17T17:46:27.8726662Z",
-    "boostOn": false,
-    "canBoostAd": true
+    "coffeeCount": 0,
+    "cooldownDuration": 7200.0,
+    "boostDuration": 20.0,
+    "saveDate": "2024-07-24T12:37:02.5299818Z",
+    "isBoostActive": false,
+    "canWatchAd": false
   },
   "fortuneData": {
-    "longTimer": -13430.0,
-    "timer": 20.0,
-    "canAd": false,
-    "doo": false,
-    "date": "2024-07-17T17:46:27.8726662Z"
+    "remainingCooldownTime": 0.0,
+    "remainingRewardTime": 0.0,
+    "isAdAvailable": false,
+    "isCoffeeRewarded": false,
+    "saveDate": "2024-07-24T12:37:02.5299818Z"
   },
   "gameData": {
-    "score": 60816.0,
-    "scrCoins": 60816.0,
-    "scoreIncrease": 14.0,
-    "totalClick": 13503,
+    "score": 0.0,
+    "scrCoins": 0.0,
+    "scoreIncrease": 1.0,
+    "totalClick": 0,
     "offlineTime": 7200.0,
     "shopItems": [
       {
@@ -267,9 +267,9 @@
       },
       {
         "name": "1cl",
-        "cost": 410.0,
+        "cost": 110.0,
         "bonusIncrease": 1.0,
-        "levelOfItem": 5,
+        "levelOfItem": 0,
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 0.0,
@@ -486,28 +486,28 @@
         "itemIndex": 0
       }
     ],
-    "date": "2024-07-17T17:46:27.8726662Z",
-    "colClicks": 3,
+    "date": "2024-07-24T12:37:02.5289819Z",
+    "colClicks": 0,
     "clicks": 0,
-    "maxResult": 54,
+    "maxResult": 0,
     "OfflineBonus": 0.0
   },
   "plotData": {
     "isEventDone": [
-      true,
-      true,
-      true,
-      true,
-      true
+      false,
+      false,
+      false,
+      false,
+      false
     ],
-    "total": 11878,
+    "total": 0,
     "isStart": true,
     "isEnd": false
   },
   "progressBarData": {
     "proydeno": true,
-    "level": 4,
-    "maxLevelValue": 1E+08
+    "level": 1,
+    "maxLevelValue": 100.0
   },
   "settingsData": {
     "isMuted": false
@@ -519,13 +519,11 @@
     "level": 0,
     "speed": 0.8,
     "spawnInterval": 0.5,
-    "isFirstLevel": false,
+    "isFirstLevel": true,
     "isLastLevel": true
   },
-  "statsData": {
-    "totalPlayTime": 1204.66443
-  },
+  "statsData": null,
   "timerData": {
-    "maxResult": 49.0
+    "maxResult": 0.0
   }
 }

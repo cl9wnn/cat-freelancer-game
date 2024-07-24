@@ -1,32 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Button))]
 public class MainButtonAnimation : MonoBehaviour
 {
-    public GameObject MainClickObj;
-    private Vector3 initialScale;
+    private Button _mainClickObject;
+ 
+    private Vector3 _initialScale;
 
     void Start()
     {
-        initialScale = transform.localScale;
+        _initialScale = transform.localScale;
+
+        _mainClickObject = GetComponent<Button>();
+
+        _mainClickObject.onClick.AddListener(OnClick);
     }
 
-    public void OnClick()
+    private void OnClick()
     {
-        StartCoroutine(ButtonAnimationCoroutine());
-    }
-
-    IEnumerator ButtonAnimationCoroutine()
-    {
-        // Увеличиваем размер кнопки
-        MainClickObj.transform.localScale = initialScale * 1.02f;
-
-        
-        yield return new WaitForSeconds(0.1f);
-
-        // Возвращаем размер кнопки к исходному
-        MainClickObj.transform.localScale = initialScale;
+        _mainClickObject.gameObject.transform.DOScale(_initialScale * 1.02f, 0.1f)
+            .OnComplete(() => _mainClickObject.gameObject.transform.DOScale(_initialScale, 0.1f));
     }
 }

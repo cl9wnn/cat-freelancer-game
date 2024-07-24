@@ -7,16 +7,25 @@ using YG;
 
 public class Timer : MonoBehaviour
 {
-    public Game gmscript;
-    private float BPStimer = 0;
     public Text clickPerSec;
-    public Achievements achieve;
+    
+    private float BPStimer = 0;
+    
+    private Game _game;
+    private Boost _boost;
+    private Fortune _fortune;
+    private Achievements _achievements;
 
     private float mouseClicks = 0;
     private float maxResult; //для ачивки
 
     private void Awake()
     {
+        _game = GameSingleton.Instance.Game;
+        _boost = GameSingleton.Instance.Boost;
+        _fortune = GameSingleton.Instance.Fortune;  
+        _achievements = GameSingleton.Instance.Achievements;
+
         if (YandexGame.SDKEnabled)
             Load();
     }
@@ -54,25 +63,26 @@ public class Timer : MonoBehaviour
             mouseClicks = value;
             if (mouseClicks >= maxResult) maxResult = mouseClicks;
 
-            if (mouseClicks < 30) achieve.resultTexts[1].text = maxResult.ToString() + "/30";
-            else if (mouseClicks >= 30 && !achieve.isAchievementDone[1])
+            if (mouseClicks < 30) _achievements.resultTexts[1].text = maxResult.ToString() + "/30";
+            else if (mouseClicks >= 30 && !_achievements.isAchievementDone[1])
             {
-                achieve.CompleteAchievement(1);
+                _achievements.CompleteAchievement(1);
             }
-            if (achieve.isAchievementDone[1]) achieve.resultTexts[1].text = "";
+            if (_achievements.isAchievementDone[1]) _achievements.resultTexts[1].text = "";
 
         }
     }
-    public Boost bts;
-    public Fortune fort;
+   
 
     void Start()
     {
-        clickPerSec.text = StringMethods.FormatMoney(MouseClicks * gmscript.ScoreIncrease + gmscript.PassiveBonusPerSec) + LanguageSystem.lng.time[1];
+
+
+        clickPerSec.text = StringMethods.FormatMoney(MouseClicks * _game.ScoreIncrease + _game.PassiveBonusPerSec) + LanguageSystem.lng.time[1];
     }
     public void ChangeLanguage()
     {
-        clickPerSec.text = StringMethods.FormatMoney(MouseClicks * gmscript.ScoreIncrease + gmscript.PassiveBonusPerSec) + LanguageSystem.lng.time[1];
+        clickPerSec.text = StringMethods.FormatMoney(MouseClicks * _game.ScoreIncrease + _game.PassiveBonusPerSec) + LanguageSystem.lng.time[1];
     }
 
     void Update()
@@ -80,11 +90,11 @@ public class Timer : MonoBehaviour
         BPStimer += Time.deltaTime;
         if (BPStimer >= 1)
         {
-            clickPerSec.text = StringMethods.FormatMoney(MouseClicks * gmscript.ScoreIncrease + gmscript.PassiveBonusPerSec) + LanguageSystem.lng.time[1];
+            clickPerSec.text = StringMethods.FormatMoney(MouseClicks * _game.ScoreIncrease + _game.PassiveBonusPerSec) + LanguageSystem.lng.time[1];
 
-            if (bts.BoostOn == true || fort.coffeeRewarded == true)
+            if (_boost.IsBoostActive == true || _fortune.IsCoffeeRewarded == true)
             {
-                clickPerSec.text = StringMethods.FormatMoney(MouseClicks * gmscript.ScoreIncrease * 3 + gmscript.PassiveBonusPerSec) + LanguageSystem.lng.time[1]; //на время, когда работает буст
+                clickPerSec.text = StringMethods.FormatMoney(MouseClicks * _game.ScoreIncrease * 3 + _game.PassiveBonusPerSec) + LanguageSystem.lng.time[1]; //на время, когда работает буст
             }
             BPStimer = 0f;
             MouseClicks = 0;

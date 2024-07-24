@@ -18,10 +18,10 @@ public class RewardedAds : MonoBehaviour
         switch (id)
         {
             case 0: // Колесо фортуны
-                GameSingleton.Instance.Fortune.longTimer = 0;
+                GameSingleton.Instance.Fortune.UnlockFortuneWheel();
                 break;
             case 1: // Стакан
-                GameSingleton.Instance.Boost.longTimer = 0;
+                GameSingleton.Instance.Boost.UnlockBooster();
                 break;
             case 2: // Удвоение награды за отсутствие 
                 GameSingleton.Instance.Game.GetOfflineIncomeWithMultiplier(2);

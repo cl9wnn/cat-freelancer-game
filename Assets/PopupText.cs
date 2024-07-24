@@ -1,42 +1,61 @@
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.UI; 
+using DG.Tweening;
 
 public class PopupText : MonoBehaviour
 {
-    [SerializeField] private Text _numberText;
-    
-    private ObjectPool _pool;
-
-    private Game _game;
-    private Boost _boost;
-    private Fortune _fortune;
-
-    private void Awake()
+    [Header("Popup Text Settings")]
+    [SerializeField] private RectTransform _popupTextPrefab;
+    [SerializeField] private Canvas _canvas; 
+    [SerializeField] private float _animationDuration = 1f; 
+    [SerializeField] private float _moveDistance = 50f; 
+    [SerializeField] private Vector3 _startScale = new Vector3(1f, 1f, 1f); 
+    [SerializeField] private Vector3 _endScale = new Vector3(1.5f, 1.5f, 1.5f); 
+    [SerializeField] private float _delayBeforeFade = 0.1f;
+    [SerializeField] private float _fadeDuration;
+    public void ShowPopupText(string text, Vector3 position, Color textColor)
     {
-        _pool = GameSingleton.Instance.Pool;
+        RectTransform popupTextInstance = Instantiate(_popupTextPrefab, _canvas.transform);
 
-        _game = GameSingleton.Instance.Game;
-        _boost = GameSingleton.Instance.Boost;
-        _fortune = GameSingleton.Instance.Fortune;
-    }
+        var textComponent = popupTextInstance.GetComponent<Text>(); 
 
-    private void OnEnable()
-    {
-        _numberText.text = "+" + StringMethods.FormatMoney(_game.ScoreIncrease * GetMultiplier());
-
-        if (_boost.BoostOn || _fortune.coffeeRewarded)
+        if (textComponent != null)
         {
-            _numberText.color = new Color(255, 215, 0);
+            textComponent.text = text;
+            textComponent.color = textColor;
         }
+
+        popupTextInstance.anchoredPosition = position;
+        popupTextInstance.localScale = _startScale;
+
+        float duration = _animationDuration;
+
+        Color startColor = textComponent.color;
+        Color endColor = startColor;
+        endColor.a = 0f;
+
+        Sequence sequence = DOTween.Sequence();
+
+        sequence.Append(popupTextInstance.DOScale(_endScale, duration / 2).SetEase(Ease.Linear));
+
+        sequence.Join(popupTextInstance.DOAnchorPosY(position.y + _moveDistance, duration).SetEase(Ease.Linear));
+        sequence.Insert(_delayBeforeFade, textComponent.DOColor(endColor, _fadeDuration));
+
+        sequence.OnComplete(() => Destroy(popupTextInstance.gameObject));
+
+        sequence.Play();
     }
 
-    private int GetMultiplier()
+    public void ShowClickPopupText()
     {
-        return (_boost.BoostOn || _fortune.coffeeRewarded) ? 3 : 1;
-    }
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(_canvas.transform as RectTransform, Input.mousePosition, _canvas.worldCamera, out Vector2 point);
 
-    public void ReturnPopupTextToPool()
-    {
-        _pool.ReturnToPool(gameObject);
+        var hasBoosted = GameSingleton.Instance.Fortune.IsCoffeeRewarded || GameSingleton.Instance.Boost.IsBoostActive;
+
+        var text = "+" + StringMethods.FormatMoney(GameSingleton.Instance.Game.ScoreIncrease * (hasBoosted ? 3 : 1));
+
+        var color = hasBoosted ? new Color32(255, 215, 0, 255) : new Color32(255, 255, 255, 255);
+
+        ShowPopupText(text, point, color);
     }
 }

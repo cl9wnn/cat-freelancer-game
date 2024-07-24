@@ -43,30 +43,52 @@ public class Stats : MonoBehaviour
         totalPlayTime = data.totalPlayTime;
     }
 
-
     void Start()
     {
         sessionStartTime = Time.time;
     }
-    void Update()
+    private void Update()
     {
-        if ((int)totalPlayTime < 60)
-        {
-            totalTimeText.text = (int)totalPlayTime + LanguageSystem.lng.time[7];
-        }
-        else if ((int)totalPlayTime < 3600)
-        {
-            totalTimeText.text = (int)(totalPlayTime / 60) + LanguageSystem.lng.time[2];
-        }
-        else totalTimeText.text = (int)(totalPlayTime / 3600) + LanguageSystem.lng.time[0];
-
         if (Application.isFocused)
         {
-            float sessionTime = Time.time - sessionStartTime;
-            totalPlayTime += sessionTime;
-            sessionStartTime = Time.time; 
+            UpdatePlayTime();
+        }
+        UpdateTimeText();
+    }
+
+    private void UpdatePlayTime()
+    {
+        float sessionTime = Time.time - sessionStartTime;
+        totalPlayTime += sessionTime;
+        sessionStartTime = Time.time;
+    }
+
+    private void UpdateTimeText()
+    {
+        string timeString = FormatTime(totalPlayTime);
+        totalTimeText.text = timeString;
+    }
+    private string FormatTime(float totalTimeInSeconds)
+    {
+        int totalSeconds = (int)totalTimeInSeconds;
+        int hours = totalSeconds / 3600;
+        int minutes = (totalSeconds % 3600) / 60;
+        int seconds = totalSeconds % 60;
+
+        if (hours > 0)
+        {
+            return $"{hours} {LanguageSystem.lng.time[0]} {minutes} {LanguageSystem.lng.time[2]}";
+        }
+        else if (minutes > 0)
+        {
+            return $"{minutes} {LanguageSystem.lng.time[2]} {seconds} {LanguageSystem.lng.time[7]}";
+        }
+        else
+        {
+            return $"{seconds} {LanguageSystem.lng.time[7]}";
         }
     }
+
     public void ChangeLanguage()
     {
         for (int i = 0; i < stringNames.Length; i++)

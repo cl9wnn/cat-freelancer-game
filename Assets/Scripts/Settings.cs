@@ -9,13 +9,11 @@ using UnityEngine.Analytics;
 public class Settings : MonoBehaviour {
     public GameObject settingsPan;
     public Text resumeText;
-    public Text authorsText;
     public Text volumeText;
     public Text settingsText;
     public Text languageText;
     public Text musicText;
     public Text aboutGameTitleText;
-    public Text aboutGameInfoText;
     public AudioSource audioSourceMusic;
     public Sprite onSprite;
     public Sprite offSprite;
@@ -33,14 +31,14 @@ public class Settings : MonoBehaviour {
     }
     public Image buttonImage;
     public GameObject aboutGamePan;
-    public Animator settinsAnimator;
-    public Animator TurnAroundAnimator;
-    public Plot plot;
     public AudioSource AudioOpenSettings;
 
+    private Plot _plot;
 
     public void Awake()
     {
+        _plot = GameSingleton.Instance.Plot;
+
         if (YandexGame.SDKEnabled)
             Load();
     }
@@ -63,15 +61,15 @@ public class Settings : MonoBehaviour {
     {
         var data = YandexGame.savesData.settingsData;
 
-        StartCanvas.gameObject.SetActive(!plot.isStart);
-        
         if (data == null) return;
 
         IsMuted = data.isMuted;
-        
-        
-        if (plot.isStart) audioSourceMusic.Play();
+    }
 
+    private void Start()
+    {
+        StartCanvas.gameObject.SetActive(!_plot.isStart);
+        if (_plot.isStart) audioSourceMusic.Play();
     }
 
     public void ChangeLanguage()
@@ -85,18 +83,6 @@ public class Settings : MonoBehaviour {
         aboutGameTitleText.text = LanguageSystem.lng.settings[7];
     }
      
-     public void ShowSettingsPan()
-     {
-        AudioOpenSettings.Play();
-        settinsAnimator.SetTrigger("open");
-        TurnAroundAnimator.SetTrigger("Turn");
-    }
-    public void Resume()
-    {
-        AudioOpenSettings.Play();
-        settinsAnimator.SetTrigger("close");
-        TurnAroundAnimator.SetTrigger("TurnClose");
-    }
     public void ShowAboutGamePan()
     {
         aboutGamePan.SetActive(true);
@@ -107,10 +93,10 @@ public class Settings : MonoBehaviour {
 
     }
     public void OpenAboutGame()
-     {
+    {
         aboutGamePan.SetActive(true);
 
-     }
+    }
     public void SwitchMusic()
     {
         IsMuted = !IsMuted;

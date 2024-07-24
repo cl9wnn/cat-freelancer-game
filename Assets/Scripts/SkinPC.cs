@@ -5,9 +5,8 @@ using UnityEngine.UI;
 using YG;
 
 
-public class SkinCoin : MonoBehaviour
+public class SkinPC : MonoBehaviour
 {
-    public Game gmscript;
     public Image PcBttnSprite;
     public Image[] SprtBttn;
     public int bBttn = 0;
@@ -17,10 +16,10 @@ public class SkinCoin : MonoBehaviour
         set
         {
             bBttn = value;
-            if (bBttn == 1 && !achieve.isAchievementDone[4])
+            if (bBttn == 1 && !_achievements.isAchievementDone[4])
             {
-                achieve.resultTexts[4].text = "";
-                achieve.CompleteAchievement(4);
+                _achievements.resultTexts[4].text = "";
+                _achievements.CompleteAchievement(4);
             }
 
         }
@@ -37,7 +36,6 @@ public class SkinCoin : MonoBehaviour
     public Text offlineTimeInfoText;
     public Text quitText;
     public Text infoText;
-    public Achievements achieve;
     public GameObject infoPan;
     public Image infoBttn;
     public Image pcExample;
@@ -48,9 +46,14 @@ public class SkinCoin : MonoBehaviour
 
     public AudioSource BuyPc;
 
+    private Game _game;
+    private Achievements _achievements;
 
     private void Awake()
     {
+        _game = GameSingleton.Instance.Game;
+        _achievements = GameSingleton.Instance.Achievements;
+
         if (YandexGame.SDKEnabled)
             Load();
     }
@@ -99,8 +102,8 @@ public class SkinCoin : MonoBehaviour
             SkinTextDop[i].text = LanguageSystem.lng.skinTextDop[i];
         }
 
-        offlineTimeText.text = LanguageSystem.lng.revenueper[2] + (gmscript.offlineTime / 3600) + LanguageSystem.lng.time[0];
-        offlineTimeInfoText.text = (gmscript.offlineTime / 3600) + LanguageSystem.lng.time[0];
+        offlineTimeText.text = LanguageSystem.lng.revenueper[2] + (_game.offlineTime / 3600) + LanguageSystem.lng.time[0];
+        offlineTimeInfoText.text = (_game.offlineTime / 3600) + LanguageSystem.lng.time[0];
         quitText.text = LanguageSystem.lng.revenueper[3];
         infoText.text = LanguageSystem.lng.revenueper[4];
         hintText.text = LanguageSystem.lng.revenueper[5];
@@ -117,19 +120,19 @@ public class SkinCoin : MonoBehaviour
             SkinTextDop[i].fontSize = 38;
             SkinTextDop[i].color = new Color(1, 1, 1);
             SkinTextDop[i].text = LanguageSystem.lng.skinTextDop[6];
-            offlineTimeText.text = LanguageSystem.lng.revenueper[2] + (gmscript.offlineTime / 3600) + LanguageSystem.lng.time[0];
-            offlineTimeInfoText.text = (gmscript.offlineTime / 3600) + LanguageSystem.lng.time[0];
+            offlineTimeText.text = LanguageSystem.lng.revenueper[2] + (_game.offlineTime / 3600) + LanguageSystem.lng.time[0];
+            offlineTimeInfoText.text = (_game.offlineTime / 3600) + LanguageSystem.lng.time[0];
         }
         newImg3.enabled = false;
     }
 
     public void BuyBttnsprite(int index)
     {
-        if (gmscript.Score >= skinCosts[index])
+        if (_game.Score >= skinCosts[index])
         {
             Bbttn = index + 1;
-            gmscript.Score -= skinCosts[index];
-            gmscript.offlineTime += 3600;
+            _game.Score -= skinCosts[index];
+            _game.offlineTime += 3600;
         }
         BuyPc.Play();
     }
@@ -137,13 +140,13 @@ public class SkinCoin : MonoBehaviour
     {
         for (int i = 0; i < skinCosts.Length; i++)
         {
-            if (Bbttn == i && gmscript.shopItems[23 + i * 3].levelOfItem > 0)
+            if (Bbttn == i && _game.shopItems[23 + i * 3].levelOfItem > 0)
             {
                 SkinTextDop[i].text = LanguageSystem.lng.skinTextDop[7];
                 SkinTextDop[i].fontSize = 36;
                 SkinTextDop[i].color = new Color(1, 243 / 255f, 0);
 
-                if (gmscript.Score >= skinCosts[i])
+                if (_game.Score >= skinCosts[i])
                 {
                     skinCoin[i].interactable = true;
                     newImg3.enabled = true;

@@ -10,7 +10,6 @@ using YG;
 public class ProgressBar : MonoBehaviour
 {
 
-    public Game gmscript;
     public Slider progressSlider;
     public Text progressText;
     public Text levelText;
@@ -19,16 +18,12 @@ public class ProgressBar : MonoBehaviour
     public float MaxLevelValue;
     public AudioSource levelUpSound;
 
-
-    void Update()
-    {
-        ProgressSlider();
-        Traversed();
-        EndGame();
-    }
+    private Game _game;
 
     private void Awake()
     {
+        _game = GameSingleton.Instance.Game;
+
         if (YandexGame.SDKEnabled)
             Load();
     }
@@ -62,14 +57,20 @@ public class ProgressBar : MonoBehaviour
     {
         if (Level == 0) Level = 1;
     }
+    void Update()
+    {
+        ProgressSlider();
+        Traversed();
+        EndGame();
+    }
     void ProgressSlider()
     {
         if (proydeno == true)
         {
-            progressSlider.value = (float)gmscript.Score;
+            progressSlider.value = (float)_game.Score;
             progressSlider.maxValue = (float)MaxLevelValue;
 
-            if (gmscript.Score >= MaxLevelValue)
+            if (_game.Score >= MaxLevelValue)
             {
                 ++Level;
                 levelUpSound.Play();
@@ -83,7 +84,7 @@ public class ProgressBar : MonoBehaviour
     }
     void Traversed()
     {
-        if (gmscript.Score >= 5000000000000 && proydeno == true)
+        if (_game.Score >= 5000000000000 && proydeno == true)
         {
             proydeno = false;
         }

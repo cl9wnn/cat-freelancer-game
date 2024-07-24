@@ -9,25 +9,6 @@ using YG;
 
 public class Game : MonoBehaviour
 {
-    private static Game instance;
-    public static Game Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                instance = GameObject.FindObjectOfType<Game>();
-                if (instance == null)
-                {
-                    instance = new GameObject(nameof(Game)).AddComponent<Game>();
-                }
-            }
-            return instance;
-        }
-
-    }
-
-
     [Header("Текст, отвечающий за отображение денег")]
     public TextMeshProUGUI[] scoreText;
     [Header("Магазин")]
@@ -49,22 +30,17 @@ public class Game : MonoBehaviour
     public GameObject secPan;
     public GameObject skinPan;
     public GameObject infoPan;
-    public Animator infoPanAnimator;
-    public Image newImg1;
-    public Image newImg2;
+    public PanelAnimation offlineEarningPanel;
+    public Image _jobAlertIcon;
+    public Image _graphicCardAlertIcon;
     public Image newImg3;
     public TextMeshProUGUI dohodSec;
     public TextMeshProUGUI dohodclick;
     public Text offlimemaximum;
     public Text MaximumLimitText;
-    public Fortune fort;
-    public Achievements achieve;
-    public LanguageSystem language;
-    public Plot plot;
     public Text collectText;
     public Text collectTextx2;
     public Text currentJob;
-    public Boost bst;
     public Text offlineText;
     public Text currentCard;
     public Text infoAboutCount;
@@ -87,9 +63,9 @@ public class Game : MonoBehaviour
         {
 
             totalClick = value;
-            if (totalClick < 1000) achieve.resultTexts[0].text = totalClick.ToString() + "/1000";
-            else if (totalClick >= 1000 && !achieve.isAchievementDone[0]) achieve.CompleteAchievement(0);
-            if (achieve.isAchievementDone[0]) achieve.resultTexts[0].text = "";
+            if (totalClick < 1000) _achievements.resultTexts[0].text = totalClick.ToString() + "/1000";
+            else if (totalClick >= 1000 && !_achievements.isAchievementDone[0]) _achievements.CompleteAchievement(0);
+            if (_achievements.isAchievementDone[0]) _achievements.resultTexts[0].text = "";
         }
     }
 
@@ -99,21 +75,28 @@ public class Game : MonoBehaviour
     public DateTime date = new DateTime();
     public float offlineBonus;
     public float totalBonusPS = 0;
-    public SpawnDown spawnDown;
     public int clicks;
     public ParticleSystem firePointer;
+
+    private Achievements _achievements;
+    private LanguageSystem _languageSystem;
+    private SpawnDown _spawnDown;
+    private Fortune _fortune;
+    private Boost _boost;
+    private Plot _plot;
+
     public int Clicks
     {
         get => clicks;
         set
         {
             clicks = value;
-            spawnDown.clicKnumer.text = clicks == 0 ? "" : clicks.ToString();
+            _spawnDown.clicKnumer.text = clicks == 0 ? "" : clicks.ToString();
 
             if (clicks >= maxResult) maxResult = clicks;
-            if (clicks < 50) achieve.resultTexts[3].text = maxResult.ToString() + "/50";
-            else if (clicks >= 50 && !achieve.isAchievementDone[3]) achieve.CompleteAchievement(3); // поменять на 50
-            if (achieve.isAchievementDone[3]) achieve.resultTexts[3].text = "";
+            if (clicks < 50) _achievements.resultTexts[3].text = maxResult.ToString() + "/50";
+            else if (clicks >= 50 && !_achievements.isAchievementDone[3]) _achievements.CompleteAchievement(3); // поменять на 50
+            if (_achievements.isAchievementDone[3]) _achievements.resultTexts[3].text = "";
 
         }
     }
@@ -124,53 +107,79 @@ public class Game : MonoBehaviour
         set
         {
             colClicks = value;
-
-            if (colClicks > 1400)
-            {
-                firePointer.startSpeed = 0.7f;
-            }
-            else
-            {
-                firePointer.startSpeed = 0.25f;
-            }
-
-            if (colClicks >= 1500 && !bst.boostOn)
-            {
-                spawnDown.Aсtivate(); // MoneySpawner(твой SpawnDown) при 1000 кликов активирует спавн монет
-                colClicks = 0;
-            }
-
-            spawnDown.progressSlider.value = colClicks; // Пусть когда клики меняются, то они сразу меняют то, что от них зависит
+            UpdateFirePointerSpeed();
+            CheckAndActivateBoost();
+            UpdateProgressSlider();
         }
     }
+
+    private void UpdateFirePointerSpeed()
+    {
+        firePointer.startSpeed = colClicks > 1400 ? 0.7f : 0.25f;
+    }
+    private void CheckAndActivateBoost()
+    {
+        if (colClicks >= 1500 && !_boost.IsBoostActive)
+        {
+            _spawnDown.Activate();
+            colClicks = 0;
+        }
+    }
+    private void UpdateProgressSlider()
+    {
+        _spawnDown.progressSlider.value = colClicks;
+    }
+
 
     private bool isFinalEventCalled = false; //для вызова метода FinalEvent
 
     public float _score; //private
     public float Score
     {
-        get { return _score; }
+        get => _score;
         set
         {
             _score = value;
-            Debug.Log("Обращение к Score_set");
-            NewImg1();
-            NewImg2();
-            MoneyScore();
 
-            if (_score < 1000000) achieve.resultTexts[5].text = StringMethods.FormatMoney(_score) + "/1M";
-            else if (_score >= 1000000 && !achieve.isAchievementDone[5]) achieve.CompleteAchievement(5);
-            if (achieve.isAchievementDone[5]) achieve.resultTexts[5].text = "";
-
-            if (_score >= 5000000000000 && !plot.isEnd && !isFinalEventCalled)
-            {
-                //plot.FinalEvent();
-                isFinalEventCalled = true;
-            }
-
-            for (int i = 0; i < plot.ScoreTextEvent.Length; i++) plot.ScoreTextEvent[i].text = StringMethods.FormatMoney(Score);
+            UpdateUI();
+            CheckAchievements();
+            UpdateScoreTextEvents();
         }
     }
+
+    private void UpdateUI()
+    {
+        UpdateJobAlertIcon();
+        UpdateGraphicsCardAlertIcon();
+        MoneyScore();
+    }
+
+    private void CheckAchievements() // TODO: remove
+    {
+        if (_score < 1000000)
+        {
+            _achievements.resultTexts[5].text = StringMethods.FormatMoney(_score) + "/1M";
+        }
+        else if (_score >= 1000000 && !_achievements.isAchievementDone[5])
+        {
+            _achievements.CompleteAchievement(5);
+        }
+
+        if (_achievements.isAchievementDone[5])
+        {
+            _achievements.resultTexts[5].text = "";
+        }
+    }
+
+    private void UpdateScoreTextEvents()
+    {
+        string formattedScore = StringMethods.FormatMoney(_score);
+        foreach (var scoreText in _plot.ScoreTextEvent)
+        {
+            scoreText.text = formattedScore;
+        }
+    } // TODO: remove
+
     private float scrCoins;
     private float crrntCost;
     public float scoreIncrease = 1;
@@ -199,15 +208,15 @@ public class Game : MonoBehaviour
 
         }
     }
-    private ClickObj[] clickTextPool = new ClickObj[50];
 
     private void Awake()
     {
-        if (instance == null) instance = this;
-        else if (instance != this) Destroy(gameObject);
-
-        language.Initialize();//должно быть выше всех в авейке
-        plot.Awake(); // чтобы булева переменная загружалась раньше Score
+        _achievements = GameSingleton.Instance.Achievements;
+        _languageSystem = GameSingleton.Instance.LanguageSystem;
+        _spawnDown = GameSingleton.Instance.SpawnDown;
+        _fortune = GameSingleton.Instance.Fortune;
+        _boost = GameSingleton.Instance.Boost;
+        _plot = GameSingleton.Instance.Plot;
 
         if (YandexGame.SDKEnabled)
             Load();
@@ -269,19 +278,23 @@ public class Game : MonoBehaviour
             absenceText.text = ts.Days + LanguageSystem.lng.time[6] + ts.Hours + LanguageSystem.lng.time[0];
         }
 
-        if (offlineBonus <= 0.01f) return;
 
-        if ((int)ts.TotalSeconds >= offlineTime)
+        int totalSeconds = (int)ts.TotalSeconds;
+
+        if (totalSeconds >= offlineTime)
         {
             FlyPanel.Play();
+            
             offlineBonus += (offlineTime * totalBonusPS);
-            infoPanAnimator.SetTrigger("open");
+            if (offlineBonus <= 0.01f) return;
+                
+            offlineEarningPanel.ShowPanel();
+            
         }
-
-        if ((int)ts.TotalSeconds > 45 && (int)ts.TotalSeconds < offlineTime)
+        else if (totalSeconds > 45)
         {
             FlyPanel.Play();
-            infoPanAnimator.SetTrigger("open");
+            
             offlineBonus += ((int)ts.TotalSeconds * totalBonusPS);
         }
         DohodOfflineText.text = StringMethods.FormatMoney(offlineBonus);
@@ -291,6 +304,12 @@ public class Game : MonoBehaviour
     private void Start()
     {
         Debug.Log(Application.persistentDataPath);
+
+        if (offlineBonus > 0.01f)
+        {
+            offlineEarningPanel.ShowPanel();
+        }
+
         UpdateCosts();
         StartCoroutine(BonusPerSec());
         float tmp = 0;
@@ -300,8 +319,8 @@ public class Game : MonoBehaviour
         }
         PassiveBonusPerSec = tmp;
 
-        if (clicks < 10) achieve.resultTexts[3].text = maxResult.ToString() + "/50";
-        if (achieve.isAchievementDone[3]) achieve.resultTexts[3].text = "";
+        if (clicks < 10) _achievements.resultTexts[3].text = maxResult.ToString() + "/50";
+        if (_achievements.isAchievementDone[3]) _achievements.resultTexts[3].text = "";
 
     }
 
@@ -340,7 +359,9 @@ public class Game : MonoBehaviour
     {
         Score += offlineBonus;
         offlineBonus = 0;
-        infoPanAnimator.SetTrigger("close");
+
+        offlineEarningPanel.HidePanel();
+
 
         GameSingleton.Instance.SaveManager.Save();
     }
@@ -349,7 +370,8 @@ public class Game : MonoBehaviour
     {
         Score += offlineBonus * multiplier;
         offlineBonus = 0;
-        infoPanAnimator.SetTrigger("close");
+
+        offlineEarningPanel.HidePanel();
 
         GameSingleton.Instance.SaveManager.Save();
     }
@@ -403,30 +425,30 @@ public class Game : MonoBehaviour
 
     }
 
-    void NewImg1() // картинка нью
+    void UpdateJobAlertIcon() // картинка нью
     {
         for (int i = 0; i < 20; i++)
         {
             if (Score >= shopItems[i].cost && shopItems[i].levelOfItem == 0)
             {
-                newImg1.enabled = true;
+                _jobAlertIcon.enabled = true;
                 return;
             }
         }
-        newImg1.enabled = false;
+        _jobAlertIcon.enabled = false;
     }
-    void NewImg2() // картинка нью
+    void UpdateGraphicsCardAlertIcon() // картинка нью
     {
         for (int i = 20; i < 40; i++)
         {
             if (Score >= shopItems[i].cost && shopItems[i].levelOfItem == 0)
             {
-                newImg2.enabled = true;
+                _graphicCardAlertIcon.enabled = true;
                 return;
             }
         }
 
-        newImg2.enabled = false;
+        _graphicCardAlertIcon.enabled = false;
     }
 
     void BonussNameText()
@@ -504,37 +526,30 @@ public class Game : MonoBehaviour
     {
         if (Clicks > 0)
         {
-            spawnDown.ClosePan();
+            _spawnDown.ClosePan();
         }
     }
 
 
     public void OnClick()
     {
-        Debug.Log("Старт Кликаний");
         TotalClick++;
-        plot.Total++; //счётчик для событий в Plot
+        _plot.Total++; //счётчик для событий в Plot
         ColClicks++;
-        if (bst.BoostOn == false && fort.coffeeRewarded == false)
+        if (_boost.IsBoostActive == false && _fortune.IsCoffeeRewarded == false)
         {
             Score += ScoreIncrease;
         }
-        if (bst.BoostOn == true)
+        if (_boost.IsBoostActive == true)
         {
             Instantiate(moneyPref, new Vector2(UnityEngine.Random.Range(-2.5f, 2.5f), 5.4f), Quaternion.identity, moneyPopupCanvas.transform);
             Score += ScoreIncrease * 3; // когда работает буст, умножаем доход на 3
         }
-        if (fort.coffeeRewarded == true)
+        if (_fortune.IsCoffeeRewarded == true)
         {
             Score += ScoreIncrease * 3; // когда работает буст, умножаем доход на 3
         }
-        Debug.Log("Конец Кликаний");
     }
-    public void Closeeeee()
-    {
-        infoPanAnimator.SetTrigger("close");
-    }
-
 
     [Serializable]
     public class Item

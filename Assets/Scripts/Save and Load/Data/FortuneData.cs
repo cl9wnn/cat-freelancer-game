@@ -5,17 +5,17 @@ public class FortuneData
 {
     public FortuneData(float LongTimer, bool CanAd, bool Doo, float Timer)
     {
-        longTimer = LongTimer;
-        canAd = CanAd;
-        doo = Doo;
-        timer = Timer;
-        date = DateTime.UtcNow;
+        remainingCooldownTime = LongTimer;
+        isAdAvailable = CanAd;
+        isCoffeeRewarded = Doo;
+        remainingRewardTime = Timer;
+        saveDate = DateTime.UtcNow;
 
     }
 
-    public float longTimer;
-    public float timer;
-    public bool canAd;
-    public bool doo;
-    public DateTime date = new DateTime();
+    public float remainingCooldownTime;
+    public float remainingRewardTime;
+    public bool isAdAvailable;
+    public bool isCoffeeRewarded;
+    public DateTime saveDate = new DateTime();
 }

@@ -2,20 +2,20 @@
 
 public class BoostData
 {
-    public int countOfCoffee; // для ачивки
-    public float longTimer;
-    public float timer;
-    public DateTime date;
-    public bool boostOn;
-    public bool canBoostAd;
+    public int coffeeCount; // для ачивки
+    public float cooldownDuration;
+    public float boostDuration;
+    public DateTime saveDate;
+    public bool isBoostActive;
+    public bool canWatchAd;
 
-    public BoostData(float longTimer, float timer, bool boostOn, bool canBoostAd, int countOfCoffee)
+    public BoostData(float longTimer, float timer, bool IsBoostActive, bool canBoostAd, int countOfCoffee)
     {
-        this.longTimer = longTimer;
-        this.timer = timer;
-        this.date = DateTime.UtcNow;
-        this.boostOn = boostOn;
-        this.canBoostAd = canBoostAd;
-        this.countOfCoffee = countOfCoffee;
+        this.cooldownDuration = longTimer;
+        this.boostDuration = timer;
+        this.saveDate = DateTime.UtcNow;
+        this.isBoostActive = IsBoostActive;
+        this.canWatchAd = canBoostAd;
+        this.coffeeCount = countOfCoffee;
     }
 }

@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 8161045149496643574}
   - component: {fileID: 3120571398644092715}
   m_Layer: 5
-  m_Name: finger
+  m_Name: Finger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -183,7 +183,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &8161045149496643574
 MonoBehaviour:
   m_ObjectHideFlags: 0

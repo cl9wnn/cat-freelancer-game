@@ -8,7 +8,6 @@ using YG;
 
 public class Achievements : MonoBehaviour
 {
-    public GameObject achievementAlbum;
     private int achievementsCount;
     
     public int AchievementsCount
@@ -21,9 +20,6 @@ public class Achievements : MonoBehaviour
         }
     }
     public Text achievementsCountText;//сделать счётчик достижений
-    public Animator albumAnimator;
-    public Animator rockingAlbum;
-    public Game gmscript;
 
     public Sprite[] achievementsPrefab;
     public Image[] achievementsSprites;
@@ -37,10 +33,10 @@ public class Achievements : MonoBehaviour
     public AudioSource GetAchievement;
     public ParticleSystem achieveGlow;
 
+    public event Action OnAchievementComplete;
 
     private void Awake()
     {
-
         if (YandexGame.SDKEnabled)
             Load();
     }
@@ -80,46 +76,18 @@ public class Achievements : MonoBehaviour
             }
         }
     }
-    public void OpenAlbum()
-    {
-        achieveGlow.gameObject.SetActive(false);
-        albumAnimator.SetTrigger("open");
-        rockingAlbum.SetTrigger("Wait");
-        OpenBook.Play();
-    }
-
-    public void CloseAlbum()
-    {
-        CloseBook.Play();
-        index = 0; //чтобы при переключении изначально была левая страница
-        albumAnimator.SetTrigger("close");
-    }
-
-    public void TurnTo()
-    {
-        if (index == 0)
-        {
-            albumAnimator.SetTrigger("right");
-            index = 1;
-        }
-        else if (index == 1)
-        {
-            albumAnimator.SetTrigger("left");
-            index = 0;
-        }
-    }
 
     public void CompleteAchievement(int index)
     {
         if (isAchievementDone[index] == false)
         {
             AchievementsCount++;
-            achieveGlow.gameObject.SetActive(true);
+            //achieveGlow.gameObject.SetActive(true);
             GetAchievement.Play();
-            rockingAlbum.SetTrigger("rock");
             achievementsSprites[index].sprite = achievementsPrefab[index];
             isAchievementDone[index] = true;
 
+            OnAchievementComplete?.Invoke();
         }
     }
     // купите последнюю видеокарту

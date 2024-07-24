@@ -1,16 +1,16 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-
-using System;
 using System.IO;
 using YG;
 
 
 public class SpawnDown : MonoBehaviour
 {
-    public GameObject obj;
-    public Game gmscript;
+    [SerializeField] private DropMoneyPanel dropMoneyPanel;
+    [SerializeField] private PanelAnimation starsPanel; 
+
+    public FallingCoin falingCoinPrefab;
     public float spawnInterval = 0.5f;
     public Text clicKnumer;
     public Text EarnedMoneyText;
@@ -18,16 +18,13 @@ public class SpawnDown : MonoBehaviour
     public Slider progressSlider;
     public GameObject dropPanel;
     public GameObject itogPanel;
-    public Animator animator;
-    public Animator dropMoneyPanelAnimator;
     public int totalObjectsToSpawn = 50;
     public int objectsSpawned = 0;
-    public Animator[] stars;
+    public StarAnimation[] stars;
     public GameObject ButtonAccept;
     public Text countdownText;
     public float timerReady = 4;
-    public Achievements achieve;
-    public Settings settingss;
+  
     public int level; //для инспектора
 
     public Image levelImg;
@@ -44,7 +41,6 @@ public class SpawnDown : MonoBehaviour
         }
     }
     public Text levelText;
-    public spez spez;
     public SoundFade soundFade;
     public bool isFirstLevel = true;
     public bool isLastLevel = true;
@@ -72,29 +68,15 @@ public class SpawnDown : MonoBehaviour
     [Header("Coins Spawn Canvas")]
     public Canvas coinsCanvas;
 
-
-    private static SpawnDown instance;
-    public static SpawnDown Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                instance = GameObject.FindObjectOfType<SpawnDown>();
-                if (instance == null)
-                {
-                    instance = new GameObject(nameof(SpawnDown)).AddComponent<SpawnDown>();
-                }
-            }
-            return instance;
-        }
-
-    }
+    private Game _game;
+    private Settings _settings;
+    private Achievements _achievements;
 
     private void Awake()
     {
-        if (instance == null) instance = this;
-        else if (instance != this) Destroy(gameObject);
+        _game = GameSingleton.Instance.Game;
+        _settings = GameSingleton.Instance.Settings;
+        _achievements = GameSingleton.Instance.Achievements;
 
         if (YandexGame.SDKEnabled)
             Load();
@@ -112,7 +94,7 @@ public class SpawnDown : MonoBehaviour
 
     private void Save()
     {
-        YandexGame.savesData.spawnDownData = new SpawnDownData(Level, spez.speed, spawnInterval, isFirstLevel, isLastLevel);
+        YandexGame.savesData.spawnDownData = new SpawnDownData(Level, 0.8f + (Level * 0.3f), spawnInterval, isFirstLevel, isLastLevel);
     }
     private void Load()
     {
@@ -124,9 +106,8 @@ public class SpawnDown : MonoBehaviour
         spawnInterval = data.spawnInterval;
         isFirstLevel = data.isFirstLevel;
         isLastLevel = data.isLastLevel;
-        spez.speed = 0.8f + (Level * 0.3f);
     }
-    public void Aсtivate()
+    public void Activate()
     {
         if (isFirstLevel) StartCoroutine(HandleCoinsSpawningFirstLevel()); // Запускает корутину - обработчик спавна монет
         else if (isLastLevel == true && Level == 5) StartCoroutine(HandleCoinsSpawningLastLevel());
@@ -135,33 +116,48 @@ public class SpawnDown : MonoBehaviour
 
     IEnumerator HandleCoinsSpawning() // основная корутина 
     {
-        if (!isFirstLevel && isLastLevel && level != 5 || !isFirstLevel && !isLastLevel) dropMoneyPanelAnimator.SetTrigger("open");
-        yield return StartCoroutine(Countdown(3, 0));
+        dropMoneyPanel.CountdownDuration = 3;
+
+        levelText.text = LanguageSystem.lng.moneyDrop[6] + "\n<color=#FFDA00>" + LanguageSystem.lng.moneyDrop[Level] + "</color>";
+        countdownText.text = LanguageSystem.lng.info[10];
+        
+        yield return new WaitForSeconds(1f);
+
+        _settings.audioSourceMusic.volume = 0f;
+        Counter.Play();
+
+        yield return dropMoneyPanel.HandleSubsequentLaunch();
+
+        countdownText.text = "";
+        levelText.text = "";
         clicKnumer.text = "0";
+
         yield return StartCoroutine(SpawningCoins(totalObjectsToSpawn)); // начинаем спавн монет. дожидаемся его завершения.
         HandleMoneySpawnCompletion(); // Запускаем обработчик завершения спавна монет
     }
     IEnumerator HandleCoinsSpawningFirstLevel() //корутина для первого лвла
     {
         Message.Play();
-        firstLevelBttn.SetActive(true);
         clicKnumer.text = "";
-        dropMoneyPanelAnimator.SetTrigger("firstLvlOpen");
+        
+        dropMoneyPanel.HandleFirstLaunch();
+        
         yield return new WaitForSeconds(1f);
     }
     IEnumerator HandleCoinsSpawningLastLevel() //корутина для последнего лвла
     {
         Message.Play();
-        lastLevelBttn.SetActive(true);
+
         clicKnumer.text = "";
-        dropMoneyPanelAnimator.SetTrigger("lastLvlOpen");
+
+        dropMoneyPanel.HandleEndLaunch();
+
         yield return new WaitForSeconds(1f);
     }
     public void StartFirstLevel()
     {
         Whoosh.Play();
         firstLevelBttn.SetActive(false);
-        dropMoneyPanelAnimator.SetTrigger("firstLvlClose");
         StartCoroutine(HandleCoinsSpawning());
         isFirstLevel = false;
     }
@@ -169,17 +165,19 @@ public class SpawnDown : MonoBehaviour
     {
         Whoosh.Play();
         lastLevelBttn.SetActive(false);
-        dropMoneyPanelAnimator.SetTrigger("lastLvlClose");
         StartCoroutine(HandleCoinsSpawning());
         isLastLevel = false;
     }
     private void HandleMoneySpawnCompletion() // Обработчик завершения спавна
     {
-        animator.SetTrigger("open");
+        starsPanel.ShowPanel();
+
         ChainsSound.Play();
         objectsSpawned = 0;
-        CollectedStarsCountText.text = gmscript.Clicks + "/" + totalObjectsToSpawn.ToString();
-        EarnedMoneyText.text = LanguageSystem.lng.info[9] + StringMethods.FormatMoney(gmscript.ScoreIncrease * gmscript.Clicks * (10 + 3 * (Level + 1)));
+
+        CollectedStarsCountText.text = _game.Clicks + "/" + totalObjectsToSpawn.ToString();
+        EarnedMoneyText.text = LanguageSystem.lng.info[9] + StringMethods.FormatMoney(_game.ScoreIncrease * _game.Clicks * (10 + 3 * (Level + 1)));
+
         ShowStars();
     }
 
@@ -196,48 +194,38 @@ public class SpawnDown : MonoBehaviour
         LastAnswerInfoMessage.text = LanguageSystem.lng.moneyDrop[13];
 
     }
-    IEnumerator Countdown(int from, int to)
+    IEnumerator SpawningCoins(int maxCoinCount) // Сам спавн монет
     {
+        if (falingCoinPrefab == null || coinsCanvas == null)
         {
-            levelText.text = LanguageSystem.lng.moneyDrop[6] + "\n<color=#FFDA00>" + LanguageSystem.lng.moneyDrop[Level] + "</color>";
-            countdownText.text = LanguageSystem.lng.info[10];
-            yield return new WaitForSeconds(2.5f);
-
-            settingss.audioSourceMusic.volume = 0f;
-            Counter.Play();
-
-            for (int i = from; i > to; i--)
-            {
-                countdownText.text = i.ToString();
-                yield return new WaitForSeconds(1f);
-            }
-            countdownText.text = "";
-            levelText.text = "";
+            Debug.LogError("Prefab or Canvas is not assigned.");
+            yield break;
         }
-    }
-    IEnumerator SpawningCoins(int maxCount) // Сам спавн монет
-    {
-        PixelMusic.volume = 1;
-        PixelMusic.Play();
-        GameObject lastCoin = null;
-        while (maxCount-- > 0) // пока максимальное кол-во монет не достигли, спавним новые
-        {
-            Vector2 spawnPosition = new Vector2(UnityEngine.Random.Range(-1.7f, 1.7f), 5.4f);
 
-            lastCoin = Instantiate(obj, spawnPosition, Quaternion.identity, coinsCanvas.transform);
+        float coinSpeed = 0.8f + (Level * 0.3f);
+
+        FallingCoin newCoin = null;
+
+        for (int i = 0; i < maxCoinCount; i++)
+        {
+            Vector2 spawnPosition = new Vector2(Random.Range(-1.7f, 1.7f), 5.4f);
+
+            newCoin = Instantiate(falingCoinPrefab, spawnPosition, Quaternion.identity, coinsCanvas.transform);
+            newCoin.Speed = coinSpeed;
             objectsSpawned++;
 
-            yield return new WaitForSeconds(spawnInterval); // Ожидаем интервал между спавном
+            yield return new WaitForSeconds(spawnInterval);
         }
-        yield return new WaitWhile(() => lastCoin != null && lastCoin.transform.position.y > -5.4f);
+        yield return new WaitWhile(() =>
+        newCoin != null && newCoin.transform.position.y > -5.4f);
 
     }
 
     void ShowStars()
     {
         soundFade.FadeOut();
-        ButtonAccept.SetActive(true);
-        double procent = (double)gmscript.Clicks / totalObjectsToSpawn;
+
+        double procent = (double)_game.Clicks / totalObjectsToSpawn;
         int countStars = 0;
         if (procent >= 0.25 && procent < 0.5)
         {
@@ -252,22 +240,21 @@ public class SpawnDown : MonoBehaviour
             countStars = 3;
             Level++;
             spawnInterval -= 0.05f;
-            spez.speed = 0.8f + (Level * 0.3f);
         }
         else if (procent >= 0.75 && procent <= 1 && Level >= 5)
         {
             countStars = 3;
-            if (!achieve.isAchievementDone[6])
+            if (!_achievements.isAchievementDone[6])
             {
-                achieve.CompleteAchievement(6);
-                achieve.resultTexts[6].text = "";
+                _achievements.CompleteAchievement(6);
+                _achievements.resultTexts[6].text = "";
             }
         }
 
         for (int i = 0; i < stars.Length; i++)
         {
             stars[i].gameObject.SetActive(i < countStars);
-            if (i < countStars) stars[i].SetTrigger("show");
+            if (i < countStars) stars[i].AnimateStar();
         }
         LvlUp.Play();
     }
@@ -275,12 +262,16 @@ public class SpawnDown : MonoBehaviour
 
     public void ClosePan()
     {
-        settingss.audioSourceMusic.volume = 100f;
+        _settings.audioSourceMusic.volume = 100f;
 
         RewardMoney.Play();
-        dropMoneyPanelAnimator.SetTrigger("close");
-        gmscript.Score += (gmscript.ScoreIncrease * gmscript.Clicks * (10 + 3 * Level));
-        gmscript.Clicks = 0;
-        animator.SetTrigger("close");
+        _game.Score += (_game.ScoreIncrease * _game.Clicks * (10 + 3 * Level));
+        _game.Clicks = 0;
+
+        starsPanel.HidePanel();
+        //dropMoneyPanelAnimator.SetTrigger("close");
+
+        dropMoneyPanel.HidePanel();
+    
     }
 }

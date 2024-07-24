@@ -1,54 +1,70 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
-using System.IO;
-using UnityEngine.EventSystems;
-using System;
 using YG;
-
 
 public class Fortune : MonoBehaviour
 {
-    public float speed;
-    public bool can = false;
-    public bool coffeeRewarded = false; // буст x3
-    public bool canAd = false;
-    public GameObject circle;
-    public Game gmscript;
-    public Button startBttn;
-    public GameObject ADtBttn;
-    public Text winText;
-    public Text BoostTextt;
-    public Text waitText;
-    public float longTimer = 0;
-    public float timer = 20;
-    public Sprite bttnReady;
-    public Sprite bttnLock;
-    public Image bttnStart;
-    public Boost bst;
-    private float[] _sectorsAngles;
-    private float _finalAngle;
-    private float _startAngle = 0;
-    private float _currentLerpRotationTime;
-    public Image newImgFortune;
-    public Achievements achieve;
+    [Header("Settings")]
+    [SerializeField] private float spinDuration = 6f;
+    [SerializeField] private float cooldownDuration = 7200f;
+    [SerializeField] private float rewardTimer = 20f;
+    
+    [Header("UI Elements")]
+    [SerializeField] private GameObject circle;
+    [SerializeField] private Button spinButton;
+    [SerializeField] private GameObject adButton;
+    [SerializeField] private Text winText;
+    [SerializeField] private Text boostText;
+    [SerializeField] private Text waitText;
+    [SerializeField] private Sprite buttonReadySprite;
+    [SerializeField] private Sprite buttonLockedSprite;
+    [SerializeField] private Image spinButtonImage;
+    [SerializeField] private Image alertImage;
 
-    public AudioSource winSound1;
-    public AudioSource winSound2;
-    public AudioSource loseSound;
+    [Header("Audio")]
+    [SerializeField] private AudioSource winSound1;
+    [SerializeField] private AudioSource winSound2;
+    [SerializeField] private AudioSource loseSound;
 
+    private Game _game;
+    private Boost _boost;
+    private Achievements _achievements;
+    
+    private bool isSpinning;
+    private bool isAdAvailable;
+    private bool isCoffeeRewarded;
+    private float remainingCooldownTime;
+    private float remainingRewardTime;
+    private float[] sectorAngles;
+    private float finalAngle;
+    private float startAngle;
+    private float currentLerpTime;
+
+    public event Action WheelStartedSpinning;
+    public event Action WheelStoppedSpinning;
+
+    public Text BoostText => boostText;
+    public bool IsCoffeeRewarded => isCoffeeRewarded;
 
     private void Awake()
     {
+        _game = GameSingleton.Instance.Game;
+        _boost = GameSingleton.Instance.Boost;
+        _achievements = GameSingleton.Instance.Achievements;
+
         if (YandexGame.SDKEnabled)
+        {
             Load();
+        }
     }
+
     private void OnEnable()
     {
         SaveManager.OnSaveEvent += Save;
         SaveManager.OnLoadEvent += Load;
     }
+
     private void OnDisable()
     {
         SaveManager.OnSaveEvent -= Save;
@@ -57,20 +73,21 @@ public class Fortune : MonoBehaviour
 
     private void Save()
     {
-        YandexGame.savesData.fortuneData = new FortuneData(longTimer, canAd, coffeeRewarded, timer);
+        YandexGame.savesData.fortuneData = new FortuneData(remainingCooldownTime, isAdAvailable, isCoffeeRewarded, remainingRewardTime);
     }
+
     private void Load()
     {
         var data = YandexGame.savesData.fortuneData;
 
         if (data == null) return;
 
-        longTimer = data.longTimer;
-        canAd = data.canAd;
-        coffeeRewarded = data.doo;
-        timer = data.timer;
-        TimeSpan ts = DateTime.UtcNow - data.date;
-        longTimer -= (int)ts.TotalSeconds;
+        remainingCooldownTime = data.remainingCooldownTime;
+        isAdAvailable = data.isAdAvailable;
+        isCoffeeRewarded = data.isCoffeeRewarded;
+        remainingRewardTime = data.remainingRewardTime;
+        TimeSpan elapsed = DateTime.UtcNow - data.saveDate;
+        remainingCooldownTime -= (int)elapsed.TotalSeconds;
     }
 
     public void ChangeLanguage()
@@ -78,157 +95,224 @@ public class Fortune : MonoBehaviour
         winText.text = LanguageSystem.lng.fortune[0];
     }
 
-    void Start()
-    {
-    }
     public void OnClick()
     {
-        _currentLerpRotationTime = 0f;
+        StartSpin();
+    }
 
-        _sectorsAngles = new float[] {45, 90, 135, 180, 225, 270, 315, 360};
+    private void FixedUpdate()
+    {
+        if (isSpinning)
+        {
+            HandleSpinning();
+        }
+        else
+        {
+            HandleCooldown();
+            HandleReward();
+        }
+    }
 
+    private void StartSpin()
+    {
+        sectorAngles = new float[] { 45, 90, 135, 180, 225, 270, 315, 360 };
         int fullCircles = 10;
-        float randomFinalAngle = _sectorsAngles[UnityEngine.Random.Range(0, _sectorsAngles.Length)];
+        float randomFinalAngle = sectorAngles[UnityEngine.Random.Range(0, sectorAngles.Length)];
+        finalAngle = -(fullCircles * 360 + randomFinalAngle);
+        startAngle = circle.transform.eulerAngles.z;
+        currentLerpTime = 0f;
+        isSpinning = true;
+        spinButton.interactable = false;
+        remainingCooldownTime = cooldownDuration;
+        winText.text = LanguageSystem.lng.fortune[1];
+        spinButtonImage.sprite = buttonLockedSprite;
 
-        // Here we set up how many circles our wheel should rotate before stop
-        _finalAngle = -(fullCircles * 360 + randomFinalAngle);
-        can = true;
+        WheelStartedSpinning?.Invoke();
     }
 
-    void FixedUpdate()
+    private void HandleSpinning()
     {
-        if (can == true)
+        currentLerpTime += Time.fixedDeltaTime;
+        if (currentLerpTime > spinDuration || Mathf.Approximately(circle.transform.eulerAngles.z, finalAngle))
         {
-            winText.text = LanguageSystem.lng.fortune[1];
-            startBttn.interactable = false;
-            longTimer = 7200;
-            float maxLerpRotationTime = 6f;
-            _currentLerpRotationTime += Time.deltaTime;
-            if (_currentLerpRotationTime > maxLerpRotationTime || circle.transform.eulerAngles.z == _finalAngle)
-            {
-                _currentLerpRotationTime = maxLerpRotationTime;
-                can = false;
-                _startAngle = _finalAngle % 360;
-                GiveAwardByAngle();
-            }
-            float t = _currentLerpRotationTime / maxLerpRotationTime;
+            StopSpin();
+            return;
+        }
 
-            t = t * t * t * (t * (6f * t - 15f) + 10f);
-
-            float angle = Mathf.Lerp(_startAngle, _finalAngle, t);
-            circle.transform.eulerAngles = new Vector3(0, 0, angle);
-            
-            bttnStart.sprite = bttnLock;
-        }
-        if (longTimer > 0)
-        {
-            newImgFortune.enabled = false;
-            bttnStart.sprite = bttnLock;
-            startBttn.interactable = false;
-            longTimer -= Time.fixedDeltaTime;
-            waitText.text = (((int)longTimer / 3600).ToString("0") + LanguageSystem.lng.time[5] + (((int)longTimer / 60) % 60).ToString("0") + LanguageSystem.lng.time[2]);
-            if (longTimer <= 3600)
-            {
-                waitText.text = (((int)longTimer / 60) % 60).ToString("0") + LanguageSystem.lng.time[2];
-            }
-            if (longTimer <= 60)
-            {
-                waitText.text = (((int)longTimer)).ToString("0") + LanguageSystem.lng.time[7];
-            }
-        }
-        if (longTimer <= 0)
-        {
-            newImgFortune.enabled = true;
-            bttnStart.sprite = bttnReady;
-            startBttn.interactable = true;
-            waitText.text = LanguageSystem.lng.time[4];
-            canAd = false;
-        }
-        if (canAd == true)
-        {
-            ADtBttn.SetActive(true);
-        }
-        else ADtBttn.SetActive(false);
-
-        if (coffeeRewarded == true)
-        {
-            bst.BttnTmer.interactable = false;
-            bst.BoostText.text = LanguageSystem.lng.time[8]; ;
-            if (timer > 0)
-            {
-                timer -= Time.fixedDeltaTime;
-                BoostTextt.gameObject.SetActive(true);
-                BoostTextt.text = timer.ToString("0.0") + LanguageSystem.lng.time[3];
-            }
-            if (timer <= 0)
-            {
-                coffeeRewarded = false;
-                BoostTextt.gameObject.SetActive(false);
-                bst.BttnTmer.interactable = true;
-                bst.BoostText.text = LanguageSystem.lng.time[4];
-                timer = 20;
-            }
-        }
+        float t = Mathf.Clamp01(currentLerpTime / spinDuration);
+        t = t * t * t * (t * (6f * t - 15f) + 10f);
+        float angle = Mathf.Lerp(startAngle, finalAngle, t);
+        circle.transform.eulerAngles = new Vector3(0, 0, angle);
     }
-    private void GiveAwardByAngle()
+
+    private void StopSpin()
     {
-        float moneyMultiplier = gmscript.PassiveBonusPerSec == 0 ? 1 : gmscript.PassiveBonusPerSec;
-        switch ((int)_startAngle)
+        isSpinning = false;
+        DetermineAward();
+        spinButtonImage.sprite = buttonLockedSprite;
+
+        WheelStoppedSpinning?.Invoke();
+    }
+
+    private void DetermineAward()
+    {
+        float moneyMultiplier = _game.PassiveBonusPerSec == 0 ? 1 : _game.PassiveBonusPerSec;
+        switch ((int)(circle.transform.eulerAngles.z % 360))
         {
             case 0:
-                winText.text = StringMethods.FormatMoney(moneyMultiplier * 3600) + LanguageSystem.lng.fortune[2];
-                gmscript.Score += moneyMultiplier * 3600;
-                if (!achieve.isAchievementDone[2])
-                {
-                    achieve.resultTexts[2].text = "";
-                    achieve.CompleteAchievement(2);
-                }
-                winSound1.Play();
-                Debug.Log("score*2");
+                AwardMoney(3600, moneyMultiplier);
                 break;
-            case -225:
-                longTimer = 0;
+            case 225:
+                remainingCooldownTime = 0;
                 winText.text = LanguageSystem.lng.fortune[6];
                 winSound2.Play();
-                Debug.Log("еще раз");
                 break;
-            case -270:
-                winText.text =  StringMethods.FormatMoney(moneyMultiplier * 2700) + LanguageSystem.lng.fortune[2];
-                gmscript.Score += moneyMultiplier * 2700;
-                winSound1.Play();
-                Debug.Log("score*1");
+            case 270:
+                AwardMoney(2700, moneyMultiplier);
                 break;
-            case -45:
+            case 45:
                 winText.text = LanguageSystem.lng.fortune[4];
                 loseSound.Play();
-                Debug.Log("ничего");
                 break;
-            case -180:
-                winText.text = StringMethods.FormatMoney(moneyMultiplier * 900) + LanguageSystem.lng.fortune[2];
-                gmscript.Score += moneyMultiplier * 900;
-                winSound1.Play();
-                Debug.Log("1/4 score");
+            case 180:
+                AwardMoney(900, moneyMultiplier);
                 break;
-            case -135:
-                gmscript.ScoreIncrease = gmscript.ScoreIncrease * 2;
+            case 135:
+                _game.ScoreIncrease *= 2;
                 winText.text = LanguageSystem.lng.fortune[5];
                 winSound2.Play();
-                Debug.Log("*2 scoreIncrease");
                 break;
-            case -90:
-                winText.text = StringMethods.FormatMoney(moneyMultiplier *1800) + LanguageSystem.lng.fortune[2];
-                gmscript.Score += moneyMultiplier * 1800;
-                winSound1.Play();
-                Debug.Log("*1/2 score");
+            case 90:
+                AwardMoney(1800, moneyMultiplier);
                 break;
-            case -315:
-                coffeeRewarded = true;
+            case 315:
+                isCoffeeRewarded = true;
                 winText.text = LanguageSystem.lng.fortune[3];
                 winSound2.Play();
-                Debug.Log("кофе");
                 break;
         }
 
-        canAd = true;
+        isAdAvailable = true;
+    }
+
+    private void AwardMoney(float amount, float multiplier)
+    {
+        winText.text = StringMethods.FormatMoney(amount * multiplier) + LanguageSystem.lng.fortune[2];
+        _game.Score += amount * multiplier;
+        if (!_achievements.isAchievementDone[2])
+        {
+            _achievements.resultTexts[2].text = "";
+            _achievements.CompleteAchievement(2);
+        }
+        winSound1.Play();
+    }
+
+    private void HandleCooldown()
+    {
+        if (remainingCooldownTime > 0)
+        {
+            remainingCooldownTime -= Time.fixedDeltaTime;
+            UpdateCooldownUI();
+        }
+        else
+        {
+            ResetCooldown();
+        }
+    }
+
+    private void UpdateCooldownUI()
+    {
+        alertImage.enabled = false;
+        spinButtonImage.sprite = buttonLockedSprite;
+        spinButton.interactable = false;
+        waitText.text = FormatTime(remainingCooldownTime);
+        adButton.SetActive(isAdAvailable);
+    }
+
+    private void ResetCooldown()
+    {
+        alertImage.enabled = true;
+        spinButtonImage.sprite = buttonReadySprite;
+        spinButton.interactable = true;
+        waitText.text = LanguageSystem.lng.time[4];
+        isAdAvailable = false;
+    }
+
+    private void HandleReward()
+    {
+        if (isCoffeeRewarded)
+        {
+            _boost.BoostButton.interactable = false;
+            if (remainingRewardTime > 0)
+            {
+                remainingRewardTime -= Time.fixedDeltaTime;
+                boostText.gameObject.SetActive(true);
+                boostText.text = remainingRewardTime.ToString("0.0") + LanguageSystem.lng.time[3];
+            }
+            else
+            {
+                ResetReward();
+            }
+        }
+    }
+
+    private void ResetReward()
+    {
+        isCoffeeRewarded = false;
+        boostText.gameObject.SetActive(false);
+        _boost.BoostButton.interactable = true;
+        _boost.BoostText.text = LanguageSystem.lng.time[4];
+        remainingRewardTime = rewardTimer;
+    }
+
+    private string FormatTime(float time)
+    {
+        if (time <= 3600)
+        {
+            return ((int)time / 60 % 60).ToString("0") + LanguageSystem.lng.time[2];
+        }
+        if (time <= 60)
+        {
+            return ((int)time).ToString("0") + LanguageSystem.lng.time[7];
+        }
+        return ((int)time / 3600).ToString("0") + LanguageSystem.lng.time[5] +
+               ((int)time / 60 % 60).ToString("0") + LanguageSystem.lng.time[2];
+    }
+
+    public void UnlockFortuneWheel()
+    {
+        if (isSpinning)
+        {
+            Debug.LogWarning("Cannot unlock the booster while spinning.");
+            return;
+        }
+
+        remainingCooldownTime = 0f;
+        remainingRewardTime = 0f;
+
+        isCoffeeRewarded = false;
+        isAdAvailable = false;
+
+        UpdateUIForUnlockedBooster();
+    }
+
+    private void UpdateUIForUnlockedBooster()
+    {
+        alertImage.enabled = true;
+        spinButtonImage.sprite = buttonReadySprite;
+        spinButton.interactable = true;
+        waitText.text = LanguageSystem.lng.time[4];
+        adButton.SetActive(isAdAvailable);
+
+        if (_boost != null)
+        {
+            _boost.BoostButton.interactable = true;
+            _boost.BoostText.text = LanguageSystem.lng.time[4];
+        }
+
+        if (circle != null)
+        {
+            circle.transform.eulerAngles = new Vector3(0, 0, startAngle);
+        }
     }
 }
