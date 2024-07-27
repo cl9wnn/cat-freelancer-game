@@ -28,6 +28,7 @@ public class GameEventAnimation : MonoBehaviour
     {
         _backgroundImage.gameObject.SetActive(false);
         _takeButton.image.enabled = false;
+        _takeButton.interactable = false;
     }
 
     public void ShowPanel()
@@ -87,6 +88,7 @@ public class GameEventAnimation : MonoBehaviour
     private Sequence AnimateButtonsAndCoins()
     {
         _takeButton.image.enabled = true;
+        _takeButton.interactable = true;
 
         _takeButton.image.color = new Color(_takeButton.image.color.r, _takeButton.image.color.g, _takeButton.image.color.b, 0);
         _takeText.color = new Color(_takeText.color.r, _takeText.color.g, _takeText.color.b, 0);

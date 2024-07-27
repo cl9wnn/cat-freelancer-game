@@ -86,7 +86,7 @@ public class Achievements : MonoBehaviour
             GetAchievement.Play();
             achievementsSprites[index].sprite = achievementsPrefab[index];
             isAchievementDone[index] = true;
-
+            ChangeLanguage();
             OnAchievementComplete?.Invoke();
         }
     }

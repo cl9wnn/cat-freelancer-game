@@ -85,17 +85,26 @@ public class Settings : MonoBehaviour {
      
     public void ShowAboutGamePan()
     {
-        aboutGamePan.SetActive(true);
+        OpenAboutGame();
     }
     public void ExitAboutGamePan()
     {
-        aboutGamePan.SetActive(false);
+        aboutGamePan.GetComponent<Image>().enabled = false;
+
+        foreach (Transform child in aboutGamePan.transform)
+        {
+            child.gameObject.SetActive(false);
+        }
 
     }
     public void OpenAboutGame()
     {
-        aboutGamePan.SetActive(true);
+        aboutGamePan.GetComponent<Image>().enabled = true;
 
+        foreach (Transform child in aboutGamePan.transform)
+        {
+            child.gameObject.SetActive(true);
+        }
     }
     public void SwitchMusic()
     {
@@ -103,7 +112,7 @@ public class Settings : MonoBehaviour {
     }
     public void Vka()
     {
-     Application.OpenURL ("https://vk.com/cl9wn");
+        Application.OpenURL ("https://vk.com/cl9wn");
     }
     public void Telegram()
     {

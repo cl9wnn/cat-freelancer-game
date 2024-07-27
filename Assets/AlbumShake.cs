@@ -70,7 +70,7 @@ public class AlbumShake : MonoBehaviour
     public void StopAnimation()
     {
         _albumSequence?.Kill();
-        Debug.Log(23232);
+
         _rectTransform.anchoredPosition = _initialPosition;
         _rectTransform.rotation = _initialRotation;
         _rectTransform.localScale = _initialScale;

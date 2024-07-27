@@ -138,7 +138,7 @@ public class Fortune : MonoBehaviour
             StopSpin();
             return;
         }
-
+        
         float t = Mathf.Clamp01(currentLerpTime / spinDuration);
         t = t * t * t * (t * (6f * t - 15f) + 10f);
         float angle = Mathf.Lerp(startAngle, finalAngle, t);
@@ -157,35 +157,35 @@ public class Fortune : MonoBehaviour
     private void DetermineAward()
     {
         float moneyMultiplier = _game.PassiveBonusPerSec == 0 ? 1 : _game.PassiveBonusPerSec;
-        switch ((int)(circle.transform.eulerAngles.z % 360))
+        switch (Math.Round(circle.transform.eulerAngles.z % 360, 0, MidpointRounding.AwayFromZero))
         {
             case 0:
                 AwardMoney(3600, moneyMultiplier);
                 break;
-            case 225:
+            case 135:
                 remainingCooldownTime = 0;
                 winText.text = LanguageSystem.lng.fortune[6];
                 winSound2.Play();
                 break;
-            case 270:
+            case 90:
                 AwardMoney(2700, moneyMultiplier);
                 break;
-            case 45:
+            case 315:
                 winText.text = LanguageSystem.lng.fortune[4];
                 loseSound.Play();
                 break;
             case 180:
                 AwardMoney(900, moneyMultiplier);
                 break;
-            case 135:
+            case 225:
                 _game.ScoreIncrease *= 2;
                 winText.text = LanguageSystem.lng.fortune[5];
                 winSound2.Play();
                 break;
-            case 90:
+            case 270:
                 AwardMoney(1800, moneyMultiplier);
                 break;
-            case 315:
+            case 45:
                 isCoffeeRewarded = true;
                 winText.text = LanguageSystem.lng.fortune[3];
                 winSound2.Play();

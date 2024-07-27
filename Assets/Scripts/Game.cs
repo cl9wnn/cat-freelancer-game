@@ -296,6 +296,9 @@ public class Game : MonoBehaviour
             FlyPanel.Play();
             
             offlineBonus += ((int)ts.TotalSeconds * totalBonusPS);
+            if (offlineBonus <= 0.01f) return;
+
+            offlineEarningPanel.ShowPanel();
         }
         DohodOfflineText.text = StringMethods.FormatMoney(offlineBonus);
     }

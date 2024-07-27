@@ -121,8 +121,6 @@ public class SpawnDown : MonoBehaviour
         levelText.text = LanguageSystem.lng.moneyDrop[6] + "\n<color=#FFDA00>" + LanguageSystem.lng.moneyDrop[Level] + "</color>";
         countdownText.text = LanguageSystem.lng.info[10];
         
-        yield return new WaitForSeconds(1f);
-
         _settings.audioSourceMusic.volume = 0f;
         Counter.Play();
 
@@ -216,8 +214,9 @@ public class SpawnDown : MonoBehaviour
 
             yield return new WaitForSeconds(spawnInterval);
         }
+        Debug.Log(newCoin.transform.position.y);
         yield return new WaitWhile(() =>
-        newCoin != null && newCoin.transform.position.y > -5.4f);
+        (newCoin != null && newCoin.transform.position.y > -5.4f) || (coinsCanvas.transform.childCount != 0));
 
     }
 

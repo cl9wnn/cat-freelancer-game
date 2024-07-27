@@ -51,22 +51,10 @@ public class Stats : MonoBehaviour
     {
         if (Application.isFocused)
         {
-            UpdatePlayTime();
+            totalPlayTime += Time.deltaTime;
+            
+            totalTimeText.text = FormatTime(totalPlayTime);
         }
-        UpdateTimeText();
-    }
-
-    private void UpdatePlayTime()
-    {
-        float sessionTime = Time.time - sessionStartTime;
-        totalPlayTime += sessionTime;
-        sessionStartTime = Time.time;
-    }
-
-    private void UpdateTimeText()
-    {
-        string timeString = FormatTime(totalPlayTime);
-        totalTimeText.text = timeString;
     }
     private string FormatTime(float totalTimeInSeconds)
     {

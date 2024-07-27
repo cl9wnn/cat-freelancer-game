@@ -76,15 +76,28 @@ public class DropMoneyPanel : MonoBehaviour
     {
         ShowPanel();
 
+        yield return new WaitForSeconds(0.5f);
+
         collectedCoinsText.gameObject.SetActive(true);
         levelText.gameObject.SetActive(true);
         getReadyTimer.gameObject.SetActive(true);
         levelImage.gameObject.SetActive(true);
 
-        levelImage.DOFade(1f, 0.5f).SetEase(Ease.OutQuad);
+        getReadyTimer.transform.localScale = Vector3.one;
+
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(collectedCoinsText.DOFade(1.0f, 0.5f).SetEase(Ease.Linear));
+        sequence.Join(levelText.DOFade(1.0f, 0.5f).SetEase(Ease.Linear));
+        sequence.Join(levelImage.DOFade(1.0f, 0.5f).SetEase(Ease.Linear));
+
+
+        yield return levelImage.DOFade(1,1);
+
+        yield return new WaitForSeconds(0.5f);
+
         getReadyTimer.CountdownDuration = 3f;
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         yield return getReadyTimer.StartCountdown();
 
         levelText.gameObject.SetActive(false);

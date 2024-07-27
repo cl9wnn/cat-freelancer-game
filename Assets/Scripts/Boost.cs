@@ -196,6 +196,7 @@ public class Boost : MonoBehaviour
         if (!CanWatchAd)
         {
             IsBoostActive = true;
+            
         }
     }
 
@@ -252,7 +253,6 @@ public class Boost : MonoBehaviour
 
     private void HandleCooldownEnd()
     {
-        infoText.text = LanguageSystem.lng.boostt[0];
         coffeeAnimation.GetComponent<Image>().sprite = fullBoostButtonSprite;
         coffeeAnimation.StartAnimation();
         boostButton.interactable = true;
@@ -336,5 +336,7 @@ public class Boost : MonoBehaviour
         enableText.text = LanguageSystem.lng.boostt[1];
         watchAdText.text = LanguageSystem.lng.boostt[2];
         warningText.text = LanguageSystem.lng.boostt[5];
+        
+        UpdateBoostText(LanguageSystem.lng.time[4]);
     }
 }
