@@ -1,3 +1,4 @@
+using Plugins.Audio.Utils;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,13 +10,9 @@ public class NavigationButton : MonoBehaviour
     [SerializeField] private Sprite _buttonActiveSprite;
     [SerializeField] private Sprite _buttonInactiveSprite;
 
-    [Header("State")]
-    [SerializeField] private bool _active;
-
-    [Header("SFX")]
-    [SerializeField] private AudioSource _audio;
-
     public Button Button { get; private set; }
+    
+    private bool _active;
     public bool IsActive
     {
         get => _active;
@@ -29,9 +26,11 @@ public class NavigationButton : MonoBehaviour
     private void Awake()
     {
         Button = GetComponent<Button>();
-        Button.onClick.AddListener(_audio.Play);
 
-        IsActive = _active;
+        Button.onClick.AddListener(GameSingleton.Instance.SoundManager.CreateSound()
+                                                                      .WithSoundData(SoundEffect.CLICK_SHOP_BUTTON)
+                                                                      .Play);
+        IsActive = false;
     }
 
     private void SetSprite()

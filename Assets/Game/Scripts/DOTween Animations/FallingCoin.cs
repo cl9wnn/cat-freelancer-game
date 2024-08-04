@@ -39,6 +39,7 @@ public class FallingCoin : MonoBehaviour
         GetComponent<Button>().onClick.AddListener(OnClick);
 
         var targetPosition = _initPosition + new Vector2(0, -5.5f);
+
         _distance = Vector2.Distance(_initPosition, targetPosition);
         _initPosition = GetComponent<RectTransform>().anchoredPosition;
     }
@@ -47,6 +48,7 @@ public class FallingCoin : MonoBehaviour
     {
         _game = GameSingleton.Instance.Game;
         _spawnDown = GameSingleton.Instance.SpawnDown;
+
         _rectTransform = GetComponent<RectTransform>();
 
         if (_rectTransform != null)
@@ -62,14 +64,13 @@ public class FallingCoin : MonoBehaviour
 
     public void OnClick()
     {
+        GameSingleton.Instance.SoundManager.CreateSound()
+                                           .WithSoundData(SoundEffect.CLICK_FALLING_COIN)
+                                           .WithRandomPitch()
+                                           .Play();
         if (_game != null)
         {
             _game.Clicks++;
-        }
-
-        if (_spawnDown != null)
-        {
-            _spawnDown.CaughtCoin.Play();
         }
 
         if (_rectTransform != null)

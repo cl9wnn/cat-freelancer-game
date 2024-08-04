@@ -13,6 +13,14 @@ public class PopupText : MonoBehaviour
     [SerializeField] private Vector3 _endScale = new Vector3(1.5f, 1.5f, 1.5f); 
     [SerializeField] private float _delayBeforeFade = 0.1f;
     [SerializeField] private float _fadeDuration;
+
+    [SerializeField] private GameObject _particles;
+    private Camera Camera;
+
+    private void Awake()
+    {
+        Camera = Camera.main;
+    }
     public void ShowPopupText(string text, Vector3 position, Color textColor)
     {
         RectTransform popupTextInstance = Instantiate(_popupTextPrefab, _canvas.transform);
@@ -57,5 +65,14 @@ public class PopupText : MonoBehaviour
         var color = hasBoosted ? new Color32(255, 215, 0, 255) : new Color32(255, 255, 255, 255);
 
         ShowPopupText(text, point, color);
+
+        if (GameSingleton.Instance.Boost.IsBoostActive)
+        {
+            Vector3 mousePosition = Input.mousePosition;
+            mousePosition.z = 10f; // Задаем дистанцию от камеры до точки в мире, где будут спавниться частицы
+            Vector3 worldPosition = this.Camera.ScreenToWorldPoint(mousePosition);
+            worldPosition.z = -5;
+            Destroy(Instantiate(_particles, worldPosition, Quaternion.identity), 2f);
+        }
     }
 }

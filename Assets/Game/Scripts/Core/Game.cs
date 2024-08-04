@@ -48,8 +48,6 @@ public class Game : MonoBehaviour
     public Text DohodOfflineText;
     public Text absenceText;
     public int totalClick = 0;
-    public AudioSource AudioBuy;
-    public AudioSource FlyPanel;
     public GameObject moneyPref;
 
     public Canvas moneyPopupCanvas;
@@ -283,20 +281,20 @@ public class Game : MonoBehaviour
 
         if (totalSeconds >= offlineTime)
         {
-            FlyPanel.Play();
-            
             offlineBonus += (offlineTime * totalBonusPS);
             if (offlineBonus <= 0.01f) return;
-                
+
+            GameSingleton.Instance.SoundManager.CreateSound().WithSoundData(SoundEffect.DROP_DAILY_REWARD_PANEL).Play();
+
             offlineEarningPanel.ShowPanel();
             
         }
         else if (totalSeconds > 45)
         {
-            FlyPanel.Play();
-            
             offlineBonus += ((int)ts.TotalSeconds * totalBonusPS);
             if (offlineBonus <= 0.01f) return;
+
+            GameSingleton.Instance.SoundManager.CreateSound().WithSoundData(SoundEffect.DROP_DAILY_REWARD_PANEL).Play();
 
             offlineEarningPanel.ShowPanel();
         }
@@ -365,6 +363,7 @@ public class Game : MonoBehaviour
 
         offlineEarningPanel.HidePanel();
 
+        GameSingleton.Instance.SoundManager.CreateSound().WithSoundData(SoundEffect.COLLECT_MONEY).Play();
 
         GameSingleton.Instance.SaveManager.Save();
     }
@@ -375,6 +374,8 @@ public class Game : MonoBehaviour
         offlineBonus = 0;
 
         offlineEarningPanel.HidePanel();
+
+        GameSingleton.Instance.SoundManager.CreateSound().WithSoundData(SoundEffect.COLLECT_MONEY).Play();
 
         GameSingleton.Instance.SaveManager.Save();
     }
@@ -497,7 +498,11 @@ public class Game : MonoBehaviour
             shopItems[index].cost = Mathf.Round(shopItems[index].cost * shopItems[index].costMultiplier);
             shopItems[index].levelOfItem++;
         }
-        AudioBuy.Play();
+
+        GameSingleton.Instance.SoundManager.CreateSound()
+                                   .WithSoundData(SoundEffect.PURCHASE_UPGRADE)
+                                   .Play();
+
         UpdateCosts();
     }
 
@@ -536,6 +541,11 @@ public class Game : MonoBehaviour
 
     public void OnClick()
     {
+        GameSingleton.Instance.SoundManager.CreateSound()
+                                           .WithSoundData(SoundEffect.CLICK_COMPUTER)
+                                           .WithRandomPitch()
+                                           .Play();
+
         TotalClick++;
         _plot.Total++; //счётчик для событий в Plot
         ColClicks++;

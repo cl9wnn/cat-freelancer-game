@@ -47,6 +47,12 @@ public class GameSingleton : MonoBehaviour
     private SkinPC _skins;
     public SkinPC Skins => ReturnObject(ref _skins);
 
+    private SoundManager _soundManager;
+    public SoundManager SoundManager => ReturnObject(ref _soundManager);
+
+    private MusicManager _musicManager;
+    public MusicManager MusicManager => ReturnObject(ref _musicManager);
+
     private static T ReturnObject<T>(ref T component) where T : Component
     {
         if (!component) component = FindAnyObjectByType<T>(FindObjectsInactive.Include);

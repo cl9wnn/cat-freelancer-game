@@ -29,6 +29,8 @@ public class GameEventAnimation : MonoBehaviour
         _backgroundImage.gameObject.SetActive(false);
         _takeButton.image.enabled = false;
         _takeButton.interactable = false;
+
+        _takeButton.onClick.AddListener(GameSingleton.Instance.SoundManager.CreateSound().WithSoundData(SoundEffect.CLICK_SHOP_BUTTON).Play);
     }
 
     public void ShowPanel()

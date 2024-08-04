@@ -33,7 +33,11 @@ public class Album : MonoBehaviour
     public void OpenAlbum()
     {
         _panel.gameObject.SetActive(true);
-     
+
+        GameSingleton.Instance.SoundManager.CreateSound()
+                                           .WithSoundData(SoundEffect.OPEN_ACHIEVEMENTS_BOOK)
+                                           .Play();
+
         SelectLeftSide();
     }
 
@@ -54,6 +58,10 @@ public class Album : MonoBehaviour
     public void CloseAlbum()
     {
         Vector3 targetPosition = Vector3.zero;
+
+        GameSingleton.Instance.SoundManager.CreateSound()
+                                           .WithSoundData(SoundEffect.CLOSE_ACHIEVEMENT_BOOK)
+                                           .Play();
 
         _panel.DOAnchorPos(targetPosition, _transitionDuration)
            .SetEase(Ease.Linear)

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8033750b781c4482b8afb057efb27eff, type: 3}
   m_Name: AudioManagementSettings
   m_EditorClassIdentifier: 
-  _database: {fileID: 11400000, guid: 60b8d05470cee094caac381d1bd7043b, type: 2}
+  _database: {fileID: 11400000, guid: 8e9a57ccab1046a499dfa4dac2821062, type: 2}

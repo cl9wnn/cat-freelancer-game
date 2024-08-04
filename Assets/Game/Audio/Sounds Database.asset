@@ -1,0 +1,290 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 340e7a798d91a724983200046b099a0b, type: 3}
+  m_Name: Sounds Database
+  m_EditorClassIdentifier: 
+  sounds:
+  - clip:
+      _id: 6d60ecbf-1d34-4daa-923e-4297f3c97199
+      _key: 'Switch Button '
+    type: 1
+    mixerGroup: {fileID: -905080181818329241, guid: 645cbca3a6ed62946a3663df53ea80c5,
+      type: 2}
+    loop: 0
+    playOnAwake: 0
+    frequentSound: 0
+    mute: 0
+    rolloffMode: 0
+  - clip:
+      _id: 15bdfa9b-94d2-4a7d-b199-9b89d1250343
+      _key: Achievement Notification
+    type: 2
+    mixerGroup: {fileID: -905080181818329241, guid: 645cbca3a6ed62946a3663df53ea80c5,
+      type: 2}
+    loop: 0
+    playOnAwake: 0
+    frequentSound: 0
+    mute: 0
+    rolloffMode: 0
+  - clip:
+      _id: 67e6f9b3-2c45-4a5b-aebb-c916dbb9a34e
+      _key: Spin Wheel Of Fortune
+    type: 3
+    mixerGroup: {fileID: -905080181818329241, guid: 645cbca3a6ed62946a3663df53ea80c5,
+      type: 2}
+    loop: 0
+    playOnAwake: 0
+    frequentSound: 0
+    mute: 0
+    rolloffMode: 0
+  - clip:
+      _id: bea6d9f5-e3b7-4ed3-b7e2-cfebae2c8502
+      _key: Open Settings
+    type: 4
+    mixerGroup: {fileID: -905080181818329241, guid: 645cbca3a6ed62946a3663df53ea80c5,
+      type: 2}
+    loop: 0
+    playOnAwake: 0
+    frequentSound: 0
+    mute: 0
+    rolloffMode: 0
+  - clip:
+      _id: a5f0f4cd-85a9-43fc-b0de-bd28adb195bd
+      _key: Open Boost Panel
+    type: 5
+    mixerGroup: {fileID: -905080181818329241, guid: 645cbca3a6ed62946a3663df53ea80c5,
+      type: 2}
+    loop: 0
+    playOnAwake: 0
+    frequentSound: 0
+    mute: 0
+    rolloffMode: 0
+  - clip:
+      _id: 65f81740-0907-4d8b-ad58-b7d36c470fab
+      _key: Open Achievemetns Book
+    type: 6
+    mixerGroup: {fileID: -905080181818329241, guid: 645cbca3a6ed62946a3663df53ea80c5,
+      type: 2}
+    loop: 0
+    playOnAwake: 0
+    frequentSound: 0
+    mute: 0
+    rolloffMode: 0
+  - clip:
+      _id: 4d09aa64-25f4-4755-9361-a1d81542093d
+      _key: Close Achievement Book
+    type: 7
+    mixerGroup: {fileID: -905080181818329241, guid: 645cbca3a6ed62946a3663df53ea80c5,
+      type: 2}
+    loop: 0
+    playOnAwake: 0
+    frequentSound: 0
+    mute: 0
+    rolloffMode: 0
+  - clip:
+      _id: 9cc6c121-de58-422e-b14a-d9060ec719ed
+      _key: Collect Money
+    type: 8
+    mixerGroup: {fileID: -905080181818329241, guid: 645cbca3a6ed62946a3663df53ea80c5,
+      type: 2}
+    loop: 0
+    playOnAwake: 0
+    frequentSound: 0
+    mute: 0
+    rolloffMode: 0
+  - clip:
+      _id: ea79cc26-03c1-47bf-8d24-f36c2faef771
+      _key: Collect Reward
+    type: 9
+    mixerGroup: {fileID: -905080181818329241, guid: 645cbca3a6ed62946a3663df53ea80c5,
+      type: 2}
+    loop: 0
+    playOnAwake: 0
+    frequentSound: 0
+    mute: 0
+    rolloffMode: 0
+  - clip:
+      _id: ab68e6bf-87e1-4eba-9f4f-27ccb0a83e19
+      _key: Win Sound 1
+    type: 10
+    mixerGroup: {fileID: -905080181818329241, guid: 645cbca3a6ed62946a3663df53ea80c5,
+      type: 2}
+    loop: 0
+    playOnAwake: 0
+    frequentSound: 0
+    mute: 0
+    rolloffMode: 0
+  - clip:
+      _id: c439bd90-e0b6-45b6-a4c4-a059becab716
+      _key: Win Sound 2
+    type: 11
+    mixerGroup: {fileID: -905080181818329241, guid: 645cbca3a6ed62946a3663df53ea80c5,
+      type: 2}
+    loop: 0
+    playOnAwake: 0
+    frequentSound: 0
+    mute: 0
+    rolloffMode: 0
+  - clip:
+      _id: 63a3f805-6932-44f2-8925-34d1b0ed6aea
+      _key: Lose
+    type: 12
+    mixerGroup: {fileID: -905080181818329241, guid: 645cbca3a6ed62946a3663df53ea80c5,
+      type: 2}
+    loop: 0
+    playOnAwake: 0
+    frequentSound: 0
+    mute: 0
+    rolloffMode: 0
+  - clip:
+      _id: 39b58803-53c3-4d3a-b6cc-e2272a530f93
+      _key: Countdown
+    type: 13
+    mixerGroup: {fileID: -905080181818329241, guid: 645cbca3a6ed62946a3663df53ea80c5,
+      type: 2}
+    loop: 0
+    playOnAwake: 0
+    frequentSound: 0
+    mute: 0
+    rolloffMode: 0
+  - clip:
+      _id: 874b996e-8e83-47ec-98dd-d04cae679a20
+      _key: Drink Coffee
+    type: 14
+    mixerGroup: {fileID: -905080181818329241, guid: 645cbca3a6ed62946a3663df53ea80c5,
+      type: 2}
+    loop: 0
+    playOnAwake: 0
+    frequentSound: 0
+    mute: 0
+    rolloffMode: 0
+  - clip:
+      _id: 7bcc1168-9c7c-4472-9d48-37e5ffc588a6
+      _key: Click Start Button
+    type: 15
+    mixerGroup: {fileID: -905080181818329241, guid: 645cbca3a6ed62946a3663df53ea80c5,
+      type: 2}
+    loop: 0
+    playOnAwake: 0
+    frequentSound: 0
+    mute: 0
+    rolloffMode: 0
+  - clip:
+      _id: c437a187-9111-48f3-932d-fcdc7e6156b1
+      _key: Click Computer
+    type: 16
+    mixerGroup: {fileID: -905080181818329241, guid: 645cbca3a6ed62946a3663df53ea80c5,
+      type: 2}
+    loop: 0
+    playOnAwake: 0
+    frequentSound: 1
+    mute: 0
+    rolloffMode: 0
+  - clip:
+      _id: ba9cd3af-88bf-4079-93f1-bf0c43beef14
+      _key: Click Falling Coin
+    type: 17
+    mixerGroup: {fileID: -905080181818329241, guid: 645cbca3a6ed62946a3663df53ea80c5,
+      type: 2}
+    loop: 0
+    playOnAwake: 0
+    frequentSound: 1
+    mute: 0
+    rolloffMode: 0
+  - clip:
+      _id: 1998c945-16c7-4e51-91c8-d5fc2b667965
+      _key: Click Shop Button
+    type: 18
+    mixerGroup: {fileID: -905080181818329241, guid: 645cbca3a6ed62946a3663df53ea80c5,
+      type: 2}
+    loop: 0
+    playOnAwake: 0
+    frequentSound: 0
+    mute: 0
+    rolloffMode: 0
+  - clip:
+      _id: 87100841-9ab5-467c-a322-5540308a8bae
+      _key: Purchase Upgrade
+    type: 19
+    mixerGroup: {fileID: -905080181818329241, guid: 645cbca3a6ed62946a3663df53ea80c5,
+      type: 2}
+    loop: 0
+    playOnAwake: 0
+    frequentSound: 0
+    mute: 0
+    rolloffMode: 0
+  - clip:
+      _id: 73c9ce3e-6f0d-45ca-bd8f-d78126ded3cd
+      _key: Purchase Computer
+    type: 20
+    mixerGroup: {fileID: -905080181818329241, guid: 645cbca3a6ed62946a3663df53ea80c5,
+      type: 2}
+    loop: 0
+    playOnAwake: 0
+    frequentSound: 0
+    mute: 0
+    rolloffMode: 0
+  - clip:
+      _id: 0ce84dc9-28e1-4f14-bb70-c2de89fa3e71
+      _key: Notification Message
+    type: 21
+    mixerGroup: {fileID: -905080181818329241, guid: 645cbca3a6ed62946a3663df53ea80c5,
+      type: 2}
+    loop: 0
+    playOnAwake: 0
+    frequentSound: 0
+    mute: 0
+    rolloffMode: 0
+  - clip:
+      _id: fdae41bc-5087-40a9-947a-c9d3f15a7dc0
+      _key: Event Notification
+    type: 22
+    mixerGroup: {fileID: -905080181818329241, guid: 645cbca3a6ed62946a3663df53ea80c5,
+      type: 2}
+    loop: 0
+    playOnAwake: 0
+    frequentSound: 0
+    mute: 0
+    rolloffMode: 0
+  - clip:
+      _id: afdd2a53-a63e-4ae2-b8e4-9153145ebb7d
+      _key: Skip Message
+    type: 23
+    mixerGroup: {fileID: -905080181818329241, guid: 645cbca3a6ed62946a3663df53ea80c5,
+      type: 2}
+    loop: 0
+    playOnAwake: 0
+    frequentSound: 0
+    mute: 0
+    rolloffMode: 0
+  - clip:
+      _id: cb367328-d050-4845-bdc7-bf545142a565
+      _key: Drop Daily Reward Panel
+    type: 24
+    mixerGroup: {fileID: -905080181818329241, guid: 645cbca3a6ed62946a3663df53ea80c5,
+      type: 2}
+    loop: 0
+    playOnAwake: 0
+    frequentSound: 0
+    mute: 0
+    rolloffMode: 0
+  - clip:
+      _id: cadb4b59-4e02-4bb0-b242-f08f9805a8b9
+      _key: Drop Result Panel
+    type: 25
+    mixerGroup: {fileID: -905080181818329241, guid: 645cbca3a6ed62946a3663df53ea80c5,
+      type: 2}
+    loop: 0
+    playOnAwake: 0
+    frequentSound: 0
+    mute: 0
+    rolloffMode: 0

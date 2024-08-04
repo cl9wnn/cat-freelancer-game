@@ -22,11 +22,6 @@ public class Fortune : MonoBehaviour
     [SerializeField] private Image spinButtonImage;
     [SerializeField] private Image alertImage;
 
-    [Header("Audio")]
-    [SerializeField] private AudioSource winSound1;
-    [SerializeField] private AudioSource winSound2;
-    [SerializeField] private AudioSource loseSound;
-
     private Game _game;
     private Boost _boost;
     private Achievements _achievements;
@@ -97,6 +92,8 @@ public class Fortune : MonoBehaviour
 
     public void OnClick()
     {
+        GameSingleton.Instance.SoundManager.CreateSound().WithSoundData(SoundEffect.SPIN_WHEEL_OF_FORTUNE).Play();
+
         StartSpin();
     }
 
@@ -165,14 +162,21 @@ public class Fortune : MonoBehaviour
             case 135:
                 remainingCooldownTime = 0;
                 winText.text = LanguageSystem.lng.fortune[6];
-                winSound2.Play();
+               
+                GameSingleton.Instance.SoundManager.CreateSound()
+                                                   .WithSoundData(SoundEffect.WIN_SOUND_2)
+                                                   .Play();
+                
                 break;
             case 90:
                 AwardMoney(2700, moneyMultiplier);
                 break;
             case 315:
                 winText.text = LanguageSystem.lng.fortune[4];
-                loseSound.Play();
+
+                GameSingleton.Instance.SoundManager.CreateSound()
+                                                   .WithSoundData(SoundEffect.LOSE)
+                                                   .Play();
                 break;
             case 180:
                 AwardMoney(900, moneyMultiplier);
@@ -180,7 +184,10 @@ public class Fortune : MonoBehaviour
             case 225:
                 _game.ScoreIncrease *= 2;
                 winText.text = LanguageSystem.lng.fortune[5];
-                winSound2.Play();
+
+                GameSingleton.Instance.SoundManager.CreateSound()
+                                                   .WithSoundData(SoundEffect.WIN_SOUND_2)
+                                                   .Play();
                 break;
             case 270:
                 AwardMoney(1800, moneyMultiplier);
@@ -188,7 +195,10 @@ public class Fortune : MonoBehaviour
             case 45:
                 isCoffeeRewarded = true;
                 winText.text = LanguageSystem.lng.fortune[3];
-                winSound2.Play();
+
+                GameSingleton.Instance.SoundManager.CreateSound()
+                                                   .WithSoundData(SoundEffect.WIN_SOUND_2)
+                                                   .Play();
                 break;
         }
 
@@ -204,7 +214,10 @@ public class Fortune : MonoBehaviour
             _achievements.resultTexts[2].text = "";
             _achievements.CompleteAchievement(2);
         }
-        winSound1.Play();
+
+        GameSingleton.Instance.SoundManager.CreateSound()
+                                           .WithSoundData(SoundEffect.WIN_SOUND_1)
+                                           .Play();
     }
 
     private void HandleCooldown()

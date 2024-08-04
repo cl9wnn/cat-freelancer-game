@@ -27,7 +27,7 @@ namespace YG
         public GameData gameData;
         public PlotData plotData;
         public ProgressBarData progressBarData;
-        public SettingsData settingsData;
+        public VolumeData volumeData;
         public SkinCoinData skinCoinData;
         public SpawnDownData spawnDownData;
         public StatsData statsData;

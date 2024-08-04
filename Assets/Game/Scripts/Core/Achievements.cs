@@ -28,9 +28,6 @@ public class Achievements : MonoBehaviour
     public Text[] resultTexts;
     public Text MyAchievememntsText;
     public int index = 0; //для смены страницы
-    public AudioSource CloseBook;
-    public AudioSource OpenBook;
-    public AudioSource GetAchievement;
     public ParticleSystem achieveGlow;
 
     public event Action OnAchievementComplete;
@@ -63,7 +60,7 @@ public class Achievements : MonoBehaviour
 
         isAchievementDone = data.isAchievementDone;
 
-        achievementsCount = data.achievementsCount;
+        AchievementsCount = data.achievementsCount;
     }
 
     private void Start()
@@ -75,6 +72,8 @@ public class Achievements : MonoBehaviour
                 achievementsSprites[i].sprite = achievementsPrefab[i];
             }
         }
+
+        ChangeLanguage();
     }
 
     public void CompleteAchievement(int index)
@@ -82,8 +81,11 @@ public class Achievements : MonoBehaviour
         if (isAchievementDone[index] == false)
         {
             AchievementsCount++;
-            //achieveGlow.gameObject.SetActive(true);
-            GetAchievement.Play();
+            
+            GameSingleton.Instance.SoundManager.CreateSound()
+                                               .WithSoundData(SoundEffect.ACHIEVEMENT_NOTIFICATION)
+                                               .Play();
+
             achievementsSprites[index].sprite = achievementsPrefab[index];
             isAchievementDone[index] = true;
             ChangeLanguage();

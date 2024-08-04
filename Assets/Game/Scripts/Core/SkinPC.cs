@@ -1,6 +1,4 @@
-﻿using System;
-using System.IO;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using YG;
 
@@ -43,8 +41,6 @@ public class SkinPC : MonoBehaviour
     public int indexx;
     public Image infoImg;
     public Text hintText;
-
-    public AudioSource BuyPc;
 
     private Game _game;
     private Achievements _achievements;
@@ -134,7 +130,8 @@ public class SkinPC : MonoBehaviour
             _game.Score -= skinCosts[index];
             _game.offlineTime += 3600;
         }
-        BuyPc.Play();
+        
+        GameSingleton.Instance.SoundManager.CreateSound().WithSoundData(SoundEffect.PURCHASE_COMPUTER).Play();
     }
     void InteractableBttn()
     {
@@ -165,7 +162,7 @@ public class SkinPC : MonoBehaviour
     }
 
     public void OpenInfoPan()
-        {
+    {
 
         if (indexx == 0)
         {

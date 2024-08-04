@@ -14,12 +14,6 @@ public class CountdownTimer : MonoBehaviour
         set => _countdownDuration = value;
     }
 
-    [ContextMenu("Play")]
-    public void Play()
-    {
-        StartCoroutine(StartCountdown());
-    }
-
     public IEnumerator StartCountdown()
     {
         float remainingTime = _countdownDuration;

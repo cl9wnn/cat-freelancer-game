@@ -28,20 +28,9 @@ public class SpawnDown : MonoBehaviour
     public int level; //для инспектора
 
     public Image levelImg;
-
     public Sprite[] levelSprites;
-    public int Level
-    {
-        get => level;
-        set
-        {
-            level = value;
-            levelImg.sprite = levelSprites[level];
 
-        }
-    }
     public Text levelText;
-    public SoundFade soundFade;
     public bool isFirstLevel = true;
     public bool isLastLevel = true;
     public GameObject firstLevelBttn;
@@ -55,16 +44,7 @@ public class SpawnDown : MonoBehaviour
     public Text firstAnswerInfoMessage;
     public Text LastAnswerInfoMessage;
     public Text[] StartLvl;
-
-    public AudioSource RewardMoney;
-    public AudioSource CaughtCoin;
-    public AudioSource ChainsSound;
-    public AudioSource Message;
-    public AudioSource Whoosh;
-    public AudioSource Counter;
-    public AudioSource LvlUp;
-    public AudioSource PixelMusic;
-
+    
     [Header("Coins Spawn Canvas")]
     public Canvas coinsCanvas;
 
@@ -72,6 +52,17 @@ public class SpawnDown : MonoBehaviour
     private Settings _settings;
     private Achievements _achievements;
 
+    public int Level
+    {
+        get => level;
+        set
+        {
+            level = value;
+            levelImg.sprite = levelSprites[level];
+
+        }
+    }
+    
     private void Awake()
     {
         _game = GameSingleton.Instance.Game;
@@ -109,6 +100,8 @@ public class SpawnDown : MonoBehaviour
     }
     public void Activate()
     {
+        GameSingleton.Instance.MusicManager.PlayBackgroundMusic(BackgroundMusic.NONE);
+
         if (isFirstLevel) StartCoroutine(HandleCoinsSpawningFirstLevel()); // Запускает корутину - обработчик спавна монет
         else if (isLastLevel == true && Level == 5) StartCoroutine(HandleCoinsSpawningLastLevel());
         else StartCoroutine(HandleCoinsSpawning());
@@ -121,9 +114,6 @@ public class SpawnDown : MonoBehaviour
         levelText.text = LanguageSystem.lng.moneyDrop[6] + "\n<color=#FFDA00>" + LanguageSystem.lng.moneyDrop[Level] + "</color>";
         countdownText.text = LanguageSystem.lng.info[10];
         
-        _settings.audioSourceMusic.volume = 0f;
-        Counter.Play();
-
         yield return dropMoneyPanel.HandleSubsequentLaunch();
 
         countdownText.text = "";
@@ -131,11 +121,13 @@ public class SpawnDown : MonoBehaviour
         clicKnumer.text = "0";
 
         yield return StartCoroutine(SpawningCoins(totalObjectsToSpawn)); // начинаем спавн монет. дожидаемся его завершения.
+        yield return new WaitForSeconds(1.0f);
         HandleMoneySpawnCompletion(); // Запускаем обработчик завершения спавна монет
     }
     IEnumerator HandleCoinsSpawningFirstLevel() //корутина для первого лвла
     {
-        Message.Play();
+        GameSingleton.Instance.SoundManager.CreateSound().WithSoundData(SoundEffect.NOTIFICATION_MESSAGE).Play();
+
         clicKnumer.text = "";
         
         dropMoneyPanel.HandleFirstLaunch();
@@ -144,7 +136,7 @@ public class SpawnDown : MonoBehaviour
     }
     IEnumerator HandleCoinsSpawningLastLevel() //корутина для последнего лвла
     {
-        Message.Play();
+        GameSingleton.Instance.SoundManager.CreateSound().WithSoundData(SoundEffect.NOTIFICATION_MESSAGE).Play();
 
         clicKnumer.text = "";
 
@@ -154,14 +146,16 @@ public class SpawnDown : MonoBehaviour
     }
     public void StartFirstLevel()
     {
-        Whoosh.Play();
+        GameSingleton.Instance.SoundManager.CreateSound().WithSoundData(SoundEffect.SKIP_MESSAGE).Play();
+
         firstLevelBttn.SetActive(false);
         StartCoroutine(HandleCoinsSpawning());
         isFirstLevel = false;
     }
     public void StartLastLevel()
     {
-        Whoosh.Play();
+        GameSingleton.Instance.SoundManager.CreateSound().WithSoundData(SoundEffect.SKIP_MESSAGE).Play();
+
         lastLevelBttn.SetActive(false);
         StartCoroutine(HandleCoinsSpawning());
         isLastLevel = false;
@@ -170,7 +164,8 @@ public class SpawnDown : MonoBehaviour
     {
         starsPanel.ShowPanel();
 
-        ChainsSound.Play();
+        GameSingleton.Instance.SoundManager.CreateSound().WithSoundData(SoundEffect.DROP_RESULT_PANEL).Play();
+
         objectsSpawned = 0;
 
         CollectedStarsCountText.text = _game.Clicks + "/" + totalObjectsToSpawn.ToString();
@@ -194,13 +189,15 @@ public class SpawnDown : MonoBehaviour
     }
     IEnumerator SpawningCoins(int maxCoinCount) // Сам спавн монет
     {
+        GameSingleton.Instance.MusicManager.PlayBackgroundMusic(BackgroundMusic.MINI_GAME);
+
         if (falingCoinPrefab == null || coinsCanvas == null)
         {
             Debug.LogError("Prefab or Canvas is not assigned.");
             yield break;
         }
 
-        float coinSpeed = 0.8f + (Level * 0.3f);
+        float coinSpeed = 1.1f + (Level * 0.4f);
 
         FallingCoin newCoin = null;
 
@@ -222,7 +219,7 @@ public class SpawnDown : MonoBehaviour
 
     void ShowStars()
     {
-        soundFade.FadeOut();
+        GameSingleton.Instance.MusicManager.PlayBackgroundMusic(BackgroundMusic.NONE);
 
         double procent = (double)_game.Clicks / totalObjectsToSpawn;
         int countStars = 0;
@@ -255,22 +252,18 @@ public class SpawnDown : MonoBehaviour
             stars[i].gameObject.SetActive(i < countStars);
             if (i < countStars) stars[i].AnimateStar();
         }
-        LvlUp.Play();
     }
 
 
     public void ClosePan()
     {
-        _settings.audioSourceMusic.volume = 100f;
+        GameSingleton.Instance.SoundManager.CreateSound().WithSoundData(SoundEffect.COLLECT_REWARD).Play();
+        GameSingleton.Instance.MusicManager.PlayBackgroundMusic(BackgroundMusic.MAIN_GAME);
 
-        RewardMoney.Play();
         _game.Score += (_game.ScoreIncrease * _game.Clicks * (10 + 3 * Level));
         _game.Clicks = 0;
 
         starsPanel.HidePanel();
-        //dropMoneyPanelAnimator.SetTrigger("close");
-
         dropMoneyPanel.HidePanel();
-    
     }
 }

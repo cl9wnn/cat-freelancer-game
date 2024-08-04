@@ -98,6 +98,11 @@ public class DropMoneyPanel : MonoBehaviour
         getReadyTimer.CountdownDuration = 3f;
 
         yield return new WaitForSeconds(2f);
+
+        GameSingleton.Instance.SoundManager.CreateSound()
+                                           .WithSoundData(SoundEffect.COUNTDOWN)
+                                           .Play();
+
         yield return getReadyTimer.StartCountdown();
 
         levelText.gameObject.SetActive(false);

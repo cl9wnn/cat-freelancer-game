@@ -5,14 +5,13 @@ using UnityEngine.UI;
 using System.IO;
 using Unity.Mathematics;
 using YG;
+using UnityEngine.Audio;
 
 public class Plot : MonoBehaviour
-
 {
     public bool[] isEventDone;
     public bool isStart;
     public bool isEnd;
-    public GameObject startImg;
     public Text[] FurtherText;
     public Text[] eventText;
     public Text[] rewardText;
@@ -24,8 +23,7 @@ public class Plot : MonoBehaviour
     public float[] scoreCoefficent;
     public int total;
     public float moneyReward;
-    public AudioSource GetMoney;
-    public AudioSource ThrowEvent;
+
     private float delay = 6;
     public GameObject fingerImg;
     public int Total
@@ -110,9 +108,6 @@ public class Plot : MonoBehaviour
     {
         StartGameEvent();
     }
-    void Update()
-    {
-    }
     public void ChangeLanguage()
     {
         for (int i = 0; i < FurtherText.Length; i++)
@@ -130,15 +125,19 @@ public class Plot : MonoBehaviour
     }
     void StartGameEvent()
     {
-        if (isStart == false)
-        {
-            startImg.SetActive(true);
-        }
+        if (!isStart)
+            GameSingleton.Instance.MusicManager.PlayBackgroundMusic(BackgroundMusic.LOADING_MENU);
+        else 
+            GameSingleton.Instance.MusicManager.PlayBackgroundMusic(BackgroundMusic.MAIN_GAME);
     }
     public void StartGame()
     {
-        _settings.audioSourceMusic.Play();
-        startImg.SetActive(false);
+        GameSingleton.Instance.SoundManager.CreateSound()
+                                           .WithSoundData(SoundEffect.CLICK_START_BUTTON)
+                                           .Play();
+
+        GameSingleton.Instance.MusicManager.PlayBackgroundMusic(BackgroundMusic.MAIN_GAME);
+
         isStart = true;
         Vector2 spawnPosition = new Vector2(-1.8f, 2.05f);
         Instantiate(fingerImg, spawnPosition, Quaternion.identity);
@@ -150,7 +149,10 @@ public class Plot : MonoBehaviour
     }
     public void PlotEvent(int index)
     {
-        ThrowEvent.Play();
+        GameSingleton.Instance.SoundManager.CreateSound()
+                                           .WithSoundData(SoundEffect.EVENT_NOTIFICATION)
+                                           .Play();
+
         eventPanels[index].ShowPanel();
         eventText[index].text = LanguageSystem.lng.events[index];
         rewardText[index].text = plusminusString[index] + StringMethods.FormatMoney(CounterMoney(index));
@@ -163,7 +165,10 @@ public class Plot : MonoBehaviour
         isEventDone[index] = true;
         if (index == 0 || index == 4) _game.Score += moneyReward;
         else _game.Score -= moneyReward;
-        GetMoney.Play();
+
+        GameSingleton.Instance.SoundManager.CreateSound()
+                                           .WithSoundData(SoundEffect.COLLECT_REWARD)
+                                           .Play();
     }
     public float CounterMoney(int index)
     {

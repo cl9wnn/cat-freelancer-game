@@ -71,11 +71,11 @@ public class NavigationBar : MonoBehaviour
 
     private void ToggleMainButton()
     {
-        _mainCenterButton.IsActive = !_mainCenterButton.IsActive;
-        if (_mainCenterButton.IsActive)
+        if (!_mainCenterButton.IsActive)
         {
             CloseAllPanels();
         }
+        _mainCenterButton.IsActive = true;
     }
 
     private void TogglePanel(int index)

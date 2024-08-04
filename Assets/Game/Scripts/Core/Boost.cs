@@ -28,10 +28,6 @@ public class Boost : MonoBehaviour
     [SerializeField] private Sprite emptyBoostButtonSprite;
     [SerializeField] private Sprite fullBoostButtonSprite;
 
-    [Header("Audio")]
-    [SerializeField] private AudioSource coffeeDrinkAudio;
-    [SerializeField] private AudioSource backgroundAudio;
-
     private Settings _settings;
     private Fortune _fortune;
     private Achievements _achievements;
@@ -228,7 +224,6 @@ public class Boost : MonoBehaviour
         else
         {
             IsBoostActive = false;
-            _settings.audioSourceMusic.volume = 1f;
             _fortune.BoostText.gameObject.SetActive(false);
         }
     }
@@ -308,9 +303,8 @@ public class Boost : MonoBehaviour
 
     private void OnBoostActivated()
     {
-        _settings.audioSourceMusic.volume = 0f;
-        coffeeDrinkAudio.Play();
-        backgroundAudio.Play();
+        GameSingleton.Instance.SoundManager.CreateSound().WithSoundData(SoundEffect.DRINK_COFFEE).Play();
+        GameSingleton.Instance.MusicManager.PlayBackgroundMusic(BackgroundMusic.BOOST_MODE);
         CoffeeCount++;
 
         BoostActivated?.Invoke();
@@ -318,6 +312,8 @@ public class Boost : MonoBehaviour
 
     private void OnBoostDeactivated()
     {
+        GameSingleton.Instance.MusicManager.PlayBackgroundMusic(BackgroundMusic.MAIN_GAME);
+
         BoostDeactivated?.Invoke();
     }
 
