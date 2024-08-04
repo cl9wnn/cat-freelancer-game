@@ -24,7 +24,6 @@ public class Plot : MonoBehaviour
     public int total;
     public float moneyReward;
 
-    private float delay = 6;
     public GameObject fingerImg;
     public int Total
     {
@@ -63,12 +62,10 @@ public class Plot : MonoBehaviour
     }
 
     private Game _game;
-    private Settings _settings;
 
     public void Awake()
     {
         _game = GameSingleton.Instance.Game;
-        _settings = GameSingleton.Instance.Settings;
 
         if (YandexGame.SDKEnabled)
             Load();

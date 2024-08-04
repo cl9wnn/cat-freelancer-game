@@ -61,8 +61,6 @@ public class VolumeSettings : MonoBehaviour
 
     public void SetVolume(float value)
     {
-        _switchButtonImage.sprite = value > 0.01f ? _onSprite : _offSprite;
-
         _mixer.SetFloat(MIXER_VOLUME, Mathf.Log10(value) * 20);
 
         YandexGame.savesData.volumeData = new VolumeData(value);        

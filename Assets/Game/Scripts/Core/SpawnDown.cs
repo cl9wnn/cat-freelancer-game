@@ -197,7 +197,7 @@ public class SpawnDown : MonoBehaviour
             yield break;
         }
 
-        float coinSpeed = 1.1f + (Level * 0.4f);
+        float coinSpeed = 1.1f + (Level * 0.5f);
 
         FallingCoin newCoin = null;
 

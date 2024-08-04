@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using YG;
 using DG.Tweening;
 using UnityEngine.Events;
+using System.Globalization;
 
 public class Boost : MonoBehaviour
 {
@@ -15,10 +16,13 @@ public class Boost : MonoBehaviour
     [SerializeField] private Button boostButton;
     [SerializeField] private Button enableButton;
     [SerializeField] private Text boostText;
+    [SerializeField] private Text boostCountdownText;
     [SerializeField] private Text infoText;
     [SerializeField] private Text enableText;
     [SerializeField] private Text watchAdText;
     [SerializeField] private Text warningText;
+    [SerializeField] private Text availbableCoffeeCountText;
+    [SerializeField] private Image availableCoffeeCountImage;
     [SerializeField] private BounceAnimation coffeeAnimation;
 
     [Header("AD")]
@@ -28,13 +32,12 @@ public class Boost : MonoBehaviour
     [SerializeField] private Sprite emptyBoostButtonSprite;
     [SerializeField] private Sprite fullBoostButtonSprite;
 
-    private Settings _settings;
-    private Fortune _fortune;
     private Achievements _achievements;
 
     private bool isBoostActive;
     private bool canWatchAd;
-    private int coffeeCount;
+    private int totalCoffeeConsumed;
+    private int availableCoffee;
 
     public event Action BoostActivated;
     public event Action BoostDeactivated;
@@ -74,24 +77,28 @@ public class Boost : MonoBehaviour
         }
     }
 
-    public int CoffeeCount
+    public int TotalCoffeeConsumed
     {
-        get => coffeeCount;
+        get => totalCoffeeConsumed;
         set
         {
-            coffeeCount = value;
-            UpdateCoffeeCountUI();
+            totalCoffeeConsumed = value;
             CheckAchievements();
         }
     }
 
-    public Button BoostButton => boostButton;
-    public Text BoostText => boostText;
+    public int AvailableCoffee
+    {
+        get => availableCoffee;
+        set
+        {
+            availableCoffee = value;
+            UpdateAvailableCoffeeUI();
+        }
+    }
 
     private void Awake()
     {
-        _settings = GameSingleton.Instance.Settings;
-        _fortune = GameSingleton.Instance.Fortune;
         _achievements = GameSingleton.Instance.Achievements;
 
         if (YandexGame.SDKEnabled)
@@ -114,18 +121,22 @@ public class Boost : MonoBehaviour
 
     private void Save()
     {
-        YandexGame.savesData.boostData = new BoostData(cooldownDuration, boostDuration, IsBoostActive, CanWatchAd, CoffeeCount);
+        YandexGame.savesData.boostData = new BoostData(cooldownDuration, boostDuration, IsBoostActive, CanWatchAd, TotalCoffeeConsumed, AvailableCoffee);
     }
 
     private void Load()
     {
         var data = YandexGame.savesData.boostData;
 
-        if (data == null) return;
-
+        if (data == null)
+        {
+            AddCoffee(1);
+            return;
+        }
         cooldownDuration = data.cooldownDuration;
         boostDuration = data.boostDuration;
-        CoffeeCount = data.coffeeCount;
+        TotalCoffeeConsumed = data.totalCoffeeConsumed;
+        AvailableCoffee = data.availableCoffee;
         IsBoostActive = data.isBoostActive;
         CanWatchAd = data.canWatchAd;
 
@@ -142,8 +153,15 @@ public class Boost : MonoBehaviour
         {
             coffeeAnimation.StartAnimation();
         }
+
         UpdateButtonState();
         UpdateBoostStatus();
+        UpdateAvailableCoffeeUI();
+    }
+    [ContextMenu("Add")]
+    public void Add()
+    {
+        AddCoffee(1);
     }
     private void UpdateButtonState()
     {
@@ -189,10 +207,10 @@ public class Boost : MonoBehaviour
 
     private void ActivateBoost()
     {
-        if (!CanWatchAd)
+        if (AvailableCoffee > 0 && !CanWatchAd)
         {
             IsBoostActive = true;
-            
+            AvailableCoffee--;
         }
     }
 
@@ -219,12 +237,19 @@ public class Boost : MonoBehaviour
         {
             boostDuration -= Time.fixedDeltaTime;
             boostButton.interactable = false;
-            UpdateBoostText(boostDuration.ToString("0.0") + LanguageSystem.lng.time[3]);
+            UpdateBoostText(boostDuration.ToString("F2", CultureInfo.InvariantCulture) + LanguageSystem.lng.time[3]);
         }
         else
         {
             IsBoostActive = false;
-            _fortune.BoostText.gameObject.SetActive(false);
+
+            if (AvailableCoffee > 0)
+            {
+                cooldownDuration = 0;
+                HandleCooldownEnd();
+            }
+
+            UpdateAvailableCoffeeUI();
         }
     }
 
@@ -243,6 +268,7 @@ public class Boost : MonoBehaviour
         if (cooldownDuration <= 0)
         {
             HandleCooldownEnd();
+            AddCoffee(1);
         }
     }
 
@@ -273,17 +299,16 @@ public class Boost : MonoBehaviour
     private void UpdateBoostText(string text)
     {
         boostText.text = text;
-        _fortune.BoostText.gameObject.SetActive(IsBoostActive);
-        _fortune.BoostText.text = text;
+        boostCountdownText.text = text;
     }
 
-    private void UpdateCoffeeCountUI()
+    private void CheckAchievements()
     {
-        if (CoffeeCount < 3)
+        if (TotalCoffeeConsumed < 3)
         {
-            _achievements.resultTexts[7].text = CoffeeCount.ToString() + "/3";
+            _achievements.resultTexts[7].text = TotalCoffeeConsumed.ToString() + "/3";
         }
-        else if (CoffeeCount == 3 && !_achievements.isAchievementDone[7])
+        else if (TotalCoffeeConsumed == 3 && !_achievements.isAchievementDone[7])
         {
             _achievements.CompleteAchievement(7);
         }
@@ -293,19 +318,17 @@ public class Boost : MonoBehaviour
         }
     }
 
-    private void CheckAchievements()
+    private void UpdateAvailableCoffeeUI()
     {
-        if (CoffeeCount == 3 && !_achievements.isAchievementDone[7])
-        {
-            _achievements.CompleteAchievement(7);
-        }
+        availableCoffeeCountImage.gameObject.SetActive(AvailableCoffee > 1 && !IsBoostActive);
+        availbableCoffeeCountText.text = AvailableCoffee.ToString();
     }
 
     private void OnBoostActivated()
     {
         GameSingleton.Instance.SoundManager.CreateSound().WithSoundData(SoundEffect.DRINK_COFFEE).Play();
         GameSingleton.Instance.MusicManager.PlayBackgroundMusic(BackgroundMusic.BOOST_MODE);
-        CoffeeCount++;
+        TotalCoffeeConsumed++;
 
         BoostActivated?.Invoke();
     }
@@ -317,15 +340,6 @@ public class Boost : MonoBehaviour
         BoostDeactivated?.Invoke();
     }
 
-    public void UnlockBooster()
-    {
-        if (cooldownDuration > 0)
-        {
-            cooldownDuration = 0; 
-            UpdateCooldownStatus(); 
-        }
-    }
-
     public void ChangeLanguage()
     {
         infoText.text = LanguageSystem.lng.boostt[0];
@@ -334,5 +348,26 @@ public class Boost : MonoBehaviour
         warningText.text = LanguageSystem.lng.boostt[5];
         
         UpdateBoostText(LanguageSystem.lng.time[4]);
+    }
+
+    public void AddCoffee(int amount)
+    {
+        AvailableCoffee += amount;
+        if (AvailableCoffee == amount)
+        {
+            if (cooldownDuration > 0)
+            {
+                cooldownDuration = 0;
+                HandleCooldownEnd();
+            }
+
+            UpdateUI();
+        }
+    }
+
+    private void UpdateUI()
+    {
+        UpdateAvailableCoffeeUI();
+        UpdateButtonState();
     }
 }

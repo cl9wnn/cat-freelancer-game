@@ -77,9 +77,7 @@ public class Game : MonoBehaviour
     public ParticleSystem firePointer;
 
     private Achievements _achievements;
-    private LanguageSystem _languageSystem;
     private SpawnDown _spawnDown;
-    private Fortune _fortune;
     private Boost _boost;
     private Plot _plot;
 
@@ -128,9 +126,6 @@ public class Game : MonoBehaviour
         _spawnDown.progressSlider.value = colClicks;
     }
 
-
-    private bool isFinalEventCalled = false; //для вызова метода FinalEvent
-
     public float _score; //private
     public float Score
     {
@@ -178,7 +173,6 @@ public class Game : MonoBehaviour
         }
     } // TODO: remove
 
-    private float scrCoins;
     private float crrntCost;
     public float scoreIncrease = 1;
 
@@ -210,9 +204,7 @@ public class Game : MonoBehaviour
     private void Awake()
     {
         _achievements = GameSingleton.Instance.Achievements;
-        _languageSystem = GameSingleton.Instance.LanguageSystem;
         _spawnDown = GameSingleton.Instance.SpawnDown;
-        _fortune = GameSingleton.Instance.Fortune;
         _boost = GameSingleton.Instance.Boost;
         _plot = GameSingleton.Instance.Plot;
 
@@ -232,7 +224,7 @@ public class Game : MonoBehaviour
 
     private void Save()
     {
-        YandexGame.savesData.gameData = new GameData(Score, scrCoins, shopItems, ScoreIncrease, offlineTime, TotalClick, colClicks, Clicks, maxResult, offlineBonus);
+        YandexGame.savesData.gameData = new GameData(Score, shopItems, ScoreIncrease, offlineTime, TotalClick, colClicks, Clicks, maxResult, offlineBonus);
         YandexGame.NewLeaderboardScores("leaderboard", (int)Score);
     }
     private void Load()
@@ -242,7 +234,6 @@ public class Game : MonoBehaviour
         if (data == null) return;
 
         Score = data.score;
-        scrCoins = data.scrCoins;
         shopItems = data.shopItems;
         ScoreIncrease = data.scoreIncrease;
         date = data.date;
@@ -481,11 +472,11 @@ public class Game : MonoBehaviour
 
     void MoneyScore()
     {
-        scrCoins = Score;
+        var moneyText = StringMethods.FormatMoney(Score);
+
         for (int i = 0; i < 5; i++)
         {
-            scoreText[i].text = scrCoins.ToString("0");
-            scoreText[i].text = StringMethods.FormatMoney(Score);
+            scoreText[i].text = moneyText;
         }
     }
 
@@ -509,10 +500,12 @@ public class Game : MonoBehaviour
 
     public void UpdateCosts()
     {
+        var costText = StringMethods.FormatMoney(crrntCost);
+
         for (int i = 0; i < shopItems.Count; i++)
         {
             crrntCost = shopItems[i].cost;
-            shopItemsText[i].text = StringMethods.FormatMoney(crrntCost);
+            shopItemsText[i].text = costText;
         }
     }
     IEnumerator BonusPerSec()
@@ -550,19 +543,13 @@ public class Game : MonoBehaviour
         TotalClick++;
         _plot.Total++; //счётчик для событий в Plot
         ColClicks++;
-        if (_boost.IsBoostActive == false && _fortune.IsCoffeeRewarded == false)
-        {
-            Score += ScoreIncrease;
-        }
-        if (_boost.IsBoostActive == true)
+        if (_boost.IsBoostActive)
         {
             Instantiate(moneyPref, new Vector2(UnityEngine.Random.Range(-2.5f, 2.5f), 5.4f), Quaternion.identity, moneyPopupCanvas.transform);
             Score += ScoreIncrease * 3; // когда работает буст, умножаем доход на 3
         }
-        if (_fortune.IsCoffeeRewarded == true)
-        {
-            Score += ScoreIncrease * 3; // когда работает буст, умножаем доход на 3
-        }
+        else
+            Score += ScoreIncrease;
     }
 
     [Serializable]

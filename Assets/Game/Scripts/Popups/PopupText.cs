@@ -58,7 +58,7 @@ public class PopupText : MonoBehaviour
     {
         RectTransformUtility.ScreenPointToLocalPointInRectangle(_canvas.transform as RectTransform, Input.mousePosition, _canvas.worldCamera, out Vector2 point);
 
-        var hasBoosted = GameSingleton.Instance.Fortune.IsCoffeeRewarded || GameSingleton.Instance.Boost.IsBoostActive;
+        var hasBoosted = GameSingleton.Instance.Boost.IsBoostActive;
 
         var text = "+" + StringMethods.FormatMoney(GameSingleton.Instance.Game.ScoreIncrease * (hasBoosted ? 3 : 1));
 

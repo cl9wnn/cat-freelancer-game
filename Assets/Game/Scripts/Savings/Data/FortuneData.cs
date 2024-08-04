@@ -3,11 +3,10 @@
 [Serializable]
 public class FortuneData
 {
-    public FortuneData(float LongTimer, bool CanAd, bool Doo, float Timer)
+    public FortuneData(float LongTimer, bool CanAd, float Timer)
     {
         remainingCooldownTime = LongTimer;
         isAdAvailable = CanAd;
-        isCoffeeRewarded = Doo;
         remainingRewardTime = Timer;
         saveDate = DateTime.UtcNow;
 
@@ -16,6 +15,5 @@ public class FortuneData
     public float remainingCooldownTime;
     public float remainingRewardTime;
     public bool isAdAvailable;
-    public bool isCoffeeRewarded;
     public DateTime saveDate = new DateTime();
 }

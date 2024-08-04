@@ -13,7 +13,6 @@ public class Timer : MonoBehaviour
     
     private Game _game;
     private Boost _boost;
-    private Fortune _fortune;
     private Achievements _achievements;
 
     private float mouseClicks = 0;
@@ -23,7 +22,6 @@ public class Timer : MonoBehaviour
     {
         _game = GameSingleton.Instance.Game;
         _boost = GameSingleton.Instance.Boost;
-        _fortune = GameSingleton.Instance.Fortune;  
         _achievements = GameSingleton.Instance.Achievements;
 
         if (YandexGame.SDKEnabled)
@@ -76,8 +74,6 @@ public class Timer : MonoBehaviour
 
     void Start()
     {
-
-
         clickPerSec.text = StringMethods.FormatMoney(MouseClicks * _game.ScoreIncrease + _game.PassiveBonusPerSec) + LanguageSystem.lng.time[1];
     }
     public void ChangeLanguage()
@@ -92,7 +88,7 @@ public class Timer : MonoBehaviour
         {
             clickPerSec.text = StringMethods.FormatMoney(MouseClicks * _game.ScoreIncrease + _game.PassiveBonusPerSec) + LanguageSystem.lng.time[1];
 
-            if (_boost.IsBoostActive == true || _fortune.IsCoffeeRewarded == true)
+            if (_boost.IsBoostActive)
             {
                 clickPerSec.text = StringMethods.FormatMoney(MouseClicks * _game.ScoreIncrease * 3 + _game.PassiveBonusPerSec) + LanguageSystem.lng.time[1]; //на время, когда работает буст
             }

@@ -4,7 +4,7 @@ using UnityEngine;
 public class MusicManager : MonoBehaviour
 {
     [SerializeField] private SourceAudio _sourceAudio;
-    [SerializeField] private MusicsSO _music;
+    [SerializeField] private MusicsSO _musicsDatabase;
 
     public void PlayBackgroundMusic(BackgroundMusic backgroundMusic)
     {
@@ -17,7 +17,7 @@ public class MusicManager : MonoBehaviour
         _sourceAudio.Mute = music.mute;
 
         _sourceAudio.RolloffMode = music.rolloffMode;
-        _sourceAudio.AudioMixerGroup = music.mixerGroup;
+        _sourceAudio.OutputAudioMixerGroup = music.mixerGroup;
         
         music.snapshot.TransitionTo(0.5f);
 
@@ -26,6 +26,6 @@ public class MusicManager : MonoBehaviour
 
     public MusicData GetFromDatabase(BackgroundMusic backgroundMusic)
     {
-        return _music.musics.Find(s => s.type == backgroundMusic);
+        return _musicsDatabase.musics.Find(s => s.type == backgroundMusic);
     }
 }

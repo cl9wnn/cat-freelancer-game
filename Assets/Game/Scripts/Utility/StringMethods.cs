@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using UnityEngine;
 
 public class StringMethods
@@ -8,7 +9,7 @@ public class StringMethods
     {
         if (amount < 1000)
         {
-            return amount.ToString("0.##");
+            return amount.ToString();
         }
 
         string[] suffixes = { "", "K", "M", "B", "T", "Qa", "Qi", "Sx", "Sp", "Oc", "No", "Dc" };
@@ -20,6 +21,6 @@ public class StringMethods
             suffixIndex++;
         }
 
-        return amount.ToString("0.##") + suffixes[suffixIndex];
+        return amount.ToString("F2", CultureInfo.InvariantCulture) + suffixes[suffixIndex];
     }
 }

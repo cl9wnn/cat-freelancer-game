@@ -11,11 +11,12 @@ public class SoundData
 
     public AudioMixerGroup mixerGroup;
 
-    public bool loop;
-    public bool playOnAwake;
-    public bool frequentSound;
+    [Range(0f, 1f)] public float volume;
+    [Range(0f, 3f)] public float pitch;
 
+    public bool loop;
     public bool mute;
+    public bool frequentSound;
 
     public AudioRolloffMode rolloffMode = AudioRolloffMode.Logarithmic;
 }

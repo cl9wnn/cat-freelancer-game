@@ -27,7 +27,7 @@ namespace Plugins.Audio.Core
             set => _audioSource.pitch = value;
         }
         
-        public AudioMixerGroup AudioMixerGroup
+        public AudioMixerGroup OutputAudioMixerGroup
         {
             get => _audioSource.outputAudioMixerGroup;
             set => _audioSource.outputAudioMixerGroup = value;
@@ -38,6 +38,8 @@ namespace Plugins.Audio.Core
             get => _audioSource.rolloffMode;
             set => _audioSource.rolloffMode = value;
         }
+
+        public bool IsPlaying => _audioSource.isPlaying;
 
         private AudioSource _audioSource
         {

@@ -3,12 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
 [RequireComponent(typeof(SourceAudio))]
 public class SoundEmitter : MonoBehaviour
 {
-    private AudioSource _audioSource;
-    private SourceAudio _source;
+    private SourceAudio _sourceAudio;
     
     private Coroutine _playingCoroutine;
 
@@ -17,20 +15,21 @@ public class SoundEmitter : MonoBehaviour
 
     private void Awake()
     {
-        _audioSource = gameObject.GetComponent<AudioSource>();
-        _source = gameObject.GetComponent<SourceAudio>();
+        _sourceAudio = gameObject.GetComponent<SourceAudio>();
     }
 
     public void Initialize(SoundData data)
     {
         Data = data;
-        _audioSource.outputAudioMixerGroup = data.mixerGroup;
-        _audioSource.loop = data.loop;
-        _audioSource.playOnAwake = data.playOnAwake;
-        
-        _audioSource.mute = data.mute;
-        
-        _audioSource.rolloffMode = data.rolloffMode;
+
+        _sourceAudio.Volume = data.volume;
+        _sourceAudio.Pitch = data.pitch;
+
+        _sourceAudio.Loop = data.loop;
+        _sourceAudio.Mute = data.mute;
+
+        _sourceAudio.RolloffMode = data.rolloffMode;
+        _sourceAudio.OutputAudioMixerGroup = data.mixerGroup;
     }
 
     public void Play()
@@ -40,14 +39,14 @@ public class SoundEmitter : MonoBehaviour
             StopCoroutine(_playingCoroutine);
         }
 
-        _source.Play(Data.clip.Key);
+        _sourceAudio.Play(Data.clip.Key);
         _playingCoroutine = StartCoroutine(WaitForSoundEnd());
     }
 
     private IEnumerator WaitForSoundEnd()
     {
-        yield return new WaitWhile(() => !_audioSource.isPlaying);
-        yield return new WaitWhile(() => _audioSource.isPlaying);
+        yield return new WaitWhile(() => !_sourceAudio.IsPlaying);
+        yield return new WaitWhile(() => _sourceAudio.IsPlaying);
         GameSingleton.Instance.SoundManager.ReturnToPool(this);
     }
 
@@ -59,12 +58,12 @@ public class SoundEmitter : MonoBehaviour
             _playingCoroutine = null;
         }
 
-        _source.Stop();
+        _sourceAudio.Stop();
         GameSingleton.Instance.SoundManager.ReturnToPool(this);
     }
 
     public void WithRandomPitch(float min = -0.05f, float max = 0.05f)
     {
-        _audioSource.pitch += Random.Range(min, max);
+        _sourceAudio.Pitch += Random.Range(min, max);
     }
 }

@@ -15,6 +15,8 @@ public class BoostAnimation : MonoBehaviour
     [SerializeField] private float maxScale = 20f;
     [SerializeField] private float _x3ScaleDuration;
 
+    [SerializeField] private Text _boostCountdownText;
+
     private Sequence _colorSequence;
     private Tween _scaleTween;
 
@@ -39,6 +41,7 @@ public class BoostAnimation : MonoBehaviour
 
         _backgroundImage.gameObject.SetActive(true);
         _x3BoostRect.gameObject.SetActive(true);
+        _boostCountdownText.gameObject.SetActive(true);
 
         StartColorAnimation();
         StartScaleAnimation();
@@ -49,6 +52,7 @@ public class BoostAnimation : MonoBehaviour
 
         _backgroundImage.gameObject.SetActive(false);
         _x3BoostRect.gameObject.SetActive(false);
+        _boostCountdownText.gameObject.SetActive(false);
     }
 
     private void StopAllAnimations()

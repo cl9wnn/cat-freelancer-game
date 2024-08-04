@@ -15,7 +15,6 @@ public class Fortune : MonoBehaviour
     [SerializeField] private Button spinButton;
     [SerializeField] private GameObject adButton;
     [SerializeField] private Text winText;
-    [SerializeField] private Text boostText;
     [SerializeField] private Text waitText;
     [SerializeField] private Sprite buttonReadySprite;
     [SerializeField] private Sprite buttonLockedSprite;
@@ -23,12 +22,10 @@ public class Fortune : MonoBehaviour
     [SerializeField] private Image alertImage;
 
     private Game _game;
-    private Boost _boost;
     private Achievements _achievements;
     
     private bool isSpinning;
     private bool isAdAvailable;
-    private bool isCoffeeRewarded;
     private float remainingCooldownTime;
     private float remainingRewardTime;
     private float[] sectorAngles;
@@ -39,13 +36,9 @@ public class Fortune : MonoBehaviour
     public event Action WheelStartedSpinning;
     public event Action WheelStoppedSpinning;
 
-    public Text BoostText => boostText;
-    public bool IsCoffeeRewarded => isCoffeeRewarded;
-
     private void Awake()
     {
         _game = GameSingleton.Instance.Game;
-        _boost = GameSingleton.Instance.Boost;
         _achievements = GameSingleton.Instance.Achievements;
 
         if (YandexGame.SDKEnabled)
@@ -68,7 +61,7 @@ public class Fortune : MonoBehaviour
 
     private void Save()
     {
-        YandexGame.savesData.fortuneData = new FortuneData(remainingCooldownTime, isAdAvailable, isCoffeeRewarded, remainingRewardTime);
+        YandexGame.savesData.fortuneData = new FortuneData(remainingCooldownTime, isAdAvailable, remainingRewardTime);
     }
 
     private void Load()
@@ -79,7 +72,6 @@ public class Fortune : MonoBehaviour
 
         remainingCooldownTime = data.remainingCooldownTime;
         isAdAvailable = data.isAdAvailable;
-        isCoffeeRewarded = data.isCoffeeRewarded;
         remainingRewardTime = data.remainingRewardTime;
         TimeSpan elapsed = DateTime.UtcNow - data.saveDate;
         remainingCooldownTime -= (int)elapsed.TotalSeconds;
@@ -106,7 +98,6 @@ public class Fortune : MonoBehaviour
         else
         {
             HandleCooldown();
-            HandleReward();
         }
     }
 
@@ -193,8 +184,9 @@ public class Fortune : MonoBehaviour
                 AwardMoney(1800, moneyMultiplier);
                 break;
             case 45:
-                isCoffeeRewarded = true;
                 winText.text = LanguageSystem.lng.fortune[3];
+
+                GameSingleton.Instance.Boost.AddCoffee(amount: 1);
 
                 GameSingleton.Instance.SoundManager.CreateSound()
                                                    .WithSoundData(SoundEffect.WIN_SOUND_2)
@@ -251,33 +243,6 @@ public class Fortune : MonoBehaviour
         isAdAvailable = false;
     }
 
-    private void HandleReward()
-    {
-        if (isCoffeeRewarded)
-        {
-            _boost.BoostButton.interactable = false;
-            if (remainingRewardTime > 0)
-            {
-                remainingRewardTime -= Time.fixedDeltaTime;
-                boostText.gameObject.SetActive(true);
-                boostText.text = remainingRewardTime.ToString("0.0") + LanguageSystem.lng.time[3];
-            }
-            else
-            {
-                ResetReward();
-            }
-        }
-    }
-
-    private void ResetReward()
-    {
-        isCoffeeRewarded = false;
-        boostText.gameObject.SetActive(false);
-        _boost.BoostButton.interactable = true;
-        _boost.BoostText.text = LanguageSystem.lng.time[4];
-        remainingRewardTime = rewardTimer;
-    }
-
     private string FormatTime(float time)
     {
         if (time <= 3600)
@@ -303,7 +268,6 @@ public class Fortune : MonoBehaviour
         remainingCooldownTime = 0f;
         remainingRewardTime = 0f;
 
-        isCoffeeRewarded = false;
         isAdAvailable = false;
 
         UpdateUIForUnlockedBooster();
@@ -316,12 +280,6 @@ public class Fortune : MonoBehaviour
         spinButton.interactable = true;
         waitText.text = LanguageSystem.lng.time[4];
         adButton.SetActive(isAdAvailable);
-
-        if (_boost != null)
-        {
-            _boost.BoostButton.interactable = true;
-            _boost.BoostText.text = LanguageSystem.lng.time[4];
-        }
 
         if (circle != null)
         {
