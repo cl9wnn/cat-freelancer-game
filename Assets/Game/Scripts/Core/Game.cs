@@ -233,6 +233,7 @@ public class Game : MonoBehaviour
     private void Save()
     {
         YandexGame.savesData.gameData = new GameData(Score, scrCoins, shopItems, ScoreIncrease, offlineTime, TotalClick, colClicks, Clicks, maxResult, offlineBonus);
+        YandexGame.NewLeaderboardScores("leaderboard", (int)Score);
     }
     private void Load()
     {
