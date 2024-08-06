@@ -189,6 +189,7 @@ public class Boost : MonoBehaviour
 
     private void SetAdMode()
     {
+        infoText.text = LanguageSystem.lng.boostt[4];
         adAction = () => YandexGame.RewVideoShow(1);
         enableButton.onClick.AddListener(adAction);
 
@@ -198,6 +199,7 @@ public class Boost : MonoBehaviour
 
     private void SetBoostMode()
     {
+        infoText.text = LanguageSystem.lng.boostt[0];
         boostAction = ActivateBoost;
         enableButton.onClick.AddListener(boostAction);
 
@@ -237,7 +239,7 @@ public class Boost : MonoBehaviour
         {
             boostDuration -= Time.fixedDeltaTime;
             boostButton.interactable = false;
-            UpdateBoostText(boostDuration.ToString("F2", CultureInfo.InvariantCulture) + LanguageSystem.lng.time[3]);
+            UpdateBoostText(boostDuration.ToString("0.0") + LanguageSystem.lng.time[3]);
         }
         else
         {

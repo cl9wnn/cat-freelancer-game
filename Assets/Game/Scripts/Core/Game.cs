@@ -274,33 +274,25 @@ public class Game : MonoBehaviour
         if (totalSeconds >= offlineTime)
         {
             offlineBonus += (offlineTime * totalBonusPS);
-            if (offlineBonus <= 0.01f) return;
-
-            GameSingleton.Instance.SoundManager.CreateSound().WithSoundData(SoundEffect.DROP_DAILY_REWARD_PANEL).Play();
-
-            offlineEarningPanel.ShowPanel();
-            
+            if (offlineBonus <= 0.01f) return;  
         }
-        else if (totalSeconds > 45)
+        else if (totalSeconds > 30)
         {
             offlineBonus += ((int)ts.TotalSeconds * totalBonusPS);
             if (offlineBonus <= 0.01f) return;
-
-            GameSingleton.Instance.SoundManager.CreateSound().WithSoundData(SoundEffect.DROP_DAILY_REWARD_PANEL).Play();
-
-            offlineEarningPanel.ShowPanel();
         }
-        DohodOfflineText.text = StringMethods.FormatMoney(offlineBonus);
-    }
 
+    }
 
     private void Start()
     {
-        Debug.Log(Application.persistentDataPath);
 
-        if (offlineBonus > 0.01f)
+        if (offlineBonus > 0.01f) 
         {
+            GameSingleton.Instance.SoundManager.CreateSound().WithSoundData(SoundEffect.DROP_DAILY_REWARD_PANEL).Play();
+            DohodOfflineText.text = StringMethods.FormatMoney(offlineBonus);
             offlineEarningPanel.ShowPanel();
+
         }
 
         UpdateCosts();
@@ -498,14 +490,12 @@ public class Game : MonoBehaviour
         UpdateCosts();
     }
 
-    public void UpdateCosts()
+   public void UpdateCosts()
     {
-        var costText = StringMethods.FormatMoney(crrntCost);
-
         for (int i = 0; i < shopItems.Count; i++)
         {
             crrntCost = shopItems[i].cost;
-            shopItemsText[i].text = costText;
+            shopItemsText[i].text = StringMethods.FormatMoney(crrntCost);
         }
     }
     IEnumerator BonusPerSec()

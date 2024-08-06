@@ -21,6 +21,7 @@ public class StringMethods
             suffixIndex++;
         }
 
-        return amount.ToString("F2", CultureInfo.InvariantCulture) + suffixes[suffixIndex];
+        return amount.ToString("0.##") + suffixes[suffixIndex];
     }
 }
+
