@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class NavigationBar : MonoBehaviour
@@ -7,7 +8,7 @@ public class NavigationBar : MonoBehaviour
     [SerializeField] private NavigationButton _mainCenterButton;
 
     [Header("Shop Navigation Buttons")]
-    [SerializeField] private NavigationButton[] _navigationButtons;
+    [SerializeField] private List<NavigationButton> _navigationButtons;
 
     [Header("Panels + DOTween")]
     [SerializeField] private RectTransform[] _panels;
@@ -20,6 +21,7 @@ public class NavigationBar : MonoBehaviour
         GameSingleton.Instance.Fortune.WheelStartedSpinning += DisableAllButtons;
         GameSingleton.Instance.Fortune.WheelStoppedSpinning += EnableAllButtons;
     }
+
     private void OnDisable()
     {
         GameSingleton.Instance.Fortune.WheelStartedSpinning -= DisableAllButtons;
@@ -33,12 +35,13 @@ public class NavigationBar : MonoBehaviour
 
         CloseAllPanels();
         EnableAllButtons();
+        
         _mainCenterButton.IsActive = true;
     }
 
     private void EnableAllButtons()
     {
-        _mainCenterButton.Button.interactable = true; 
+        _mainCenterButton.Button.interactable = true;
 
         foreach (var button in _navigationButtons)
         {
@@ -47,8 +50,8 @@ public class NavigationBar : MonoBehaviour
     }
     private void DisableAllButtons()
     {
-        _mainCenterButton.Button.interactable = false; 
-       
+        _mainCenterButton.Button.interactable = false;
+
         foreach (var button in _navigationButtons)
         {
             button.Button.interactable = false;
@@ -62,25 +65,25 @@ public class NavigationBar : MonoBehaviour
 
     private void InitializeNavigationButtons()
     {
-        for (int i = 0; i < _navigationButtons.Length; i++)
+        for (int i = 0; i < _navigationButtons.Count; i++)
         {
             int index = i;
             _navigationButtons[i].Button.onClick.AddListener(() => TogglePanel(index));
+
         }
     }
-
     private void ToggleMainButton()
     {
         if (!_mainCenterButton.IsActive)
         {
             CloseAllPanels();
+            _mainCenterButton.IsActive = true;
         }
-        _mainCenterButton.IsActive = true;
     }
 
     private void TogglePanel(int index)
     {
-        if (index < 0 || index >= _navigationButtons.Length)
+        if (index < 0 || index >= _navigationButtons.Count)
         {
             Debug.LogWarning("Invalid panel index");
             return;

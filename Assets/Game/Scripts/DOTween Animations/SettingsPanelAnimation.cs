@@ -17,18 +17,28 @@ public class SettingsPanelAnimation : MonoBehaviour
 
     [Header("Buttons")]
     [SerializeField] private Button _openButton;
-    [SerializeField] private Button _closeButton;
+    [SerializeField] private Button[] _closeButtons;
+
+    private Vector3 _initPosition;
 
     private void Awake()
     {       
+        _settingsPanel.gameObject.SetActive(false);
+
         HideSettingsPanel();
+
+        _openButton.enabled = true;
 
         _openButton.onClick.AddListener(ShowSettingsPanel);
         _openButton.onClick.AddListener(LeftRotateButton);
        
-        _closeButton.onClick.AddListener(HideSettingsPanel);
-        _closeButton.onClick.AddListener(RightRotateButton);
+        foreach (var button in _closeButtons)
+        {
+            button.onClick.AddListener(HideSettingsPanel);
+            button.onClick.AddListener(RightRotateButton);
+        }
 
+        _initPosition = _settingsPanel.position;
     }
 
     private void LeftRotateButton()
@@ -47,13 +57,39 @@ public class SettingsPanelAnimation : MonoBehaviour
     {
         _settingsPanel.DOKill();
         _settingsPanel.gameObject.SetActive(true);
-        _settingsPanel.DOAnchorPos(Vector3.zero, _transitionDuration).SetEase(Ease.OutQuad);
+
+        _settingsPanel.localScale = Vector3.zero;
+        _settingsPanel.position = _openButton.transform.position;
+
+        _openButton.enabled = false;
+
+        Vector3 targetScreenPosition = new Vector3(Screen.width / 3, Screen.height / 2, 0);
+
+        Vector3 targetWorldPosition = Camera.main.ScreenToWorldPoint(targetScreenPosition);
+        targetWorldPosition.z = _settingsPanel.position.z;
+
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(_settingsPanel.DOMove(targetWorldPosition, _transitionDuration).SetEase(Ease.OutBack));
+        sequence.Join(_settingsPanel.DOScale(Vector3.one, _transitionDuration).SetEase(Ease.OutBack));
+
+       // _settingsPanel.DOAnchorPos(Vector3.zero, _transitionDuration).SetEase(Ease.OutQuad);
     }
 
     private void HideSettingsPanel()
     {
-        _settingsPanel.DOAnchorPos(_hiddenPanelPosition, _transitionDuration)
-                     .SetEase(Ease.InQuad)
-                     .OnComplete(() => _settingsPanel.gameObject.SetActive(false));
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(_settingsPanel.DOScale(Vector3.zero, _transitionDuration).SetEase(Ease.InBack));
+        sequence.Join(_settingsPanel.DOMove(_openButton.transform.position, _transitionDuration).SetEase(Ease.InBack));
+        sequence.OnComplete(() =>
+        {
+            _settingsPanel.gameObject.SetActive(false);
+            _settingsPanel.position = _initPosition;
+
+            _openButton.enabled = true;
+        });
+
+        //_settingsPanel.DOAnchorPos(_hiddenPanelPosition, _transitionDuration)
+        //             .SetEase(Ease.InQuad)
+        //             .OnComplete(() => _settingsPanel.gameObject.SetActive(false));
     }
 }

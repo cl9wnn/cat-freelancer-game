@@ -1,5 +1,5 @@
 {
-  "idSave": 441,
+  "idSave": 450,
   "isFirstSession": false,
   "language": "en",
   "promptDone": false,
@@ -12,47 +12,47 @@
   ],
   "achievementsData": {
     "isAchievementDone": [
+      true,
+      true,
       false,
-      false,
-      false,
-      false,
+      true,
       false,
       false,
       false,
       false
     ],
-    "achievementsCount": 0
+    "achievementsCount": 3
   },
   "boostData": {
-    "totalCoffeeConsumed": 1,
+    "totalCoffeeConsumed": 0,
     "availableCoffee": 0,
-    "cooldownDuration": 7106.849,
-    "boostDuration": -0.000266730785,
-    "saveDate": "2024-08-07T11:23:48.0869441Z",
+    "cooldownDuration": 7200.0,
+    "boostDuration": 20.0,
+    "saveDate": "2024-08-07T23:43:45.9856442Z",
     "isBoostActive": false,
-    "canWatchAd": true
+    "canWatchAd": false
   },
   "fortuneData": {
-    "remainingCooldownTime": 0.0,
+    "remainingCooldownTime": -1633.0,
     "remainingRewardTime": 0.0,
     "isAdAvailable": false,
-    "saveDate": "2024-08-07T11:23:48.0869441Z"
+    "saveDate": "2024-08-07T23:43:45.9856442Z"
   },
   "gameData": {
-    "score": 53.0,
-    "scoreIncrease": 2.0,
-    "totalClick": 65,
+    "score": 84.0,
+    "scoreIncrease": 14.0,
+    "totalClick": 1949,
     "offlineTime": 7200.0,
     "shopItems": [
       {
         "name": "0cec",
-        "cost": 300.0,
+        "cost": 1012.0,
         "bonusIncrease": 0.0,
-        "levelOfItem": 0,
+        "levelOfItem": 3,
         "costMultiplier": 1.5,
         "itsItemPerSec": true,
         "bonusPerSec": 1.0,
-        "bonusCounter": 0,
+        "bonusCounter": 3,
         "itemIndex": 0
       },
       {
@@ -266,9 +266,9 @@
       },
       {
         "name": "1cl",
-        "cost": 143.0,
+        "cost": 110.0,
         "bonusIncrease": 1.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 0.0,
@@ -277,9 +277,9 @@
       },
       {
         "name": "2cl",
-        "cost": 550.0,
+        "cost": 715.0,
         "bonusIncrease": 3.0,
-        "levelOfItem": 0,
+        "levelOfItem": 1,
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 0.0,
@@ -288,9 +288,9 @@
       },
       {
         "name": "3cl",
-        "cost": 2100.0,
+        "cost": 2730.0,
         "bonusIncrease": 10.0,
-        "levelOfItem": 0,
+        "levelOfItem": 1,
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
@@ -485,21 +485,21 @@
         "itemIndex": 0
       }
     ],
-    "date": "2024-08-07T11:23:48.0869441Z",
-    "colClicks": 65,
-    "clicks": 0,
-    "maxResult": 0,
+    "date": "2024-08-07T23:43:45.9856442Z",
+    "colClicks": 448,
+    "clicks": 50,
+    "maxResult": 50,
     "OfflineBonus": 0.0
   },
   "plotData": {
     "isEventDone": [
-      false,
+      true,
       false,
       false,
       false,
       false
     ],
-    "total": 65,
+    "total": 1949,
     "isStart": true,
     "isEnd": false
   },
@@ -512,13 +512,13 @@
     "level": 0,
     "speed": 0.8,
     "spawnInterval": 0.5,
-    "isFirstLevel": true,
+    "isFirstLevel": false,
     "isLastLevel": true
   },
   "statsData": {
-    "totalPlayTime": 121.278519
+    "totalPlayTime": 323.657776
   },
   "timerData": {
-    "maxResult": 6.0
+    "maxResult": 45.0
   }
 }

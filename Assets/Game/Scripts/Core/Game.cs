@@ -464,7 +464,7 @@ public class Game : MonoBehaviour
 
     void MoneyScore()
     {
-        var moneyText = StringMethods.FormatMoney(Score);
+        var moneyText = StringMethods.FormatMoney(Score) + "<sprite=0>";
 
         for (int i = 0; i < 5; i++)
         {
@@ -535,7 +535,12 @@ public class Game : MonoBehaviour
         ColClicks++;
         if (_boost.IsBoostActive)
         {
-            Instantiate(moneyPref, new Vector2(UnityEngine.Random.Range(-2.5f, 2.5f), 5.4f), Quaternion.identity, moneyPopupCanvas.transform);
+            Vector3 targetScreenPosition = new Vector3(UnityEngine.Random.Range(Screen.width / 6, Screen.width / 2), Screen.height , 0);
+
+            Vector3 targetWorldPosition = Camera.main.ScreenToWorldPoint(targetScreenPosition);
+            targetWorldPosition.z = 0;
+
+            Instantiate(moneyPref, targetWorldPosition, Quaternion.identity, moneyPopupCanvas.transform);
             Score += ScoreIncrease * 3; // когда работает буст, умножаем доход на 3
         }
         else

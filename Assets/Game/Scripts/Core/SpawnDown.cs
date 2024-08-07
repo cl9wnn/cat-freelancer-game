@@ -203,7 +203,10 @@ public class SpawnDown : MonoBehaviour
 
         for (int i = 0; i < maxCoinCount; i++)
         {
-            Vector2 spawnPosition = new Vector2(Random.Range(-1.7f, 1.7f), 5.4f);
+            Vector3 targetScreenPosition = new Vector3(UnityEngine.Random.Range(Screen.width / 6, Screen.width / 2), Screen.height, 0);
+
+            Vector3 spawnPosition = Camera.main.ScreenToWorldPoint(targetScreenPosition);
+            spawnPosition.z = 0;
 
             newCoin = Instantiate(falingCoinPrefab, spawnPosition, Quaternion.identity, coinsCanvas.transform);
             newCoin.Speed = coinSpeed;
