@@ -1,5 +1,5 @@
 {
-  "idSave": 402,
+  "idSave": 441,
   "isFirstSession": false,
   "language": "en",
   "promptDone": false,
@@ -26,33 +26,33 @@
   "boostData": {
     "totalCoffeeConsumed": 1,
     "availableCoffee": 0,
-    "cooldownDuration": 2133.855,
+    "cooldownDuration": 7106.849,
     "boostDuration": -0.000266730785,
-    "saveDate": "2024-08-06T11:57:43.2076702Z",
+    "saveDate": "2024-08-07T11:23:48.0869441Z",
     "isBoostActive": false,
     "canWatchAd": true
   },
   "fortuneData": {
-    "remainingCooldownTime": -5032.0,
+    "remainingCooldownTime": 0.0,
     "remainingRewardTime": 0.0,
     "isAdAvailable": false,
-    "saveDate": "2024-08-06T11:57:43.2076702Z"
+    "saveDate": "2024-08-07T11:23:48.0869441Z"
   },
   "gameData": {
-    "score": 5782.0,
-    "scoreIncrease": 1.0,
-    "totalClick": 306,
+    "score": 53.0,
+    "scoreIncrease": 2.0,
+    "totalClick": 65,
     "offlineTime": 7200.0,
     "shopItems": [
       {
         "name": "0cec",
-        "cost": 450.0,
+        "cost": 300.0,
         "bonusIncrease": 0.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "costMultiplier": 1.5,
         "itsItemPerSec": true,
         "bonusPerSec": 1.0,
-        "bonusCounter": 1,
+        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -266,9 +266,9 @@
       },
       {
         "name": "1cl",
-        "cost": 110.0,
+        "cost": 143.0,
         "bonusIncrease": 1.0,
-        "levelOfItem": 0,
+        "levelOfItem": 1,
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 0.0,
@@ -485,8 +485,8 @@
         "itemIndex": 0
       }
     ],
-    "date": "2024-08-06T11:57:43.2066725Z",
-    "colClicks": 306,
+    "date": "2024-08-07T11:23:48.0869441Z",
+    "colClicks": 65,
     "clicks": 0,
     "maxResult": 0,
     "OfflineBonus": 0.0
@@ -499,7 +499,7 @@
       false,
       false
     ],
-    "total": 306,
+    "total": 65,
     "isStart": true,
     "isEnd": false
   },
@@ -516,9 +516,9 @@
     "isLastLevel": true
   },
   "statsData": {
-    "totalPlayTime": 118.420425
+    "totalPlayTime": 121.278519
   },
   "timerData": {
-    "maxResult": 13.0
+    "maxResult": 6.0
   }
 }

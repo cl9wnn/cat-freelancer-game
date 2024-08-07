@@ -454,7 +454,7 @@ public class Game : MonoBehaviour
         currentJob.text = LanguageSystem.lng.infoGame[3];
 
         for (int i = 0; i < 20; i++)
-        {
+        { 
             if (shopItems[i].levelOfItem > 0)
             {
                 currentJob.text = LanguageSystem.lng.bonusName[i];
