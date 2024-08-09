@@ -226,21 +226,21 @@ public class SpawnDown : MonoBehaviour
 
         double procent = (double)_game.Clicks / totalObjectsToSpawn;
         int countStars = 0;
-        if (procent >= 0.25 && procent < 0.5)
+        if (procent >= 0.3 && procent < 0.6)
         {
             countStars = 1;
         }
-        else if (procent >= 0.5 && procent < 0.75)
+        else if (procent >= 0.6 && procent < 0.85)
         {
             countStars = 2;
         }
-        else if (procent >= 0.75 && procent <= 1 && Level < 5)
+        else if (procent >= 0.85 && procent <= 1 && Level < 5)
         {
             countStars = 3;
             Level++;
             spawnInterval -= 0.05f;
         }
-        else if (procent >= 0.75 && procent <= 1 && Level >= 5)
+        else if (procent >= 0.85 && procent <= 1 && Level >= 5)
         {
             countStars = 3;
             if (!_achievements.isAchievementDone[6])

@@ -28,6 +28,7 @@ public class DropMoneyPanel : MonoBehaviour
     [SerializeField] private Image levelImage;
 
     [Header("End Launch")]
+    [SerializeField] private Button endActionButton;
     [SerializeField] private Image endMessageImage;
     [SerializeField] private RectTransform endReplyRect;
 
@@ -72,49 +73,14 @@ public class DropMoneyPanel : MonoBehaviour
         sequence.AppendInterval(1f);
         sequence.Append(actionButtonText.DOFade(1f, 0.5f).SetEase(Ease.Linear));
     }
-    public IEnumerator HandleSubsequentLaunch()
+    public void HandleEndLaunch()
     {
         ShowPanel();
 
-        yield return new WaitForSeconds(0.5f);
-
-        collectedCoinsText.gameObject.SetActive(true);
-        levelText.gameObject.SetActive(true);
-        getReadyTimer.gameObject.SetActive(true);
-        levelImage.gameObject.SetActive(true);
-
-        getReadyTimer.transform.localScale = Vector3.one;
-
-        Sequence sequence = DOTween.Sequence();
-        sequence.Append(collectedCoinsText.DOFade(1.0f, 0.5f).SetEase(Ease.Linear));
-        sequence.Join(levelText.DOFade(1.0f, 0.5f).SetEase(Ease.Linear));
-        sequence.Join(levelImage.DOFade(1.0f, 0.5f).SetEase(Ease.Linear));
-
-
-        yield return levelImage.DOFade(1,1);
-
-        yield return new WaitForSeconds(0.5f);
-
-        getReadyTimer.CountdownDuration = 3f;
-
-        yield return new WaitForSeconds(2f);
-
-        GameSingleton.Instance.SoundManager.CreateSound()
-                                           .WithSoundData(SoundEffect.COUNTDOWN)
-                                           .Play();
-
-        yield return getReadyTimer.StartCountdown();
-
-        levelText.gameObject.SetActive(false);
-        getReadyTimer.gameObject.SetActive(false);
-        levelImage.gameObject.SetActive(false);
-    }
-    public void HandleEndLaunch()
-    {
         endMessageImage.gameObject.SetActive(true);
         endReplyRect.gameObject.SetActive(true);
-        actionButton.gameObject.SetActive(true);
-        actionButton.onClick.AddListener(HideEndLaunchElements);
+        endActionButton.gameObject.SetActive(true);
+        endActionButton.onClick.AddListener(HideEndLaunchElements);
 
         Sequence sequence = DOTween.Sequence();
 
@@ -134,6 +100,43 @@ public class DropMoneyPanel : MonoBehaviour
         }
     }
 
+    public IEnumerator HandleSubsequentLaunch()
+    {
+        ShowPanel();
+
+        yield return new WaitForSeconds(0.5f);
+
+        collectedCoinsText.gameObject.SetActive(true);
+        levelText.gameObject.SetActive(true);
+        getReadyTimer.gameObject.SetActive(true);
+        levelImage.gameObject.SetActive(true);
+
+        getReadyTimer.transform.localScale = Vector3.one;
+
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(collectedCoinsText.DOFade(1.0f, 0.5f).SetEase(Ease.Linear));
+        sequence.Join(levelText.DOFade(1.0f, 0.5f).SetEase(Ease.Linear));
+        sequence.Join(levelImage.DOFade(1.0f, 0.5f).SetEase(Ease.Linear));
+
+
+        yield return levelImage.DOFade(1, 1);
+
+        yield return new WaitForSeconds(0.5f);
+
+        getReadyTimer.CountdownDuration = 3f;
+
+        yield return new WaitForSeconds(2f);
+
+        GameSingleton.Instance.SoundManager.CreateSound()
+                                           .WithSoundData(SoundEffect.COUNTDOWN)
+                                           .Play();
+
+        yield return getReadyTimer.StartCountdown();
+
+        levelText.gameObject.SetActive(false);
+        getReadyTimer.gameObject.SetActive(false);
+        levelImage.gameObject.SetActive(false);
+    }
 
     private void HideFirstLaunchElements()
     {
@@ -175,8 +178,8 @@ public class DropMoneyPanel : MonoBehaviour
     {
         endReplyRect.gameObject.SetActive(false);
         endMessageImage.gameObject.SetActive(false);
-        actionButton.onClick.RemoveListener(HideEndLaunchElements);
-        actionButton.gameObject.SetActive(false);
+        endActionButton.onClick.RemoveListener(HideEndLaunchElements);
+        endActionButton.gameObject.SetActive(false);
     }
 
     public void ShowPanel()
@@ -184,7 +187,7 @@ public class DropMoneyPanel : MonoBehaviour
         panelRectTransform.DOKill();
         panelRectTransform.gameObject.SetActive(true);
         panelRectTransform.DOAnchorPos(Vector3.zero, transitionDuration).SetEase(Ease.OutQuad);
-        background.DOFade(0.75f, 1f).SetEase(Ease.Linear);
+        background.DOFade(0.95f, 1f).SetEase(Ease.Linear);
     }
     public void HidePanel()
     {

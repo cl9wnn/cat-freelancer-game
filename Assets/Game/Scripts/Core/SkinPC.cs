@@ -140,7 +140,7 @@ public class SkinPC : MonoBehaviour
             if (Bbttn == i && _game.shopItems[23 + i * 3].levelOfItem > 0)
             {
                 SkinTextDop[i].text = LanguageSystem.lng.skinTextDop[7];
-                SkinTextDop[i].fontSize = 36;
+                SkinTextDop[i].fontSize = 34;
                 SkinTextDop[i].color = new Color(1, 243 / 255f, 0);
 
                 if (_game.Score >= skinCosts[i])

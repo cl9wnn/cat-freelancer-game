@@ -44,8 +44,8 @@ public class Plot : MonoBehaviour
             return;
         }
 
-        int requiredClicks = 600;
-        int increment = 2500;
+        int requiredClicks = 400;
+        int increment = 2000;
 
         for (int i = 0; i < isEventDone.Length; i++)
         {

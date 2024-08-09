@@ -111,7 +111,7 @@ public class Game : MonoBehaviour
 
     private void UpdateFirePointerSpeed()
     {
-        firePointer.startSpeed = colClicks > 1400 ? 0.7f : 0.25f;
+        firePointer.startSpeed = colClicks > 1400 ? 1 : 0.25f;
     }
     private void CheckAndActivateBoost()
     {
