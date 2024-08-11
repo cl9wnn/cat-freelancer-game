@@ -23656,7 +23656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ba5bad36c4080a4d8e1a34b88a68cd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEffect: 4
+  soundEffect: 0
 --- !u!1 &352200420
 GameObject:
   m_ObjectHideFlags: 0
@@ -27798,7 +27798,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d73f689b0243dc14db506bc10f80dffd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 78f3a9f3f1232e24ab665be36cca9618, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -38700,7 +38700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ba5bad36c4080a4d8e1a34b88a68cd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEffect: 18
+  soundEffect: 0
 --- !u!114 &720026430
 MonoBehaviour:
   m_ObjectHideFlags: 0
