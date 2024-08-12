@@ -16,7 +16,8 @@ public class TabletAnimation : MonoBehaviour
     private void Awake()
     {
         tablet = GetComponent<RectTransform>();
-        tablet.localScale = Vector3.zero;
+
+        if (_smallTabletButton == null) return;
 
         _initPosition = tablet.position;
         _initSmallTabletColor = _smallTabletButton.image.color;
@@ -26,7 +27,7 @@ public class TabletAnimation : MonoBehaviour
 
     private void Start()
     {
-        _smallTabletButton.onClick.AddListener(Show);
+        _smallTabletButton?.onClick.AddListener(Show);
     }
 
     public void Show()

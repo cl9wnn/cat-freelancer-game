@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      fortuneBg_0: 8970923810889798874
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

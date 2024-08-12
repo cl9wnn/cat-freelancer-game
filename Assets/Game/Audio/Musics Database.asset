@@ -24,7 +24,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 1
-    mute: 0
+    mute: 1
     rolloffMode: 0
   - clip:
       _id: 3b2c256f-06ca-4dd0-a51c-bfa4a7e96231

@@ -24,6 +24,8 @@ public class NavigationBar : MonoBehaviour
 
     private void OnDisable()
     {
+        if (GameSingleton.Instance == null) return;
+
         GameSingleton.Instance.Fortune.WheelStartedSpinning -= DisableAllButtons;
         GameSingleton.Instance.Fortune.WheelStoppedSpinning -= EnableAllButtons;
     }

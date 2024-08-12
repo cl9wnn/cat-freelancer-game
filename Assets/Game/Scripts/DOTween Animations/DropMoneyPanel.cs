@@ -38,23 +38,6 @@ public class DropMoneyPanel : MonoBehaviour
         set => getReadyTimer.CountdownDuration = value;
     }
 
-    private void ResetMessageOpacity()
-    {
-        SetTextOpacity(firstMessageImage, 0);
-        SetTextOpacity(endMessageImage, 0);
-    }
-
-    private void SetTextOpacity(Image parentImage, float opacity)
-    {
-        foreach (var textComponent in parentImage.GetComponentsInChildren<Text>())
-        {
-            var color = textComponent.color;
-            color.a = opacity;
-            textComponent.color = color;
-        }
-    }
-
-
     public void HandleFirstLaunch()
     {
         ShowPanel();
@@ -67,10 +50,16 @@ public class DropMoneyPanel : MonoBehaviour
         Sequence sequence = DOTween.Sequence();
 
         sequence.Append(firstMessageImage.DOFade(1f, 0.5f).SetEase(Ease.Linear));
-        AppendTextFadeInSequence(sequence, firstMessageImage, 0.5f);
-        sequence.AppendInterval(2f);
-        sequence.Append(firstReplyRect.DOAnchorPos(replyTargetPosition, 0.5f).SetEase(Ease.InOutQuad));
+        AppendTextFadeInSequence(sequence, firstMessageImage.transform, 0.5f);
+      
+        sequence.AppendInterval(1.5f);
+      
+        sequence.Append(firstReplyRect.GetComponent<Image>().DOFade(1.0f, 0.5f));
+        AppendTextFadeInSequence(sequence, firstReplyRect, 0.25f);
+        sequence.Join(firstReplyRect.DOAnchorPos(replyTargetPosition, 0.5f).SetEase(Ease.InOutQuad));
+      
         sequence.AppendInterval(1f);
+       
         sequence.Append(actionButtonText.DOFade(1f, 0.5f).SetEase(Ease.Linear));
     }
     public void HandleEndLaunch()
@@ -85,16 +74,22 @@ public class DropMoneyPanel : MonoBehaviour
         Sequence sequence = DOTween.Sequence();
 
         sequence.Append(endMessageImage.DOFade(1f, 0.5f).SetEase(Ease.Linear));
-        AppendTextFadeInSequence(sequence, endMessageImage, 0.5f);
-        sequence.AppendInterval(2f);
+        AppendTextFadeInSequence(sequence, endMessageImage.transform, 0.5f);
+
+        sequence.AppendInterval(1.5f);
+
+        sequence.Append(endReplyRect.GetComponent<Image>().DOFade(1.0f, 0.25f));
+        AppendTextFadeInSequence(sequence, endReplyRect.transform, 0.5f);
         sequence.Append(endReplyRect.DOAnchorPos(replyTargetPosition, 0.5f).SetEase(Ease.InOutQuad));
+   
         sequence.AppendInterval(1f);
+
         sequence.Append(actionButtonText.DOFade(1f, 0.5f).SetEase(Ease.Linear));
     }
 
-    private void AppendTextFadeInSequence(Sequence sequence, Image parentImage, float duration)
+    private void AppendTextFadeInSequence(Sequence sequence, Transform parent, float duration)
     {
-        foreach (var textComponent in parentImage.GetComponentsInChildren<Text>())
+        foreach (var textComponent in parent.GetComponentsInChildren<Text>())
         {
             sequence.Join(textComponent.DOFade(1f, duration).SetEase(Ease.Linear));
         }
@@ -152,16 +147,19 @@ public class DropMoneyPanel : MonoBehaviour
         Sequence hideSequence = DOTween.Sequence();
 
         hideSequence.Append(messageImage.DOFade(0, 0.5f).SetEase(Ease.InBack));
-        AppendTextFadeOutSequence(hideSequence, messageImage, 0.5f);
+        AppendTextFadeOutSequence(hideSequence, messageImage.transform, 0.5f);
+
         hideSequence.Join(replyRect.GetComponent<Image>().DOFade(0f, 0.5f).SetEase(Ease.InBack));
-        AppendTextFadeOutSequence(hideSequence, replyRect.GetComponent<Image>(), 0.5f);
+        AppendTextFadeOutSequence(hideSequence, replyRect, 0.5f);
+
+        AppendTextFadeOutSequence(hideSequence, replyRect, 0.5f);
         hideSequence.Join(actionButtonText.DOFade(0f, 0.5f).SetEase(Ease.InBack));
         hideSequence.OnComplete(onComplete);
     }
 
-    private void AppendTextFadeOutSequence(Sequence sequence, Image parentImage, float duration)
+    private void AppendTextFadeOutSequence(Sequence sequence, Transform parent, float duration)
     {
-        foreach (var textComponent in parentImage.GetComponentsInChildren<Text>())
+        foreach (var textComponent in parent.GetComponentsInChildren<Text>())
         {
             sequence.Join(textComponent.DOFade(0f, duration).SetEase(Ease.InBack));
         }

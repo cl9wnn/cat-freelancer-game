@@ -46,8 +46,8 @@ PlayerSettings:
   m_HolographicTrackingLossScreen: {fileID: 0}
   defaultScreenWidth: 1024
   defaultScreenHeight: 768
-  defaultScreenWidthWeb: 9
-  defaultScreenHeightWeb: 16
+  defaultScreenWidthWeb: 16
+  defaultScreenHeightWeb: 9
   m_StereoRenderingPath: 0
   m_ActiveColorSpace: 0
   unsupportedMSAAFallback: 0
@@ -645,7 +645,7 @@ PlayerSettings:
     IGB_GAME_DISTRIBUTION_GAME_ID: 
     IGB_VK_PLAY_GAME_ID: 
     LOCK_ASPECT_RATIO: if(isDeviceNavigator){lock(canvas, 9/16);}else{lock(canvas,
-      9/16);}
+      16/9);}
     YG_BANNER_DYNAMIC_1: 
     YG_BANNER_DYNAMIC_2: 
     YG_BANNER_STATIC_1: 
