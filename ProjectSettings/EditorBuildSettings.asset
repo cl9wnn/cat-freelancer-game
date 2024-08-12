@@ -10,13 +10,13 @@ EditorBuildSettings:
     guid: 8c267e69527b8254487c6d405c5f7af0
   - enabled: 1
     path: Assets/Game/Scenes/PC Level.unity
-    guid: e29e33ba07b07c441b2c2d2a1503be3e
+    guid: 4cb5298c279716547ae401226176f315
   - enabled: 1
     path: Assets/Game/Scenes/Mobile Level.unity
     guid: 693ec4249f8543b45bdaee5710fba469
   - enabled: 1
-    path: Assets/Game/Scenes/Tutorial.unity
-    guid: 1fb7e478a55a1724c80f00026eacc6fd
+    path: Assets/Game/Scenes/PC Tutorial.unity
+    guid: 5604aa12f1a7381438eee0c345fc0fb5
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: cb9a131de950a5b4d97ae70877ceccc3,
       type: 2}
