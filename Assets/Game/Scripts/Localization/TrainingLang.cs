@@ -8,7 +8,6 @@ public class TrainingLang : MonoBehaviour
 {
     public static lanng lng = new lanng();
     private string json;
-    public Training train;
     private string[] langArray = { "ru_RU", "en_US" };
 
     void Awake()

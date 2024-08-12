@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 2f22c43cbbb19f844957475994f7d20d
+guid: 5af349509ae761b4f869a005434080d1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7764355349529994350
-    second: pc2_0
-  - first:
-      213: 395194506466673329
-    second: pc2_1
+      213: 7466159002132359527
+    second: pc2 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -142,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pc2_0
+      name: pc2 1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 294
-        width: 21
-        height: 7
+        x: 53
+        y: 9
+        width: 1234
+        height: 1227
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,29 +153,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 29b5c5962f77f3490800000000000000
-      internalID: -7764355349529994350
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pc2_1
-      rect:
-        serializedVersion: 2
-        x: 12
-        y: 1
-        width: 310
-        height: 311
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1b2c12f4f430c7500800000000000000
-      internalID: 395194506466673329
+      spriteID: 7692fa61e002d9760800000000000000
+      internalID: 7466159002132359527
       vertices: []
       indices: 
       edges: []
@@ -194,8 +170,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      pc2_0: -7764355349529994350
-      pc2_1: 395194506466673329
+      pc2 1_0: 7466159002132359527
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

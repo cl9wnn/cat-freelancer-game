@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 78f3a9f3f1232e24ab665be36cca9618
+guid: e5a4fe7bc7aae844fb6f461b75fe9b68
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8204438459698901834
-    second: pc7 1_0
-  - first:
-      213: 9195231441357070408
-    second: pc7 1_1
+      213: 3939620569157023844
+    second: shop2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -87,6 +84,19 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -112,64 +122,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pc7 1_0
+      name: shop2_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 21
-        width: 1357
-        height: 1299
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a43f7e36f450cd170800000000000000
-      internalID: 8204438459698901834
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: pc7 1_1
-      rect:
-        serializedVersion: 2
-        x: 361
         y: 0
-        width: 19
-        height: 11
+        width: 403
+        height: 681
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -177,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 840679907460c9f70800000000000000
-      internalID: 9195231441357070408
+      spriteID: 4683d6ed8085ca630800000000000000
+      internalID: 3939620569157023844
       vertices: []
       indices: 
       edges: []
@@ -194,8 +157,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      pc7 1_0: 8204438459698901834
-      pc7 1_1: 9195231441357070408
+      shop2_0: 3939620569157023844
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

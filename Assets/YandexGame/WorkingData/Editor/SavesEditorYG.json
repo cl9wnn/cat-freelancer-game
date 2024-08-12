@@ -1,5 +1,5 @@
 {
-  "idSave": 574,
+  "idSave": 579,
   "isFirstSession": false,
   "language": "en",
   "promptDone": false,
@@ -15,33 +15,33 @@
       false,
       false,
       false,
-      true,
       false,
       false,
-      true,
+      false,
+      false,
       false
     ],
-    "achievementsCount": 2
+    "achievementsCount": 0
   },
   "boostData": {
     "totalCoffeeConsumed": 0,
     "availableCoffee": 1,
     "cooldownDuration": 7200.0,
     "boostDuration": 20.0,
-    "saveDate": "2024-08-09T18:28:45.2075499Z",
+    "saveDate": "2024-08-11T08:16:17.3653312Z",
     "isBoostActive": false,
     "canWatchAd": false
   },
   "fortuneData": {
-    "remainingCooldownTime": -67.0,
+    "remainingCooldownTime": 0.0,
     "remainingRewardTime": 0.0,
     "isAdAvailable": false,
-    "saveDate": "2024-08-09T18:28:45.2075499Z"
+    "saveDate": "2024-08-11T08:16:17.3653312Z"
   },
   "gameData": {
-    "score": 6267.0,
+    "score": 29.0,
     "scoreIncrease": 1.0,
-    "totalClick": 58,
+    "totalClick": 29,
     "offlineTime": 7200.0,
     "shopItems": [
       {
@@ -485,10 +485,10 @@
         "itemIndex": 0
       }
     ],
-    "date": "2024-08-09T18:28:45.2065532Z",
-    "colClicks": 4,
+    "date": "2024-08-11T08:16:17.3643099Z",
+    "colClicks": 29,
     "clicks": 0,
-    "maxResult": 51,
+    "maxResult": 0,
     "OfflineBonus": 0.0
   },
   "plotData": {
@@ -499,7 +499,7 @@
       false,
       false
     ],
-    "total": 58,
+    "total": 29,
     "isStart": true,
     "isEnd": false
   },
@@ -509,16 +509,16 @@
     "bBttn": 0
   },
   "spawnDownData": {
-    "level": 5,
-    "speed": 2.30000019,
-    "spawnInterval": 0.349999964,
-    "isFirstLevel": false,
-    "isLastLevel": false
+    "level": 0,
+    "speed": 0.8,
+    "spawnInterval": 0.5,
+    "isFirstLevel": true,
+    "isLastLevel": true
   },
   "statsData": {
-    "totalPlayTime": 273.381866
+    "totalPlayTime": 13.6236925
   },
   "timerData": {
-    "maxResult": 7.0
+    "maxResult": 6.0
   }
 }

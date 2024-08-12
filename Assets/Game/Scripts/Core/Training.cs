@@ -17,7 +17,7 @@ public class Training : MonoBehaviour
     public void Start()
     {
         cloudText.text = TrainingLang.lng.training[0];
-        leftToMenu.text = TrainingLang.lng.training[10];
+        leftToMenu.text = TrainingLang.lng.training[11];
     }
     public void Next()
     {
@@ -30,7 +30,7 @@ public class Training : MonoBehaviour
         }
         else if (index == 8)
         {
-            cloudText.text = TrainingLang.lng.training[9];
+            cloudText.text = TrainingLang.lng.training[10];
             LeaveFromTrainingBttn.SetActive(true);
         }
     }
