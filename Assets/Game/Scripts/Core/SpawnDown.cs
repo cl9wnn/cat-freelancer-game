@@ -11,6 +11,7 @@ public class SpawnDown : MonoBehaviour
     [SerializeField] private PanelAnimation starsPanel; 
 
     public FallingCoin falingCoinPrefab;
+    public Sprite[] fallingCoinSprites;
     public float spawnInterval = 0.5f;
     public Text clicKnumer;
     public Text EarnedMoneyText;
@@ -103,7 +104,7 @@ public class SpawnDown : MonoBehaviour
         GameSingleton.Instance.MusicManager.PlayBackgroundMusic(BackgroundMusic.NONE);
 
         if (isFirstLevel) StartCoroutine(HandleCoinsSpawningFirstLevel()); // Запускает корутину - обработчик спавна монет
-        else if (isLastLevel == true && Level == 5) StartCoroutine(HandleCoinsSpawningLastLevel());
+        else if (isLastLevel == true && Level == 4) StartCoroutine(HandleCoinsSpawningLastLevel());
         else StartCoroutine(HandleCoinsSpawning());
     }
 
@@ -191,13 +192,14 @@ public class SpawnDown : MonoBehaviour
     {
         GameSingleton.Instance.MusicManager.PlayBackgroundMusic(BackgroundMusic.MINI_GAME);
 
+
         if (falingCoinPrefab == null || coinsCanvas == null)
         {
             Debug.LogError("Prefab or Canvas is not assigned.");
             yield break;
         }
 
-        float coinSpeed = 1.1f + (Level * 0.5f);
+        float coinSpeed = 1.1f + (Level * 0.65f);
 
         FallingCoin newCoin = null;
 
@@ -210,6 +212,7 @@ public class SpawnDown : MonoBehaviour
 
             newCoin = Instantiate(falingCoinPrefab, spawnPosition, Quaternion.identity, coinsCanvas.transform);
             newCoin.Speed = coinSpeed;
+            newCoin.GetComponent<Image>().sprite = fallingCoinSprites[Level]; 
             objectsSpawned++;
 
             yield return new WaitForSeconds(spawnInterval);
@@ -234,13 +237,13 @@ public class SpawnDown : MonoBehaviour
         {
             countStars = 2;
         }
-        else if (procent >= 0.85 && procent <= 1 && Level < 5)
+        else if (procent >= 0.85 && procent <= 1 && Level < 4)
         {
             countStars = 3;
             Level++;
             spawnInterval -= 0.05f;
         }
-        else if (procent >= 0.85 && procent <= 1 && Level >= 5)
+        else if (procent >= 0.85 && procent <= 1 && Level >= 4)
         {
             countStars = 3;
             if (!_achievements.isAchievementDone[6])
@@ -263,7 +266,7 @@ public class SpawnDown : MonoBehaviour
         GameSingleton.Instance.SoundManager.CreateSound().WithSoundData(SoundEffect.COLLECT_REWARD).Play();
         GameSingleton.Instance.MusicManager.PlayBackgroundMusic(BackgroundMusic.MAIN_GAME);
 
-        _game.Score += (_game.ScoreIncrease * _game.Clicks * (10 + 3 * Level));
+        _game.Score += (_game.ScoreIncrease * _game.Clicks * (10 + 5 * Level));
         _game.Clicks = 0;
 
         starsPanel.HidePanel();
