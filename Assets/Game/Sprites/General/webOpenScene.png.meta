@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2193a3414e1f52e42a9e78071034e903
+guid: 0039747eb81e9e14b9cf6a13f94af529
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8970923810889798874
-    second: fortuneBg_0
+      213: 7640246426223389708
+    second: webOpenScene_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -109,30 +109,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fortuneBg_0
+      name: webOpenScene_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 720
-        height: 1280
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +127,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ad41e2f0daf1f7c70800000000000000
-      internalID: 8970923810889798874
+      spriteID: c0c2e7715ab970a60800000000000000
+      internalID: 7640246426223389708
       vertices: []
       indices: 
       edges: []
@@ -149,7 +136,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -157,7 +144,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      fortuneBg_0: 8970923810889798874
+      webOpenScene_0: 7640246426223389708
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

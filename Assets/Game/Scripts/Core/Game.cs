@@ -464,7 +464,9 @@ public class Game : MonoBehaviour
 
     void MoneyScore()
     {
-        var moneyText = StringMethods.FormatMoney(Score) + "<sprite=0>";
+        var moneyText = StringMethods.FormatMoney(Score);
+
+        scoreText[0].text = moneyText + "<sprite=0>";
 
         for (int i = 0; i < 5; i++)
         {

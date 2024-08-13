@@ -136,7 +136,7 @@ public class Plot : MonoBehaviour
         GameSingleton.Instance.MusicManager.PlayBackgroundMusic(BackgroundMusic.MAIN_GAME);
 
         isStart = true;
-        Vector2 spawnPosition = new Vector2(-1.8f, 2.05f);
+        Vector2 spawnPosition = new Vector2(-5.1f, 2.05f);
         Instantiate(fingerImg, spawnPosition, Quaternion.identity);
     }
 
@@ -170,7 +170,11 @@ public class Plot : MonoBehaviour
     public float CounterMoney(int index)
     {
         if (index == 0 || index == 4) return _game.ScoreIncrease * scoreCoefficent[index];
-        else return _game.Score * scoreCoefficent[index];
+        else
+        {
+            Debug.Log((long)(_game.Score * scoreCoefficent[index]));
+            return (long)(_game.Score * scoreCoefficent[index]);
+        }
     }
 
     public void ResumeGame()

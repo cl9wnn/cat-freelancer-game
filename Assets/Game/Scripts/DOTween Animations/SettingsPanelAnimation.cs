@@ -19,6 +19,9 @@ public class SettingsPanelAnimation : MonoBehaviour
     [SerializeField] private Button _openButton;
     [SerializeField] private Button[] _closeButtons;
 
+    [Header("Device")]
+    [SerializeField] private bool IsMobile;
+
     private Vector3 _initPosition;
 
     private void Awake()
@@ -58,6 +61,12 @@ public class SettingsPanelAnimation : MonoBehaviour
         _settingsPanel.DOKill();
         _settingsPanel.gameObject.SetActive(true);
 
+        if (IsMobile)
+        {
+             _settingsPanel.DOAnchorPos(Vector3.zero, _transitionDuration).SetEase(Ease.OutQuad);
+            return;
+        }
+
         _settingsPanel.localScale = Vector3.zero;
         _settingsPanel.position = _openButton.transform.position;
 
@@ -71,25 +80,28 @@ public class SettingsPanelAnimation : MonoBehaviour
         Sequence sequence = DOTween.Sequence();
         sequence.Append(_settingsPanel.DOMove(targetWorldPosition, _transitionDuration).SetEase(Ease.OutBack));
         sequence.Join(_settingsPanel.DOScale(Vector3.one, _transitionDuration).SetEase(Ease.OutBack));
-
-       // _settingsPanel.DOAnchorPos(Vector3.zero, _transitionDuration).SetEase(Ease.OutQuad);
     }
 
     private void HideSettingsPanel()
     {
-        Sequence sequence = DOTween.Sequence();
-        sequence.Append(_settingsPanel.DOScale(Vector3.zero, _transitionDuration).SetEase(Ease.InBack));
-        sequence.Join(_settingsPanel.DOMove(_openButton.transform.position, _transitionDuration).SetEase(Ease.InBack));
-        sequence.OnComplete(() =>
+        if (!IsMobile)
         {
-            _settingsPanel.gameObject.SetActive(false);
-            _settingsPanel.position = _initPosition;
+            Sequence sequence = DOTween.Sequence();
+            sequence.Append(_settingsPanel.DOScale(Vector3.zero, _transitionDuration).SetEase(Ease.InBack));
+            sequence.Join(_settingsPanel.DOMove(_openButton.transform.position, _transitionDuration).SetEase(Ease.InBack));
+            sequence.OnComplete(() =>
+            {
+                _settingsPanel.gameObject.SetActive(false);
+                _settingsPanel.position = _initPosition;
 
-            _openButton.enabled = true;
-        });
-
-        //_settingsPanel.DOAnchorPos(_hiddenPanelPosition, _transitionDuration)
-        //             .SetEase(Ease.InQuad)
-        //             .OnComplete(() => _settingsPanel.gameObject.SetActive(false));
+                _openButton.enabled = true;
+            });
+        }
+        else
+        {
+            _settingsPanel.DOAnchorPos(_hiddenPanelPosition, _transitionDuration)
+                         .SetEase(Ease.InQuad)
+                         .OnComplete(() => _settingsPanel.gameObject.SetActive(false));
+        }
     }
 }

@@ -21,6 +21,9 @@ public class MusicManager : MonoBehaviour
         
         music.snapshot.TransitionTo(0.5f);
 
+        if (backgroundMusic == BackgroundMusic.NONE)
+            return;
+
         _sourceAudio.Play(music.clip.Key);
     }
 

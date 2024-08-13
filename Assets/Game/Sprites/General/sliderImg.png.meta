@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      sliderImg_0: 5584552852819749235
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
