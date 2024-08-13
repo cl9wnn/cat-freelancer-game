@@ -62,6 +62,6 @@ public class WebTraining : MonoBehaviour
     }
     public void StartGame()
     {
-        SceneManager.LoadScene("WebGame");
+        SceneManager.LoadScene("PC Level");
     }
 }

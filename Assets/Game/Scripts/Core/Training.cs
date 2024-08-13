@@ -36,6 +36,6 @@ public class Training : MonoBehaviour
     }
     public void StartGame()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Mobile Level");
     }
 }

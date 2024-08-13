@@ -13,6 +13,7 @@ public class FingerAnimation : MonoBehaviour
     [SerializeField] private float _lifetime;
 
     void Start()
+
     {
         var endPosition = _pointer.anchoredPosition + _diretion * _distance;
         

@@ -25,6 +25,8 @@ public class Plot : MonoBehaviour
     public float moneyReward;
 
     public GameObject fingerImg;
+    [SerializeField] private Vector2 FingerStartPosition;
+
     public int Total
     {
         get => total;
@@ -136,14 +138,19 @@ public class Plot : MonoBehaviour
         GameSingleton.Instance.MusicManager.PlayBackgroundMusic(BackgroundMusic.MAIN_GAME);
 
         isStart = true;
-        Vector2 spawnPosition = new Vector2(-5.1f, 2.05f);
-        Instantiate(fingerImg, spawnPosition, Quaternion.identity);
+        Instantiate(fingerImg, FingerStartPosition, Quaternion.identity);
     }
 
-    public void Training()
+    public void OpenMobileTutorial()
     {
-        SceneManager.LoadScene("StartMenu");
+        SceneManager.LoadScene("Tutorial");
     }
+
+    public void OpenPcTutorial()
+    {
+        SceneManager.LoadScene("PC Tutorial");
+    }
+
     public void PlotEvent(int index)
     {
         GameSingleton.Instance.SoundManager.CreateSound()

@@ -16,6 +16,7 @@ public class Settings : MonoBehaviour
     public Text languageText;
     public Text musicText;
     public Text aboutGameTitleText;
+    public Text saveDataText;
 
     public Canvas StartCanvas;
 
@@ -33,7 +34,8 @@ public class Settings : MonoBehaviour
 
     public void ChangeLanguage()
     {
-        resumeText.text = LanguageSystem.lng.settings[0];
+        saveDataText.text = LanguageSystem.lng.settings[0];
+        resumeText.text = LanguageSystem.lng.settings[8];
         volumeText.text = LanguageSystem.lng.settings[3];
         settingsText.text = LanguageSystem.lng.settings[4];
         languageText.text = LanguageSystem.lng.settings[5];

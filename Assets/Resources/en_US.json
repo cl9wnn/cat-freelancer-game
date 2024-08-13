@@ -42,14 +42,16 @@
     "RTX 4090"
   ],
   "settings": [
-    "Continue",
+    "Save data",
     "Authors",
     "Level ",
     "Volume",
     "Settings",
     "Language",
     "Music",
-    "Stats"
+    "Stats",
+    "Resume"
+
   ],
   "BonusIncreaseName": [
     "+1/sec.",
