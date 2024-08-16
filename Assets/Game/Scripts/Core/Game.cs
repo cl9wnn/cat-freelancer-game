@@ -468,7 +468,7 @@ public class Game : MonoBehaviour
 
         scoreText[0].text = moneyText + "<sprite=0>";
 
-        for (int i = 0; i < 5; i++)
+        for (int i = 1; i < 5; i++)
         {
             scoreText[i].text = moneyText;
         }

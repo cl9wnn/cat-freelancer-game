@@ -16,7 +16,8 @@ public class LanguageSystem : MonoBehaviour
     public static LanguageData lng = new LanguageData();
    
     private int langIndex = 1;
-    
+    public VolumeSettings volumeSettings;
+
     private Game _game;
     private Plot _plot;
     private Boost _boost;
@@ -69,6 +70,7 @@ public class LanguageSystem : MonoBehaviour
             {
                 langIndex = i + 1;
                 langBttnImg.sprite = flags[i];
+                volumeSettings.UpdateLanguageSprites(langIndex - 1);
                 break;
             }
         }
@@ -103,7 +105,8 @@ public class LanguageSystem : MonoBehaviour
         else langIndex = 1;
         PlayerPrefs.SetString("Language", langArray[langIndex - 1]);
         langBttnImg.sprite = flags[langIndex - 1];
-        
+        volumeSettings.UpdateLanguageSprites(langIndex - 1);
+
         StopAllCoroutines();
         LoadLanguage();
 

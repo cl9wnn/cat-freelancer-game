@@ -9,11 +9,13 @@ public class VolumeSettings : MonoBehaviour
     [SerializeField] private Slider _volumeSlider;
 
     [SerializeField] private Image _switchButtonImage;
-    [SerializeField] private Sprite _onSprite;
-    [SerializeField] private Sprite _offSprite;
 
     private const string MIXER_VOLUME = "Master";
     private const string MIXER_MUSIC = "MusicVolume";
+
+    public Sprite[] onSprites; // Массив спрайтов включения для каждого языка
+    public Sprite[] offSprites; // Массив спрайтов выключения для каждого языка
+    private int currentLanguageIndex; // Текущий индекс языка
 
     private bool _mute;
     public bool Mute
@@ -23,8 +25,19 @@ public class VolumeSettings : MonoBehaviour
         {
             _mute = value;
             _mixer.SetFloat(MIXER_MUSIC, Mathf.Log10(_mute ? 0.0001f : 1.0f) * 20);
-            _switchButtonImage.sprite = _mute ? _offSprite : _onSprite;
+            UpdateButtonSprite();
+
         }
+    }
+    private void UpdateButtonSprite()
+    {
+        _switchButtonImage.sprite = _mute ? offSprites[currentLanguageIndex] : onSprites[currentLanguageIndex];
+    }
+
+    public void UpdateLanguageSprites(int languageIndex)
+    {
+        currentLanguageIndex = languageIndex;
+        UpdateButtonSprite();
     }
 
     public void Awake()
