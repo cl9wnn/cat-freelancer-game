@@ -1,11 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Timers;
-using System.IO;
-using System;
 using YG;
 
-public class Timer : MonoBehaviour
+public class Timer : MonoBehaviour, ISaveLoad
 {
     public Text clickPerSec;
     
@@ -28,22 +25,19 @@ public class Timer : MonoBehaviour
             Load();
     }
 
-    private void OnEnable()
+    public void Save()
     {
-        SaveManager.OnSaveEvent += Save;
-        SaveManager.OnLoadEvent += Load;
-    }
-    private void OnDisable()
-    {
-        SaveManager.OnSaveEvent -= Save;
-        SaveManager.OnLoadEvent -= Load;
-    }
+        ref var data = ref YandexGame.savesData.timerData;
 
-    private void Save()
-    {
-        YandexGame.savesData.timerData = new TimerData(maxResult);
+        if (data == null)
+        {
+            data = new TimerData(maxResult);
+            return;
+        }
+
+        data.maxResult = maxResult;
     }
-    private void Load()
+    public void Load()
     {
         var data = YandexGame.savesData.timerData;
         

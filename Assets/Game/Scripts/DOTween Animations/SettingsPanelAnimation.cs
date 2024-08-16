@@ -67,6 +67,7 @@ public class SettingsPanelAnimation : MonoBehaviour
             return;
         }
 
+        _settingsPanel.parent.GetComponent<Image>().enabled = true;
         _settingsPanel.localScale = Vector3.zero;
         _settingsPanel.position = _openButton.transform.position;
 
@@ -93,6 +94,8 @@ public class SettingsPanelAnimation : MonoBehaviour
             {
                 _settingsPanel.gameObject.SetActive(false);
                 _settingsPanel.position = _initPosition;
+
+                _settingsPanel.parent.GetComponent<Image>().enabled = false;
 
                 _openButton.enabled = true;
             });

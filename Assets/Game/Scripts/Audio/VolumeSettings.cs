@@ -3,7 +3,8 @@ using UnityEngine.Audio;
 using UnityEngine.UI;
 using YG;
 
-public class VolumeSettings : MonoBehaviour
+
+public class VolumeSettings : MonoBehaviour, ISaveLoad
 {
     [SerializeField] private AudioMixer _mixer;
     [SerializeField] private Slider _volumeSlider;
@@ -15,6 +16,7 @@ public class VolumeSettings : MonoBehaviour
     private const string MIXER_VOLUME = "Master";
     private const string MIXER_MUSIC = "MusicVolume";
 
+    private float _value;
     private bool _mute;
     public bool Mute
     {
@@ -22,10 +24,12 @@ public class VolumeSettings : MonoBehaviour
         set
         {
             _mute = value;
-            _mixer.SetFloat(MIXER_MUSIC, Mathf.Log10(_mute ? 0.0001f : 1.0f) * 20);
+            _mixer.SetFloat(MIXER_MUSIC, Mathf.Log10(_mute ? _value = 0.0001f : _value = 1.0f) * 20);
             _switchButtonImage.sprite = _mute ? _offSprite : _onSprite;
         }
     }
+
+
 
     public void Awake()
     {
@@ -35,16 +39,20 @@ public class VolumeSettings : MonoBehaviour
         if (YandexGame.SDKEnabled)
             Load();
     }
-    private void OnEnable()
+
+    public void Save()
     {
-        SaveManager.OnLoadEvent += Load;
+        ref var data = ref YandexGame.savesData.volumeData;
+        
+        if (data == null)
+        {
+            data = new VolumeData(_value);
+            return;
+        }
+
+        data.maserVolume = _value;
     }
-    private void OnDisable()
-    {
-        SaveManager.OnLoadEvent -= Load;
-    }
-    
-    private void Load()
+    public void Load()
     {
         var data = YandexGame.savesData.volumeData;
 
@@ -54,15 +62,17 @@ public class VolumeSettings : MonoBehaviour
             value = 1.0f;
         else
             value = data.maserVolume;
-
+        
+        _value = value;
         _volumeSlider.SetValueWithoutNotify(value);
         _mixer.SetFloat(MIXER_VOLUME, Mathf.Log10(value) * 20);
     }
 
     public void SetVolume(float value)
     {
+        _value = value;
         _mixer.SetFloat(MIXER_VOLUME, Mathf.Log10(value) * 20);
-
-        YandexGame.savesData.volumeData = new VolumeData(value);        
+        
+        Save();      
     }
 }

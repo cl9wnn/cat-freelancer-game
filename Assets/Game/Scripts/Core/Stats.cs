@@ -1,11 +1,7 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using YG;
-public class Stats : MonoBehaviour
+public class Stats : MonoBehaviour, ISaveLoad
 {
     public Text[] stringNames;
     public Text[] statsText;
@@ -19,22 +15,19 @@ public class Stats : MonoBehaviour
         if (YandexGame.SDKEnabled)
             Load();
     }
-    private void OnEnable()
+    public void Save()
     {
-        SaveManager.OnSaveEvent += Save;
-        SaveManager.OnLoadEvent += Load;
+        ref var data = ref YandexGame.savesData.statsData;
+
+        if (data == null)
+        {
+            data = new StatsData(totalPlayTime);
+            return;
+        }
+
+        data.totalPlayTime = totalPlayTime;
     }
-    private void OnDisable()
-    {
-        SaveManager.OnSaveEvent -= Save;
-        SaveManager.OnLoadEvent -= Load;
-    }
-   
-    private void Save()
-    {
-        YandexGame.savesData.statsData = new StatsData(totalPlayTime);
-    }
-    private void Load()
+    public void Load()
     {
         var data = YandexGame.savesData.statsData;
 

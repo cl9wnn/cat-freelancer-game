@@ -6,7 +6,7 @@ using System.IO;
 using YG;
 
 
-public class Achievements : MonoBehaviour
+public class Achievements : MonoBehaviour, ISaveLoad
 {
     private int achievementsCount;
     
@@ -37,22 +37,21 @@ public class Achievements : MonoBehaviour
         if (YandexGame.SDKEnabled)
             Load();
     }
-    private void OnEnable()
-    {
-        SaveManager.OnSaveEvent += Save;
-        SaveManager.OnLoadEvent += Load;
-    }
-    private void OnDisable()
-    {
-        SaveManager.OnSaveEvent -= Save;
-        SaveManager.OnLoadEvent -= Load;
-    }
 
-    private void Save()
+    public void Save()
     {
-        YandexGame.savesData.achievementsData = new AchievementsData(isAchievementDone, achievementsCount);
+        ref var data = ref YandexGame.savesData.achievementsData;
+
+        if (data == null)
+        {
+            data = new AchievementsData(isAchievementDone, achievementsCount);
+            return;
+        }
+        
+        data.isAchievementDone = isAchievementDone;
+        data.achievementsCount = achievementsCount; 
     }
-    private void Load()
+    public void Load()
     {
         var data = YandexGame.savesData.achievementsData;
 

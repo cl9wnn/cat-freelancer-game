@@ -5,7 +5,7 @@ using System.IO;
 using YG;
 
 
-public class SpawnDown : MonoBehaviour
+public class SpawnDown : MonoBehaviour, ISaveLoad
 {
     [SerializeField] private DropMoneyPanel dropMoneyPanel;
     [SerializeField] private PanelAnimation starsPanel; 
@@ -73,22 +73,24 @@ public class SpawnDown : MonoBehaviour
         if (YandexGame.SDKEnabled)
             Load();
     }
-    private void OnEnable()
-    {
-        SaveManager.OnSaveEvent += Save;
-        SaveManager.OnLoadEvent += Load;
-    }
-    private void OnDisable()
-    {
-        SaveManager.OnSaveEvent -= Save;
-        SaveManager.OnLoadEvent -= Load;
-    }
 
-    private void Save()
+    public void Save()
     {
-        YandexGame.savesData.spawnDownData = new SpawnDownData(Level, 0.8f + (Level * 0.3f), spawnInterval, isFirstLevel, isLastLevel);
+        ref var data = ref YandexGame.savesData.spawnDownData;
+
+        if (data == null)
+        {
+            data = new SpawnDownData(Level, 0.8f + (Level * 0.3f), spawnInterval, isFirstLevel, isLastLevel);
+            return;
+        }
+
+        data.level = Level;
+        data.speed = 0.8f + (Level * 0.3f);
+        data.spawnInterval = spawnInterval;
+        data.isFirstLevel = isFirstLevel;
+        data.isLastLevel = isLastLevel;
     }
-    private void Load()
+    public void Load()
     {
         var data = YandexGame.savesData.spawnDownData;
 
