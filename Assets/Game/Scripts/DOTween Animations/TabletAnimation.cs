@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class TabletAnimation : MonoBehaviour
 {
+    [SerializeField] private Image _background;
+
     [SerializeField] private float _duration = 0.5f;
     [SerializeField] private Button _smallTabletButton;
     [SerializeField] private Vector3 _targetScale = new Vector3(1.5f, 1.5f, 1.5f);
@@ -28,6 +30,7 @@ public class TabletAnimation : MonoBehaviour
     private void Start()
     {
         _smallTabletButton?.onClick.AddListener(Show);
+        DisablePanel();
     }
 
     public void Show()
@@ -66,6 +69,7 @@ public class TabletAnimation : MonoBehaviour
 
     public void DisablePanel()
     {
+        _background.enabled = false;
         tablet.GetComponent<Image>().enabled = false;
 
         foreach (Transform child in tablet.transform)
@@ -76,6 +80,7 @@ public class TabletAnimation : MonoBehaviour
     }
     public void EnablePanel()
     {
+        _background.enabled = true; 
         tablet.GetComponent<Image>().enabled = true;
 
         foreach (Transform child in tablet.transform)

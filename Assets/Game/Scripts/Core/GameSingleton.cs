@@ -17,8 +17,8 @@ public class GameSingleton : MonoBehaviour
     private Fortune _fortune;
     public Fortune Fortune => ReturnObject(ref _fortune);
 
-    private SaveManager _saveManager;
-    public SaveManager SaveManager => ReturnObject(ref _saveManager);
+    private SaveController _saveManager;
+    public SaveController SaveManager => ReturnObject(ref _saveManager);
 
     private NavigationBar _navigationManager;
     public NavigationBar NavigationManager => ReturnObject(ref _navigationManager);

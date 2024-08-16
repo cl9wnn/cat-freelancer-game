@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using YG;
 
-public class Fortune : MonoBehaviour
+public class Fortune : MonoBehaviour, ISaveLoad
 {
     [Header("Settings")]
     [SerializeField] private float spinDuration = 6f;
@@ -47,24 +47,21 @@ public class Fortune : MonoBehaviour
         }
     }
 
-    private void OnEnable()
+    public void Save()
     {
-        SaveManager.OnSaveEvent += Save;
-        SaveManager.OnLoadEvent += Load;
-    }
+        ref var data = ref YandexGame.savesData.fortuneData;
 
-    private void OnDisable()
-    {
-        SaveManager.OnSaveEvent -= Save;
-        SaveManager.OnLoadEvent -= Load;
+        if (data == null)
+        {
+            data = new FortuneData(remainingCooldownTime, isAdAvailable, remainingRewardTime);
+            return;
+        }
+    
+        data.remainingCooldownTime = remainingCooldownTime;
+        data.isAdAvailable = isAdAvailable;
+        data.remainingRewardTime = remainingRewardTime;
     }
-
-    private void Save()
-    {
-        YandexGame.savesData.fortuneData = new FortuneData(remainingCooldownTime, isAdAvailable, remainingRewardTime);
-    }
-
-    private void Load()
+    public void Load()
     {
         var data = YandexGame.savesData.fortuneData;
 

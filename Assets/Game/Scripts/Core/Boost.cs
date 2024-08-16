@@ -6,7 +6,7 @@ using DG.Tweening;
 using UnityEngine.Events;
 using System.Globalization;
 
-public class Boost : MonoBehaviour
+public class Boost : MonoBehaviour, ISaveLoad
 {
     [Header("Timers")]
     [SerializeField] private float boostDuration = 20f;
@@ -107,24 +107,22 @@ public class Boost : MonoBehaviour
         }
     }
 
-    private void OnEnable()
+    public void Save()
     {
-        SaveManager.OnSaveEvent += Save;
-        SaveManager.OnLoadEvent += Load;
-    }
+        ref var data = ref YandexGame.savesData.boostData;
 
-    private void OnDisable()
-    {
-        SaveManager.OnSaveEvent -= Save;
-        SaveManager.OnLoadEvent -= Load;
-    }
+        if (data == null)
+        {
+            data = new BoostData(cooldownDuration, CanWatchAd, TotalCoffeeConsumed, AvailableCoffee);
+            return;
+        }
 
-    private void Save()
-    {
-        YandexGame.savesData.boostData = new BoostData(cooldownDuration, boostDuration, IsBoostActive, CanWatchAd, TotalCoffeeConsumed, AvailableCoffee);
+        data.cooldownDuration = cooldownDuration;   
+        data.canWatchAd = CanWatchAd;   
+        data.totalCoffeeConsumed = TotalCoffeeConsumed;
+        data.availableCoffee = availableCoffee;
     }
-
-    private void Load()
+    public void Load()
     {
         var data = YandexGame.savesData.boostData;
 
@@ -134,10 +132,9 @@ public class Boost : MonoBehaviour
             return;
         }
         cooldownDuration = data.cooldownDuration;
-        boostDuration = data.boostDuration;
+        boostDuration = 0;
         TotalCoffeeConsumed = data.totalCoffeeConsumed;
         AvailableCoffee = data.availableCoffee;
-        IsBoostActive = data.isBoostActive;
         CanWatchAd = data.canWatchAd;
 
         TimeSpan elapsed = DateTime.UtcNow - data.saveDate;
@@ -149,13 +146,9 @@ public class Boost : MonoBehaviour
 
     private void Start()
     {
-        if (!IsBoostActive)
-        {
-            coffeeAnimation.StartAnimation();
-        }
+        coffeeAnimation.StartAnimation();
 
         UpdateButtonState();
-        UpdateBoostStatus();
         UpdateAvailableCoffeeUI();
     }
     [ContextMenu("Add")]

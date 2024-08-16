@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using YG;
 
-public class Game : MonoBehaviour
+public class Game : MonoBehaviour, ISaveLoad
 {
     [Header("Текст, отвечающий за отображение денег")]
     public TextMeshProUGUI[] scoreText;
@@ -211,23 +211,30 @@ public class Game : MonoBehaviour
         if (YandexGame.SDKEnabled)
             Load();
     }
-    private void OnEnable()
-    {
-        SaveManager.OnSaveEvent += Save;
-        SaveManager.OnLoadEvent += Load;
-    }
-    private void OnDisable()
-    {
-        SaveManager.OnSaveEvent -= Save;
-        SaveManager.OnLoadEvent -= Load;
-    }
 
-    private void Save()
+    public void Save()
     {
-        YandexGame.savesData.gameData = new GameData(Score, shopItems, ScoreIncrease, offlineTime, TotalClick, colClicks, Clicks, maxResult, offlineBonus);
         YandexGame.NewLeaderboardScores("leaderboard", (int)Score);
+        
+        ref var data = ref YandexGame.savesData.gameData;
+
+        if (data == null)
+        {
+            data = new GameData(Score, shopItems, ScoreIncrease, offlineTime, TotalClick, colClicks, Clicks, maxResult, offlineBonus);
+            return;
+        }
+
+        data.score = Score;
+        data.shopItems = shopItems;
+        data.scoreIncrease = ScoreIncrease;
+        data.offlineTime = offlineTime;
+        data.totalClick = TotalClick;
+        data.colClicks = colClicks;
+        data.clicks = Clicks;
+        data.maxResult = maxResult;
+        data.OfflineBonus = offlineBonus;
     }
-    private void Load()
+    public void Load()
     {
         var data = YandexGame.savesData.gameData;
 
@@ -235,7 +242,7 @@ public class Game : MonoBehaviour
 
         Score = data.score;
         shopItems = data.shopItems;
-        ScoreIncrease = data.scoreIncrease;
+        scoreIncrease = data.scoreIncrease;
         date = data.date;
         offlineTime = data.offlineTime;
         TotalClick = data.totalClick;
@@ -348,8 +355,6 @@ public class Game : MonoBehaviour
         offlineEarningPanel.HidePanel();
 
         GameSingleton.Instance.SoundManager.CreateSound().WithSoundData(SoundEffect.COLLECT_MONEY).Play();
-
-        GameSingleton.Instance.SaveManager.Save();
     }
 
     public void GetOfflineIncomeWithMultiplier(float multiplier)
@@ -360,8 +365,6 @@ public class Game : MonoBehaviour
         offlineEarningPanel.HidePanel();
 
         GameSingleton.Instance.SoundManager.CreateSound().WithSoundData(SoundEffect.COLLECT_MONEY).Play();
-
-        GameSingleton.Instance.SaveManager.Save();
     }
 
     void Inrct()

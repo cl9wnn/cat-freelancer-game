@@ -7,7 +7,7 @@ using Unity.Mathematics;
 using YG;
 using UnityEngine.Audio;
 
-public class Plot : MonoBehaviour
+public class Plot : MonoBehaviour, ISaveLoad
 {
     public bool[] isEventDone;
     public bool isStart;
@@ -72,22 +72,23 @@ public class Plot : MonoBehaviour
         if (YandexGame.SDKEnabled)
             Load();
     }
-    private void OnEnable()
-    {
-        SaveManager.OnSaveEvent += Save;
-        SaveManager.OnLoadEvent += Load;
-    }
-    private void OnDisable()
-    {
-        SaveManager.OnSaveEvent -= Save;
-        SaveManager.OnLoadEvent -= Load;
-    }
 
-    private void Save()
+    public void Save()
     {
-        YandexGame.savesData.plotData = new PlotData(isEventDone, Total, isStart, isEnd);
+        ref var data = ref YandexGame.savesData.plotData;
+
+        if (data == null)
+        {
+            data = new PlotData(isEventDone, Total, isStart, isEnd);
+            return;
+        }
+
+        data.isEventDone = isEventDone;
+        data.total = Total;
+        data.isStart = isStart;
+        data.isEnd = isEnd;
     }
-    private void Load()
+    public void Load()
     {
         var data = YandexGame.savesData.plotData;
 

@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using YG;
 
 
-public class SkinPC : MonoBehaviour
+public class SkinPC : MonoBehaviour, ISaveLoad
 {
     public Image PcBttnSprite;
     public Image[] SprtBttn;
@@ -53,22 +53,19 @@ public class SkinPC : MonoBehaviour
         if (YandexGame.SDKEnabled)
             Load();
     }
-    private void OnEnable()
+    public void Save()
     {
-        SaveManager.OnSaveEvent += Save;
-        SaveManager.OnLoadEvent += Load;
-    }
-    private void OnDisable()
-    {
-        SaveManager.OnSaveEvent -= Save;
-        SaveManager.OnLoadEvent -= Load;
-    }
+        ref var data = ref YandexGame.savesData.skinCoinData;
 
-    private void Save()
-    {
-        YandexGame.savesData.skinCoinData = new SkinCoinData(Bbttn);
+        if (data == null)
+        {
+            data = new SkinCoinData(Bbttn);
+            return;
+        }
+
+        data.bBttn = Bbttn;
     }
-    private void Load()
+    public void Load()
     {
         var data = YandexGame.savesData.skinCoinData;
 
