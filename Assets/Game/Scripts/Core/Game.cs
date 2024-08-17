@@ -372,7 +372,7 @@ public class Game : MonoBehaviour, ISaveLoad
             if (Score >= shopItems[i].cost)
             {
                 shopBttns[i].interactable = true;
-                levelOfItemText[i].text = "lvl " + "<color=#f4bc26>" + shopItems[i].levelOfItem.ToString() + "</color>";
+                levelOfItemText[i].text = LanguageSystem.lng.revenueper[6] + " <color=#f4bc26>" + shopItems[i].levelOfItem.ToString() + "</color>";
                 shopItemsText[i].color = new Color32(112, 86, 167, 255);
                 coinForBttns[i].sprite = coinOpen;
                 bonusIncreaseText[i].color = new Color32(55, 39, 86, 255);
@@ -384,7 +384,7 @@ public class Game : MonoBehaviour, ISaveLoad
                 shopBttns[i].interactable = false;
                 bonusIncreaseText[i].color = new Color32(33, 33, 33, 255);
                 BonusNameText[i].color = new Color32(33, 33, 33, 255);
-                levelOfItemText[i].text = "<color=#404040>" + "lvl " + "</color>" + "<color=#404040>" + shopItems[i].levelOfItem.ToString() + "</color>";
+                levelOfItemText[i].text = "<color=#404040>" + LanguageSystem.lng.revenueper[6] + " </color>" + "<color=#404040>" + shopItems[i].levelOfItem.ToString() + "</color>";
                 shopItemsText[i].color = new Color32(63, 63, 63, 255);
                 coinForBttns[i].sprite = coinClose;
                 shopBttns[i].GetComponent<Image>().sprite = shopBttnSpritesClose[i];
@@ -397,7 +397,7 @@ public class Game : MonoBehaviour, ISaveLoad
             if (Score >= shopItems[i].cost)
             {
                 shopBttns[i].interactable = true;
-                levelOfItemText[i].text = "<color=#6c6c6c>" + "lvl " + "</color>" + "<color=#5f9500>" + shopItems[i].levelOfItem.ToString() + "</color>";
+                levelOfItemText[i].text = "<color=#6c6c6c>" + LanguageSystem.lng.revenueper[6] + " </color>" + "<color=#5f9500>" + shopItems[i].levelOfItem.ToString() + "</color>";
                 shopItemsText[i].color = new Color32(106, 166, 0, 255);
                 coinForBttns[i].sprite = coinOpen;
                 shopBttns[i].GetComponent<Image>().sprite = shopBttnSpritesOpen[i];
@@ -405,7 +405,7 @@ public class Game : MonoBehaviour, ISaveLoad
             else
             {
                 shopBttns[i].interactable = false;
-                levelOfItemText[i].text = "<color=#404040>" + "lvl " + "</color>" + "<color=#404040>" + shopItems[i].levelOfItem.ToString() + "</color>";
+                levelOfItemText[i].text = "<color=#404040>" + LanguageSystem.lng.revenueper[6] + " </color>" + "<color=#404040>" + shopItems[i].levelOfItem.ToString() + "</color>";
                 shopItemsText[i].color = new Color32(63, 63, 63, 255);
                 coinForBttns[i].sprite = coinClose;
                 shopBttns[i].GetComponent<Image>().sprite = shopBttnSpritesClose[i];
@@ -472,7 +472,7 @@ public class Game : MonoBehaviour, ISaveLoad
 
     void MoneyScore()
     {
-        var moneyText = StringMethods.FormatMoney(Score);
+        var moneyText = StringMethods.FormatMoney(Score, wideText: true);
 
         scoreText[0].text = moneyText + "<sprite=0>";
 
@@ -486,10 +486,15 @@ public class Game : MonoBehaviour, ISaveLoad
     {
         if (Score >= shopItems[index].cost)
         {
-            if (shopItems[index].itsItemPerSec) shopItems[index].bonusCounter++;
-            else ScoreIncrease += shopItems[index].bonusIncrease;
+            if (shopItems[index].itsItemPerSec) 
+                shopItems[index].bonusCounter++;
+            else
+                ScoreIncrease += shopItems[index].bonusIncrease;
+            
             Score -= shopItems[index].cost;
-            shopItems[index].cost = Mathf.Round(shopItems[index].cost * shopItems[index].costMultiplier);
+            
+            shopItems[index].cost = StringMethods.ParseFormattedCost(Mathf.Round(shopItems[index].cost * shopItems[index].costMultiplier));
+            
             shopItems[index].levelOfItem++;
         }
 
@@ -500,7 +505,9 @@ public class Game : MonoBehaviour, ISaveLoad
         UpdateCosts();
     }
 
-   public void UpdateCosts()
+
+
+    public void UpdateCosts()
     {
         for (int i = 0; i < shopItems.Count; i++)
         {

@@ -1,12 +1,5 @@
-﻿
-using UnityEngine;
-using System.IO;
+﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Networking;
-using System.Collections;
-using YG;
-using System.Text;
-
 
 public class LanguageSystem : MonoBehaviour
 {

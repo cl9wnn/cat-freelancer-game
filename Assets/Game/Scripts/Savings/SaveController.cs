@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using YG;
 
+[DefaultExecutionOrder(1000)]
 public class SaveController : MonoBehaviour
 {
     private List<ISaveLoad> _saves;

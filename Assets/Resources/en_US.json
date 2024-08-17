@@ -120,7 +120,8 @@
     "Idle time - ",
     "Quit",
     "Passive income in the game accumulates during your absence. The purchase of each computer increases this income by one hour. Buy new computers to increase your income outside the game, as well as change the look of your PC!",
-      "Hint"
+    "Hint",
+    "Lvl"
   ],
   "time": [
     " h. ",
