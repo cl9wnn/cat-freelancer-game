@@ -30,6 +30,8 @@ public class SaveController : MonoBehaviour
     {
         YandexGame.ResetSaveProgress();
         YandexGame.SaveProgress();
+
+        _iSaveAll = true;
     }
 
     private void OnApplicationFocus(bool hasFocus)
