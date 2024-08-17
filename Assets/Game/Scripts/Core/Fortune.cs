@@ -183,7 +183,7 @@ public class Fortune : MonoBehaviour, ISaveLoad
             case 45:
                 winText.text = LanguageSystem.lng.fortune[3];
 
-                GameSingleton.Instance.Boost.AddCoffee(amount: 1);
+                GameSingleton.Instance.Boost.ChangeCoffee(amount: 1);
 
                 GameSingleton.Instance.SoundManager.CreateSound()
                                                    .WithSoundData(SoundEffect.WIN_SOUND_2)

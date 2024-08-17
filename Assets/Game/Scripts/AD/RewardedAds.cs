@@ -21,7 +21,7 @@ public class RewardedAds : MonoBehaviour
                 GameSingleton.Instance.Fortune.UnlockFortuneWheel();
                 break;
             case 1: // Стакан
-                GameSingleton.Instance.Boost.AddCoffee(amount: 1);
+                GameSingleton.Instance.Boost.ChangeCoffee(amount: 1);
                 break;
             case 2: // Удвоение награды за отсутствие 
                 GameSingleton.Instance.Game.GetOfflineIncomeWithMultiplier(2);

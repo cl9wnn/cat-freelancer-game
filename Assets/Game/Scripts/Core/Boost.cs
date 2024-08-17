@@ -5,12 +5,15 @@ using YG;
 using DG.Tweening;
 using UnityEngine.Events;
 using System.Globalization;
+using System.Collections;
 
 public class Boost : MonoBehaviour, ISaveLoad
 {
-    [Header("Timers")]
-    [SerializeField] private float boostDuration = 20f;
-    [SerializeField] private float cooldownDuration = 7200f;
+    private const float DEFAULT_BOOST_DURATION = 20f;
+    private const float DEFAULT_COOLDOWN_DURATION = 7200f;
+
+    private const int MIN_AVAILABLE_COFFEE_FOR_DISPLAY = 2;
+    private const float COOLDOWN_REWARD_THRESHOLD = 0.5f;
 
     [Header("UI Elements")]
     [SerializeField] private Button boostButton;
@@ -23,7 +26,10 @@ public class Boost : MonoBehaviour, ISaveLoad
     [SerializeField] private Text warningText;
     [SerializeField] private Text availbableCoffeeCountText;
     [SerializeField] private Image availableCoffeeCountImage;
+
+    [Header("Animations")]
     [SerializeField] private BounceAnimation coffeeAnimation;
+    [SerializeField] private BoostAnimation boostAnimation;
 
     [Header("AD")]
     [SerializeField] private Image adImage;
@@ -34,77 +40,23 @@ public class Boost : MonoBehaviour, ISaveLoad
 
     private Achievements _achievements;
 
-    private bool isBoostActive;
-    private bool canWatchAd;
-    private int totalCoffeeConsumed;
-    private int availableCoffee;
-
-    public event Action BoostActivated;
-    public event Action BoostDeactivated;
+    private bool hasCooldownTimer;
+    private float remainingCooldown;
 
     private UnityAction adAction;
     private UnityAction boostAction;
 
-    public bool CanWatchAd
-    {
-        get => canWatchAd;
-        set
-        {
-            if (canWatchAd != value)
-            {
-                canWatchAd = value;
-                UpdateButtonState();
-            }
-        }
-    }
+    public bool IsBoostActive { get; private set; }
+    public int TotalCoffeeConsumed { get; private set; }
+    public int AvailableCoffee { get; private set; }
 
-    public bool IsBoostActive
-    {
-        get => isBoostActive;
-        set
-        {
-            if (isBoostActive == value) return;
-            isBoostActive = value;
-
-            if (isBoostActive)
-            {
-                OnBoostActivated();
-            }
-            else
-            {
-                OnBoostDeactivated();
-            }
-        }
-    }
-
-    public int TotalCoffeeConsumed
-    {
-        get => totalCoffeeConsumed;
-        set
-        {
-            totalCoffeeConsumed = value;
-            CheckAchievements();
-        }
-    }
-
-    public int AvailableCoffee
-    {
-        get => availableCoffee;
-        set
-        {
-            availableCoffee = value;
-            UpdateAvailableCoffeeUI();
-        }
-    }
 
     private void Awake()
     {
         _achievements = GameSingleton.Instance.Achievements;
 
         if (YandexGame.SDKEnabled)
-        {
             Load();
-        }
     }
 
     public void Save()
@@ -113,50 +65,63 @@ public class Boost : MonoBehaviour, ISaveLoad
 
         if (data == null)
         {
-            data = new BoostData(cooldownDuration, CanWatchAd, TotalCoffeeConsumed, AvailableCoffee);
+            data = new BoostData(remainingCooldown, TotalCoffeeConsumed, AvailableCoffee);
             return;
         }
 
-        data.cooldownDuration = cooldownDuration;   
-        data.canWatchAd = CanWatchAd;   
+        data.cooldownDuration = remainingCooldown;   
         data.totalCoffeeConsumed = TotalCoffeeConsumed;
-        data.availableCoffee = availableCoffee;
+        data.availableCoffee = AvailableCoffee;
     }
     public void Load()
     {
         var data = YandexGame.savesData.boostData;
 
         if (data == null)
-        {
-            AddCoffee(1);
             return;
-        }
-        cooldownDuration = data.cooldownDuration;
-        boostDuration = 0;
+
+        remainingCooldown = data.cooldownDuration;
         TotalCoffeeConsumed = data.totalCoffeeConsumed;
         AvailableCoffee = data.availableCoffee;
-        CanWatchAd = data.canWatchAd;
 
-        TimeSpan elapsed = DateTime.UtcNow - data.saveDate;
-        if (boostDuration <= 0)
-        {
-            cooldownDuration -= (int)elapsed.TotalSeconds;
-        }
+        var elapsed = DateTime.UtcNow - data.saveDate;
+        remainingCooldown -= (int)elapsed.TotalSeconds;
     }
 
     private void Start()
     {
-        coffeeAnimation.StartAnimation();
+        UpdateCoffeeUI();
+        UpdateYesButtonState();
 
-        UpdateButtonState();
-        UpdateAvailableCoffeeUI();
+        CheckAchievements();
+        CheckCooldown();
     }
-    [ContextMenu("Add")]
-    public void Add()
+
+    private void CheckCooldown()
     {
-        AddCoffee(1);
+        hasCooldownTimer = AvailableCoffee <= 0 && !IsBoostActive;
+
+        if (hasCooldownTimer)
+            StartCoroutine(CooldownCoroutine());
+        else
+            UpdateBoostText(LanguageSystem.lng.time[4]);
     }
-    private void UpdateButtonState()
+
+    private void UpdateCoffeeUI()
+    {
+        availableCoffeeCountImage.gameObject.SetActive(AvailableCoffee >= MIN_AVAILABLE_COFFEE_FOR_DISPLAY && !IsBoostActive);
+        availbableCoffeeCountText.text = AvailableCoffee.ToString();
+
+        coffeeAnimation.GetComponent<Image>().sprite = (IsBoostActive || AvailableCoffee <= 0) ? emptyBoostButtonSprite : fullBoostButtonSprite;
+
+        boostButton.interactable = !IsBoostActive;
+
+        if (AvailableCoffee >= 1 && !IsBoostActive) 
+            coffeeAnimation.StartAnimation();
+        else 
+            coffeeAnimation.StopAnimation();
+    }
+    private void UpdateYesButtonState()
     {
         if (adAction != null)
         {
@@ -168,18 +133,16 @@ public class Boost : MonoBehaviour, ISaveLoad
             enableButton.onClick.RemoveListener(boostAction);
         }
 
-        if (canWatchAd)
+        if (AvailableCoffee <= 0)
         {
-            Debug.Log("AD");
             SetAdMode();
         }
         else
         {
-            Debug.Log("AD 2");
-            SetBoostMode();
+            SetActivateBoostMode();
         }
     }
-
+    
     private void SetAdMode()
     {
         infoText.text = LanguageSystem.lng.boostt[4];
@@ -189,8 +152,7 @@ public class Boost : MonoBehaviour, ISaveLoad
         enableButton.GetComponent<Image>().color = new Color32(242, 200, 25, 255);
         adImage.gameObject.SetActive(true);
     }
-
-    private void SetBoostMode()
+    private void SetActivateBoostMode()
     {
         infoText.text = LanguageSystem.lng.boostt[0];
         boostAction = ActivateBoost;
@@ -202,95 +164,72 @@ public class Boost : MonoBehaviour, ISaveLoad
 
     private void ActivateBoost()
     {
-        if (AvailableCoffee > 0 && !CanWatchAd)
-        {
-            IsBoostActive = true;
-            AvailableCoffee--;
-        }
+        if (AvailableCoffee <= 0 || IsBoostActive) return;
+
+        IsBoostActive = true;
+        OnBoostActivated();
+
+        ChangeCoffee(amount: -1);
+        TotalCoffeeConsumed++;
+
+        StartCoroutine(BoostCoroutine());
     }
 
-    private void FixedUpdate()
+    private IEnumerator BoostCoroutine()
     {
-        UpdateBoostStatus();
-        UpdateCooldownStatus();
-    }
+        var boostDuration = DEFAULT_BOOST_DURATION;
 
-    private void UpdateBoostStatus()
-    {
-        if (IsBoostActive)
+        while (IsBoostActive && (boostDuration -= Time.fixedDeltaTime) > 0)
         {
-            HandleActiveBoost();
-        }
-    }
-
-    private void HandleActiveBoost()
-    {
-        coffeeAnimation.GetComponent<Image>().sprite = emptyBoostButtonSprite;
-        coffeeAnimation.StopAnimation();
-
-        if (boostDuration > 0)
-        {
-            boostDuration -= Time.fixedDeltaTime;
-            boostButton.interactable = false;
             UpdateBoostText(boostDuration.ToString("0.0") + LanguageSystem.lng.time[3]);
+            yield return new WaitForFixedUpdate();
         }
-        else
-        {
-            IsBoostActive = false;
 
-            if (AvailableCoffee > 0)
-            {
-                cooldownDuration = 0;
-                HandleCooldownEnd();
-            }
-
-            UpdateAvailableCoffeeUI();
-        }
+        EndBoost();
     }
-
-    private void UpdateCooldownStatus()
+    private IEnumerator CooldownCoroutine()
     {
-        if (cooldownDuration > 0 && boostDuration <= 0)
+        while (hasCooldownTimer && (remainingCooldown -= Time.fixedDeltaTime) > 0)
         {
-            infoText.text = LanguageSystem.lng.boostt[4];
-            CanWatchAd = true;
-            cooldownDuration -= Time.fixedDeltaTime;
-            coffeeAnimation.GetComponent<Image>().sprite = emptyBoostButtonSprite;
-            boostButton.interactable = true;
-            UpdateBoostText(GetFormattedCooldownTime());
+            UpdateBoostText(GetCooldownTime());
+
+            yield return new WaitForFixedUpdate();  
         }
 
-        if (cooldownDuration <= 0)
-        {
-            HandleCooldownEnd();
-            AddCoffee(1);
-        }
+        EndCooldown();
     }
 
-    private void HandleCooldownEnd()
+    private void EndBoost()
     {
-        coffeeAnimation.GetComponent<Image>().sprite = fullBoostButtonSprite;
-        coffeeAnimation.StartAnimation();
-        boostButton.interactable = true;
-        UpdateBoostText(LanguageSystem.lng.time[4]);
-        CanWatchAd = false;
-        cooldownDuration = 7200;
-        boostDuration = 20;
-    }
+        IsBoostActive = false;
+        OnBoostDeactivated();
 
-    private string GetFormattedCooldownTime()
+        UpdateCoffeeUI();
+        CheckCooldown();
+    }
+    private void EndCooldown()
     {
-        if (cooldownDuration <= 3600)
-        {
-            return (((int)cooldownDuration / 60) % 60).ToString("0") + LanguageSystem.lng.time[2];
-        }
-        if (cooldownDuration <= 60)
-        {
-            return (((int)cooldownDuration)).ToString("0") + LanguageSystem.lng.time[7];
-        }
-        return (((int)cooldownDuration / 3600).ToString("0") + LanguageSystem.lng.time[5] + (((int)cooldownDuration / 60) % 60).ToString("0") + LanguageSystem.lng.time[2]);
+        if (remainingCooldown >= COOLDOWN_REWARD_THRESHOLD)
+            return;
+
+        hasCooldownTimer = false;
+        remainingCooldown = DEFAULT_COOLDOWN_DURATION;
+
+        ChangeCoffee(amount: 1);
     }
 
+    private string GetCooldownTime()
+    {
+        if (remainingCooldown <= 3600)
+        {
+            return (((int)remainingCooldown / 60) % 60).ToString("0") + LanguageSystem.lng.time[2];
+        }
+        if (remainingCooldown <= 60)
+        {
+            return (((int)remainingCooldown)).ToString("0") + LanguageSystem.lng.time[7];
+        }
+        return (((int)remainingCooldown / 3600).ToString("0") + LanguageSystem.lng.time[5] + (((int)remainingCooldown / 60) % 60).ToString("0") + LanguageSystem.lng.time[2]);
+    }
     private void UpdateBoostText(string text)
     {
         boostText.text = text;
@@ -313,56 +252,39 @@ public class Boost : MonoBehaviour, ISaveLoad
         }
     }
 
-    private void UpdateAvailableCoffeeUI()
-    {
-        availableCoffeeCountImage.gameObject.SetActive(AvailableCoffee > 1 && !IsBoostActive);
-        availbableCoffeeCountText.text = AvailableCoffee.ToString();
-    }
-
     private void OnBoostActivated()
     {
         GameSingleton.Instance.SoundManager.CreateSound().WithSoundData(SoundEffect.DRINK_COFFEE).Play();
         GameSingleton.Instance.MusicManager.PlayBackgroundMusic(BackgroundMusic.BOOST_MODE);
-        TotalCoffeeConsumed++;
 
-        BoostActivated?.Invoke();
+        boostAnimation.StartAnimation();
     }
-
     private void OnBoostDeactivated()
     {
         GameSingleton.Instance.MusicManager.PlayBackgroundMusic(BackgroundMusic.MAIN_GAME);
 
-        BoostDeactivated?.Invoke();
+        boostAnimation.StopAnimation();
     }
 
     public void ChangeLanguage()
     {
-        infoText.text = LanguageSystem.lng.boostt[0];
+        infoText.text = AvailableCoffee > 0 ? LanguageSystem.lng.boostt[0] : LanguageSystem.lng.boostt[4]; ;
         enableText.text = LanguageSystem.lng.boostt[1];
         watchAdText.text = LanguageSystem.lng.boostt[2];
         warningText.text = LanguageSystem.lng.boostt[5];
         
         UpdateBoostText(LanguageSystem.lng.time[4]);
     }
-
-    public void AddCoffee(int amount)
+    public void ChangeCoffee(int amount)
     {
+        if (AvailableCoffee + amount < 0) 
+            return;
+
         AvailableCoffee += amount;
-        if (AvailableCoffee == amount)
-        {
-            if (cooldownDuration > 0)
-            {
-                cooldownDuration = 0;
-                HandleCooldownEnd();
-            }
+        
+        CheckCooldown();
 
-            UpdateUI();
-        }
-    }
-
-    private void UpdateUI()
-    {
-        UpdateAvailableCoffeeUI();
-        UpdateButtonState();
+        UpdateCoffeeUI();
+        UpdateYesButtonState();
     }
 }

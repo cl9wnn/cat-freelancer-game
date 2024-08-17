@@ -20,21 +20,6 @@ public class BoostAnimation : MonoBehaviour
     private Sequence _colorSequence;
     private Tween _scaleTween;
 
-    private void Start()
-    {
-        GameSingleton.Instance.Boost.BoostActivated += StartAnimation;
-        GameSingleton.Instance.Boost.BoostDeactivated += StopAnimation;
-
-        if (GameSingleton.Instance.Boost.IsBoostActive)
-        {
-            StartAnimation();
-        }
-        else
-        {
-            StopAnimation();
-        }
-    }
-
     public void StartAnimation()
     {
         StopAllAnimations();
