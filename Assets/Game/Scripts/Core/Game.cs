@@ -465,6 +465,13 @@ public class Game : MonoBehaviour, ISaveLoad
         }
     }
 
+    public Item GetNextGraphicsCard()
+    {
+        var index = shopItems.FindLastIndex(item => !item.itsItemPerSec && item.levelOfItem > 0);
+
+        return shopItems[Mathf.Clamp(index + 1, 20, shopItems.Count - 1)];
+    }
+
     void MoneyScore()
     {
         var moneyText = StringMethods.FormatMoney(Score);

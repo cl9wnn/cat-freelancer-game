@@ -146,6 +146,11 @@ public class Fortune : MonoBehaviour, ISaveLoad
         {
             case 0:
                 AwardMoney(3600, moneyMultiplier);
+                if (!_achievements.isAchievementDone[2])
+                {
+                    _achievements.resultTexts[2].text = "";
+                    _achievements.CompleteAchievement(2);
+                }
                 break;
             case 135:
                 remainingCooldownTime = 0;
@@ -170,8 +175,11 @@ public class Fortune : MonoBehaviour, ISaveLoad
                 AwardMoney(900, moneyMultiplier);
                 break;
             case 225:
-                _game.ScoreIncrease *= 2;
-                winText.text = LanguageSystem.lng.fortune[5];
+                var bestCard = _game.GetNextGraphicsCard();
+
+                _game.ScoreIncrease += bestCard.bonusIncrease;
+                bestCard.levelOfItem++;
+                winText.text = LanguageSystem.lng.fortune[5] + bestCard.name;
 
                 GameSingleton.Instance.SoundManager.CreateSound()
                                                    .WithSoundData(SoundEffect.WIN_SOUND_2)
@@ -196,13 +204,8 @@ public class Fortune : MonoBehaviour, ISaveLoad
 
     private void AwardMoney(float amount, float multiplier)
     {
-        winText.text = StringMethods.FormatMoney(amount * multiplier) + LanguageSystem.lng.fortune[2];
+        winText.text = "+ " + StringMethods.FormatMoney(amount * multiplier) + LanguageSystem.lng.fortune[2];
         _game.Score += amount * multiplier;
-        if (!_achievements.isAchievementDone[2])
-        {
-            _achievements.resultTexts[2].text = "";
-            _achievements.CompleteAchievement(2);
-        }
 
         GameSingleton.Instance.SoundManager.CreateSound()
                                            .WithSoundData(SoundEffect.WIN_SOUND_1)

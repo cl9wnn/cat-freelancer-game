@@ -35779,8 +35779,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.29177776, y: 0.8867813}
   m_AnchorMax: {x: 0.65022224, y: 0.96121883}
-  m_AnchoredPosition: {x: -10.494003, y: 0.5}
-  m_SizeDelta: {x: 57.123, y: 0.37}
+  m_AnchoredPosition: {x: -7.8200073, y: 0.5}
+  m_SizeDelta: {x: 42.24, y: 0.37}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &476923458
 MonoBehaviour:
@@ -35830,12 +35830,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 53
+  m_fontSize: 58
   m_fontSizeBase: 53
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 68
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 48
+  m_fontSizeMax: 58
   m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -37059,7 +37059,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.49316666, y: 0.51343757}
   m_AnchorMax: {x: 0.49316666, y: 0.51343757}
-  m_AnchoredPosition: {x: -11, y: 101.56}
+  m_AnchoredPosition: {x: -11, y: 108}
   m_SizeDelta: {x: 380.46, y: 340}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &506233728
@@ -91116,7 +91116,7 @@ MonoBehaviour:
     bonusCounter: 0
     itemIndex: 0
   - name: 2cec
-    cost: 3750
+    cost: 3700
     bonusIncrease: 0
     levelOfItem: 0
     costMultiplier: 1.5
@@ -91161,7 +91161,7 @@ MonoBehaviour:
     bonusCounter: 0
     itemIndex: 0
   - name: 7cec
-    cost: 3250000
+    cost: 3200000
     bonusIncrease: 0
     levelOfItem: 0
     costMultiplier: 1.5
@@ -91277,7 +91277,7 @@ MonoBehaviour:
     bonusPerSec: 10000000
     bonusCounter: 0
     itemIndex: 0
-  - name: 1cl
+  - name: Intel HD graphics
     cost: 110
     bonusIncrease: 1
     levelOfItem: 0
@@ -91286,7 +91286,7 @@ MonoBehaviour:
     bonusPerSec: 0
     bonusCounter: 0
     itemIndex: 0
-  - name: 2cl
+  - name: Radeon R5
     cost: 550
     bonusIncrease: 3
     levelOfItem: 0
@@ -91295,7 +91295,7 @@ MonoBehaviour:
     bonusPerSec: 0
     bonusCounter: 0
     itemIndex: 0
-  - name: 3cl
+  - name: GT 1030
     cost: 2100
     bonusIncrease: 10
     levelOfItem: 0
@@ -91304,7 +91304,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 4cl
+  - name: Rx 550
     cost: 8000
     bonusIncrease: 16
     levelOfItem: 0
@@ -91313,7 +91313,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 5cl
+  - name: GTX 1050
     cost: 28000
     bonusIncrease: 27
     levelOfItem: 0
@@ -91322,7 +91322,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 6cl
+  - name: GTX 960
     cost: 110000
     bonusIncrease: 60
     levelOfItem: 0
@@ -91331,7 +91331,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 7cl
+  - name: GTX 1060
     cost: 400000
     bonusIncrease: 110
     levelOfItem: 0
@@ -91340,7 +91340,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 8cl
+  - name: GTX 1650 s
     cost: 1500000
     bonusIncrease: 355
     levelOfItem: 0
@@ -91349,7 +91349,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 9cl
+  - name: RX 590
     cost: 4200000
     bonusIncrease: 800
     levelOfItem: 0
@@ -91358,7 +91358,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 10cl
+  - name: GTX 1660 Ti
     cost: 12000000
     bonusIncrease: 1600
     levelOfItem: 0
@@ -91367,7 +91367,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 11cl
+  - name: RX 5600 XT
     cost: 35000000
     bonusIncrease: 3000
     levelOfItem: 0
@@ -91376,7 +91376,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 12cl
+  - name: GTX 1080 Ti
     cost: 170000000
     bonusIncrease: 8500
     levelOfItem: 0
@@ -91385,7 +91385,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 13cl
+  - name: RTX 2080
     cost: 700000000
     bonusIncrease: 23000
     levelOfItem: 0
@@ -91394,7 +91394,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 14cl
+  - name: RX 6700 XT
     cost: 3.2e+9
     bonusIncrease: 60000
     levelOfItem: 0
@@ -91403,7 +91403,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 15cl
+  - name: RTX 3070 Ti
     cost: 1e+10
     bonusIncrease: 140000
     levelOfItem: 0
@@ -91412,7 +91412,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 16cl
+  - name: RX 6800 XT
     cost: 3.5e+10
     bonusIncrease: 400000
     levelOfItem: 0
@@ -91421,7 +91421,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 17cl
+  - name: RTX 3090
     cost: 1e+11
     bonusIncrease: 700000
     levelOfItem: 0
@@ -91430,7 +91430,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 18cl
+  - name: RX 7900 XT
     cost: 2.55e+11
     bonusIncrease: 1400000
     levelOfItem: 0
@@ -91439,7 +91439,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 19cl
+  - name: RTX 4080
     cost: 6.4e+11
     bonusIncrease: 3000000
     levelOfItem: 0
@@ -91448,7 +91448,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 20cl
+  - name: RTX 4090
     cost: 1.5e+12
     bonusIncrease: 5000000
     levelOfItem: 0
@@ -94559,7 +94559,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.11381251}
   m_AnchorMax: {x: 0.5, y: 0.11381251}
-  m_AnchoredPosition: {x: -0.001236, y: -97.22}
+  m_AnchoredPosition: {x: -0.001236, y: -97.21994}
   m_SizeDelta: {x: 0, y: 99.11}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2116943677

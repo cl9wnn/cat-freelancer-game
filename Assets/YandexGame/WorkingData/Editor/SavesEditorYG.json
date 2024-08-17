@@ -1,7 +1,7 @@
 {
-  "idSave": 156,
+  "idSave": 587,
   "isFirstSession": false,
-  "language": "ru",
+  "language": "en",
   "promptDone": false,
   "money": 1,
   "newPlayerName": "Hello!",
@@ -14,32 +14,32 @@
     "isAchievementDone": [
       false,
       false,
+      true,
       false,
       false,
-      false,
-      false,
+      true,
       false,
       false
     ],
-    "achievementsCount": 0
+    "achievementsCount": 2
   },
   "boostData": {
     "totalCoffeeConsumed": 0,
-    "availableCoffee": 0,
-    "cooldownDuration": 7159.88965,
+    "availableCoffee": 1,
+    "cooldownDuration": 7200.0,
     "saveDate": "2024-08-14T22:07:00.9109062Z",
-    "canWatchAd": true
+    "canWatchAd": false
   },
   "fortuneData": {
-    "remainingCooldownTime": -184.0,
+    "remainingCooldownTime": 7162.904,
     "remainingRewardTime": 0.0,
-    "isAdAvailable": false,
+    "isAdAvailable": true,
     "saveDate": "2024-08-14T22:07:00.9109062Z"
   },
   "gameData": {
-    "score": 0.0,
-    "scoreIncrease": 1.0,
-    "totalClick": 0,
+    "score": 3039289.0,
+    "scoreIncrease": 9040.0,
+    "totalClick": 11,
     "offlineTime": 7200.0,
     "shopItems": [
       {
@@ -55,18 +55,18 @@
       },
       {
         "name": "1cec",
-        "cost": 1000.0,
+        "cost": 3375.0,
         "bonusIncrease": 0.0,
-        "levelOfItem": 0,
+        "levelOfItem": 3,
         "costMultiplier": 1.5,
         "itsItemPerSec": true,
         "bonusPerSec": 2.0,
-        "bonusCounter": 0,
+        "bonusCounter": 3,
         "itemIndex": 0
       },
       {
         "name": "2cec",
-        "cost": 3750.0,
+        "cost": 3700.0,
         "bonusIncrease": 0.0,
         "levelOfItem": 0,
         "costMultiplier": 1.5,
@@ -77,24 +77,24 @@
       },
       {
         "name": "3cec",
-        "cost": 12000.0,
+        "cost": 18000.0,
         "bonusIncrease": 0.0,
-        "levelOfItem": 0,
+        "levelOfItem": 1,
         "costMultiplier": 1.5,
         "itsItemPerSec": true,
         "bonusPerSec": 12.0,
-        "bonusCounter": 0,
+        "bonusCounter": 1,
         "itemIndex": 0
       },
       {
         "name": "4cec",
-        "cost": 62000.0,
+        "cost": 93000.0,
         "bonusIncrease": 0.0,
-        "levelOfItem": 0,
+        "levelOfItem": 1,
         "costMultiplier": 1.5,
         "itsItemPerSec": true,
         "bonusPerSec": 21.0,
-        "bonusCounter": 0,
+        "bonusCounter": 1,
         "itemIndex": 0
       },
       {
@@ -121,7 +121,7 @@
       },
       {
         "name": "7cec",
-        "cost": 3250000.0,
+        "cost": 3200000.0,
         "bonusIncrease": 0.0,
         "levelOfItem": 0,
         "costMultiplier": 1.5,
@@ -263,10 +263,10 @@
         "itemIndex": 0
       },
       {
-        "name": "1cl",
-        "cost": 110.0,
+        "name": "Intel HD graphics",
+        "cost": 143.0,
         "bonusIncrease": 1.0,
-        "levelOfItem": 0,
+        "levelOfItem": 1,
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 0.0,
@@ -274,10 +274,10 @@
         "itemIndex": 0
       },
       {
-        "name": "2cl",
-        "cost": 550.0,
+        "name": "Radeon R5",
+        "cost": 929.0,
         "bonusIncrease": 3.0,
-        "levelOfItem": 0,
+        "levelOfItem": 2,
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 0.0,
@@ -285,10 +285,10 @@
         "itemIndex": 0
       },
       {
-        "name": "3cl",
-        "cost": 2100.0,
+        "name": "GT 1030",
+        "cost": 2730.0,
         "bonusIncrease": 10.0,
-        "levelOfItem": 0,
+        "levelOfItem": 1,
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
@@ -296,10 +296,10 @@
         "itemIndex": 0
       },
       {
-        "name": "4cl",
-        "cost": 8000.0,
+        "name": "Rx 550",
+        "cost": 10400.0,
         "bonusIncrease": 16.0,
-        "levelOfItem": 0,
+        "levelOfItem": 1,
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
@@ -307,10 +307,10 @@
         "itemIndex": 0
       },
       {
-        "name": "5cl",
-        "cost": 28000.0,
+        "name": "GTX 1050",
+        "cost": 61516.0,
         "bonusIncrease": 27.0,
-        "levelOfItem": 0,
+        "levelOfItem": 3,
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
@@ -318,10 +318,10 @@
         "itemIndex": 0
       },
       {
-        "name": "6cl",
-        "cost": 110000.0,
+        "name": "GTX 960",
+        "cost": 143000.0,
         "bonusIncrease": 60.0,
-        "levelOfItem": 0,
+        "levelOfItem": 1,
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
@@ -329,10 +329,10 @@
         "itemIndex": 0
       },
       {
-        "name": "7cl",
-        "cost": 400000.0,
+        "name": "GTX 1060",
+        "cost": 520000.0,
         "bonusIncrease": 110.0,
-        "levelOfItem": 0,
+        "levelOfItem": 1,
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
@@ -340,10 +340,10 @@
         "itemIndex": 0
       },
       {
-        "name": "8cl",
+        "name": "GTX 1650 s",
         "cost": 1500000.0,
         "bonusIncrease": 355.0,
-        "levelOfItem": 0,
+        "levelOfItem": 1,
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
@@ -351,10 +351,10 @@
         "itemIndex": 0
       },
       {
-        "name": "9cl",
-        "cost": 4200000.0,
+        "name": "RX 590",
+        "cost": 5460000.0,
         "bonusIncrease": 800.0,
-        "levelOfItem": 0,
+        "levelOfItem": 1,
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
@@ -362,10 +362,10 @@
         "itemIndex": 0
       },
       {
-        "name": "10cl",
-        "cost": 1.2E+07,
+        "name": "GTX 1660 Ti",
+        "cost": 15599999.0,
         "bonusIncrease": 1600.0,
-        "levelOfItem": 0,
+        "levelOfItem": 1,
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
@@ -373,10 +373,10 @@
         "itemIndex": 0
       },
       {
-        "name": "11cl",
-        "cost": 3.5E+07,
+        "name": "RX 5600 XT",
+        "cost": 59149996.0,
         "bonusIncrease": 3000.0,
-        "levelOfItem": 0,
+        "levelOfItem": 2,
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
@@ -384,7 +384,7 @@
         "itemIndex": 0
       },
       {
-        "name": "12cl",
+        "name": "GTX 1080 Ti",
         "cost": 1.7E+08,
         "bonusIncrease": 8500.0,
         "levelOfItem": 0,
@@ -395,7 +395,7 @@
         "itemIndex": 0
       },
       {
-        "name": "13cl",
+        "name": "RTX 2080",
         "cost": 7E+08,
         "bonusIncrease": 23000.0,
         "levelOfItem": 0,
@@ -406,7 +406,7 @@
         "itemIndex": 0
       },
       {
-        "name": "14cl",
+        "name": "RX 6700 XT",
         "cost": 3.2E+09,
         "bonusIncrease": 60000.0,
         "levelOfItem": 0,
@@ -417,7 +417,7 @@
         "itemIndex": 0
       },
       {
-        "name": "15cl",
+        "name": "RTX 3070 Ti",
         "cost": 1E+10,
         "bonusIncrease": 140000.0,
         "levelOfItem": 0,
@@ -428,7 +428,7 @@
         "itemIndex": 0
       },
       {
-        "name": "16cl",
+        "name": "RX 6800 XT",
         "cost": 3.5E+10,
         "bonusIncrease": 400000.0,
         "levelOfItem": 0,
@@ -439,7 +439,7 @@
         "itemIndex": 0
       },
       {
-        "name": "17cl",
+        "name": "RTX 3090",
         "cost": 1E+11,
         "bonusIncrease": 700000.0,
         "levelOfItem": 0,
@@ -450,7 +450,7 @@
         "itemIndex": 0
       },
       {
-        "name": "18cl",
+        "name": "RX 7900 XT",
         "cost": 2.55E+11,
         "bonusIncrease": 1400000.0,
         "levelOfItem": 0,
@@ -461,7 +461,7 @@
         "itemIndex": 0
       },
       {
-        "name": "19cl",
+        "name": "RTX 4080",
         "cost": 6.4E+11,
         "bonusIncrease": 3000000.0,
         "levelOfItem": 0,
@@ -472,7 +472,7 @@
         "itemIndex": 0
       },
       {
-        "name": "20cl",
+        "name": "RTX 4090",
         "cost": 1.5E+12,
         "bonusIncrease": 5000000.0,
         "levelOfItem": 0,
@@ -484,7 +484,7 @@
       }
     ],
     "date": "2024-08-14T22:07:00.9109062Z",
-    "colClicks": 0,
+    "colClicks": 11,
     "clicks": 0,
     "maxResult": 0,
     "OfflineBonus": 0.0
@@ -497,7 +497,7 @@
       false,
       false
     ],
-    "total": 0,
+    "total": 11,
     "isStart": true,
     "isEnd": false
   },
@@ -516,9 +516,9 @@
     "isLastLevel": true
   },
   "statsData": {
-    "totalPlayTime": 45.7074051
+    "totalPlayTime": 128.373734
   },
   "timerData": {
-    "maxResult": 0.0
+    "maxResult": 4.0
   }
 }

@@ -3061,6 +3061,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 116075733}
   m_CullTransparentMesh: 0
+--- !u!1 &121443940
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 121443942}
+  - component: {fileID: 121443941}
+  m_Layer: 0
+  m_Name: ScreenshotTaker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &121443941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121443940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25fec45af84018a4abcebf0de4bdf4a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  screenshotFileName: screenshot
+--- !u!4 &121443942
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121443940}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &122232281
 GameObject:
   m_ObjectHideFlags: 0
@@ -33985,6 +34030,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1995768510}
+        m_TargetAssemblyTypeName: PanelAnimation, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &540567449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43565,16 +43622,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 720026425}
-  m_LocalRotation: {x: 0, y: 0, z: 0.01745245, w: 0.99984777}
+  m_LocalRotation: {x: 0, y: 0, z: -0.0034905854, w: 0.9999939}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1659440217}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 2}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.4}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -95.92436, y: -251.05388}
+  m_AnchoredPosition: {x: -93.02161, y: -251.0134}
   m_SizeDelta: {x: 100.51, y: 138.29}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &720026427
@@ -118335,7 +118392,7 @@ MonoBehaviour:
     bonusCounter: 0
     itemIndex: 0
   - name: 2cec
-    cost: 3750
+    cost: 3700
     bonusIncrease: 0
     levelOfItem: 0
     costMultiplier: 1.5
@@ -118380,7 +118437,7 @@ MonoBehaviour:
     bonusCounter: 0
     itemIndex: 0
   - name: 7cec
-    cost: 3250000
+    cost: 3200000
     bonusIncrease: 0
     levelOfItem: 0
     costMultiplier: 1.5
@@ -118496,7 +118553,7 @@ MonoBehaviour:
     bonusPerSec: 10000000
     bonusCounter: 0
     itemIndex: 0
-  - name: 1cl
+  - name: (Intel) HD graphics
     cost: 110
     bonusIncrease: 1
     levelOfItem: 0
@@ -118505,7 +118562,7 @@ MonoBehaviour:
     bonusPerSec: 0
     bonusCounter: 0
     itemIndex: 0
-  - name: 2cl
+  - name: Radeon R5
     cost: 550
     bonusIncrease: 3
     levelOfItem: 0
@@ -118514,7 +118571,7 @@ MonoBehaviour:
     bonusPerSec: 0
     bonusCounter: 0
     itemIndex: 0
-  - name: 3cl
+  - name: GT 1030
     cost: 2100
     bonusIncrease: 10
     levelOfItem: 0
@@ -118523,7 +118580,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 4cl
+  - name: Rx 550
     cost: 8000
     bonusIncrease: 16
     levelOfItem: 0
@@ -118532,7 +118589,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 5cl
+  - name: GTX 1050
     cost: 28000
     bonusIncrease: 27
     levelOfItem: 0
@@ -118541,7 +118598,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 6cl
+  - name: GTX 1050
     cost: 110000
     bonusIncrease: 60
     levelOfItem: 0
@@ -118550,7 +118607,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 7cl
+  - name: GTX 1060
     cost: 400000
     bonusIncrease: 110
     levelOfItem: 0
@@ -118559,7 +118616,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 8cl
+  - name: GTX 1650 s
     cost: 1500000
     bonusIncrease: 355
     levelOfItem: 0
@@ -118568,7 +118625,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 9cl
+  - name: RX 590
     cost: 4200000
     bonusIncrease: 800
     levelOfItem: 0
@@ -118577,7 +118634,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 10cl
+  - name: GTX 1660 Ti
     cost: 12000000
     bonusIncrease: 1600
     levelOfItem: 0
@@ -118586,7 +118643,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 11cl
+  - name: RX 5600 XT
     cost: 35000000
     bonusIncrease: 3000
     levelOfItem: 0
@@ -118595,7 +118652,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 12cl
+  - name: GTX 1080 Ti
     cost: 170000000
     bonusIncrease: 8500
     levelOfItem: 0
@@ -118604,7 +118661,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 13cl
+  - name: RTX 2080
     cost: 700000000
     bonusIncrease: 23000
     levelOfItem: 0
@@ -118613,7 +118670,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 14cl
+  - name: RX 6700 XT
     cost: 3.2e+9
     bonusIncrease: 60000
     levelOfItem: 0
@@ -118622,7 +118679,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 15cl
+  - name: RTX 3070 Ti
     cost: 1e+10
     bonusIncrease: 140000
     levelOfItem: 0
@@ -118631,7 +118688,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 16cl
+  - name: RX 6800 XT
     cost: 3.5e+10
     bonusIncrease: 400000
     levelOfItem: 0
@@ -118640,7 +118697,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 17cl
+  - name: RTX 3090
     cost: 1e+11
     bonusIncrease: 700000
     levelOfItem: 0
@@ -118649,7 +118706,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 18cl
+  - name: RX 7900 XT
     cost: 2.55e+11
     bonusIncrease: 1400000
     levelOfItem: 0
@@ -118658,7 +118715,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 19cl
+  - name: RTX 4080
     cost: 6.4e+11
     bonusIncrease: 3000000
     levelOfItem: 0
@@ -118667,7 +118724,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 20cl
+  - name: RTX 4090
     cost: 1.5e+12
     bonusIncrease: 5000000
     levelOfItem: 0
@@ -136722,6 +136779,7 @@ SceneRoots:
   - {fileID: 448826010}
   - {fileID: 1628610601}
   - {fileID: 670240672}
+  - {fileID: 121443942}
   - {fileID: 419157814}
   - {fileID: 797243105}
   - {fileID: 9246960}
