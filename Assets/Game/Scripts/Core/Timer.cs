@@ -20,9 +20,6 @@ public class Timer : MonoBehaviour, ISaveLoad
         _game = GameSingleton.Instance.Game;
         _boost = GameSingleton.Instance.Boost;
         _achievements = GameSingleton.Instance.Achievements;
-
-        if (YandexGame.SDKEnabled)
-            Load();
     }
 
     public void Save()

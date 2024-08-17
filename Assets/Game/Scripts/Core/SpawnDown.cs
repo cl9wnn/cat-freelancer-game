@@ -69,9 +69,6 @@ public class SpawnDown : MonoBehaviour, ISaveLoad
         _game = GameSingleton.Instance.Game;
         _settings = GameSingleton.Instance.Settings;
         _achievements = GameSingleton.Instance.Achievements;
-
-        if (YandexGame.SDKEnabled)
-            Load();
     }
 
     public void Save()
@@ -207,6 +204,8 @@ public class SpawnDown : MonoBehaviour, ISaveLoad
 
         for (int i = 0; i < maxCoinCount; i++)
         {
+            yield return new WaitForSeconds(spawnInterval);
+
             Vector3 targetScreenPosition = new Vector3(UnityEngine.Random.Range(Screen.width / 6, Screen.width / 2), Screen.height, 0);
 
             Vector3 spawnPosition = Camera.main.ScreenToWorldPoint(targetScreenPosition);
@@ -217,9 +216,8 @@ public class SpawnDown : MonoBehaviour, ISaveLoad
             newCoin.GetComponent<Image>().sprite = fallingCoinSprites[Level]; 
             objectsSpawned++;
 
-            yield return new WaitForSeconds(spawnInterval);
         }
-        Debug.Log(newCoin.transform.position.y);
+
         yield return new WaitWhile(() =>
         (newCoin != null && newCoin.transform.position.y > -5.4f) || (coinsCanvas.transform.childCount != 0));
 

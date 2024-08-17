@@ -1,11 +1,7 @@
 {
-<<<<<<< HEAD
-  "idSave": 208,
-=======
-  "idSave": 587,
->>>>>>> f852234b09229ec6c3cb848f595c18f16fdb7d81
+  "idSave": 178,
   "isFirstSession": false,
-  "language": "ru",
+  "language": "en",
   "promptDone": false,
   "money": 1,
   "newPlayerName": "Hello!",
@@ -18,42 +14,31 @@
     "isAchievementDone": [
       false,
       false,
-      true,
       false,
       false,
-      true,
+      false,
+      false,
       false,
       false
     ],
-    "achievementsCount": 2
+    "achievementsCount": 0
   },
   "boostData": {
-    "totalCoffeeConsumed": 0,
-    "availableCoffee": 1,
+    "totalCoffeeConsumed": 3,
+    "availableCoffee": 0,
     "cooldownDuration": 7200.0,
-<<<<<<< HEAD
-    "saveDate": "2024-08-17T15:52:48.4122008Z"
+    "saveDate": "2024-08-17T19:15:33.6633436Z"
   },
   "fortuneData": {
-    "remainingCooldownTime": 0.0,
+    "remainingCooldownTime": -274.0,
     "remainingRewardTime": 0.0,
     "isAdAvailable": false,
-    "saveDate": "2024-08-17T15:52:48.4132004Z"
-=======
-    "saveDate": "2024-08-14T22:07:00.9109062Z",
-    "canWatchAd": false
-  },
-  "fortuneData": {
-    "remainingCooldownTime": 7162.904,
-    "remainingRewardTime": 0.0,
-    "isAdAvailable": true,
-    "saveDate": "2024-08-14T22:07:00.9109062Z"
->>>>>>> f852234b09229ec6c3cb848f595c18f16fdb7d81
+    "saveDate": "2024-08-17T19:15:33.6633436Z"
   },
   "gameData": {
-    "score": 3039289.0,
-    "scoreIncrease": 9040.0,
-    "totalClick": 11,
+    "score": 4.0,
+    "scoreIncrease": 1.0,
+    "totalClick": 4,
     "offlineTime": 7200.0,
     "shopItems": [
       {
@@ -69,13 +54,13 @@
       },
       {
         "name": "1cec",
-        "cost": 3375.0,
+        "cost": 1000.0,
         "bonusIncrease": 0.0,
-        "levelOfItem": 3,
+        "levelOfItem": 0,
         "costMultiplier": 1.5,
         "itsItemPerSec": true,
         "bonusPerSec": 2.0,
-        "bonusCounter": 3,
+        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -91,24 +76,24 @@
       },
       {
         "name": "3cec",
-        "cost": 18000.0,
+        "cost": 12000.0,
         "bonusIncrease": 0.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "costMultiplier": 1.5,
         "itsItemPerSec": true,
         "bonusPerSec": 12.0,
-        "bonusCounter": 1,
+        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
         "name": "4cec",
-        "cost": 93000.0,
+        "cost": 62000.0,
         "bonusIncrease": 0.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "costMultiplier": 1.5,
         "itsItemPerSec": true,
         "bonusPerSec": 21.0,
-        "bonusCounter": 1,
+        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -278,9 +263,9 @@
       },
       {
         "name": "Intel HD graphics",
-        "cost": 143.0,
+        "cost": 110.0,
         "bonusIncrease": 1.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 0.0,
@@ -289,9 +274,9 @@
       },
       {
         "name": "Radeon R5",
-        "cost": 929.0,
+        "cost": 550.0,
         "bonusIncrease": 3.0,
-        "levelOfItem": 2,
+        "levelOfItem": 0,
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 0.0,
@@ -300,9 +285,9 @@
       },
       {
         "name": "GT 1030",
-        "cost": 2730.0,
+        "cost": 2100.0,
         "bonusIncrease": 10.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
@@ -311,9 +296,9 @@
       },
       {
         "name": "Rx 550",
-        "cost": 10400.0,
+        "cost": 8000.0,
         "bonusIncrease": 16.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
@@ -322,9 +307,9 @@
       },
       {
         "name": "GTX 1050",
-        "cost": 61516.0,
+        "cost": 28000.0,
         "bonusIncrease": 27.0,
-        "levelOfItem": 3,
+        "levelOfItem": 0,
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
@@ -333,9 +318,9 @@
       },
       {
         "name": "GTX 960",
-        "cost": 143000.0,
+        "cost": 110000.0,
         "bonusIncrease": 60.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
@@ -344,9 +329,9 @@
       },
       {
         "name": "GTX 1060",
-        "cost": 520000.0,
+        "cost": 400000.0,
         "bonusIncrease": 110.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
@@ -357,7 +342,7 @@
         "name": "GTX 1650 s",
         "cost": 1500000.0,
         "bonusIncrease": 355.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
@@ -366,9 +351,9 @@
       },
       {
         "name": "RX 590",
-        "cost": 5460000.0,
+        "cost": 4200000.0,
         "bonusIncrease": 800.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
@@ -377,9 +362,9 @@
       },
       {
         "name": "GTX 1660 Ti",
-        "cost": 15599999.0,
+        "cost": 1.2E+07,
         "bonusIncrease": 1600.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
@@ -388,9 +373,9 @@
       },
       {
         "name": "RX 5600 XT",
-        "cost": 59149996.0,
+        "cost": 3.5E+07,
         "bonusIncrease": 3000.0,
-        "levelOfItem": 2,
+        "levelOfItem": 0,
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
@@ -497,13 +482,8 @@
         "itemIndex": 0
       }
     ],
-<<<<<<< HEAD
-    "date": "2024-08-17T15:52:48.4122008Z",
-    "colClicks": 0,
-=======
-    "date": "2024-08-14T22:07:00.9109062Z",
-    "colClicks": 11,
->>>>>>> f852234b09229ec6c3cb848f595c18f16fdb7d81
+    "date": "2024-08-17T19:15:33.6633436Z",
+    "colClicks": 4,
     "clicks": 0,
     "maxResult": 0,
     "OfflineBonus": 0.0
@@ -516,13 +496,13 @@
       false,
       false
     ],
-    "total": 11,
+    "total": 4,
     "isStart": true,
     "isEnd": false
   },
   "progressBarData": null,
   "volumeData": {
-    "maserVolume": 0.0
+    "maserVolume": 1.0
   },
   "skinCoinData": {
     "bBttn": 0
@@ -535,11 +515,7 @@
     "isLastLevel": true
   },
   "statsData": {
-<<<<<<< HEAD
-    "totalPlayTime": 7.90276146
-=======
-    "totalPlayTime": 128.373734
->>>>>>> f852234b09229ec6c3cb848f595c18f16fdb7d81
+    "totalPlayTime": 67.01898
   },
   "timerData": {
     "maxResult": 4.0

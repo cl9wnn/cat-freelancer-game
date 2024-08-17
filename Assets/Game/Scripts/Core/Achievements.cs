@@ -1,8 +1,6 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
-using System.IO;
 using YG;
 
 
@@ -31,12 +29,6 @@ public class Achievements : MonoBehaviour, ISaveLoad
     public ParticleSystem achieveGlow;
 
     public event Action OnAchievementComplete;
-
-    private void Awake()
-    {
-        if (YandexGame.SDKEnabled)
-            Load();
-    }
 
     public void Save()
     {

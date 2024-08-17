@@ -40,11 +40,6 @@ public class Fortune : MonoBehaviour, ISaveLoad
     {
         _game = GameSingleton.Instance.Game;
         _achievements = GameSingleton.Instance.Achievements;
-
-        if (YandexGame.SDKEnabled)
-        {
-            Load();
-        }
     }
 
     public void Save()

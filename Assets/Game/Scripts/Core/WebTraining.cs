@@ -3,8 +3,6 @@ using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using System.IO;
-using TMPro;
 
 public class WebTraining : MonoBehaviour
 {

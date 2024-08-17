@@ -7,14 +7,7 @@ public class Stats : MonoBehaviour, ISaveLoad
     public Text[] statsText;
     public Text totalTimeText;
     private float totalPlayTime = 0f;
-    private float sessionStartTime;
 
-
-    private void Awake()
-    {
-        if (YandexGame.SDKEnabled)
-            Load();
-    }
     public void Save()
     {
         ref var data = ref YandexGame.savesData.statsData;
@@ -36,10 +29,6 @@ public class Stats : MonoBehaviour, ISaveLoad
         totalPlayTime = data.totalPlayTime;
     }
 
-    void Start()
-    {
-        sessionStartTime = Time.time;
-    }
     private void Update()
     {
         if (Application.isFocused)

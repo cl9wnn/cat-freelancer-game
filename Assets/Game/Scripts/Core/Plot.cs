@@ -68,9 +68,6 @@ public class Plot : MonoBehaviour, ISaveLoad
     public void Awake()
     {
         _game = GameSingleton.Instance.Game;
-
-        if (YandexGame.SDKEnabled)
-            Load();
     }
 
     public void Save()

@@ -52,6 +52,8 @@ public class Game : MonoBehaviour, ISaveLoad
 
     public Canvas moneyPopupCanvas;
 
+    [SerializeField] private bool IsMobile;
+
     public int maxResult; //для ачивки номер 3
 
     public int TotalClick
@@ -207,9 +209,6 @@ public class Game : MonoBehaviour, ISaveLoad
         _spawnDown = GameSingleton.Instance.SpawnDown;
         _boost = GameSingleton.Instance.Boost;
         _plot = GameSingleton.Instance.Plot;
-
-        if (YandexGame.SDKEnabled)
-            Load();
     }
 
     public void Save()
@@ -293,7 +292,6 @@ public class Game : MonoBehaviour, ISaveLoad
 
     private void Start()
     {
-
         if (offlineBonus > 0.01f) 
         {
             GameSingleton.Instance.SoundManager.CreateSound().WithSoundData(SoundEffect.DROP_DAILY_REWARD_PANEL).Play();
@@ -547,7 +545,12 @@ public class Game : MonoBehaviour, ISaveLoad
         ColClicks++;
         if (_boost.IsBoostActive)
         {
-            Vector3 targetScreenPosition = new Vector3(UnityEngine.Random.Range(Screen.width / 6, Screen.width / 2), Screen.height , 0);
+            Vector3 targetScreenPosition;
+
+            if (IsMobile)
+                targetScreenPosition = new Vector3(UnityEngine.Random.Range(Screen.width / 6, Screen.width - Screen.width / 6), Screen.height , 0);
+            else
+                 targetScreenPosition = new Vector3(UnityEngine.Random.Range(Screen.width / 6, Screen.width / 2), Screen.height , 0);
 
             Vector3 targetWorldPosition = Camera.main.ScreenToWorldPoint(targetScreenPosition);
             targetWorldPosition.z = 0;

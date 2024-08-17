@@ -48,9 +48,6 @@ public class VolumeSettings : MonoBehaviour, ISaveLoad
     {
         _volumeSlider.onValueChanged.AddListener(SetVolume);
         _switchButtonImage.GetComponent<Button>().onClick.AddListener(() => Mute = !Mute);
-
-        if (YandexGame.SDKEnabled)
-            Load();
     }
 
     public void Save()

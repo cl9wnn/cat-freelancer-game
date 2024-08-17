@@ -54,9 +54,6 @@ public class Boost : MonoBehaviour, ISaveLoad
     private void Awake()
     {
         _achievements = GameSingleton.Instance.Achievements;
-
-        if (YandexGame.SDKEnabled)
-            Load();
     }
 
     public void Save()
@@ -192,7 +189,6 @@ public class Boost : MonoBehaviour, ISaveLoad
         while (hasCooldownTimer && (remainingCooldown -= Time.fixedDeltaTime) > 0)
         {
             UpdateBoostText(GetCooldownTime());
-
             yield return new WaitForFixedUpdate();  
         }
 
@@ -210,7 +206,11 @@ public class Boost : MonoBehaviour, ISaveLoad
     private void EndCooldown()
     {
         if (remainingCooldown >= COOLDOWN_REWARD_THRESHOLD)
+        {
+            hasCooldownTimer = false;
+            remainingCooldown = DEFAULT_COOLDOWN_DURATION;
             return;
+        }
 
         hasCooldownTimer = false;
         remainingCooldown = DEFAULT_COOLDOWN_DURATION;
