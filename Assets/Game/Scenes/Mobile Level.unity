@@ -12264,7 +12264,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -86}
+  m_AnchoredPosition: {x: 0, y: -98.97}
   m_SizeDelta: {x: 246, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &288555613
@@ -34533,9 +34533,9 @@ RectTransform:
   - {fileID: 948516493}
   m_Father: {fileID: 2144393544}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.76900005}
-  m_AnchorMax: {x: 0.5, y: 0.76900005}
-  m_AnchoredPosition: {x: 0, y: -90}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 255}
   m_SizeDelta: {x: 630, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &424827254
@@ -35348,7 +35348,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0024414062, y: -0.12499905}
+  m_AnchoredPosition: {x: 0.0024414062, y: -0.125}
   m_SizeDelta: {x: -0.005, y: 0.25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &454434055
@@ -35779,8 +35779,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.29177776, y: 0.8867813}
   m_AnchorMax: {x: 0.65022224, y: 0.96121883}
-  m_AnchoredPosition: {x: -3.517334, y: 0.5}
-  m_SizeDelta: {x: 43.17, y: 0.37}
+  m_AnchoredPosition: {x: -7.8200073, y: 0.5}
+  m_SizeDelta: {x: 42.24, y: 0.37}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &476923458
 MonoBehaviour:
@@ -35831,11 +35831,11 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4294967295
   m_fontSize: 58
-  m_fontSizeBase: 58
+  m_fontSizeBase: 53
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 68
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 48
+  m_fontSizeMax: 58
   m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -37059,7 +37059,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.49316666, y: 0.51343757}
   m_AnchorMax: {x: 0.49316666, y: 0.51343757}
-  m_AnchoredPosition: {x: -11, y: 101.56}
+  m_AnchoredPosition: {x: -11, y: 108}
   m_SizeDelta: {x: 380.46, y: 340}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &506233728
@@ -40809,9 +40809,9 @@ RectTransform:
   - {fileID: 371170748}
   m_Father: {fileID: 2144393544}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.76900005}
-  m_AnchorMax: {x: 0.5, y: 0.76900005}
-  m_AnchoredPosition: {x: 0, y: -279}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 65}
   m_SizeDelta: {x: 630, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &650259601
@@ -51094,7 +51094,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -86}
+  m_AnchoredPosition: {x: 0, y: -98.97}
   m_SizeDelta: {x: 246, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &893463448
@@ -57209,7 +57209,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.60700005}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -54.3}
+  m_AnchoredPosition: {x: 0, y: -50}
   m_SizeDelta: {x: 140.78088, y: 46.217422}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1151053730
@@ -58551,10 +58551,10 @@ RectTransform:
   - {fileID: 1832044559}
   m_Father: {fileID: 2144393544}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.07937337, y: 0.35074154}
-  m_AnchorMax: {x: 0.92174673, y: 0.35074154}
-  m_AnchoredPosition: {x: -2.201538, y: -0.95999146}
-  m_SizeDelta: {x: -4.4031067, y: 20.989998}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -1.7015381, y: -191.95999}
+  m_SizeDelta: {x: 608.5969, y: 20.98999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1205175976
 MonoBehaviour:
@@ -60860,10 +60860,12 @@ MonoBehaviour:
   _mixer: {fileID: 24100000, guid: 645cbca3a6ed62946a3663df53ea80c5, type: 2}
   _volumeSlider: {fileID: 1205175976}
   _switchButtonImage: {fileID: 1571080599}
-  _onSprite: {fileID: 1374759580961941160, guid: f7036f5fcd16f6c4c9e93ddbef78bfd4,
-    type: 3}
-  _offSprite: {fileID: -2100405044080452929, guid: e3286d8b08fd4a64796de3cc5a1f6728,
-    type: 3}
+  onSprites:
+  - {fileID: 128963157365135684, guid: 0478866c23f2ad64883de9d295fb7022, type: 3}
+  - {fileID: 1374759580961941160, guid: f7036f5fcd16f6c4c9e93ddbef78bfd4, type: 3}
+  offSprites:
+  - {fileID: -4360840730555329850, guid: 74e6363f41b102b4abbd93a9c72f3c81, type: 3}
+  - {fileID: -2100405044080452929, guid: e3286d8b08fd4a64796de3cc5a1f6728, type: 3}
 --- !u!114 &1316026955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66893,7 +66895,7 @@ Animator:
   m_GameObject: {fileID: 1386938256}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e81f62eb35610d643bd6a52f9955b047, type: 2}
+  m_Controller: {fileID: 9100000, guid: cd7141ddad7fd6d438f937869b1ade8f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -75877,10 +75879,10 @@ RectTransform:
   - {fileID: 288555612}
   m_Father: {fileID: 2144393544}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.7638799, y: 0.15347278}
-  m_AnchorMax: {x: 0.7638799, y: 0.15347278}
-  m_AnchoredPosition: {x: 0, y: 37}
-  m_SizeDelta: {x: 290.98, y: 130}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 192, y: -407}
+  m_SizeDelta: {x: 283.15, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1571080598
 MonoBehaviour:
@@ -80977,10 +80979,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2144393544}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5096267, y: 0.9557801}
-  m_AnchorMax: {x: 0.5096267, y: 0.9557801}
-  m_AnchoredPosition: {x: 0, y: 0.7000122}
-  m_SizeDelta: {x: 313.99, y: 75.93}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 584.69995}
+  m_SizeDelta: {x: 313.99, y: 75.92999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1771698640
 MonoBehaviour:
@@ -89847,9 +89849,9 @@ RectTransform:
   - {fileID: 1164292238}
   m_Father: {fileID: 2144393544}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.88956016}
-  m_AnchorMax: {x: 0.5, y: 0.88956016}
-  m_AnchoredPosition: {x: 0, y: -60}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 439}
   m_SizeDelta: {x: 630, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1921494433
@@ -90882,10 +90884,10 @@ RectTransform:
   - {fileID: 893463447}
   m_Father: {fileID: 2144393544}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.23200001, y: 0.15347278}
-  m_AnchorMax: {x: 0.23200001, y: 0.15347278}
-  m_AnchoredPosition: {x: 0, y: 37}
-  m_SizeDelta: {x: 290, y: 130}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -195, y: -407}
+  m_SizeDelta: {x: 282.19, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1988341689
 MonoBehaviour:
@@ -91114,7 +91116,7 @@ MonoBehaviour:
     bonusCounter: 0
     itemIndex: 0
   - name: 2cec
-    cost: 3750
+    cost: 3700
     bonusIncrease: 0
     levelOfItem: 0
     costMultiplier: 1.5
@@ -91159,7 +91161,7 @@ MonoBehaviour:
     bonusCounter: 0
     itemIndex: 0
   - name: 7cec
-    cost: 3250000
+    cost: 3200000
     bonusIncrease: 0
     levelOfItem: 0
     costMultiplier: 1.5
@@ -91275,7 +91277,7 @@ MonoBehaviour:
     bonusPerSec: 10000000
     bonusCounter: 0
     itemIndex: 0
-  - name: 1cl
+  - name: Intel HD graphics
     cost: 110
     bonusIncrease: 1
     levelOfItem: 0
@@ -91284,7 +91286,7 @@ MonoBehaviour:
     bonusPerSec: 0
     bonusCounter: 0
     itemIndex: 0
-  - name: 2cl
+  - name: Radeon R5
     cost: 550
     bonusIncrease: 3
     levelOfItem: 0
@@ -91293,7 +91295,7 @@ MonoBehaviour:
     bonusPerSec: 0
     bonusCounter: 0
     itemIndex: 0
-  - name: 3cl
+  - name: GT 1030
     cost: 2100
     bonusIncrease: 10
     levelOfItem: 0
@@ -91302,7 +91304,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 4cl
+  - name: Rx 550
     cost: 8000
     bonusIncrease: 16
     levelOfItem: 0
@@ -91311,7 +91313,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 5cl
+  - name: GTX 1050
     cost: 28000
     bonusIncrease: 27
     levelOfItem: 0
@@ -91320,7 +91322,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 6cl
+  - name: GTX 960
     cost: 110000
     bonusIncrease: 60
     levelOfItem: 0
@@ -91329,7 +91331,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 7cl
+  - name: GTX 1060
     cost: 400000
     bonusIncrease: 110
     levelOfItem: 0
@@ -91338,7 +91340,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 8cl
+  - name: GTX 1650 s
     cost: 1500000
     bonusIncrease: 355
     levelOfItem: 0
@@ -91347,7 +91349,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 9cl
+  - name: RX 590
     cost: 4200000
     bonusIncrease: 800
     levelOfItem: 0
@@ -91356,7 +91358,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 10cl
+  - name: GTX 1660 Ti
     cost: 12000000
     bonusIncrease: 1600
     levelOfItem: 0
@@ -91365,7 +91367,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 11cl
+  - name: RX 5600 XT
     cost: 35000000
     bonusIncrease: 3000
     levelOfItem: 0
@@ -91374,7 +91376,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 12cl
+  - name: GTX 1080 Ti
     cost: 170000000
     bonusIncrease: 8500
     levelOfItem: 0
@@ -91383,7 +91385,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 13cl
+  - name: RTX 2080
     cost: 700000000
     bonusIncrease: 23000
     levelOfItem: 0
@@ -91392,7 +91394,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 14cl
+  - name: RX 6700 XT
     cost: 3.2e+9
     bonusIncrease: 60000
     levelOfItem: 0
@@ -91401,7 +91403,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 15cl
+  - name: RTX 3070 Ti
     cost: 1e+10
     bonusIncrease: 140000
     levelOfItem: 0
@@ -91410,7 +91412,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 16cl
+  - name: RX 6800 XT
     cost: 3.5e+10
     bonusIncrease: 400000
     levelOfItem: 0
@@ -91419,7 +91421,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 17cl
+  - name: RTX 3090
     cost: 1e+11
     bonusIncrease: 700000
     levelOfItem: 0
@@ -91428,7 +91430,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 18cl
+  - name: RX 7900 XT
     cost: 2.55e+11
     bonusIncrease: 1400000
     levelOfItem: 0
@@ -91437,7 +91439,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 19cl
+  - name: RTX 4080
     cost: 6.4e+11
     bonusIncrease: 3000000
     levelOfItem: 0
@@ -91446,7 +91448,7 @@ MonoBehaviour:
     bonusPerSec: 3
     bonusCounter: 0
     itemIndex: 0
-  - name: 20cl
+  - name: RTX 4090
     cost: 1.5e+12
     bonusIncrease: 5000000
     levelOfItem: 0
@@ -92158,6 +92160,7 @@ MonoBehaviour:
   flags:
   - {fileID: -1687248840776509968, guid: 623689ede4bf51340b56348c7bd5d11a, type: 3}
   - {fileID: 6423900661474508743, guid: eeb27f21087ce56418d3abe5dd079098, type: 3}
+  volumeSettings: {fileID: 1316026954}
 --- !u!114 &1995768532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94556,7 +94559,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.11381251}
   m_AnchorMax: {x: 0.5, y: 0.11381251}
-  m_AnchoredPosition: {x: -0.001236, y: -97.22}
+  m_AnchoredPosition: {x: -0.001236, y: -97.21994}
   m_SizeDelta: {x: 0, y: 99.11}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2116943677

@@ -20,7 +20,7 @@
     "Boss of an IT company",
     "Shadow business",
     "Internet monopoly",
-    "(Intel) HD graphics",
+    "Intel HD graphics",
     "Radeon R5",
     "GT 1030",
     "Rx 550",
@@ -131,7 +131,7 @@
     "h. ",
     " d.",
     " s.",
-    "Unavaliable!",
+    "Unavailable!",
     " h."
   ],
   "boostt": [
@@ -169,7 +169,7 @@
   ],
   "events": [
     "On a typical day, you suddenly decided to buy a lottery ticket for change at the store. Unexpectedly, it turned out to be a winner!",
-    "Recently you decided to take a break from work and download a new game. Unfortunately, along with the game, viruses got on your PC that stole your data and money,",
+    "Recently you decided to take a break from work and download a new game. Unfortunately, along with the game, viruses got on your PC that stole your data and money",
     "Today is an important day at work - the delivery of a major IT project. But the trouble is! As soon as the presentation began, the electricity went out in your house. The company suffered big losses, and you lost your earnings",
     "After a night walk, you saw a window open wide in your apartment. At home, you found that all the money and expensive things were missing. It was a thief, you thought with annoyance",
     "After so many failures, you finally started a white streak. Your startup has successfully taken off, you decided to sell it to investors and received a large amount of money",
@@ -190,8 +190,8 @@
     "Back to the menu"
   ],
   "infoGame": [
-    "Сurrent video card: ",
-    "Сurrent job: ",
+    "Current video card: ",
+    "Current job: ",
     "Total: ",
     "You don't have a job",
     "You don't have video cards"
@@ -200,9 +200,9 @@
     "Try your luck!",
     "Determining the winnings...",
     " coins",
-    "+1 cup of coffee",
+    "+ 1 cup of coffee",
     "You won nothing",
-    "x2 income per click",
+    "+ 1 new ",
     "One more spin"
   ],
   "moneyDrop": [
@@ -214,10 +214,10 @@
     "//",
     "level of complexity:",
     "MESSAGES",
-    "Adrian",
+    "Anonymous",
     "just now",
     "Hello, bro! There's a case for you! Catch as many coins as possible and get 3 stars per level to advance to the next one! I will not leave you without a reward)",
-    "Wow, I see you are doing well! To reach an unrealistic difficulty is strong! After that, the game will continue, but the difficulty level will remain the same. Good luck, I promise it won't be easy)",
+    "Wow, I see you are doing well! To reach an unrealistic difficulty is strong! After that, the game will continue, but the difficulty level will remain the same. Good luck!",
     "Count me in!",
     "Thanks!",
     "Start"
@@ -230,9 +230,9 @@
     "Upgrade your computer",
     "Earn your first million",
     "Complete a level of \"unrealistic\" difficulty in a mini-game",
-    "drink 3 cups of coffee",
+    "Drink 5 cups of coffee",
     "My achievements",
-    "not completed"
+    "Not completed"
   ],
   "statsString": [
     "Name",

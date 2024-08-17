@@ -238,11 +238,11 @@ public class Boost : MonoBehaviour, ISaveLoad
 
     private void CheckAchievements()
     {
-        if (TotalCoffeeConsumed < 3)
+        if (TotalCoffeeConsumed < 5)
         {
-            _achievements.resultTexts[7].text = TotalCoffeeConsumed.ToString() + "/3";
+            _achievements.resultTexts[7].text = TotalCoffeeConsumed.ToString() + "/5";
         }
-        else if (TotalCoffeeConsumed == 3 && !_achievements.isAchievementDone[7])
+        else if (TotalCoffeeConsumed == 5 && !_achievements.isAchievementDone[7])
         {
             _achievements.CompleteAchievement(7);
         }
