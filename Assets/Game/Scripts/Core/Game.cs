@@ -213,7 +213,7 @@ public class Game : MonoBehaviour, ISaveLoad
 
     public void Save()
     {
-        YandexGame.NewLeaderboardScores("leaderboard", (int)Score);
+        YandexGame.NewLeaderboardScores("ScoreLeaderboard", (int)Score);
         
         ref var data = ref YandexGame.savesData.gameData;
 

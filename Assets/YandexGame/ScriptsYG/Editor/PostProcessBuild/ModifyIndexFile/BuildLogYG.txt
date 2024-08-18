@@ -1,2 +1,2 @@
-Build path: C:/Users/Danil/Desktop/Purrfect-Computer-Clicker/Versions/0.18v web
-Build number: 112
+Build path: C:/Users/Danil/Desktop/Purrfect-Computer-Clicker/Versions/0.20v web
+Build number: 120
