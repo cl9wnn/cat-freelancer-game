@@ -66,7 +66,8 @@ public class Boost : MonoBehaviour, ISaveLoad
             return;
         }
 
-        data.cooldownDuration = remainingCooldown;   
+        data.cooldownDuration = remainingCooldown;
+        data.saveDate = DateTime.UtcNow;
         data.totalCoffeeConsumed = TotalCoffeeConsumed;
         data.availableCoffee = AvailableCoffee;
     }

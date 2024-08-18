@@ -55,6 +55,8 @@ public class Fortune : MonoBehaviour, ISaveLoad
         data.remainingCooldownTime = remainingCooldownTime;
         data.isAdAvailable = isAdAvailable;
         data.remainingRewardTime = remainingRewardTime;
+        data.saveDate = DateTime.UtcNow;
+
     }
     public void Load()
     {

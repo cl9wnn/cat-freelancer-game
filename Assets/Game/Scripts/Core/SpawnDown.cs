@@ -53,6 +53,8 @@ public class SpawnDown : MonoBehaviour, ISaveLoad
     private Settings _settings;
     private Achievements _achievements;
 
+    [SerializeField] private float minWidthDivider;
+    [SerializeField] private float maxWidthDivider;
     public int Level
     {
         get => level;
@@ -77,12 +79,12 @@ public class SpawnDown : MonoBehaviour, ISaveLoad
 
         if (data == null)
         {
-            data = new SpawnDownData(Level, 0.8f + (Level * 0.3f), spawnInterval, isFirstLevel, isLastLevel);
+            data = new SpawnDownData(Level, 0.9f + (Level * 0.3f), spawnInterval, isFirstLevel, isLastLevel);
             return;
         }
 
         data.level = Level;
-        data.speed = 0.8f + (Level * 0.3f);
+        data.speed = 0.9f + (Level * 0.3f);
         data.spawnInterval = spawnInterval;
         data.isFirstLevel = isFirstLevel;
         data.isLastLevel = isLastLevel;
@@ -206,7 +208,9 @@ public class SpawnDown : MonoBehaviour, ISaveLoad
         {
             yield return new WaitForSeconds(spawnInterval);
 
-            Vector3 targetScreenPosition = new Vector3(UnityEngine.Random.Range(Screen.width / 6, Screen.width / 2), Screen.height, 0);
+            float minX = Screen.width / minWidthDivider;
+            float maxX = Screen.width / maxWidthDivider;
+            Vector3 targetScreenPosition = new Vector3(UnityEngine.Random.Range(minX, maxX), Screen.height, 0);
 
             Vector3 spawnPosition = Camera.main.ScreenToWorldPoint(targetScreenPosition);
             spawnPosition.z = 0;

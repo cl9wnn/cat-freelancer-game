@@ -5,7 +5,7 @@ using static Game;
 [Serializable]
 public class GameData
 {
-    public GameData(float Score, List<Item> ShopItems, float ScoreIncrease, float OfflineTime, int TotalClick, int ColClicks, int Clicks, int MaxResult, float _offlineBonus)
+    public GameData(float Score, List<Item> ShopItems, float ScoreIncrease, float OfflineTime, int TotalClick, int ColClicks, int MaxResult, float _offlineBonus)
     {
         score = Score;
         shopItems = ShopItems;
@@ -14,7 +14,6 @@ public class GameData
         offlineTime = OfflineTime;
         totalClick = TotalClick;
         colClicks = ColClicks;
-        clicks = Clicks;
         maxResult = MaxResult;
         OfflineBonus = _offlineBonus;
     }
@@ -25,7 +24,6 @@ public class GameData
     public List<Item> shopItems;
     public DateTime date = new DateTime();
     public int colClicks;
-    public int clicks;
     public int maxResult;
     public float OfflineBonus;
 }

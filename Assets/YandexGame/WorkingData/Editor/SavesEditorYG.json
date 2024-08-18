@@ -1,5 +1,5 @@
 {
-  "idSave": 346,
+  "idSave": 764,
   "isFirstSession": false,
   "language": "ru",
   "promptDone": false,
@@ -15,74 +15,74 @@
       true,
       true,
       false,
-      false,
-      false,
+      true,
+      true,
       false,
       false,
       false
     ],
-    "achievementsCount": 2
+    "achievementsCount": 4
   },
   "boostData": {
-    "totalCoffeeConsumed": 0,
-    "availableCoffee": 1,
-    "cooldownDuration": 5931.0,
-    "saveDate": "2024-08-17T23:23:54.674568Z"
+    "totalCoffeeConsumed": 1,
+    "availableCoffee": 0,
+    "cooldownDuration": 5564.63525,
+    "saveDate": "2024-08-18T17:54:10.8151902Z"
   },
   "fortuneData": {
-    "remainingCooldownTime": -1269.0,
+    "remainingCooldownTime": 5584.875,
     "remainingRewardTime": 0.0,
-    "isAdAvailable": false,
-    "saveDate": "2024-08-17T23:23:54.674568Z"
+    "isAdAvailable": true,
+    "saveDate": "2024-08-18T17:54:10.8151902Z"
   },
   "gameData": {
-    "score": 8907.0,
-    "scoreIncrease": 108.0,
-    "totalClick": 1395,
-    "offlineTime": 7200.0,
+    "score": 55234.0,
+    "scoreIncrease": 68.0,
+    "totalClick": 1968,
+    "offlineTime": 10800.0,
     "shopItems": [
       {
         "name": "0cec",
-        "cost": 300.0,
+        "cost": 1000.0,
         "bonusIncrease": 0.0,
-        "levelOfItem": 0,
+        "levelOfItem": 3,
         "costMultiplier": 1.5,
         "itsItemPerSec": true,
         "bonusPerSec": 1.0,
-        "bonusCounter": 0,
+        "bonusCounter": 3,
         "itemIndex": 0
       },
       {
         "name": "1cec",
-        "cost": 1000.0,
+        "cost": 2200.0,
         "bonusIncrease": 0.0,
-        "levelOfItem": 0,
+        "levelOfItem": 2,
         "costMultiplier": 1.5,
         "itsItemPerSec": true,
         "bonusPerSec": 2.0,
-        "bonusCounter": 0,
+        "bonusCounter": 2,
         "itemIndex": 0
       },
       {
         "name": "2cec",
-        "cost": 3700.0,
+        "cost": 8400.0,
         "bonusIncrease": 0.0,
-        "levelOfItem": 0,
+        "levelOfItem": 2,
         "costMultiplier": 1.5,
         "itsItemPerSec": true,
         "bonusPerSec": 6.0,
-        "bonusCounter": 0,
+        "bonusCounter": 2,
         "itemIndex": 0
       },
       {
         "name": "3cec",
-        "cost": 12000.0,
+        "cost": 18000.0,
         "bonusIncrease": 0.0,
-        "levelOfItem": 0,
+        "levelOfItem": 1,
         "costMultiplier": 1.5,
         "itsItemPerSec": true,
         "bonusPerSec": 12.0,
-        "bonusCounter": 0,
+        "bonusCounter": 1,
         "itemIndex": 0
       },
       {
@@ -262,10 +262,10 @@
         "itemIndex": 0
       },
       {
-        "name": "(Intel) HD graphics",
-        "cost": 315.0,
+        "name": "Intel HD graphics",
+        "cost": 1200.0,
         "bonusIncrease": 1.0,
-        "levelOfItem": 4,
+        "levelOfItem": 9,
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 0.0,
@@ -274,9 +274,9 @@
       },
       {
         "name": "Radeon R5",
-        "cost": 2100.0,
+        "cost": 1600.0,
         "bonusIncrease": 3.0,
-        "levelOfItem": 5,
+        "levelOfItem": 4,
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 0.0,
@@ -285,9 +285,9 @@
       },
       {
         "name": "GT 1030",
-        "cost": 6000.0,
+        "cost": 4600.0,
         "bonusIncrease": 10.0,
-        "levelOfItem": 4,
+        "levelOfItem": 3,
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
@@ -296,9 +296,9 @@
       },
       {
         "name": "Rx 550",
-        "cost": 17600.0,
+        "cost": 10400.0,
         "bonusIncrease": 16.0,
-        "levelOfItem": 3,
+        "levelOfItem": 1,
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
@@ -317,7 +317,7 @@
         "itemIndex": 0
       },
       {
-        "name": "GTX 1050",
+        "name": "GTX 960",
         "cost": 110000.0,
         "bonusIncrease": 60.0,
         "levelOfItem": 0,
@@ -482,10 +482,9 @@
         "itemIndex": 0
       }
     ],
-    "date": "2024-08-17T23:23:54.6735658Z",
-    "colClicks": 1395,
-    "clicks": 0,
-    "maxResult": 0,
+    "date": "2024-08-18T17:54:10.8151902Z",
+    "colClicks": 468,
+    "maxResult": 50,
     "OfflineBonus": 0.0
   },
   "plotData": {
@@ -496,7 +495,7 @@
       false,
       false
     ],
-    "total": 1395,
+    "total": 1968,
     "isStart": true,
     "isEnd": false
   },
@@ -505,19 +504,19 @@
     "maserVolume": 1.0
   },
   "skinCoinData": {
-    "bBttn": 0
+    "bBttn": 1
   },
   "spawnDownData": {
-    "level": 0,
-    "speed": 0.8,
-    "spawnInterval": 0.5,
-    "isFirstLevel": true,
+    "level": 1,
+    "speed": 1.2,
+    "spawnInterval": 0.45,
+    "isFirstLevel": false,
     "isLastLevel": true
   },
   "statsData": {
-    "totalPlayTime": 144.191269
+    "totalPlayTime": 276.070038
   },
   "timerData": {
-    "maxResult": 49.0
+    "maxResult": 44.0
   }
 }

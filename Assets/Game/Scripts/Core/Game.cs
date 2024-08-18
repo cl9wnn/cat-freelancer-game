@@ -219,7 +219,7 @@ public class Game : MonoBehaviour, ISaveLoad
 
         if (data == null)
         {
-            data = new GameData(Score, shopItems, ScoreIncrease, offlineTime, TotalClick, colClicks, Clicks, maxResult, offlineBonus);
+            data = new GameData(Score, shopItems, ScoreIncrease, offlineTime, TotalClick, colClicks, maxResult, offlineBonus);
             return;
         }
 
@@ -227,9 +227,9 @@ public class Game : MonoBehaviour, ISaveLoad
         data.shopItems = shopItems;
         data.scoreIncrease = ScoreIncrease;
         data.offlineTime = offlineTime;
+        data.date = DateTime.UtcNow;
         data.totalClick = TotalClick;
         data.colClicks = colClicks;
-        data.clicks = Clicks;
         data.maxResult = maxResult;
         data.OfflineBonus = offlineBonus;
     }
@@ -246,7 +246,6 @@ public class Game : MonoBehaviour, ISaveLoad
         offlineTime = data.offlineTime;
         TotalClick = data.totalClick;
         ColClicks = data.colClicks;
-        Clicks = data.clicks;
         maxResult = data.maxResult;
         offlineBonus = data.OfflineBonus;
 
@@ -255,6 +254,7 @@ public class Game : MonoBehaviour, ISaveLoad
         {
             totalBonusPS += shopItems[i].bonusPerSec * shopItems[i].bonusCounter;
         }
+
         TimeSpan ts = DateTime.UtcNow - date;
 
         if ((int)ts.TotalSeconds < 60)
@@ -274,15 +274,14 @@ public class Game : MonoBehaviour, ISaveLoad
             absenceText.text = ts.Days + LanguageSystem.lng.time[6] + ts.Hours + LanguageSystem.lng.time[0];
         }
 
+        MaximumLimitText.text = (offlineTime / 3600) + LanguageSystem.lng.time[0];
 
-        int totalSeconds = (int)ts.TotalSeconds;
-
-        if (totalSeconds >= offlineTime)
+        if ((int)ts.TotalSeconds >= offlineTime)
         {
             offlineBonus += (offlineTime * totalBonusPS);
             if (offlineBonus <= 0.01f) return;  
         }
-        else if (totalSeconds > 30)
+        else if ((int)ts.TotalSeconds > 30)
         {
             offlineBonus += ((int)ts.TotalSeconds * totalBonusPS);
             if (offlineBonus <= 0.01f) return;
@@ -292,6 +291,8 @@ public class Game : MonoBehaviour, ISaveLoad
 
     private void Start()
     {
+        dohodclick.text = StringMethods.FormatMoney(ScoreIncrease) + LanguageSystem.lng.revenueper[1];
+
         if (offlineBonus > 0.01f) 
         {
             GameSingleton.Instance.SoundManager.CreateSound().WithSoundData(SoundEffect.DROP_DAILY_REWARD_PANEL).Play();
@@ -338,7 +339,7 @@ public class Game : MonoBehaviour, ISaveLoad
         collectText.text = LanguageSystem.lng.info[3];
         collectTextx2.text = LanguageSystem.lng.info[4];
         offlimemaximum.text = LanguageSystem.lng.info[2];
-        MaximumLimitText.text = ((offlineTime / 3600) + LanguageSystem.lng.time[0]);
+        MaximumLimitText.text = (offlineTime / 3600) + LanguageSystem.lng.time[0];
         offlineDohod.text = LanguageSystem.lng.info[0];
         offlineText.text = LanguageSystem.lng.info[1];
         dohodclick.text = StringMethods.FormatMoney(ScoreIncrease) + LanguageSystem.lng.revenueper[1];
