@@ -43,7 +43,6 @@ public class Game : MonoBehaviour, ISaveLoad
     public Text currentJob;
     public Text offlineText;
     public Text currentCard;
-    public Text infoAboutCount;
     public Text totalClickText;
     public Text DohodOfflineText;
     public Text absenceText;
@@ -318,7 +317,6 @@ public class Game : MonoBehaviour, ISaveLoad
     private void Update()
     {
         totalClickText.text = TotalClick.ToString();
-        infoAboutCount.text = LanguageSystem.lng.info[6];
         Inrct();
         BonussNameText();
     }

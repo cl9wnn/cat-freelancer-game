@@ -64,7 +64,6 @@ public class Stats : MonoBehaviour, ISaveLoad
         for (int i = 0; i < stringNames.Length; i++)
         {
             stringNames[i].text = LanguageSystem.lng.statsString[i];
-            Debug.Log(LanguageSystem.lng.statsString[i]);
         }
         
         for (int i = 0; i < 3; i++)

@@ -119277,7 +119277,6 @@ MonoBehaviour:
   currentJob: {fileID: 650442585}
   offlineText: {fileID: 67948613}
   currentCard: {fileID: 1970643820}
-  infoAboutCount: {fileID: 804361764}
   totalClickText: {fileID: 1810294601}
   DohodOfflineText: {fileID: 2070154021}
   absenceText: {fileID: 1159882839}
@@ -119529,7 +119528,7 @@ MonoBehaviour:
   adButton: {fileID: 1567952081}
   winText: {fileID: 1614348726}
   waitText: {fileID: 1030258320}
-  buttonReadySprite: {fileID: 8563338418790025440, guid: 11c3e95364ce64040abb124d81a46e82,
+  buttonReadySprite: {fileID: -4841079420352015983, guid: 045f6a4583909ca448bdf7d813ca0162,
     type: 3}
   buttonLockedSprite: {fileID: 1951309202739123217, guid: 634ef9f7b4ccbb34fa4d147002631cfd,
     type: 3}
@@ -120385,7 +120384,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 8563338418790025440, guid: 11c3e95364ce64040abb124d81a46e82,
+  m_Sprite: {fileID: -4841079420352015983, guid: 045f6a4583909ca448bdf7d813ca0162,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0

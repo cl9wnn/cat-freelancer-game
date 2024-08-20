@@ -1,5 +1,5 @@
 {
-  "idSave": 813,
+  "idSave": 817,
   "isFirstSession": false,
   "language": "ru",
   "promptDone": false,
@@ -12,77 +12,77 @@
   ],
   "achievementsData": {
     "isAchievementDone": [
-      true,
-      true,
       false,
-      true,
-      true,
+      false,
+      false,
+      false,
+      false,
       false,
       false,
       false
     ],
-    "achievementsCount": 4
+    "achievementsCount": 0
   },
   "boostData": {
     "totalCoffeeConsumed": 0,
     "availableCoffee": 1,
-    "cooldownDuration": 6814.0,
-    "saveDate": "2024-08-20T09:31:48.9059017Z"
+    "cooldownDuration": 7200.0,
+    "saveDate": "2024-08-20T10:38:32.3119204Z"
   },
   "fortuneData": {
-    "remainingCooldownTime": -450.0,
+    "remainingCooldownTime": 0.0,
     "remainingRewardTime": 0.0,
     "isAdAvailable": false,
-    "saveDate": "2024-08-20T09:31:48.9059017Z"
+    "saveDate": "2024-08-20T10:38:32.3119204Z"
   },
   "gameData": {
-    "score": 655628.0,
-    "scoreIncrease": 68.0,
-    "totalClick": 1976,
-    "offlineTime": 10800.0,
+    "score": 0.0,
+    "scoreIncrease": 1.0,
+    "totalClick": 0,
+    "offlineTime": 7200.0,
     "shopItems": [
       {
         "name": "0cec",
-        "cost": 1000.0,
+        "cost": 300.0,
         "bonusIncrease": 0.0,
-        "levelOfItem": 3,
+        "levelOfItem": 0,
         "costMultiplier": 1.5,
         "itsItemPerSec": true,
         "bonusPerSec": 1.0,
-        "bonusCounter": 3,
+        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
         "name": "1cec",
-        "cost": 2200.0,
+        "cost": 1000.0,
         "bonusIncrease": 0.0,
-        "levelOfItem": 2,
+        "levelOfItem": 0,
         "costMultiplier": 1.5,
         "itsItemPerSec": true,
         "bonusPerSec": 2.0,
-        "bonusCounter": 2,
+        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
         "name": "2cec",
-        "cost": 8400.0,
+        "cost": 3700.0,
         "bonusIncrease": 0.0,
-        "levelOfItem": 2,
+        "levelOfItem": 0,
         "costMultiplier": 1.5,
         "itsItemPerSec": true,
         "bonusPerSec": 6.0,
-        "bonusCounter": 2,
+        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
         "name": "3cec",
-        "cost": 18000.0,
+        "cost": 12000.0,
         "bonusIncrease": 0.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "costMultiplier": 1.5,
         "itsItemPerSec": true,
         "bonusPerSec": 12.0,
-        "bonusCounter": 1,
+        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -263,9 +263,9 @@
       },
       {
         "name": "Intel HD graphics",
-        "cost": 1200.0,
+        "cost": 110.0,
         "bonusIncrease": 1.0,
-        "levelOfItem": 9,
+        "levelOfItem": 0,
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 0.0,
@@ -274,9 +274,9 @@
       },
       {
         "name": "Radeon R5",
-        "cost": 1600.0,
+        "cost": 550.0,
         "bonusIncrease": 3.0,
-        "levelOfItem": 4,
+        "levelOfItem": 0,
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 0.0,
@@ -285,9 +285,9 @@
       },
       {
         "name": "GT 1030",
-        "cost": 4600.0,
+        "cost": 2100.0,
         "bonusIncrease": 10.0,
-        "levelOfItem": 3,
+        "levelOfItem": 0,
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
@@ -296,9 +296,9 @@
       },
       {
         "name": "Rx 550",
-        "cost": 10400.0,
+        "cost": 8000.0,
         "bonusIncrease": 16.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
@@ -482,9 +482,9 @@
         "itemIndex": 0
       }
     ],
-    "date": "2024-08-20T09:31:48.9059017Z",
-    "colClicks": 476,
-    "maxResult": 50,
+    "date": "2024-08-20T10:38:32.3119204Z",
+    "colClicks": 0,
+    "maxResult": 0,
     "OfflineBonus": 0.0
   },
   "plotData": {
@@ -501,7 +501,7 @@
   },
   "progressBarData": null,
   "volumeData": {
-    "maserVolume": 1.0
+    "maserVolume": 0.0
   },
   "skinCoinData": {
     "bBttn": 0
@@ -514,7 +514,7 @@
     "isLastLevel": true
   },
   "statsData": {
-    "totalPlayTime": 626.879333
+    "totalPlayTime": 14.4984264
   },
   "timerData": {
     "maxResult": 0.0
