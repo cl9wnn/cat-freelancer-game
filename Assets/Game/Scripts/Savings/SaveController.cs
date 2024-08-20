@@ -35,6 +35,8 @@ public class SaveController : MonoBehaviour
     }
     private void LoadAll()
     {
+        YandexGame.GameReadyAPI();
+
         if (Application.isEditor) Debug.Log("I load all");
 
         foreach (var save in _saves)
