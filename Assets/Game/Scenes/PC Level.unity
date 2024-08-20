@@ -10780,17 +10780,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 232308421}
-  m_LocalRotation: {x: -0, y: -0, z: -0.012364694, w: -0.9999236}
+  m_LocalRotation: {x: -0, y: -0, z: -0.015796063, w: -0.99987525}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2071294715}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 1.417}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 1.81}
   m_AnchorMin: {x: 0.7006267, y: 0.3783954}
   m_AnchorMax: {x: 0.7006267, y: 0.3783954}
-  m_AnchoredPosition: {x: -5.25, y: 8.989998}
-  m_SizeDelta: {x: 203.46, y: 48}
+  m_AnchoredPosition: {x: -5.31, y: 8.99}
+  m_SizeDelta: {x: 200, y: 48}
   m_Pivot: {x: 0.5, y: 0.68490696}
 --- !u!114 &232308423
 MonoBehaviour:
@@ -10825,7 +10825,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 12
+  m_Text: "10\u0447 46 \u043C\u0438\u043D 50 \u0441\u0435\u043A"
 --- !u!222 &232308424
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -112460,9 +112460,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SaveManager, Assembly-CSharp
-        m_MethodName: Save
+      - m_Target: {fileID: 670240673}
+        m_TargetAssemblyTypeName: SaveController, Assembly-CSharp
+        m_MethodName: SaveAll
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

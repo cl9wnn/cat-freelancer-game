@@ -22,7 +22,7 @@ public class SaveController : MonoBehaviour
     private void OnEnable() => YandexGame.GetDataEvent += LoadAll;
     private void OnDisable() => YandexGame.GetDataEvent -= LoadAll;
 
-    private void SaveAll()
+    public void SaveAll()
     {
         if (Application.isEditor) Debug.Log("I save all");
 

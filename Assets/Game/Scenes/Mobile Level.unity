@@ -40870,9 +40870,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SaveManager, Assembly-CSharp
-        m_MethodName: Save
+      - m_Target: {fileID: 670240673}
+        m_TargetAssemblyTypeName: SaveController, Assembly-CSharp
+        m_MethodName: SaveAll
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -41539,7 +41539,6 @@ GameObject:
   m_Component:
   - component: {fileID: 670240672}
   - component: {fileID: 670240673}
-  - component: {fileID: 670240674}
   m_Layer: 0
   m_Name: Saves Manager
   m_TagString: Untagged
@@ -41574,19 +41573,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fef5dda3806ef5744a67cee2a4ee62de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &670240674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 670240670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25fec45af84018a4abcebf0de4bdf4a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  screenshotFileName: screenshot
 --- !u!1 &671228634
 GameObject:
   m_ObjectHideFlags: 0
