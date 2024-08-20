@@ -48152,6 +48152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stringNames:
+  - {fileID: 710976867}
   - {fileID: 804361764}
   - {fileID: 895650048}
   - {fileID: 760346640}
@@ -48633,6 +48634,11 @@ PrefabInstance:
         type: 3}
       propertyPath: realtimeSeconds
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8275278890968826827, guid: 35fa95bde1a56744eb9b514cef2e0af8,
+        type: 3}
+      propertyPath: secondObjects.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8275278890968826827, guid: 35fa95bde1a56744eb9b514cef2e0af8,
         type: 3}

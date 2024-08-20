@@ -45,7 +45,7 @@ public class Stats : MonoBehaviour, ISaveLoad
         int minutes = (totalSeconds % 3600) / 60;
         int seconds = totalSeconds % 60;
 
-        if (hours > 0)
+        if (hours > 0)  
         {
             return $"{hours} {LanguageSystem.lng.time[0]} {minutes} {LanguageSystem.lng.time[2]}";
         }
@@ -57,13 +57,14 @@ public class Stats : MonoBehaviour, ISaveLoad
         {
             return $"{seconds} {LanguageSystem.lng.time[7]}";
         }
-    }
+    }   
 
     public void ChangeLanguage()
     {
         for (int i = 0; i < stringNames.Length; i++)
         {
             stringNames[i].text = LanguageSystem.lng.statsString[i];
+            Debug.Log(LanguageSystem.lng.statsString[i]);
         }
         
         for (int i = 0; i < 3; i++)
