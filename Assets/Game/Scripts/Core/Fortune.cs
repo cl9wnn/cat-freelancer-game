@@ -201,7 +201,7 @@ public class Fortune : MonoBehaviour, ISaveLoad
 
     private void AwardMoney(float amount, float multiplier)
     {
-        winText.text = "+ " + StringMethods.FormatMoney(amount * multiplier) + LanguageSystem.lng.fortune[2];
+        winText.text = "+" + StringMethods.FormatMoney(amount * multiplier) + LanguageSystem.lng.fortune[2];
         _game.Score += amount * multiplier;
 
         GameSingleton.Instance.SoundManager.CreateSound()

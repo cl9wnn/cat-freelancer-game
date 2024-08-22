@@ -51,7 +51,7 @@ public class Stats : MonoBehaviour, ISaveLoad
         }
         else if (minutes > 0)
         {
-            return $"{minutes} {LanguageSystem.lng.time[2]} {seconds} {LanguageSystem.lng.time[7]}";
+            return $"{minutes} {LanguageSystem.lng.time[2]}";
         }
         else
         {

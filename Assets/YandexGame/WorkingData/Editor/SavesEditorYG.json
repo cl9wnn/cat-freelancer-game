@@ -1,5 +1,5 @@
 {
-  "idSave": 824,
+  "idSave": 1004,
   "isFirstSession": false,
   "language": "ru",
   "promptDone": false,
@@ -24,21 +24,21 @@
     "achievementsCount": 0
   },
   "boostData": {
-    "totalCoffeeConsumed": 2,
-    "availableCoffee": 0,
-    "cooldownDuration": 7187.47656,
-    "saveDate": "2024-08-20T21:33:12.9590503Z"
+    "totalCoffeeConsumed": 0,
+    "availableCoffee": 1,
+    "cooldownDuration": 7190.0,
+    "saveDate": "2024-08-22T21:05:08.5024333Z"
   },
   "fortuneData": {
-    "remainingCooldownTime": -39146.0,
+    "remainingCooldownTime": -10.0,
     "remainingRewardTime": 0.0,
     "isAdAvailable": false,
-    "saveDate": "2024-08-20T21:33:12.9590503Z"
+    "saveDate": "2024-08-22T21:05:08.5024333Z"
   },
   "gameData": {
-    "score": 15.0,
+    "score": 0.0,
     "scoreIncrease": 1.0,
-    "totalClick": 5,
+    "totalClick": 0,
     "offlineTime": 7200.0,
     "shopItems": [
       {
@@ -482,8 +482,8 @@
         "itemIndex": 0
       }
     ],
-    "date": "2024-08-20T21:33:12.9590503Z",
-    "colClicks": 5,
+    "date": "2024-08-22T21:05:08.5024333Z",
+    "colClicks": 0,
     "maxResult": 0,
     "OfflineBonus": 0.0
   },
@@ -495,13 +495,13 @@
       false,
       false
     ],
-    "total": 5,
+    "total": 0,
     "isStart": true,
     "isEnd": false
   },
   "progressBarData": null,
   "volumeData": {
-    "maserVolume": 0.0001
+    "maserVolume": 1.0
   },
   "skinCoinData": {
     "bBttn": 0
@@ -514,9 +514,9 @@
     "isLastLevel": true
   },
   "statsData": {
-    "totalPlayTime": 68.00821
+    "totalPlayTime": 20.0930138
   },
   "timerData": {
-    "maxResult": 5.0
+    "maxResult": 0.0
   }
 }
