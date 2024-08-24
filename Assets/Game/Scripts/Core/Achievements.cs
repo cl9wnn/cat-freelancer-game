@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
 using YG;
@@ -17,10 +18,11 @@ public class Achievements : MonoBehaviour, ISaveLoad
             achievementsCountText.text = achievementsCount.ToString();
         }
     }
-    public Text achievementsCountText;//сделать счЄтчик достижений
+    public Text achievementsCountText;
 
-    public Sprite[] achievementsPrefab;
-    public Image[] achievementsSprites;
+    public Sprite[] RU_achievementSprites;
+    public Sprite[] EN_achievementSprites;
+    public Image[] achievementImages;
     public bool[] isAchievementDone;
     public Text[] achievementsText;
     public Text[] resultTexts;
@@ -29,6 +31,8 @@ public class Achievements : MonoBehaviour, ISaveLoad
     public ParticleSystem achieveGlow;
 
     public event Action OnAchievementComplete;
+
+    public int currentLanguageIndex;
 
     public void Save()
     {
@@ -56,14 +60,6 @@ public class Achievements : MonoBehaviour, ISaveLoad
 
     private void Start()
     {
-        for (int i = 0; i < isAchievementDone.Length; i++)
-        {
-            if (isAchievementDone[i] == true)
-            {
-                achievementsSprites[i].sprite = achievementsPrefab[i];
-            }
-        }
-
         ChangeLanguage();
     }
 
@@ -77,15 +73,29 @@ public class Achievements : MonoBehaviour, ISaveLoad
                                                .WithSoundData(SoundEffect.ACHIEVEMENT_NOTIFICATION)
                                                .Play();
 
-            achievementsSprites[index].sprite = achievementsPrefab[index];
             isAchievementDone[index] = true;
-            ChangeLanguage();
+            UpdateAchievementSprites();
             OnAchievementComplete?.Invoke();
         }
     }
-    // купите последнюю видеокарту
-    //станьте (последн€€ работа)
-    // приобретите самый мощный комп
+
+    private void UpdateAchievementSprites()
+    {
+        for (int i = 0; i < isAchievementDone.Length; i++)
+        {
+            if (isAchievementDone[i] == true)
+            {
+                achievementImages[i].sprite = currentLanguageIndex == 0 ? RU_achievementSprites[i] : EN_achievementSprites[i];
+            }
+        }
+        
+    }
+
+    public void UpdateLanguageSprites(int languageIndex)
+    {
+        currentLanguageIndex = languageIndex;
+        UpdateAchievementSprites();
+    }
 
     public void ChangeLanguage()
     {

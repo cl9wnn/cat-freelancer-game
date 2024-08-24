@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b3bcec02bc7bb474982961a1b24215f6
+guid: 8a0196013a690d644a03b803d8b61057
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9149166831514394001
-    second: achieve4_0
+      213: -7456433291228384419
+    second: achieve5EN_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -84,6 +84,19 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -109,42 +122,16 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: achieve4_0
+      name: achieve5EN_0
       rect:
         serializedVersion: 2
-        x: 23
-        y: 16
-        width: 464
+        x: 59
+        y: 10
+        width: 408
         height: 487
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -153,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f626cc8bd31a70180800000000000000
-      internalID: -9149166831514394001
+      spriteID: d537fe07d6d658890800000000000000
+      internalID: -7456433291228384419
       vertices: []
       indices: 
       edges: []
@@ -170,7 +157,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      achieve4_0: -9149166831514394001
+      achieve5EN_0: -7456433291228384419
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

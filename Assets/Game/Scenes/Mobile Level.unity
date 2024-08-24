@@ -55511,16 +55511,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   achievementsCountText: {fileID: 765591582}
-  achievementsPrefab:
-  - {fileID: 21300000, guid: 55ef249333680c14abd5937657d8297e, type: 3}
-  - {fileID: 21300000, guid: 572fc01cf7ee9fb4e8673fa50380a934, type: 3}
-  - {fileID: 21300000, guid: e275e63ec26e5e84e91b521412c5378d, type: 3}
-  - {fileID: 21300000, guid: b3bcec02bc7bb474982961a1b24215f6, type: 3}
-  - {fileID: 21300000, guid: 0a8fa5e61317b2e41aec69ad8cc5e030, type: 3}
-  - {fileID: 21300000, guid: 8c914fd84ae81fd41a1c033d027a7093, type: 3}
-  - {fileID: 21300000, guid: efef3884136967543a3d9de560fafbfc, type: 3}
-  - {fileID: 21300000, guid: a69199096a16c6840a79946af615de77, type: 3}
-  achievementsSprites:
+  RU_achievementSprites:
+  - {fileID: 21300000, guid: 74ffc4f7fdd414643bc2994931a9c827, type: 3}
+  - {fileID: 21300000, guid: 4581afc5f5c42264e996cc9e391ffdd1, type: 3}
+  - {fileID: 21300000, guid: 513bff7b78f77fd4e85a0884f67f9e68, type: 3}
+  - {fileID: 21300000, guid: ae299420d08a4194da433fcf826279c1, type: 3}
+  - {fileID: 21300000, guid: c2bfaee4c2a549f49af2f2b92ace512f, type: 3}
+  - {fileID: 21300000, guid: f071d912da58f1f40ac6f5d5c217daae, type: 3}
+  - {fileID: 21300000, guid: fb1208225b7b047438c307e778d8a9a3, type: 3}
+  - {fileID: 21300000, guid: b9790dd77568d8740b5511fcf974e822, type: 3}
+  EN_achievementSprites:
+  - {fileID: 21300000, guid: 5c728dfb65ad2df428845433051fb156, type: 3}
+  - {fileID: 21300000, guid: 88d18f90030c8d0448d9f71935ea260a, type: 3}
+  - {fileID: 21300000, guid: 0c7efef2fbccc6d4b9742d10aa400237, type: 3}
+  - {fileID: 21300000, guid: ac461bfdfa2379746a6105a71a10137d, type: 3}
+  - {fileID: 21300000, guid: 8a0196013a690d644a03b803d8b61057, type: 3}
+  - {fileID: 21300000, guid: ec6bd4e5bde602747831b19d2b4b8037, type: 3}
+  - {fileID: 21300000, guid: fb1208225b7b047438c307e778d8a9a3, type: 3}
+  - {fileID: 21300000, guid: 15e96618847686d449c2a6efceef9ec5, type: 3}
+  achievementImages:
   - {fileID: 875762590}
   - {fileID: 300864890}
   - {fileID: 1936706820}
@@ -55551,6 +55560,7 @@ MonoBehaviour:
   MyAchievememntsText: {fileID: 486175695}
   index: 0
   achieveGlow: {fileID: 316471523}
+  currentLanguageIndex: 0
 --- !u!1 &1069695691
 GameObject:
   m_ObjectHideFlags: 0

@@ -170,6 +170,8 @@ public class Boost : MonoBehaviour, ISaveLoad
         ChangeCoffee(amount: -1);
         TotalCoffeeConsumed++;
 
+        CheckAchievements();
+
         StartCoroutine(BoostCoroutine());
     }
 

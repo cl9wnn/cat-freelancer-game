@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: efef3884136967543a3d9de560fafbfc
+guid: fb1208225b7b047438c307e778d8a9a3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1595429460107422738
-    second: achieve7_0
+      213: -6946885198975226064
+    second: achieve7RUEN_0
   - first:
-      213: 3112403880412052204
-    second: achieve7_1
+      213: -5437005854767622764
+    second: achieve7RUEN_1
   - first:
-      213: 2679546213464779628
-    second: achieve7_2
+      213: -6624052123109643221
+    second: achieve7RUEN_2
   - first:
-      213: 2745328886073141046
-    second: achieve7_3
+      213: -710226528038442773
+    second: achieve7RUEN_3
   - first:
-      213: 7569928014545451142
-    second: achieve7_4
+      213: -4218998263441138456
+    second: achieve7RUEN_4
   - first:
-      213: 6294983443336178345
-    second: achieve7_5
+      213: 1715783978683698764
+    second: achieve7RUEN_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -99,6 +99,19 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -124,37 +137,11 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: achieve7_0
+      name: achieve7RUEN_0
       rect:
         serializedVersion: 2
         x: 52
@@ -168,14 +155,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ee39a16eb55ebd9e0800000000000000
-      internalID: -1595429460107422738
+      spriteID: 03fa9abb7b4b79f90800000000000000
+      internalID: -6946885198975226064
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: achieve7_1
+      name: achieve7RUEN_1
       rect:
         serializedVersion: 2
         x: 187
@@ -189,14 +176,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ceaf189c6da713b20800000000000000
-      internalID: 3112403880412052204
+      spriteID: 4955bd84bffdb84b0800000000000000
+      internalID: -5437005854767622764
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: achieve7_2
+      name: achieve7RUEN_2
       rect:
         serializedVersion: 2
         x: 410
@@ -210,14 +197,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c6bafc49519af2520800000000000000
-      internalID: 2679546213464779628
+      spriteID: b2ca06490b3a214a0800000000000000
+      internalID: -6624052123109643221
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: achieve7_3
+      name: achieve7RUEN_3
       rect:
         serializedVersion: 2
         x: 419
@@ -231,14 +218,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6372206931e591620800000000000000
-      internalID: 2745328886073141046
+      spriteID: be8a5365cb4c426f0800000000000000
+      internalID: -710226528038442773
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: achieve7_4
+      name: achieve7RUEN_4
       rect:
         serializedVersion: 2
         x: 41
@@ -252,14 +239,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 688724a0c69cd0960800000000000000
-      internalID: 7569928014545451142
+      spriteID: 8ecd99fbe6b1375c0800000000000000
+      internalID: -4218998263441138456
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: achieve7_5
+      name: achieve7RUEN_5
       rect:
         serializedVersion: 2
         x: 430
@@ -273,8 +260,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9aaa407e6164c5750800000000000000
-      internalID: 6294983443336178345
+      spriteID: c4e8fb02070bfc710800000000000000
+      internalID: 1715783978683698764
       vertices: []
       indices: 
       edges: []
@@ -290,12 +277,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      achieve7_0: -1595429460107422738
-      achieve7_1: 3112403880412052204
-      achieve7_2: 2679546213464779628
-      achieve7_3: 2745328886073141046
-      achieve7_4: 7569928014545451142
-      achieve7_5: 6294983443336178345
+      achieve7RUEN_0: -6946885198975226064
+      achieve7RUEN_1: -5437005854767622764
+      achieve7RUEN_2: -6624052123109643221
+      achieve7RUEN_3: -710226528038442773
+      achieve7RUEN_4: -4218998263441138456
+      achieve7RUEN_5: 1715783978683698764
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

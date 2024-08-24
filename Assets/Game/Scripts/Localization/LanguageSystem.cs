@@ -64,6 +64,7 @@ public class LanguageSystem : MonoBehaviour
                 langIndex = i + 1;
                 langBttnImg.sprite = flags[i];
                 volumeSettings.UpdateLanguageSprites(langIndex - 1);
+                _achievements.UpdateLanguageSprites(langIndex - 1);
                 break;
             }
         }
@@ -99,6 +100,7 @@ public class LanguageSystem : MonoBehaviour
         PlayerPrefs.SetString("Language", langArray[langIndex - 1]);
         langBttnImg.sprite = flags[langIndex - 1];
         volumeSettings.UpdateLanguageSprites(langIndex - 1);
+        _achievements.UpdateLanguageSprites(langIndex - 1);
 
         StopAllCoroutines();
         LoadLanguage();
