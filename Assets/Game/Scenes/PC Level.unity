@@ -11875,7 +11875,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.113218755}
   m_AnchorMax: {x: 0.5, y: 0.113218755}
-  m_AnchoredPosition: {x: 0, y: -94.99997}
+  m_AnchoredPosition: {x: 0, y: -95}
   m_SizeDelta: {x: 0, y: 85.6328}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &265865501
@@ -71938,23 +71938,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   achievementsCountText: {fileID: 765591582}
   RU_achievementSprites:
-  - {fileID: -8912032565080258954, guid: 74ffc4f7fdd414643bc2994931a9c827, type: 3}
-  - {fileID: 4001761933719243169, guid: 4581afc5f5c42264e996cc9e391ffdd1, type: 3}
-  - {fileID: -7644138967424240618, guid: 513bff7b78f77fd4e85a0884f67f9e68, type: 3}
-  - {fileID: 4234277113537331017, guid: ae299420d08a4194da433fcf826279c1, type: 3}
-  - {fileID: -5325322715251306985, guid: c2bfaee4c2a549f49af2f2b92ace512f, type: 3}
-  - {fileID: -1179613526609551825, guid: f071d912da58f1f40ac6f5d5c217daae, type: 3}
-  - {fileID: -6946885198975226064, guid: fb1208225b7b047438c307e778d8a9a3, type: 3}
-  - {fileID: -2156349956912881278, guid: b9790dd77568d8740b5511fcf974e822, type: 3}
+  - {fileID: 21300000, guid: 74ffc4f7fdd414643bc2994931a9c827, type: 3}
+  - {fileID: 21300000, guid: 4581afc5f5c42264e996cc9e391ffdd1, type: 3}
+  - {fileID: 21300000, guid: 513bff7b78f77fd4e85a0884f67f9e68, type: 3}
+  - {fileID: 21300000, guid: ae299420d08a4194da433fcf826279c1, type: 3}
+  - {fileID: 21300000, guid: c2bfaee4c2a549f49af2f2b92ace512f, type: 3}
+  - {fileID: 21300000, guid: f071d912da58f1f40ac6f5d5c217daae, type: 3}
+  - {fileID: 21300000, guid: fb1208225b7b047438c307e778d8a9a3, type: 3}
+  - {fileID: 21300000, guid: b9790dd77568d8740b5511fcf974e822, type: 3}
   EN_achievementSprites:
-  - {fileID: 7886150924019587901, guid: 5c728dfb65ad2df428845433051fb156, type: 3}
-  - {fileID: -981200279308304954, guid: 88d18f90030c8d0448d9f71935ea260a, type: 3}
-  - {fileID: 2680555819484072308, guid: 0c7efef2fbccc6d4b9742d10aa400237, type: 3}
-  - {fileID: -8757690372565197357, guid: ac461bfdfa2379746a6105a71a10137d, type: 3}
-  - {fileID: -7456433291228384419, guid: 8a0196013a690d644a03b803d8b61057, type: 3}
-  - {fileID: -5368373414444383984, guid: ec6bd4e5bde602747831b19d2b4b8037, type: 3}
-  - {fileID: -6946885198975226064, guid: fb1208225b7b047438c307e778d8a9a3, type: 3}
-  - {fileID: -9095256321585387099, guid: 15e96618847686d449c2a6efceef9ec5, type: 3}
+  - {fileID: 21300000, guid: 5c728dfb65ad2df428845433051fb156, type: 3}
+  - {fileID: 21300000, guid: 88d18f90030c8d0448d9f71935ea260a, type: 3}
+  - {fileID: 21300000, guid: 0c7efef2fbccc6d4b9742d10aa400237, type: 3}
+  - {fileID: 21300000, guid: ac461bfdfa2379746a6105a71a10137d, type: 3}
+  - {fileID: 21300000, guid: 8a0196013a690d644a03b803d8b61057, type: 3}
+  - {fileID: 21300000, guid: ec6bd4e5bde602747831b19d2b4b8037, type: 3}
+  - {fileID: 21300000, guid: fb1208225b7b047438c307e778d8a9a3, type: 3}
+  - {fileID: 21300000, guid: 15e96618847686d449c2a6efceef9ec5, type: 3}
   achievementImages:
   - {fileID: 875762590}
   - {fileID: 300864890}

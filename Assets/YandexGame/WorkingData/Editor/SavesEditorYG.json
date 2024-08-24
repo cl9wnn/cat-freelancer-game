@@ -1,5 +1,5 @@
 {
-  "idSave": 1256,
+  "idSave": 1259,
   "isFirstSession": false,
   "language": "ru",
   "promptDone": false,
@@ -26,19 +26,19 @@
   "boostData": {
     "totalCoffeeConsumed": 1,
     "availableCoffee": 0,
-    "cooldownDuration": 6882.935,
-    "saveDate": "2024-08-24T09:39:21.2164254Z"
+    "cooldownDuration": 5078.1123,
+    "saveDate": "2024-08-24T10:09:28.9369085Z"
   },
   "fortuneData": {
-    "remainingCooldownTime": 7099.548,
+    "remainingCooldownTime": 5294.765,
     "remainingRewardTime": 0.0,
     "isAdAvailable": true,
-    "saveDate": "2024-08-24T09:39:21.2164254Z"
+    "saveDate": "2024-08-24T10:09:28.9369085Z"
   },
   "gameData": {
-    "score": 22241.0,
+    "score": 51658.0,
     "scoreIncrease": 29.0,
-    "totalClick": 1505,
+    "totalClick": 1593,
     "offlineTime": 7200.0,
     "shopItems": [
       {
@@ -482,8 +482,8 @@
         "itemIndex": 0
       }
     ],
-    "date": "2024-08-24T09:39:21.2164254Z",
-    "colClicks": 5,
+    "date": "2024-08-24T10:09:28.9369085Z",
+    "colClicks": 93,
     "maxResult": 50,
     "OfflineBonus": 0.0
   },
@@ -495,7 +495,7 @@
       false,
       false
     ],
-    "total": 3495,
+    "total": 3583,
     "isStart": true,
     "isEnd": false
   },
@@ -514,7 +514,7 @@
     "isLastLevel": true
   },
   "statsData": {
-    "totalPlayTime": 1554.499
+    "totalPlayTime": 1598.25891
   },
   "timerData": {
     "maxResult": 49.0
