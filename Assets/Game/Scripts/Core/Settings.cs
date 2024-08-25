@@ -16,6 +16,7 @@ public class Settings : MonoBehaviour
     public Text languageText;
     public Text musicText;
     public Text aboutGameTitleText;
+    public GameObject AdTimer;
     public Text saveDataText;
 
     public Canvas StartCanvas;
@@ -30,6 +31,7 @@ public class Settings : MonoBehaviour
     private void Start()
     {
         StartCanvas.gameObject.SetActive(!_plot.isStart);
+        AdTimer.SetActive(_plot.isStart);
     }
 
     public void ChangeLanguage()

@@ -26,7 +26,7 @@ public class VolumeSettings : MonoBehaviour, ISaveLoad
         set
         {
             _mute = value;
-            _mixer.SetFloat(MIXER_MUSIC, Mathf.Log10(_mute ? _value = 0.0001f : _value = 1.0f) * 20);
+            _mixer.SetFloat(MIXER_MUSIC, Mathf.Log10(_mute ? 0.0001f : 1.0f) * 20);
             UpdateButtonSprite();
 
         }
@@ -56,11 +56,12 @@ public class VolumeSettings : MonoBehaviour, ISaveLoad
         
         if (data == null)
         {
-            data = new VolumeData(_value);
+            data = new VolumeData(_value, Mute);
             return;
         }
 
         data.maserVolume = _value;
+        data.isMuteBG = _mute;
     }
     public void Load()
     {
@@ -69,10 +70,16 @@ public class VolumeSettings : MonoBehaviour, ISaveLoad
         float value;
 
         if (data == null)
+        {
             value = 1.0f;
+            Mute = false;
+        }
         else
+        {
             value = data.maserVolume;
-        
+            Mute = data.isMuteBG;
+        }
+
         _value = value;
         _volumeSlider.SetValueWithoutNotify(value);
         _mixer.SetFloat(MIXER_VOLUME, Mathf.Log10(value) * 20);

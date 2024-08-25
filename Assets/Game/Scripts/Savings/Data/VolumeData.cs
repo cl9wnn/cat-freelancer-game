@@ -4,9 +4,11 @@
 public class VolumeData
 {
     public float maserVolume = 1.0f;
+    public bool isMuteBG;
 
-    public VolumeData(float masterVolume)
+    public VolumeData(float masterVolume, bool isMuteBG)
     {
         maserVolume = masterVolume;
+        this.isMuteBG = isMuteBG;
     }
 }

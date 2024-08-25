@@ -50208,7 +50208,7 @@ PrefabInstance:
     - target: {fileID: 8275278890968826826, guid: 35fa95bde1a56744eb9b514cef2e0af8,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8275278890968826827, guid: 35fa95bde1a56744eb9b514cef2e0af8,
         type: 3}
@@ -106447,6 +106447,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1892132367}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &1874170802
 GameObject:
   m_ObjectHideFlags: 0
@@ -107154,6 +107166,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1891743130}
   m_CullTransparentMesh: 0
+--- !u!1 &1892132367 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8275278890968826826, guid: 35fa95bde1a56744eb9b514cef2e0af8,
+    type: 3}
+  m_PrefabInstance: {fileID: 797243105}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1894771542
 GameObject:
   m_ObjectHideFlags: 0
@@ -119374,6 +119392,7 @@ MonoBehaviour:
   languageText: {fileID: 893463448}
   musicText: {fileID: 288555613}
   aboutGameTitleText: {fileID: 948516494}
+  AdTimer: {fileID: 1892132367}
   saveDataText: {fileID: 1164292239}
   StartCanvas: {fileID: 902600716}
 --- !u!114 &1995768519

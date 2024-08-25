@@ -1,5 +1,5 @@
 {
-  "idSave": 1259,
+  "idSave": 1282,
   "isFirstSession": false,
   "language": "ru",
   "promptDone": false,
@@ -12,55 +12,55 @@
   ],
   "achievementsData": {
     "isAchievementDone": [
-      true,
-      true,
-      true,
-      true,
-      true,
-      true,
-      true,
-      true
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
     ],
-    "achievementsCount": 2
+    "achievementsCount": 0
   },
   "boostData": {
     "totalCoffeeConsumed": 1,
     "availableCoffee": 0,
-    "cooldownDuration": 5078.1123,
-    "saveDate": "2024-08-24T10:09:28.9369085Z"
+    "cooldownDuration": 6605.71533,
+    "saveDate": "2024-08-24T12:38:35.9108211Z"
   },
   "fortuneData": {
-    "remainingCooldownTime": 5294.765,
+    "remainingCooldownTime": -569.0,
     "remainingRewardTime": 0.0,
-    "isAdAvailable": true,
-    "saveDate": "2024-08-24T10:09:28.9369085Z"
+    "isAdAvailable": false,
+    "saveDate": "2024-08-24T12:38:35.9108211Z"
   },
   "gameData": {
-    "score": 51658.0,
-    "scoreIncrease": 29.0,
-    "totalClick": 1593,
+    "score": 12.0,
+    "scoreIncrease": 1.0,
+    "totalClick": 12,
     "offlineTime": 7200.0,
     "shopItems": [
       {
         "name": "0cec",
-        "cost": 450.0,
+        "cost": 300.0,
         "bonusIncrease": 0.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "costMultiplier": 1.5,
         "itsItemPerSec": true,
         "bonusPerSec": 1.0,
-        "bonusCounter": 1,
+        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
         "name": "1cec",
-        "cost": 1500.0,
+        "cost": 1000.0,
         "bonusIncrease": 0.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "costMultiplier": 1.5,
         "itsItemPerSec": true,
         "bonusPerSec": 2.0,
-        "bonusCounter": 1,
+        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -76,13 +76,13 @@
       },
       {
         "name": "3cec",
-        "cost": 18000.0,
+        "cost": 12000.0,
         "bonusIncrease": 0.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "costMultiplier": 1.5,
         "itsItemPerSec": true,
         "bonusPerSec": 12.0,
-        "bonusCounter": 1,
+        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -263,9 +263,9 @@
       },
       {
         "name": "Intel HD graphics",
-        "cost": 143.0,
+        "cost": 110.0,
         "bonusIncrease": 1.0,
-        "levelOfItem": 2,
+        "levelOfItem": 0,
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 0.0,
@@ -285,9 +285,9 @@
       },
       {
         "name": "GT 1030",
-        "cost": 2700.0,
+        "cost": 2100.0,
         "bonusIncrease": 10.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
@@ -298,7 +298,7 @@
         "name": "Rx 550",
         "cost": 8000.0,
         "bonusIncrease": 16.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
@@ -482,41 +482,42 @@
         "itemIndex": 0
       }
     ],
-    "date": "2024-08-24T10:09:28.9369085Z",
-    "colClicks": 93,
-    "maxResult": 50,
+    "date": "2024-08-24T12:38:35.9098236Z",
+    "colClicks": 12,
+    "maxResult": 0,
     "OfflineBonus": 0.0
   },
   "plotData": {
     "isEventDone": [
-      true,
-      true,
+      false,
+      false,
       false,
       false,
       false
     ],
-    "total": 3583,
+    "total": 12,
     "isStart": true,
     "isEnd": false
   },
   "progressBarData": null,
   "volumeData": {
-    "maserVolume": 0.0001
+    "maserVolume": 1.0,
+    "isMuteBG": true
   },
   "skinCoinData": {
     "bBttn": 0
   },
   "spawnDownData": {
-    "level": 1,
-    "speed": 1.2,
-    "spawnInterval": 0.45,
-    "isFirstLevel": false,
+    "level": 0,
+    "speed": 0.9,
+    "spawnInterval": 0.5,
+    "isFirstLevel": true,
     "isLastLevel": true
   },
   "statsData": {
-    "totalPlayTime": 1598.25891
+    "totalPlayTime": 47.48392
   },
   "timerData": {
-    "maxResult": 49.0
+    "maxResult": 5.0
   }
 }
