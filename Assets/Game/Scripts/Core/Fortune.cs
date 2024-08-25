@@ -55,7 +55,7 @@ public class Fortune : MonoBehaviour, ISaveLoad
         data.remainingCooldownTime = remainingCooldownTime;
         data.isAdAvailable = isAdAvailable;
         data.remainingRewardTime = remainingRewardTime;
-        data.saveDate = YandexGame.ServerTime();
+        data.savedTime = YandexGame.ServerTime();
 
     }
     public void Load()
@@ -68,7 +68,7 @@ public class Fortune : MonoBehaviour, ISaveLoad
         isAdAvailable = data.isAdAvailable;
         remainingRewardTime = data.remainingRewardTime;
 
-        var elapsed = YandexGame.ServerTime() - data.saveDate;
+        var elapsed = YandexGame.ServerTime() - data.savedTime;
         remainingCooldownTime -= elapsed / 1000;
     }
 
@@ -139,7 +139,7 @@ public class Fortune : MonoBehaviour, ISaveLoad
 
     private void DetermineAward()
     {
-        float moneyMultiplier = _game.PassiveBonusPerSec == 0 ? 1 : _game.PassiveBonusPerSec;
+        float moneyMultiplier = _game.TotalPassiveBonus == 0 ? 1 : _game.TotalPassiveBonus;
         switch (Math.Round(circle.transform.eulerAngles.z % 360, 0, MidpointRounding.AwayFromZero))
         {
             case 0:

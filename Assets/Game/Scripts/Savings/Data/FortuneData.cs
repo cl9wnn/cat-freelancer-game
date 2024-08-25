@@ -9,12 +9,12 @@ public class FortuneData
         remainingCooldownTime = LongTimer;
         isAdAvailable = CanAd;
         remainingRewardTime = Timer;
-        saveDate = YandexGame.ServerTime();
+        savedTime = YandexGame.ServerTime();
 
     }
 
     public float remainingCooldownTime;
     public float remainingRewardTime;
     public bool isAdAvailable;
-    public long saveDate;
+    public long savedTime;
 }

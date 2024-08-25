@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -72,7 +73,6 @@ public class Game : MonoBehaviour, ISaveLoad
     public Text offlineDohod;
     public float offlineTime = 7200;
     public float offlineBonus;
-    public float totalBonusPS = 0;
     public int clicks;
     public ParticleSystem firePointer;
 
@@ -189,7 +189,7 @@ public class Game : MonoBehaviour, ISaveLoad
 
     public float passiveBonusPerSec = 0;
 
-    public float PassiveBonusPerSec
+    public float TotalPassiveBonus
     {
         get => passiveBonusPerSec;
 
@@ -211,25 +211,25 @@ public class Game : MonoBehaviour, ISaveLoad
 
     public void Save()
     {
-        YandexGame.NewLeaderboardScores("ScoreLeaderboard", (int)Score);
+        YandexGame.NewLeaderboardScores("ScoreLeaderboard", (long)Score);
         
         ref var data = ref YandexGame.savesData.gameData;
 
         if (data == null)
         {
-            data = new GameData(Score, shopItems, ScoreIncrease, offlineTime, TotalClick, colClicks, maxResult, offlineBonus);
+            data = new GameData(Score, shopItems, ScoreIncrease, TotalPassiveBonus, offlineTime, TotalClick, colClicks, maxResult);
             return;
         }
 
         data.score = Score;
         data.shopItems = shopItems;
         data.scoreIncrease = ScoreIncrease;
+        data.scorePassive = TotalPassiveBonus;
         data.offlineTime = offlineTime;
-        data.date = YandexGame.ServerTime();
+        data.savedTime = YandexGame.ServerTime();
         data.totalClick = TotalClick;
         data.colClicks = colClicks;
         data.maxResult = maxResult;
-        data.OfflineBonus = offlineBonus;
     }
     public void Load()
     {
@@ -244,15 +244,10 @@ public class Game : MonoBehaviour, ISaveLoad
         TotalClick = data.totalClick;
         ColClicks = data.colClicks;
         maxResult = data.maxResult;
-        offlineBonus = data.OfflineBonus;
 
-        totalBonusPS = 0;
-        for (int i = 0; i < shopItems.Count; i++)
-        {
-            totalBonusPS += shopItems[i].bonusPerSec * shopItems[i].bonusCounter;
-        }
-
-        var milliseconds = YandexGame.ServerTime() - data.date;
+        TotalPassiveBonus = data.scorePassive == 0 ? shopItems.Sum(item => item.bonusPerSec * item.bonusCounter) : data.scorePassive;
+        
+        var milliseconds = YandexGame.ServerTime() - data.savedTime;
 
         var seconds = milliseconds / 1000;
         var minutes = seconds / 60;
@@ -270,17 +265,7 @@ public class Game : MonoBehaviour, ISaveLoad
 
         MaximumLimitText.text = (offlineTime / 3600) + LanguageSystem.lng.time[0];
 
-        if (seconds >= offlineTime)
-        {
-            offlineBonus += (offlineTime * totalBonusPS);
-            if (offlineBonus <= 0.01f) return;  
-        }
-        else if (seconds > 30)
-        {
-            offlineBonus += (seconds * totalBonusPS);
-            if (offlineBonus <= 0.01f) return;
-        }
-
+        offlineBonus += seconds >= 30 ? Math.Min(seconds, offlineTime) * TotalPassiveBonus : 0;
     }
 
     private void Start()
@@ -297,12 +282,6 @@ public class Game : MonoBehaviour, ISaveLoad
 
         UpdateCosts();
         StartCoroutine(BonusPerSec());
-        float tmp = 0;
-        for (int i = 0; i < shopItems.Count; i++)
-        {
-            tmp += (shopItems[i].bonusCounter * shopItems[i].bonusPerSec);
-        }
-        PassiveBonusPerSec = tmp;
 
         if (clicks < 10) _achievements.resultTexts[3].text = maxResult.ToString() + "/50";
         if (_achievements.isAchievementDone[3]) _achievements.resultTexts[3].text = "";
@@ -480,8 +459,8 @@ public class Game : MonoBehaviour, ISaveLoad
     {
         if (Score >= shopItems[index].cost)
         {
-            if (shopItems[index].itsItemPerSec) 
-                shopItems[index].bonusCounter++;
+            if (shopItems[index].itsItemPerSec)
+                TotalPassiveBonus += shopItems[index].bonusPerSec;
             else
                 ScoreIncrease += shopItems[index].bonusIncrease;
             
@@ -513,14 +492,7 @@ public class Game : MonoBehaviour, ISaveLoad
     {
         while (true)
         {
-            float tmp = 0;
-            for (int i = 0; i < shopItems.Count; i++)
-            {
-                tmp += shopItems[i].bonusCounter * shopItems[i].bonusPerSec;
-            }
-
-            PassiveBonusPerSec = tmp;
-            Score += tmp;
+            Score += TotalPassiveBonus;
             yield return new WaitForSeconds(1);
         }
     }

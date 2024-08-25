@@ -65,11 +65,11 @@ public class Timer : MonoBehaviour, ISaveLoad
 
     void Start()
     {
-        clickPerSec.text = StringMethods.FormatMoney(MouseClicks * _game.ScoreIncrease + _game.PassiveBonusPerSec) + LanguageSystem.lng.time[1];
+        clickPerSec.text = StringMethods.FormatMoney(MouseClicks * _game.ScoreIncrease + _game.TotalPassiveBonus) + LanguageSystem.lng.time[1];
     }
     public void ChangeLanguage()
     {
-        clickPerSec.text = StringMethods.FormatMoney(MouseClicks * _game.ScoreIncrease + _game.PassiveBonusPerSec) + LanguageSystem.lng.time[1];
+        clickPerSec.text = StringMethods.FormatMoney(MouseClicks * _game.ScoreIncrease + _game.TotalPassiveBonus) + LanguageSystem.lng.time[1];
     }
 
     void Update()
@@ -77,11 +77,11 @@ public class Timer : MonoBehaviour, ISaveLoad
         BPStimer += Time.deltaTime;
         if (BPStimer >= 1)
         {
-            clickPerSec.text = StringMethods.FormatMoney(MouseClicks * _game.ScoreIncrease + _game.PassiveBonusPerSec) + LanguageSystem.lng.time[1];
+            clickPerSec.text = StringMethods.FormatMoney(MouseClicks * _game.ScoreIncrease + _game.TotalPassiveBonus) + LanguageSystem.lng.time[1];
 
             if (_boost.IsBoostActive)
             {
-                clickPerSec.text = StringMethods.FormatMoney(MouseClicks * _game.ScoreIncrease * 3 + _game.PassiveBonusPerSec) + LanguageSystem.lng.time[1]; //на время, когда работает буст
+                clickPerSec.text = StringMethods.FormatMoney(MouseClicks * _game.ScoreIncrease * 3 + _game.TotalPassiveBonus) + LanguageSystem.lng.time[1]; //на время, когда работает буст
             }
             BPStimer = 0f;
             MouseClicks = 0;

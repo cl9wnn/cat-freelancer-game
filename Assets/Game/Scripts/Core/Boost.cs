@@ -67,7 +67,7 @@ public class Boost : MonoBehaviour, ISaveLoad
         }
 
         data.cooldownDuration = remainingCooldown;
-        data.saveDate = YandexGame.ServerTime();
+        data.savedTime = YandexGame.ServerTime();
         data.totalCoffeeConsumed = TotalCoffeeConsumed;
         data.availableCoffee = AvailableCoffee;
     }
@@ -82,7 +82,7 @@ public class Boost : MonoBehaviour, ISaveLoad
         TotalCoffeeConsumed = data.totalCoffeeConsumed;
         AvailableCoffee = data.availableCoffee;
 
-        var elapsed = YandexGame.ServerTime() - data.saveDate;
+        var elapsed = YandexGame.ServerTime() - data.savedTime;
         remainingCooldown -= elapsed / 1000;
     }
 
