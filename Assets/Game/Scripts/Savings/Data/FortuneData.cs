@@ -1,4 +1,5 @@
 ﻿using System;
+using YG;
 
 [Serializable]
 public class FortuneData
@@ -8,12 +9,12 @@ public class FortuneData
         remainingCooldownTime = LongTimer;
         isAdAvailable = CanAd;
         remainingRewardTime = Timer;
-        saveDate = DateTime.UtcNow;
+        saveDate = YandexGame.ServerTime();
 
     }
 
     public float remainingCooldownTime;
     public float remainingRewardTime;
     public bool isAdAvailable;
-    public DateTime saveDate = new DateTime();
+    public long saveDate;
 }

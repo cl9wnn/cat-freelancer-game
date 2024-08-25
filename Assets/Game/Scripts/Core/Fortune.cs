@@ -55,7 +55,7 @@ public class Fortune : MonoBehaviour, ISaveLoad
         data.remainingCooldownTime = remainingCooldownTime;
         data.isAdAvailable = isAdAvailable;
         data.remainingRewardTime = remainingRewardTime;
-        data.saveDate = DateTime.UtcNow;
+        data.saveDate = YandexGame.ServerTime();
 
     }
     public void Load()
@@ -67,8 +67,9 @@ public class Fortune : MonoBehaviour, ISaveLoad
         remainingCooldownTime = data.remainingCooldownTime;
         isAdAvailable = data.isAdAvailable;
         remainingRewardTime = data.remainingRewardTime;
-        TimeSpan elapsed = DateTime.UtcNow - data.saveDate;
-        remainingCooldownTime -= (int)elapsed.TotalSeconds;
+
+        var elapsed = YandexGame.ServerTime() - data.saveDate;
+        remainingCooldownTime -= elapsed / 1000;
     }
 
     public void ChangeLanguage()

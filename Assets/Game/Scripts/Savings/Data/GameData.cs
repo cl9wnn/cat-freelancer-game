@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System;
 using static Game;
+using YG;
 
 [Serializable]
 public class GameData
@@ -9,7 +10,7 @@ public class GameData
     {
         score = Score;
         shopItems = ShopItems;
-        date = DateTime.UtcNow;
+        date = YandexGame.ServerTime();
         scoreIncrease = ScoreIncrease;
         offlineTime = OfflineTime;
         totalClick = TotalClick;
@@ -22,7 +23,7 @@ public class GameData
     public int totalClick;
     public float offlineTime = 3600;
     public List<Item> shopItems;
-    public DateTime date = new DateTime();
+    public long date;
     public int colClicks;
     public int maxResult;
     public float OfflineBonus;

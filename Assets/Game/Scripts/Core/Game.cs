@@ -71,7 +71,6 @@ public class Game : MonoBehaviour, ISaveLoad
     public int clickNum;
     public Text offlineDohod;
     public float offlineTime = 7200;
-    public DateTime date = new DateTime();
     public float offlineBonus;
     public float totalBonusPS = 0;
     public int clicks;
@@ -226,7 +225,7 @@ public class Game : MonoBehaviour, ISaveLoad
         data.shopItems = shopItems;
         data.scoreIncrease = ScoreIncrease;
         data.offlineTime = offlineTime;
-        data.date = DateTime.UtcNow;
+        data.date = YandexGame.ServerTime();
         data.totalClick = TotalClick;
         data.colClicks = colClicks;
         data.maxResult = maxResult;
@@ -241,7 +240,6 @@ public class Game : MonoBehaviour, ISaveLoad
         Score = data.score;
         shopItems = data.shopItems;
         scoreIncrease = data.scoreIncrease;
-        date = data.date;
         offlineTime = data.offlineTime;
         TotalClick = data.totalClick;
         ColClicks = data.colClicks;
@@ -254,35 +252,32 @@ public class Game : MonoBehaviour, ISaveLoad
             totalBonusPS += shopItems[i].bonusPerSec * shopItems[i].bonusCounter;
         }
 
-        TimeSpan ts = DateTime.UtcNow - date;
+        var milliseconds = YandexGame.ServerTime() - data.date;
 
-        if ((int)ts.TotalSeconds < 60)
+        var seconds = milliseconds / 1000;
+        var minutes = seconds / 60;
+        var hours = minutes / 60;
+        var days = hours / 24;
+
+        absenceText.text = (seconds, minutes, hours, days) switch
         {
-            absenceText.text = ts.Seconds + LanguageSystem.lng.time[7];
-        }
-        else if ((int)ts.TotalSeconds < 3600)
-        {
-            absenceText.text = ts.Minutes + LanguageSystem.lng.time[2];
-        }
-        else if ((int)ts.TotalSeconds < 86400)
-        {
-            absenceText.text = ts.Hours + LanguageSystem.lng.time[0] + ts.Minutes + LanguageSystem.lng.time[2];
-        }
-        else if ((int)ts.TotalSeconds < 2592000)
-        {
-            absenceText.text = ts.Days + LanguageSystem.lng.time[6] + ts.Hours + LanguageSystem.lng.time[0];
-        }
+            var (s, _, _, _) when s < 60 => s + LanguageSystem.lng.time[7],
+            var (_, m, _, _) when m < 60 => m + LanguageSystem.lng.time[2],
+            var (_, m, h, _) when h < 24 => h + LanguageSystem.lng.time[0] + m + LanguageSystem.lng.time[2],
+            var (_, _, h, d) when d < 30 => d + LanguageSystem.lng.time[6] + h + LanguageSystem.lng.time[0],
+            _ => string.Empty 
+        };
 
         MaximumLimitText.text = (offlineTime / 3600) + LanguageSystem.lng.time[0];
 
-        if ((int)ts.TotalSeconds >= offlineTime)
+        if (seconds >= offlineTime)
         {
             offlineBonus += (offlineTime * totalBonusPS);
             if (offlineBonus <= 0.01f) return;  
         }
-        else if ((int)ts.TotalSeconds > 30)
+        else if (seconds > 30)
         {
-            offlineBonus += ((int)ts.TotalSeconds * totalBonusPS);
+            offlineBonus += (seconds * totalBonusPS);
             if (offlineBonus <= 0.01f) return;
         }
 
