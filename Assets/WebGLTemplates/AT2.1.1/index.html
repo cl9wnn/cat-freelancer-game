@@ -54,9 +54,9 @@
     #if CONNECT_PLUGIN == "YG1.6"
     <!-- Additional head modules -->
     #endif
-    #if CONNECT_PLUGIN == "YG1.6" || CONNECT_PLUGIN == "YG1.6.1" || CONNECT_PLUGIN == "YG1.6.2" || CONNECT_PLUGIN == "YG1.5.2" || CONNECT_PLUGIN == "YG1.5.1" || CONNECT_PLUGIN == "YG1.5" || CONNECT_PLUGIN == "YG1.4"
+    #if CONNECT_PLUGIN == "YG1.6" || CONNECT_PLUGIN == "YG1.6.1" || CONNECT_PLUGIN == "YG1.6.2" || CONNECT_PLUGIN == "YG1.6.3" || CONNECT_PLUGIN == "YG1.5.2" || CONNECT_PLUGIN == "YG1.5.1" || CONNECT_PLUGIN == "YG1.5" || CONNECT_PLUGIN == "YG1.4"
     <!-- Yandex Games SDK -->
-    <script src="https://yandex.ru/games/sdk/v2"></script>
+    <script src="/sdk.js"></script>
 
     #if CONNECT_PLUGIN == "YG1.5.2" || CONNECT_PLUGIN == "YG1.5.1" || CONNECT_PLUGIN == "YG1.5"
     <!-- Additional head modules -->
@@ -1660,12 +1660,40 @@
         FocusGame();
       });
 
+      document.addEventListener('visibilitychange', function () {
+            if (ysdk !== null && initGame == true) {
+                if (document.hidden) {
+                    myGameInstance.SendMessage('YandexGame', 'OnVisibilityGameWindow', 'false');
+                }
+                else {
+                    myGameInstance.SendMessage('YandexGame', 'OnVisibilityGameWindow', 'true');
+
+                    if ((ysdk.deviceInfo.isMobile() || ysdk.deviceInfo.isTablet()) && ysdk.screen.fullscreen.status == 'off')
+                        ysdk.screen.fullscreen.request();
+                }
+            }
+        });
+
+        function ResumeGame() {
+            if (myGameInstance && myGameInstance.Module) {
+                // Возобновление главного цикла Unity
+                myGameInstance.Module.resumeMainLoop();
+
+                // (Курсор снова может быть спрятан, если это требуется игрой)
+            }
+
+            let audioElements = document.querySelectorAll('audio, video');
+            audioElements.forEach(element => {
+                element.muted = false;
+            });
+        }
+
       #if CONNECT_PLUGIN == "YG1.6" || CONNECT_PLUGIN == "YG1.6.1" || CONNECT_PLUGIN == "YG1.6.2"
       let StartUnityInstance;
       let myGameInstance = null;
       let ysdk = null;
       let player = null;
-      let leaderboard;
+
       let payments = null;
       let initGame = false;
       let nowFullAdOpen = false;
@@ -2091,20 +2119,20 @@
                         callbacks:
                         {
                             onOpen: () => {
-                                console.log('Opened Video Ad. Id: ' + id);
+                                console.log('Opened Video Ad');
                                 myGameInstance.SendMessage('YandexGame', 'OpenVideo');
                             },
                             onClose: () => {
-                                console.log('Closed Video Ad. Id: ' + id);
+                                console.log('Closed Video Ad');
                                 myGameInstance.SendMessage('YandexGame', 'CloseVideo');
                                 FocusGame();
                             },
                             onRewarded: () => {
-                                console.log('Reward Video Ad. Id: ' + id);
+                                console.log('Reward Video Ad');
                                 myGameInstance.SendMessage('YandexGame', 'RewardVideo', id);
                             },
                             onError: (e) => {
-                                console.error('Error Video Ad. Id: ' + id, e);
+                                console.error('Error Video Ad', e);
                                 myGameInstance.SendMessage('YandexGame', 'ErrorVideo');
                             }
                         }
@@ -2411,238 +2439,6 @@
             }
       }
       #endif
-      #endif
-
-      function InitLeaderboard() {
-            try {
-                ysdk.getLeaderboards().then(_lb => {
-                    leaderboard = _lb
-                    myGameInstance.SendMessage('YandexGame', 'InitializedLB');
-                });
-            } catch (e) {
-                console.error('CRASH Init Leaderboard: ', e.message);
-            }
-      }
-
-      function SetLeaderboardScores(_name, score) {
-            try {
-                ysdk.getLeaderboards()
-                    .then(leaderboard => {
-                        leaderboard.setLeaderboardScore(_name, score);
-                    });
-            } catch (e) {
-                console.error('CRASH Set Leader board Scores: ', e.message);
-            }
-      }
-
-      #if CONNECT_PLUGIN == "YG1.6" || CONNECT_PLUGIN == "YG1.6.1" || CONNECT_PLUGIN == "YG1.6.2" || CONNECT_PLUGIN == "YG1.5.2" || CONNECT_PLUGIN == "YG1.5.1" || CONNECT_PLUGIN == "YG1.5"
-      function GetLeaderboardScores(nameLB, maxPlayers, quantityTop, quantityAround, photoSize, auth) {
-            try {
-                var jsonEntries = {
-                    technoName: '',
-                    isDefault: false,
-                    isInvertSortOrder: false,
-                    decimalOffset: 0,
-                    type: '' // , title: ''
-                };
-
-                ysdk.getLeaderboards()
-                    .then(leaderboard => leaderboard.getLeaderboardDescription(nameLB))
-                    .then(res => {
-                        jsonEntries.technoName = nameLB;
-                        jsonEntries.isDefault = res.default;
-                        jsonEntries.isInvertSortOrder = res.description.invert_sort_order;
-                        jsonEntries.decimalOffset = res.description.score_format.options.decimal_offset;
-                        jsonEntries.type = res.description.type; // Не определяется на момент 18.07.23
-                        //jsonEntries.title = res.title; // Реализуйте по предпочтениям
-
-                        return leaderboard.getLeaderboardEntries(nameLB, {
-                            quantityTop: quantityTop,
-                            includeUser: auth,
-                            quantityAround: quantityAround
-                        });
-                    })
-                    .then(res => {
-                        let jsonPlayers = EntriesLB(res, maxPlayers, photoSize);
-                        let combinedJson = { ...jsonEntries, ...jsonPlayers };
-
-                        myGameInstance.SendMessage('YandexGame', 'LeaderboardEntries', JSON.stringify(combinedJson));
-                    })
-                    .catch(error => {
-                        console.error(error);
-                    });
-            }
-            catch (e) {
-                console.error('CRASH Get Leaderboard: ', e.message);
-            }
-      }
-
-      function EntriesLB(res, maxPlayers, photoSize) {
-            let LeaderboardEntriesText = '';
-            let playersCount;
-
-            if (res.entries.length < maxPlayers) {
-                playersCount = res.entries.length;
-            } else {
-                playersCount = maxPlayers;
-            }
-
-            let ranks = new Array(playersCount);
-            let photos = new Array(playersCount);
-            let mames = new Array(playersCount);
-            let scores = new Array(playersCount);
-            let uniqueIDs = new Array(playersCount);
-
-            for (i = 0; i < playersCount; i++) {
-                ranks[i] = res.entries[i].rank;
-                scores[i] = res.entries[i].score;
-                uniqueIDs[i] = res.entries[i].player.uniqueID;
-
-                if (photoSize === 'nonePhoto' || res.entries[i].player.scopePermissions.avatar !== "allow") {
-                    photos[i] = 'nonePhoto';
-                } else {
-                    photos[i] = res.entries[i].player.getAvatarSrc(photoSize);
-                }
-
-                if (res.entries[i].player.scopePermissions.public_name !== "allow") {
-                    mames[i] = "anonymous";
-                } else {
-                    mames[i] = res.entries[i].player.publicName;
-                }
-
-                LeaderboardEntriesText += ranks[i] + '. ' + mames[i] + ": " + scores[i] + '\n';
-            }
-
-            if (playersCount === 0) {
-                LeaderboardEntriesText = 'no data';
-            }
-
-            let jsonPlayers = {
-                "entries": LeaderboardEntriesText,
-                "ranks": ranks,
-                "photos": photos,
-                "names": mames,
-                "scores": scores,
-                "uniqueIDs": uniqueIDs
-            };
-
-            return jsonPlayers;
-      }
-      #endif
-
-      #if CONNECT_PLUGIN == "YG1.4"
-      function GetLeaderboardScores(nameLB, maxPlayers, quantityTop, quantityAround, photoSize, auth) {
-        if (auth) {
-            try {
-                ysdk.getLeaderboards()
-                    .then(leaderboard => {
-                        leaderboard.getLeaderboardEntries('' + nameLB, {
-                            quantityTop: quantityTop,
-                            includeUser: true,
-                            quantityAround: quantityAround
-                        })
-                            .then(res => {
-                                EntriesLB(res, nameLB, maxPlayers, photoSize);
-                            });
-                    });
-            } catch (e) {
-                console.error('CRASH Get Leaderboard Scores: ', e.message);
-            }
-        } else {
-            try {
-                ysdk.getLeaderboards()
-                    .then(leaderboard => {
-                        leaderboard.getLeaderboardEntries('' + nameLB, {quantityTop: quantityTop})
-                            .then(res => {
-                                EntriesLB(res, nameLB, maxPlayers, photoSize);
-                            });
-                    });
-            } catch (e) {
-                console.error('CRASH Get Leaderboard Scores: ', e.message);
-            }
-        }
-      }
-
-      function EntriesLB(res, nameLB, maxPlayers, photoSize) {
-        let LeaderboardEntriesText = '';
-
-        let playersCount;
-        if (res.entries.length < maxPlayers) {
-            playersCount = res.entries.length;
-        } else {
-            playersCount = maxPlayers;
-        }
-
-        let rank = [maxPlayers];
-        let photo = [maxPlayers];
-        let playersName = [maxPlayers];
-        let scorePlayers = [maxPlayers];
-
-        for (i = 0; i < playersCount; i++) {
-            rank[i] = res.entries[i].rank;
-            scorePlayers[i] = res.entries[i].score;
-
-            if (photoSize === 'nonePhoto' || res.entries[i].player.scopePermissions.avatar !== "allow") {
-                photo[i] = 'nonePhoto';
-            } else {
-                photo[i] = res.entries[i].player.getAvatarSrc(photoSize);
-            }
-
-            if (res.entries[i].player.scopePermissions.public_name !== "allow") {
-                playersName[i] = "anonymous";
-            } else {
-                playersName[i] = res.entries[i].player.publicName;
-            }
-
-            LeaderboardEntriesText += rank[i] + '. ' + playersName[i] + ": " + scorePlayers[i] + '\n';
-        }
-
-        if (playersCount === 0) {
-            LeaderboardEntriesText = 'No data';
-        }
-
-        let jsonLB = {
-            "nameLB": nameLB,
-            "entries": LeaderboardEntriesText,
-            "rank": rank,
-            "photo": photo,
-            "playersName": playersName,
-            "scorePlayers": scorePlayers
-        };
-        myGameInstance.SendMessage('YandexGame', 'LeaderboardEntries', JSON.stringify(jsonLB));
-      }
-      #endif
-
-      #if CONNECT_PLUGIN == "YG1.5.2" || CONNECT_PLUGIN == "YG1.5.1" || CONNECT_PLUGIN == "YG1.5" || CONNECT_PLUGIN == "YG1.4"
-      function LanguageRequest() {
-            try {
-                myGameInstance.SendMessage('YandexGame', 'SetLanguage', ysdk.environment.i18n.lang);
-            } catch (e) {
-                console.error('CRASH Language Request: ', e.message);
-            }
-      }
-
-      function RequestingEnvironmentData() {
-            try {
-                let jsonEnvir = {
-                    "language": ysdk.environment.i18n.lang,
-                    "domain": ysdk.environment.i18n.tld,
-                    "deviceType": ysdk.deviceInfo.type,
-                    "isMobile": ysdk.deviceInfo.isMobile(),
-                    "isDesktop": ysdk.deviceInfo.isDesktop(),
-                    "isTablet": ysdk.deviceInfo.isTablet(),
-                    "isTV": ysdk.deviceInfo.isTV(),
-                    "appID": ysdk.environment.app.id,
-                    "browserLang": ysdk.environment.browser.lang,
-                    "payload": ysdk.environment.payload,
-                    "promptCanShow": promptCanShow,
-                    "reviewCanShow": reviewCanShow
-                };
-                myGameInstance.SendMessage('YandexGame', 'SetEnvironmentData', JSON.stringify(jsonEnvir));
-            } catch (e) {
-                console.error('CRASH Requesting Environment Data: ', e.message);
-            }
-      }
       #endif
 
       function Review() {
