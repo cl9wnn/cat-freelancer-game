@@ -25,6 +25,8 @@ public class LanguageSystem : MonoBehaviour
     private string json;
     private string[] langArray = { "ru_RU", "en_US" };
 
+    public string LanguageCode => PlayerPrefs.GetString("Language");
+
     private void Awake()
     {
         _game = GameSingleton.Instance.Game;
@@ -105,6 +107,26 @@ public class LanguageSystem : MonoBehaviour
         StopAllCoroutines();
         LoadLanguage();
 
+    }
+    public void SetLanguage(string languageCode)
+    {
+        langIndex = System.Array.IndexOf(langArray, languageCode);
+
+        if (langIndex == -1)
+        {
+            Debug.LogError($"Language code '{languageCode}' not found in langArray.");
+            return;
+        }
+
+        PlayerPrefs.SetString("Language", languageCode);
+
+        langBttnImg.sprite = flags[langIndex];
+
+        volumeSettings.UpdateLanguageSprites(langIndex);
+        _achievements.UpdateLanguageSprites(langIndex);
+
+        StopAllCoroutines();
+        LoadLanguage();
     }
 
 }

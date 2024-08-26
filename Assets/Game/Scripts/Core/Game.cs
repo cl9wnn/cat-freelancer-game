@@ -217,7 +217,7 @@ public class Game : MonoBehaviour, ISaveLoad
 
         if (data == null)
         {
-            data = new GameData(Score, shopItems, ScoreIncrease, TotalPassiveBonus, offlineTime, TotalClick, colClicks, maxResult);
+            data = new GameData(Score, shopItems, ScoreIncrease, TotalPassiveBonus, offlineTime, TotalClick, colClicks, maxResult, offlineBonus);
             return;
         }
 
@@ -230,6 +230,7 @@ public class Game : MonoBehaviour, ISaveLoad
         data.totalClick = TotalClick;
         data.colClicks = colClicks;
         data.maxResult = maxResult;
+        data.OfflineBonus = offlineBonus;
     }
     public void Load()
     {
@@ -258,14 +259,14 @@ public class Game : MonoBehaviour, ISaveLoad
         {
             var (s, _, _, _) when s < 60 => s + LanguageSystem.lng.time[7],
             var (_, m, _, _) when m < 60 => m + LanguageSystem.lng.time[2],
-            var (_, m, h, _) when h < 24 => h + LanguageSystem.lng.time[0] + m + LanguageSystem.lng.time[2],
-            var (_, _, h, d) when d < 30 => d + LanguageSystem.lng.time[6] + h + LanguageSystem.lng.time[0],
+            var (_, m, h, _) when h < 24 => h + LanguageSystem.lng.time[0] + m % 60 + LanguageSystem.lng.time[2],
+            var (_, _, h, d) when d < 30 => d + LanguageSystem.lng.time[6] + h % 24 + LanguageSystem.lng.time[0],
             _ => string.Empty 
         };
 
         MaximumLimitText.text = (offlineTime / 3600) + LanguageSystem.lng.time[0];
 
-        offlineBonus += seconds >= 30 ? Math.Min(seconds, offlineTime) * TotalPassiveBonus : 0;
+        offlineBonus = data.OfflineBonus + (seconds >= 30 ? Math.Min(seconds, offlineTime) * TotalPassiveBonus : 0);
     }
 
     private void Start()

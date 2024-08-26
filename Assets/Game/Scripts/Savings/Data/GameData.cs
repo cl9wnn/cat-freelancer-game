@@ -6,7 +6,7 @@ using YG;
 [Serializable]
 public class GameData
 {
-    public GameData(float Score, List<Item> ShopItems, float ScoreIncrease, float scorePassive, float OfflineTime, int TotalClick, int ColClicks, int MaxResult)
+    public GameData(float Score, List<Item> ShopItems, float ScoreIncrease, float scorePassive, float OfflineTime, int TotalClick, int ColClicks, int MaxResult, float offlineBonus)
     {
         score = Score;
         shopItems = ShopItems;
@@ -17,6 +17,7 @@ public class GameData
         totalClick = TotalClick;
         colClicks = ColClicks;
         maxResult = MaxResult;
+        OfflineBonus = offlineBonus;
     }
     public float score;
     public float scoreIncrease = 1;
@@ -27,4 +28,5 @@ public class GameData
     public long savedTime;
     public int colClicks;
     public int maxResult;
+    public float OfflineBonus;
 }
