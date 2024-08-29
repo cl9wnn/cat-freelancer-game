@@ -246,7 +246,7 @@ public class Game : MonoBehaviour, ISaveLoad
         ColClicks = data.colClicks;
         maxResult = data.maxResult;
 
-        TotalPassiveBonus = data.scorePassive == 0 ? shopItems.Sum(item => item.bonusPerSec * item.bonusCounter) : data.scorePassive;
+        TotalPassiveBonus = data.scorePassive == 0 ? shopItems.Sum(item => item.bonusPerSec * item.levelOfItem) : data.scorePassive;
         
         var milliseconds = YandexGame.ServerTime() - data.savedTime;
 
@@ -556,8 +556,6 @@ public class Game : MonoBehaviour, ISaveLoad
         public bool itsItemPerSec;
         [Tooltip("Бонус, который даётся в секунду")]
         public float bonusPerSec;
-        [HideInInspector]
-        public int bonusCounter;
         [Space]
         [Tooltip("Индекс товара, который будет управляться бонусом (Умножается переменная bonusPerSec этого товара)")]
         public int itemIndex;
