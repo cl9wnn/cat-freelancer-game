@@ -1,5 +1,5 @@
 {
-  "idSave": 85,
+  "idSave": 92,
   "isFirstSession": false,
   "language": "ru",
   "promptDone": false,
@@ -36,10 +36,10 @@
     "savedTime": 100000000
   },
   "gameData": {
-    "score": 21.0,
+    "score": 0.0,
     "scoreIncrease": 1.0,
     "scorePassive": 0.0,
-    "totalClick": 21,
+    "totalClick": 0,
     "offlineTime": 7200.0,
     "shopItems": [
       {
@@ -50,7 +50,6 @@
         "costMultiplier": 1.5,
         "itsItemPerSec": true,
         "bonusPerSec": 1.0,
-        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -61,7 +60,6 @@
         "costMultiplier": 1.5,
         "itsItemPerSec": true,
         "bonusPerSec": 2.0,
-        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -72,7 +70,6 @@
         "costMultiplier": 1.5,
         "itsItemPerSec": true,
         "bonusPerSec": 6.0,
-        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -83,7 +80,6 @@
         "costMultiplier": 1.5,
         "itsItemPerSec": true,
         "bonusPerSec": 12.0,
-        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -94,7 +90,6 @@
         "costMultiplier": 1.5,
         "itsItemPerSec": true,
         "bonusPerSec": 21.0,
-        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -105,7 +100,6 @@
         "costMultiplier": 1.5,
         "itsItemPerSec": true,
         "bonusPerSec": 60.0,
-        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -116,7 +110,6 @@
         "costMultiplier": 1.5,
         "itsItemPerSec": true,
         "bonusPerSec": 155.0,
-        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -127,7 +120,6 @@
         "costMultiplier": 1.5,
         "itsItemPerSec": true,
         "bonusPerSec": 355.0,
-        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -138,7 +130,6 @@
         "costMultiplier": 1.5,
         "itsItemPerSec": true,
         "bonusPerSec": 800.0,
-        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -149,7 +140,6 @@
         "costMultiplier": 1.5,
         "itsItemPerSec": true,
         "bonusPerSec": 2100.0,
-        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -160,7 +150,6 @@
         "costMultiplier": 1.5,
         "itsItemPerSec": true,
         "bonusPerSec": 6000.0,
-        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -171,7 +160,6 @@
         "costMultiplier": 1.5,
         "itsItemPerSec": true,
         "bonusPerSec": 15000.0,
-        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -182,7 +170,6 @@
         "costMultiplier": 1.5,
         "itsItemPerSec": true,
         "bonusPerSec": 40000.0,
-        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -193,7 +180,6 @@
         "costMultiplier": 1.5,
         "itsItemPerSec": true,
         "bonusPerSec": 90000.0,
-        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -204,7 +190,6 @@
         "costMultiplier": 1.5,
         "itsItemPerSec": true,
         "bonusPerSec": 200000.0,
-        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -215,7 +200,6 @@
         "costMultiplier": 1.5,
         "itsItemPerSec": true,
         "bonusPerSec": 450000.0,
-        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -226,7 +210,6 @@
         "costMultiplier": 1.5,
         "itsItemPerSec": true,
         "bonusPerSec": 1200000.0,
-        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -237,7 +220,6 @@
         "costMultiplier": 1.5,
         "itsItemPerSec": true,
         "bonusPerSec": 2600000.0,
-        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -248,7 +230,6 @@
         "costMultiplier": 1.5,
         "itsItemPerSec": false,
         "bonusPerSec": 5000000.0,
-        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -259,7 +240,6 @@
         "costMultiplier": 1.5,
         "itsItemPerSec": true,
         "bonusPerSec": 1E+07,
-        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -270,7 +250,6 @@
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 0.0,
-        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -281,7 +260,6 @@
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 0.0,
-        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -292,7 +270,6 @@
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
-        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -303,7 +280,6 @@
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
-        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -314,7 +290,6 @@
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
-        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -325,7 +300,6 @@
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
-        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -336,7 +310,6 @@
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
-        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -347,7 +320,6 @@
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
-        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -358,7 +330,6 @@
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
-        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -369,7 +340,6 @@
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
-        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -380,7 +350,6 @@
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
-        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -391,7 +360,6 @@
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
-        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -402,7 +370,6 @@
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
-        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -413,7 +380,6 @@
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
-        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -424,7 +390,6 @@
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
-        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -435,7 +400,6 @@
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
-        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -446,7 +410,6 @@
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
-        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -457,7 +420,6 @@
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
-        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -468,7 +430,6 @@
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
-        "bonusCounter": 0,
         "itemIndex": 0
       },
       {
@@ -479,13 +440,13 @@
         "costMultiplier": 1.3,
         "itsItemPerSec": false,
         "bonusPerSec": 1.0,
-        "bonusCounter": 0,
         "itemIndex": 0
       }
     ],
     "savedTime": 100000000,
-    "colClicks": 21,
-    "maxResult": 0
+    "colClicks": 0,
+    "maxResult": 0,
+    "OfflineBonus": 0.0
   },
   "plotData": {
     "isEventDone": [
@@ -495,7 +456,7 @@
       false,
       false
     ],
-    "total": 21,
+    "total": 0,
     "isStart": true,
     "isEnd": false
   },
@@ -515,9 +476,9 @@
     "isLastLevel": true
   },
   "statsData": {
-    "totalPlayTime": 93.90969
+    "totalPlayTime": 40.6650429
   },
   "timerData": {
-    "maxResult": 6.0
+    "maxResult": 0.0
   }
 }

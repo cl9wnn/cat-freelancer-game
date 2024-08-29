@@ -1,0 +1,113 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: MiniGame Atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 8192
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 1
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_IgnorePlatformSupport: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 8ff2b37d6cb312c40968d01a66efae49, type: 3}
+    - {fileID: 2800000, guid: b6bfa97de8076a74e97c8540654fe8e5, type: 3}
+    - {fileID: 2800000, guid: afd95604957223e4999e088dcfef2a73, type: 3}
+    - {fileID: 2800000, guid: 4abaa45e97c0b224c9fed4cf2dc55404, type: 3}
+    - {fileID: 2800000, guid: 36b6d6051205eb54397442620bb1d15e, type: 3}
+    - {fileID: 2800000, guid: b0de1217b0214df46afc60694fa713c1, type: 3}
+    - {fileID: 2800000, guid: 16ad78f05726e84468a2bc49b482c477, type: 3}
+    - {fileID: 2800000, guid: e41fa985266095241805425216f0e9e6, type: 3}
+    - {fileID: 2800000, guid: 2671ae6dc849340429b6e7dd19821784, type: 3}
+    - {fileID: 2800000, guid: 5ac919aeb82117642a673a7b5de95ca6, type: 3}
+    - {fileID: 2800000, guid: b865f9f4bb3103843a9e9b2c218f94e6, type: 3}
+    - {fileID: 2800000, guid: 9469ca6480657db4c869fc601cae235e, type: 3}
+    - {fileID: 2800000, guid: e0c0f03ec90ed224b884c2abbf9f1d25, type: 3}
+    - {fileID: 2800000, guid: 2e6a36f33c675584bbe4b0a051e9f1a4, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - 16ad78f05726e84468a2bc49b482c477: 21300000
+    - 2e6a36f33c675584bbe4b0a051e9f1a4: 21300000
+    - afd95604957223e4999e088dcfef2a73: 21300000
+    - 9469ca6480657db4c869fc601cae235e: 21300000
+    - b865f9f4bb3103843a9e9b2c218f94e6: 21300000
+    - 36b6d6051205eb54397442620bb1d15e: 21300000
+    - e41fa985266095241805425216f0e9e6: 21300000
+    - b0de1217b0214df46afc60694fa713c1: 21300000
+    - 2671ae6dc849340429b6e7dd19821784: 21300000
+    - 8ff2b37d6cb312c40968d01a66efae49: 21300000
+    - b6bfa97de8076a74e97c8540654fe8e5: 21300000
+    - e0c0f03ec90ed224b884c2abbf9f1d25: 21300000
+    - 4abaa45e97c0b224c9fed4cf2dc55404: -7848562259294948070
+    - 5ac919aeb82117642a673a7b5de95ca6: 21300000
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 16ad78f05726e84468a2bc49b482c477, type: 3}
+  - {fileID: 21300000, guid: 2e6a36f33c675584bbe4b0a051e9f1a4, type: 3}
+  - {fileID: 21300000, guid: afd95604957223e4999e088dcfef2a73, type: 3}
+  - {fileID: 21300000, guid: 9469ca6480657db4c869fc601cae235e, type: 3}
+  - {fileID: 21300000, guid: b865f9f4bb3103843a9e9b2c218f94e6, type: 3}
+  - {fileID: 21300000, guid: 36b6d6051205eb54397442620bb1d15e, type: 3}
+  - {fileID: 21300000, guid: e41fa985266095241805425216f0e9e6, type: 3}
+  - {fileID: 21300000, guid: b0de1217b0214df46afc60694fa713c1, type: 3}
+  - {fileID: 21300000, guid: 2671ae6dc849340429b6e7dd19821784, type: 3}
+  - {fileID: 21300000, guid: 8ff2b37d6cb312c40968d01a66efae49, type: 3}
+  - {fileID: 21300000, guid: b6bfa97de8076a74e97c8540654fe8e5, type: 3}
+  - {fileID: 21300000, guid: e0c0f03ec90ed224b884c2abbf9f1d25, type: 3}
+  - {fileID: -7848562259294948070, guid: 4abaa45e97c0b224c9fed4cf2dc55404, type: 3}
+  - {fileID: 21300000, guid: 5ac919aeb82117642a673a7b5de95ca6, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - lvl2
+  - tableImg
+  - cookie
+  - smsPngRe
+  - mouse
+  - kitty
+  - lvl3
+  - lvl1
+  - lvl4
+  - ballOfThread
+  - chainImg
+  - star
+  - ket_koins_0
+  - lvl5
+  m_RenderDataMap: {}
+  m_Tag: MiniGame Atlas
+  m_IsVariant: 0

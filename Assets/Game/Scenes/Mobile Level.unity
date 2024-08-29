@@ -17793,81 +17793,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!1 &316569426
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 316569427}
-  - component: {fileID: 316569429}
-  - component: {fileID: 316569428}
-  m_Layer: 5
-  m_Name: Logo Image
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &316569427
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 316569426}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2144393544}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.096954, y: -36}
-  m_SizeDelta: {x: 462.99, y: 145.38}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &316569428
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 316569426}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 95911db983419064cb9facd7e38ddafc, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &316569429
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 316569426}
-  m_CullTransparentMesh: 1
 --- !u!1 &329321529
 GameObject:
   m_ObjectHideFlags: 0
@@ -35836,7 +35761,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 58
+  m_fontSize: 48
   m_fontSizeBase: 53
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -91556,7 +91481,6 @@ MonoBehaviour:
     costMultiplier: 1.5
     itsItemPerSec: 1
     bonusPerSec: 1
-    bonusCounter: 0
     itemIndex: 0
   - name: 1cec
     cost: 1000
@@ -91565,7 +91489,6 @@ MonoBehaviour:
     costMultiplier: 1.5
     itsItemPerSec: 1
     bonusPerSec: 2
-    bonusCounter: 0
     itemIndex: 0
   - name: 2cec
     cost: 3700
@@ -91574,7 +91497,6 @@ MonoBehaviour:
     costMultiplier: 1.5
     itsItemPerSec: 1
     bonusPerSec: 6
-    bonusCounter: 0
     itemIndex: 0
   - name: 3cec
     cost: 12000
@@ -91583,7 +91505,6 @@ MonoBehaviour:
     costMultiplier: 1.5
     itsItemPerSec: 1
     bonusPerSec: 12
-    bonusCounter: 0
     itemIndex: 0
   - name: 4cec
     cost: 62000
@@ -91592,7 +91513,6 @@ MonoBehaviour:
     costMultiplier: 1.5
     itsItemPerSec: 1
     bonusPerSec: 21
-    bonusCounter: 0
     itemIndex: 0
   - name: 5cec
     cost: 320000
@@ -91601,7 +91521,6 @@ MonoBehaviour:
     costMultiplier: 1.5
     itsItemPerSec: 1
     bonusPerSec: 60
-    bonusCounter: 0
     itemIndex: 0
   - name: 6cec
     cost: 1000000
@@ -91610,7 +91529,6 @@ MonoBehaviour:
     costMultiplier: 1.5
     itsItemPerSec: 1
     bonusPerSec: 155
-    bonusCounter: 0
     itemIndex: 0
   - name: 7cec
     cost: 3200000
@@ -91619,7 +91537,6 @@ MonoBehaviour:
     costMultiplier: 1.5
     itsItemPerSec: 1
     bonusPerSec: 355
-    bonusCounter: 0
     itemIndex: 0
   - name: 8cec
     cost: 11000000
@@ -91628,7 +91545,6 @@ MonoBehaviour:
     costMultiplier: 1.5
     itsItemPerSec: 1
     bonusPerSec: 800
-    bonusCounter: 0
     itemIndex: 0
   - name: 9cec
     cost: 30000000
@@ -91637,7 +91553,6 @@ MonoBehaviour:
     costMultiplier: 1.5
     itsItemPerSec: 1
     bonusPerSec: 2100
-    bonusCounter: 0
     itemIndex: 0
   - name: 10cec
     cost: 120000000
@@ -91646,7 +91561,6 @@ MonoBehaviour:
     costMultiplier: 1.5
     itsItemPerSec: 1
     bonusPerSec: 6000
-    bonusCounter: 0
     itemIndex: 0
   - name: 11cec
     cost: 350000000
@@ -91655,7 +91569,6 @@ MonoBehaviour:
     costMultiplier: 1.5
     itsItemPerSec: 1
     bonusPerSec: 15000
-    bonusCounter: 0
     itemIndex: 0
   - name: 12cec
     cost: 1.4e+9
@@ -91664,7 +91577,6 @@ MonoBehaviour:
     costMultiplier: 1.5
     itsItemPerSec: 1
     bonusPerSec: 40000
-    bonusCounter: 0
     itemIndex: 0
   - name: 13cec
     cost: 6e+9
@@ -91673,7 +91585,6 @@ MonoBehaviour:
     costMultiplier: 1.5
     itsItemPerSec: 1
     bonusPerSec: 90000
-    bonusCounter: 0
     itemIndex: 0
   - name: 14cec
     cost: 2e+10
@@ -91682,7 +91593,6 @@ MonoBehaviour:
     costMultiplier: 1.5
     itsItemPerSec: 1
     bonusPerSec: 200000
-    bonusCounter: 0
     itemIndex: 0
   - name: 15cec
     cost: 8e+10
@@ -91691,7 +91601,6 @@ MonoBehaviour:
     costMultiplier: 1.5
     itsItemPerSec: 1
     bonusPerSec: 450000
-    bonusCounter: 0
     itemIndex: 0
   - name: 16cec
     cost: 3.1e+11
@@ -91700,7 +91609,6 @@ MonoBehaviour:
     costMultiplier: 1.5
     itsItemPerSec: 1
     bonusPerSec: 1200000
-    bonusCounter: 0
     itemIndex: 0
   - name: 17cec
     cost: 1e+12
@@ -91709,7 +91617,6 @@ MonoBehaviour:
     costMultiplier: 1.5
     itsItemPerSec: 1
     bonusPerSec: 2600000
-    bonusCounter: 0
     itemIndex: 0
   - name: 18cec
     cost: 3e+12
@@ -91718,7 +91625,6 @@ MonoBehaviour:
     costMultiplier: 1.5
     itsItemPerSec: 0
     bonusPerSec: 5000000
-    bonusCounter: 0
     itemIndex: 0
   - name: 19cec
     cost: 5e+12
@@ -91727,7 +91633,6 @@ MonoBehaviour:
     costMultiplier: 1.5
     itsItemPerSec: 1
     bonusPerSec: 10000000
-    bonusCounter: 0
     itemIndex: 0
   - name: Intel HD graphics
     cost: 110
@@ -91736,7 +91641,6 @@ MonoBehaviour:
     costMultiplier: 1.3
     itsItemPerSec: 0
     bonusPerSec: 0
-    bonusCounter: 0
     itemIndex: 0
   - name: Radeon R5
     cost: 550
@@ -91745,7 +91649,6 @@ MonoBehaviour:
     costMultiplier: 1.3
     itsItemPerSec: 0
     bonusPerSec: 0
-    bonusCounter: 0
     itemIndex: 0
   - name: GT 1030
     cost: 2100
@@ -91754,7 +91657,6 @@ MonoBehaviour:
     costMultiplier: 1.3
     itsItemPerSec: 0
     bonusPerSec: 3
-    bonusCounter: 0
     itemIndex: 0
   - name: Rx 550
     cost: 8000
@@ -91763,7 +91665,6 @@ MonoBehaviour:
     costMultiplier: 1.3
     itsItemPerSec: 0
     bonusPerSec: 3
-    bonusCounter: 0
     itemIndex: 0
   - name: GTX 1050
     cost: 28000
@@ -91772,7 +91673,6 @@ MonoBehaviour:
     costMultiplier: 1.3
     itsItemPerSec: 0
     bonusPerSec: 3
-    bonusCounter: 0
     itemIndex: 0
   - name: GTX 960
     cost: 110000
@@ -91781,7 +91681,6 @@ MonoBehaviour:
     costMultiplier: 1.3
     itsItemPerSec: 0
     bonusPerSec: 3
-    bonusCounter: 0
     itemIndex: 0
   - name: GTX 1060
     cost: 400000
@@ -91790,7 +91689,6 @@ MonoBehaviour:
     costMultiplier: 1.3
     itsItemPerSec: 0
     bonusPerSec: 3
-    bonusCounter: 0
     itemIndex: 0
   - name: GTX 1650 s
     cost: 1500000
@@ -91799,7 +91697,6 @@ MonoBehaviour:
     costMultiplier: 1.3
     itsItemPerSec: 0
     bonusPerSec: 3
-    bonusCounter: 0
     itemIndex: 0
   - name: RX 590
     cost: 4200000
@@ -91808,7 +91705,6 @@ MonoBehaviour:
     costMultiplier: 1.3
     itsItemPerSec: 0
     bonusPerSec: 3
-    bonusCounter: 0
     itemIndex: 0
   - name: GTX 1660 Ti
     cost: 12000000
@@ -91817,7 +91713,6 @@ MonoBehaviour:
     costMultiplier: 1.3
     itsItemPerSec: 0
     bonusPerSec: 3
-    bonusCounter: 0
     itemIndex: 0
   - name: RX 5600 XT
     cost: 35000000
@@ -91826,7 +91721,6 @@ MonoBehaviour:
     costMultiplier: 1.3
     itsItemPerSec: 0
     bonusPerSec: 3
-    bonusCounter: 0
     itemIndex: 0
   - name: GTX 1080 Ti
     cost: 170000000
@@ -91835,7 +91729,6 @@ MonoBehaviour:
     costMultiplier: 1.3
     itsItemPerSec: 0
     bonusPerSec: 3
-    bonusCounter: 0
     itemIndex: 0
   - name: RTX 2080
     cost: 700000000
@@ -91844,7 +91737,6 @@ MonoBehaviour:
     costMultiplier: 1.3
     itsItemPerSec: 0
     bonusPerSec: 3
-    bonusCounter: 0
     itemIndex: 0
   - name: RX 6700 XT
     cost: 3.2e+9
@@ -91853,7 +91745,6 @@ MonoBehaviour:
     costMultiplier: 1.3
     itsItemPerSec: 0
     bonusPerSec: 3
-    bonusCounter: 0
     itemIndex: 0
   - name: RTX 3070 Ti
     cost: 1e+10
@@ -91862,7 +91753,6 @@ MonoBehaviour:
     costMultiplier: 1.3
     itsItemPerSec: 0
     bonusPerSec: 3
-    bonusCounter: 0
     itemIndex: 0
   - name: RX 6800 XT
     cost: 3.5e+10
@@ -91871,7 +91761,6 @@ MonoBehaviour:
     costMultiplier: 1.3
     itsItemPerSec: 0
     bonusPerSec: 3
-    bonusCounter: 0
     itemIndex: 0
   - name: RTX 3090
     cost: 1e+11
@@ -91880,7 +91769,6 @@ MonoBehaviour:
     costMultiplier: 1.3
     itsItemPerSec: 0
     bonusPerSec: 3
-    bonusCounter: 0
     itemIndex: 0
   - name: RX 7900 XT
     cost: 2.55e+11
@@ -91889,7 +91777,6 @@ MonoBehaviour:
     costMultiplier: 1.3
     itsItemPerSec: 0
     bonusPerSec: 3
-    bonusCounter: 0
     itemIndex: 0
   - name: RTX 4080
     cost: 6.4e+11
@@ -91898,7 +91785,6 @@ MonoBehaviour:
     costMultiplier: 1.3
     itsItemPerSec: 0
     bonusPerSec: 3
-    bonusCounter: 0
     itemIndex: 0
   - name: RTX 4090
     cost: 1.5e+12
@@ -91907,7 +91793,6 @@ MonoBehaviour:
     costMultiplier: 1.3
     itsItemPerSec: 0
     bonusPerSec: 1
-    bonusCounter: 0
     itemIndex: 0
   shopItemsText:
   - {fileID: 1054315937}
@@ -95278,7 +95163,6 @@ RectTransform:
   - {fileID: 1921494432}
   - {fileID: 424827253}
   - {fileID: 650259600}
-  - {fileID: 316569427}
   - {fileID: 1205175975}
   - {fileID: 1988341688}
   - {fileID: 1571080597}
