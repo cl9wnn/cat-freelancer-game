@@ -47,7 +47,7 @@ public class Plot : MonoBehaviour, ISaveLoad
         }
 
         int requiredClicks = 400;
-        int increment = 2000;
+        int increment = 2500;
 
         for (int i = 0; i < isEventDone.Length; i++)
         {

@@ -467,7 +467,7 @@ public class Game : MonoBehaviour, ISaveLoad
             
             Score -= shopItems[index].cost;
             
-            shopItems[index].cost = StringMethods.ParseFormattedCost(Mathf.Round(shopItems[index].cost * shopItems[index].costMultiplier));
+            shopItems[index].cost = StringMethods.ParseFormattedCost(Mathf.Round(shopItems[index].cost));
             
             shopItems[index].levelOfItem++;
         }
@@ -548,9 +548,6 @@ public class Game : MonoBehaviour, ISaveLoad
         public float bonusIncrease;
         [HideInInspector]
         public int levelOfItem;
-        [Space]
-        [Tooltip("Множитель для цены")]
-        public float costMultiplier;
         [Space]
         [Tooltip("Этот товар даёт бонус в секунду?")]
         public bool itsItemPerSec;

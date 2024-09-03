@@ -139,11 +139,11 @@ public class Fortune : MonoBehaviour, ISaveLoad
 
     private void DetermineAward()
     {
-        float moneyMultiplier = _game.TotalPassiveBonus == 0 ? 1 : _game.TotalPassiveBonus;
+        float moneyMultiplier = _game.ScoreIncrease;
         switch (Math.Round(circle.transform.eulerAngles.z % 360, 0, MidpointRounding.AwayFromZero))
         {
             case 0:
-                AwardMoney(3600, moneyMultiplier);
+                AwardMoney(1500, moneyMultiplier);
                 if (!_achievements.isAchievementDone[2])
                 {
                     _achievements.resultTexts[2].text = "";
@@ -160,7 +160,7 @@ public class Fortune : MonoBehaviour, ISaveLoad
                 
                 break;
             case 90:
-                AwardMoney(2700, moneyMultiplier);
+                AwardMoney(1000, moneyMultiplier);
                 break;
             case 315:
                 winText.text = LanguageSystem.lng.fortune[4];
@@ -170,7 +170,7 @@ public class Fortune : MonoBehaviour, ISaveLoad
                                                    .Play();
                 break;
             case 180:
-                AwardMoney(900, moneyMultiplier);
+                AwardMoney(250, moneyMultiplier);
                 break;
             case 225:
                 var bestCard = _game.GetNextGraphicsCard();
@@ -184,7 +184,7 @@ public class Fortune : MonoBehaviour, ISaveLoad
                                                    .Play();
                 break;
             case 270:
-                AwardMoney(1800, moneyMultiplier);
+                AwardMoney(500, moneyMultiplier);
                 break;
             case 45:
                 winText.text = LanguageSystem.lng.fortune[3];
