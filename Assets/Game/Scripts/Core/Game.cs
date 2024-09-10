@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 using YG;
 
@@ -21,6 +22,7 @@ public class Game : MonoBehaviour, ISaveLoad
     public Image[] coinForBttns;
     public Sprite[] shopBttnSpritesOpen;
     public Sprite[] shopBttnSpritesClose;
+    public Sprite[] shopBttnSpritesLocked;
     public Sprite coinOpen;
     public Sprite coinClose;
     public Text[] BonusNameText;
@@ -292,7 +294,7 @@ public class Game : MonoBehaviour, ISaveLoad
     private void Update()
     {
         totalClickText.text = TotalClick.ToString();
-        Inrct();
+        UpdateShopItems();
         BonussNameText();
     }
     public void ChangeLanguage()
@@ -339,56 +341,53 @@ public class Game : MonoBehaviour, ISaveLoad
         GameSingleton.Instance.SoundManager.CreateSound().WithSoundData(SoundEffect.COLLECT_MONEY).Play();
     }
 
-    void Inrct()
+    private void UpdateShopItems()
     {
         for (int i = 0; i < 20; i++)
         {
-            if (Score >= shopItems[i].cost)
+            if (!shopItems[i].isUnlocked && Score < shopItems[i].cost)
+                SetShopButtonState(i, false, shopBttnSpritesLocked[i], coinClose, "???", new Color32(32, 32, 32, 255), new Color32(0, 0, 0, 255), new Color32(155, 155, 155, 255), "");
+            else if (Score >= shopItems[i].cost)
             {
-                shopBttns[i].interactable = true;
-                levelOfItemText[i].text = LanguageSystem.lng.revenueper[6] + " <color=#f4bc26>" + shopItems[i].levelOfItem.ToString() + "</color>";
-                shopItemsText[i].color = new Color32(112, 86, 167, 255);
-                coinForBttns[i].sprite = coinOpen;
-                bonusIncreaseText[i].color = new Color32(55, 39, 86, 255);
-                BonusNameText[i].color = new Color32(76, 55, 117, 255);
-                shopBttns[i].GetComponent<Image>().sprite = shopBttnSpritesOpen[i];
+                shopItems[i].isUnlocked = true;
+                SetShopButtonState(i, true, shopBttnSpritesOpen[i], coinOpen, LanguageSystem.lng.bonusName[i], new Color32(55, 39, 86, 255), new Color32(76, 55, 117, 255), new Color32(112, 86, 167, 255), $"{LanguageSystem.lng.revenueper[6]} <color=#f4bc26>{shopItems[i].levelOfItem}</color>");
             }
             else
-            {
-                shopBttns[i].interactable = false;
-                bonusIncreaseText[i].color = new Color32(33, 33, 33, 255);
-                BonusNameText[i].color = new Color32(33, 33, 33, 255);
-                levelOfItemText[i].text = "<color=#404040>" + LanguageSystem.lng.revenueper[6] + " </color>" + "<color=#404040>" + shopItems[i].levelOfItem.ToString() + "</color>";
-                shopItemsText[i].color = new Color32(63, 63, 63, 255);
-                coinForBttns[i].sprite = coinClose;
-                shopBttns[i].GetComponent<Image>().sprite = shopBttnSpritesClose[i];
-
-            }
+                SetShopButtonState(i, false, shopBttnSpritesClose[i], coinClose, LanguageSystem.lng.bonusName[i], new Color32(33, 33, 33, 255), new Color32(33, 33, 33, 255), new Color32(63, 63, 63, 255), $"<color=#404040>{LanguageSystem.lng.revenueper[6]}</color> <color=#404040>{shopItems[i].levelOfItem}</color>"); 
         }
 
         for (int i = 20; i < shopItems.Count; i++)
         {
             if (Score >= shopItems[i].cost)
-            {
-                shopBttns[i].interactable = true;
-                levelOfItemText[i].text = "<color=#6c6c6c>" + LanguageSystem.lng.revenueper[6] + " </color>" + "<color=#5f9500>" + shopItems[i].levelOfItem.ToString() + "</color>";
-                shopItemsText[i].color = new Color32(106, 166, 0, 255);
-                coinForBttns[i].sprite = coinOpen;
-                shopBttns[i].GetComponent<Image>().sprite = shopBttnSpritesOpen[i];
-            }
+                SetShopButtonState(i, true, shopBttnSpritesOpen[i], coinOpen, "<color=#6c6c6c>" + LanguageSystem.lng.revenueper[6] + " </color><color=#5f9500>" + shopItems[i].levelOfItem.ToString() + "</color>", new Color32(106, 166, 0, 255));
             else
-            {
-                shopBttns[i].interactable = false;
-                levelOfItemText[i].text = "<color=#404040>" + LanguageSystem.lng.revenueper[6] + " </color>" + "<color=#404040>" + shopItems[i].levelOfItem.ToString() + "</color>";
-                shopItemsText[i].color = new Color32(63, 63, 63, 255);
-                coinForBttns[i].sprite = coinClose;
-                shopBttns[i].GetComponent<Image>().sprite = shopBttnSpritesClose[i];
-            }
+                SetShopButtonState(i, false, shopBttnSpritesClose[i], coinClose, "<color=#404040>" + LanguageSystem.lng.revenueper[6] + " </color><color=#404040>" + shopItems[i].levelOfItem.ToString() + "</color>", new Color32(63, 63, 63, 255));
         }
 
     }
 
-    void UpdateJobAlertIcon() // картинка нью
+    private void SetShopButtonState(int index, bool interactable, Sprite buttonSprite, Sprite coinSprite, string levelText, Color32 shopItemsColor)
+    {
+        shopBttns[index].interactable = interactable;
+        shopBttns[index].GetComponent<Image>().sprite = buttonSprite;
+        coinForBttns[index].sprite = coinSprite;
+        levelOfItemText[index].text = levelText;
+        shopItemsText[index].color = shopItemsColor;
+    }
+
+    private void SetShopButtonState(int index, bool interactable, Sprite buttonSprite, Sprite coinSprite, string bonusName, Color32 bonusTextColor, Color32 bonusNameColor, Color32 shopItemsColor, string levelText)
+    {
+        shopBttns[index].interactable = interactable;
+        shopBttns[index].GetComponent<Image>().sprite = buttonSprite;
+        coinForBttns[index].sprite = coinSprite;
+        BonusNameText[index].text = bonusName;
+        bonusIncreaseText[index].color = bonusTextColor;
+        BonusNameText[index].color = bonusNameColor;
+        shopItemsText[index].color = shopItemsColor;
+        levelOfItemText[index].text = levelText;
+    }
+
+    private void UpdateJobAlertIcon() // картинка нью
     {
         for (int i = 0; i < 20; i++)
         {
@@ -400,7 +399,8 @@ public class Game : MonoBehaviour, ISaveLoad
         }
         _jobAlertIcon.enabled = false;
     }
-    void UpdateGraphicsCardAlertIcon() // картинка нью
+
+    private void UpdateGraphicsCardAlertIcon() // картинка нью
     {
         for (int i = 20; i < 40; i++)
         {
@@ -414,7 +414,7 @@ public class Game : MonoBehaviour, ISaveLoad
         _graphicCardAlertIcon.enabled = false;
     }
 
-    void BonussNameText()
+    private void BonussNameText()
     {
         currentCard.text = LanguageSystem.lng.infoGame[4];
 
@@ -444,7 +444,7 @@ public class Game : MonoBehaviour, ISaveLoad
         return shopItems[Mathf.Clamp(index + 1, 20, shopItems.Count - 1)];
     }
 
-    void MoneyScore()
+    private void MoneyScore()
     {
         var moneyText = StringMethods.FormatMoney(Score, wideText: true);
 
@@ -556,6 +556,9 @@ public class Game : MonoBehaviour, ISaveLoad
         [Space]
         [Tooltip("Индекс товара, который будет управляться бонусом (Умножается переменная bonusPerSec этого товара)")]
         public int itemIndex;
+        [Space]
+        [Tooltip("Разблокировано ли улучшение")]
+        public bool isUnlocked;
 
     }
 }

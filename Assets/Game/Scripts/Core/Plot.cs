@@ -165,7 +165,7 @@ public class Plot : MonoBehaviour, ISaveLoad
     {
         eventPanels[index].HidePanel();
         isEventDone[index] = true;
-        if (index == 0 || index == 4) _game.Score += moneyReward;
+        if (index == 0 || index == 3) _game.Score += moneyReward;
         else _game.Score -= moneyReward;
 
         GameSingleton.Instance.SoundManager.CreateSound()
@@ -174,7 +174,7 @@ public class Plot : MonoBehaviour, ISaveLoad
     }
     public float CounterMoney(int index)
     {
-        if (index == 0 || index == 4) return _game.ScoreIncrease * scoreCoefficent[index];
+        if (index == 0 || index == 3) return _game.ScoreIncrease * scoreCoefficent[index];
         else
         {
             Debug.Log((long)(_game.Score * scoreCoefficent[index]));

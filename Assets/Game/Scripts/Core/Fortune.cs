@@ -7,7 +7,7 @@ public class Fortune : MonoBehaviour, ISaveLoad
 {
     [Header("Settings")]
     [SerializeField] private float spinDuration = 6f;
-    [SerializeField] private float cooldownDuration = 7200f;
+    [SerializeField] private float cooldownDuration = 600f;
     [SerializeField] private float rewardTimer = 20f;
     
     [Header("UI Elements")]
@@ -243,13 +243,13 @@ public class Fortune : MonoBehaviour, ISaveLoad
 
     private string FormatTime(float time)
     {
-        if (time <= 3600)
-        {
-            return ((int)time / 60 % 60).ToString("0") + LanguageSystem.lng.time[2];
-        }
         if (time <= 60)
         {
             return ((int)time).ToString("0") + LanguageSystem.lng.time[7];
+        }
+        if (time <= 3600)
+        {
+            return ((int)time / 60 % 60 + 1).ToString("0") + LanguageSystem.lng.time[2];
         }
         return ((int)time / 3600).ToString("0") + LanguageSystem.lng.time[5] +
                ((int)time / 60 % 60).ToString("0") + LanguageSystem.lng.time[2];

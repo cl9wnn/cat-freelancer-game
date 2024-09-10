@@ -1,5 +1,5 @@
 {
-  "idSave": 415,
+  "idSave": 953,
   "isFirstSession": false,
   "language": "ru",
   "promptDone": false,
@@ -17,16 +17,16 @@
       false,
       false,
       false,
-      true,
+      false,
       false,
       false
     ],
-    "achievementsCount": 1
+    "achievementsCount": 0
   },
   "boostData": {
-    "totalCoffeeConsumed": 0,
-    "availableCoffee": 1,
-    "cooldownDuration": 7200.0,
+    "totalCoffeeConsumed": 1,
+    "availableCoffee": 0,
+    "cooldownDuration": 283.668976,
     "savedTime": 100000000
   },
   "fortuneData": {
@@ -36,10 +36,10 @@
     "savedTime": 100000000
   },
   "gameData": {
-    "score": 4.59311258E+12,
-    "scoreIncrease": 1.06455814E+09,
-    "scorePassive": 274061216.0,
-    "totalClick": 33,
+    "score": 379.0,
+    "scoreIncrease": 1.0,
+    "scorePassive": 19.0,
+    "totalClick": 69,
     "offlineTime": 7200.0,
     "shopItems": [
       {
@@ -49,362 +49,402 @@
         "levelOfItem": 1,
         "itsItemPerSec": true,
         "bonusPerSec": 1.0,
-        "itemIndex": 0
+        "itemIndex": 0,
+        "isUnlocked": true
       },
       {
         "name": "1cec",
         "cost": 1000.0,
         "bonusIncrease": 0.0,
-        "levelOfItem": 1,
+        "levelOfItem": 2,
         "itsItemPerSec": true,
         "bonusPerSec": 2.0,
-        "itemIndex": 0
+        "itemIndex": 0,
+        "isUnlocked": true
       },
       {
         "name": "2cec",
         "cost": 3700.0,
         "bonusIncrease": 0.0,
-        "levelOfItem": 1,
+        "levelOfItem": 2,
         "itsItemPerSec": true,
         "bonusPerSec": 7.0,
-        "itemIndex": 0
+        "itemIndex": 0,
+        "isUnlocked": true
       },
       {
         "name": "3cec",
         "cost": 12000.0,
         "bonusIncrease": 0.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "itsItemPerSec": true,
         "bonusPerSec": 18.0,
-        "itemIndex": 0
+        "itemIndex": 0,
+        "isUnlocked": false
       },
       {
         "name": "4cec",
         "cost": 62000.0,
         "bonusIncrease": 0.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "itsItemPerSec": true,
         "bonusPerSec": 40.0,
-        "itemIndex": 0
+        "itemIndex": 0,
+        "isUnlocked": false
       },
       {
         "name": "5cec",
         "cost": 320000.0,
         "bonusIncrease": 0.0,
-        "levelOfItem": 2,
+        "levelOfItem": 0,
         "itsItemPerSec": true,
         "bonusPerSec": 150.0,
-        "itemIndex": 0
+        "itemIndex": 0,
+        "isUnlocked": false
       },
       {
         "name": "6cec",
         "cost": 1000000.0,
         "bonusIncrease": 0.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "itsItemPerSec": true,
         "bonusPerSec": 350.0,
-        "itemIndex": 0
+        "itemIndex": 0,
+        "isUnlocked": false
       },
       {
         "name": "7cec",
         "cost": 3200000.0,
         "bonusIncrease": 0.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "itsItemPerSec": true,
         "bonusPerSec": 1000.0,
-        "itemIndex": 0
+        "itemIndex": 0,
+        "isUnlocked": false
       },
       {
         "name": "8cec",
         "cost": 1.1E+07,
         "bonusIncrease": 0.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "itsItemPerSec": true,
         "bonusPerSec": 2500.0,
-        "itemIndex": 0
+        "itemIndex": 0,
+        "isUnlocked": false
       },
       {
         "name": "9cec",
         "cost": 3E+07,
         "bonusIncrease": 0.0,
-        "levelOfItem": 2,
+        "levelOfItem": 0,
         "itsItemPerSec": true,
         "bonusPerSec": 6000.0,
-        "itemIndex": 0
+        "itemIndex": 0,
+        "isUnlocked": false
       },
       {
         "name": "10cec",
         "cost": 1.2E+08,
         "bonusIncrease": 0.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "itsItemPerSec": true,
         "bonusPerSec": 15000.0,
-        "itemIndex": 0
+        "itemIndex": 0,
+        "isUnlocked": false
       },
       {
         "name": "11cec",
         "cost": 3.5E+08,
         "bonusIncrease": 0.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "itsItemPerSec": true,
         "bonusPerSec": 50000.0,
-        "itemIndex": 0
+        "itemIndex": 0,
+        "isUnlocked": false
       },
       {
         "name": "12cec",
         "cost": 1.4E+09,
         "bonusIncrease": 0.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "itsItemPerSec": true,
         "bonusPerSec": 180000.0,
-        "itemIndex": 0
+        "itemIndex": 0,
+        "isUnlocked": false
       },
       {
         "name": "13cec",
         "cost": 6E+09,
         "bonusIncrease": 0.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "itsItemPerSec": true,
         "bonusPerSec": 500000.0,
-        "itemIndex": 0
+        "itemIndex": 0,
+        "isUnlocked": false
       },
       {
         "name": "14cec",
         "cost": 2E+10,
         "bonusIncrease": 0.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "itsItemPerSec": true,
         "bonusPerSec": 1800000.0,
-        "itemIndex": 0
+        "itemIndex": 0,
+        "isUnlocked": false
       },
       {
         "name": "15cec",
         "cost": 8E+10,
         "bonusIncrease": 0.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "itsItemPerSec": true,
         "bonusPerSec": 4500000.0,
-        "itemIndex": 0
+        "itemIndex": 0,
+        "isUnlocked": false
       },
       {
         "name": "16cec",
         "cost": 3.1E+11,
         "bonusIncrease": 0.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "itsItemPerSec": true,
         "bonusPerSec": 1.2E+07,
-        "itemIndex": 0
+        "itemIndex": 0,
+        "isUnlocked": false
       },
       {
         "name": "17cec",
         "cost": 1E+12,
         "bonusIncrease": 0.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "itsItemPerSec": true,
         "bonusPerSec": 3E+07,
-        "itemIndex": 0
+        "itemIndex": 0,
+        "isUnlocked": false
       },
       {
         "name": "18cec",
         "cost": 3E+12,
         "bonusIncrease": 0.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "itsItemPerSec": true,
         "bonusPerSec": 7.5E+07,
-        "itemIndex": 0
+        "itemIndex": 0,
+        "isUnlocked": false
       },
       {
         "name": "19cec",
         "cost": 5E+12,
         "bonusIncrease": 0.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "itsItemPerSec": true,
         "bonusPerSec": 1.5E+08,
-        "itemIndex": 0
+        "itemIndex": 0,
+        "isUnlocked": false
       },
       {
         "name": "Intel HD graphics",
         "cost": 110.0,
         "bonusIncrease": 1.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "itsItemPerSec": false,
         "bonusPerSec": 0.0,
-        "itemIndex": 0
+        "itemIndex": 0,
+        "isUnlocked": false
       },
       {
         "name": "Radeon R5",
         "cost": 550.0,
         "bonusIncrease": 3.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "itsItemPerSec": false,
         "bonusPerSec": 0.0,
-        "itemIndex": 0
+        "itemIndex": 0,
+        "isUnlocked": false
       },
       {
         "name": "GT 1030",
         "cost": 2100.0,
         "bonusIncrease": 10.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
-        "itemIndex": 0
+        "itemIndex": 0,
+        "isUnlocked": false
       },
       {
         "name": "Rx 550",
         "cost": 8000.0,
         "bonusIncrease": 25.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
-        "itemIndex": 0
+        "itemIndex": 0,
+        "isUnlocked": false
       },
       {
         "name": "GTX 1050",
         "cost": 28000.0,
         "bonusIncrease": 75.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
-        "itemIndex": 0
+        "itemIndex": 0,
+        "isUnlocked": false
       },
       {
         "name": "GTX 960",
         "cost": 110000.0,
         "bonusIncrease": 200.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
-        "itemIndex": 0
+        "itemIndex": 0,
+        "isUnlocked": false
       },
       {
         "name": "GTX 1060",
         "cost": 400000.0,
         "bonusIncrease": 420.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
-        "itemIndex": 0
+        "itemIndex": 0,
+        "isUnlocked": false
       },
       {
         "name": "GTX 1650 s",
         "cost": 1500000.0,
         "bonusIncrease": 1400.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
-        "itemIndex": 0
+        "itemIndex": 0,
+        "isUnlocked": false
       },
       {
         "name": "RX 590",
         "cost": 4200000.0,
         "bonusIncrease": 3000.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
-        "itemIndex": 0
+        "itemIndex": 0,
+        "isUnlocked": false
       },
       {
         "name": "GTX 1660 Ti",
         "cost": 1.2E+07,
         "bonusIncrease": 8000.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
-        "itemIndex": 0
+        "itemIndex": 0,
+        "isUnlocked": false
       },
       {
         "name": "RX 5600 XT",
         "cost": 3.5E+07,
         "bonusIncrease": 20000.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
-        "itemIndex": 0
+        "itemIndex": 0,
+        "isUnlocked": false
       },
       {
         "name": "GTX 1080 Ti",
         "cost": 1.4E+08,
         "bonusIncrease": 75000.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
-        "itemIndex": 0
+        "itemIndex": 0,
+        "isUnlocked": false
       },
       {
         "name": "RTX 2080",
         "cost": 6E+08,
         "bonusIncrease": 250000.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
-        "itemIndex": 0
+        "itemIndex": 0,
+        "isUnlocked": false
       },
       {
         "name": "RX 6700 XT",
         "cost": 3.2E+09,
         "bonusIncrease": 800000.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
-        "itemIndex": 0
+        "itemIndex": 0,
+        "isUnlocked": false
       },
       {
         "name": "RTX 3070 Ti",
         "cost": 1E+10,
         "bonusIncrease": 2400000.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
-        "itemIndex": 0
+        "itemIndex": 0,
+        "isUnlocked": false
       },
       {
         "name": "RX 6800 XT",
         "cost": 3.5E+10,
         "bonusIncrease": 6000000.0,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
-        "itemIndex": 0
+        "itemIndex": 0,
+        "isUnlocked": false
       },
       {
         "name": "RTX 3090",
         "cost": 1E+11,
         "bonusIncrease": 1.5E+07,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
-        "itemIndex": 0
+        "itemIndex": 0,
+        "isUnlocked": false
       },
       {
         "name": "RX 7900 XT",
         "cost": 2.6E+11,
         "bonusIncrease": 4E+07,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
-        "itemIndex": 0
+        "itemIndex": 0,
+        "isUnlocked": false
       },
       {
         "name": "RTX 4080",
         "cost": 8.4E+11,
         "bonusIncrease": 1E+08,
-        "levelOfItem": 1,
+        "levelOfItem": 0,
         "itsItemPerSec": false,
         "bonusPerSec": 3.0,
-        "itemIndex": 0
+        "itemIndex": 0,
+        "isUnlocked": false
       },
       {
         "name": "RTX 4090",
         "cost": 2E+12,
         "bonusIncrease": 3E+08,
-        "levelOfItem": 3,
+        "levelOfItem": 0,
         "itsItemPerSec": false,
         "bonusPerSec": 1.0,
-        "itemIndex": 0
+        "itemIndex": 0,
+        "isUnlocked": false
       }
     ],
     "savedTime": 100000000,
-    "colClicks": 33,
+    "colClicks": 69,
     "maxResult": 0,
     "OfflineBonus": 0.0
   },
@@ -416,14 +456,14 @@
       false,
       false
     ],
-    "total": 33,
+    "total": 69,
     "isStart": true,
     "isEnd": false
   },
   "progressBarData": null,
   "volumeData": {
-    "maserVolume": 0.6228815,
-    "isMuteBG": true
+    "maserVolume": 1.0,
+    "isMuteBG": false
   },
   "skinCoinData": {
     "bBttn": 0
@@ -436,7 +476,7 @@
     "isLastLevel": true
   },
   "statsData": {
-    "totalPlayTime": 98.18748
+    "totalPlayTime": 35.7074242
   },
   "timerData": {
     "maxResult": 6.0

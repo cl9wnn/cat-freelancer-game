@@ -1,0 +1,137 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Locked Jobs Atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 8192
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 1
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_IgnorePlatformSupport: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 367ec60d2c7951148b1878477e6448e6, type: 3}
+    - {fileID: 2800000, guid: 91ff21e1368ecb041b9e67448e4437a0, type: 3}
+    - {fileID: 2800000, guid: d37e621a7042d684c9ef945c91c699ec, type: 3}
+    - {fileID: 2800000, guid: 417274b40a43709418feab8c9fb819ce, type: 3}
+    - {fileID: 2800000, guid: 2f91017044d14f645bba0166ebeaaf2b, type: 3}
+    - {fileID: 2800000, guid: acad91d569472a947bd55e628f1c31c2, type: 3}
+    - {fileID: 2800000, guid: 206126146de6f2947971cc01987fd535, type: 3}
+    - {fileID: 2800000, guid: 1176477351c1cc24f956ec498216b331, type: 3}
+    - {fileID: 2800000, guid: dc0afcb09a9d20f4094e1161f0580488, type: 3}
+    - {fileID: 2800000, guid: e02de33dc856ea7439546261b0253c7c, type: 3}
+    - {fileID: 2800000, guid: 7edd934393616644685a80a791acac2a, type: 3}
+    - {fileID: 2800000, guid: c9ffe21cda486df4481f213960e3823a, type: 3}
+    - {fileID: 2800000, guid: f6e589e827e36e3478c2128f5236dd26, type: 3}
+    - {fileID: 2800000, guid: 9a28e791aeb36f74488ee6f3f9a117dc, type: 3}
+    - {fileID: 2800000, guid: 8c9ace0fca4acff4d970e026b4f4e68f, type: 3}
+    - {fileID: 2800000, guid: a65659b25937fcf4485668a82174f346, type: 3}
+    - {fileID: 2800000, guid: 6d159850d46968b41a841ff083e6b4d3, type: 3}
+    - {fileID: 2800000, guid: 5ca2a9819b174dd48acee1d1f12282b4, type: 3}
+    - {fileID: 2800000, guid: 16a3f496b2611fb4d9761e1c80b6d393, type: 3}
+    - {fileID: 2800000, guid: 4847120a453d5d548a873ad470b788a1, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - 6d159850d46968b41a841ff083e6b4d3: 21300000
+    - 2f91017044d14f645bba0166ebeaaf2b: 21300000
+    - dc0afcb09a9d20f4094e1161f0580488: 21300000
+    - 5ca2a9819b174dd48acee1d1f12282b4: 21300000
+    - 9a28e791aeb36f74488ee6f3f9a117dc: 21300000
+    - 91ff21e1368ecb041b9e67448e4437a0: 21300000
+    - a65659b25937fcf4485668a82174f346: 21300000
+    - 7edd934393616644685a80a791acac2a: 21300000
+    - 1176477351c1cc24f956ec498216b331: 21300000
+    - 206126146de6f2947971cc01987fd535: 21300000
+    - 417274b40a43709418feab8c9fb819ce: 21300000
+    - acad91d569472a947bd55e628f1c31c2: 21300000
+    - 16a3f496b2611fb4d9761e1c80b6d393: 21300000
+    - f6e589e827e36e3478c2128f5236dd26: 21300000
+    - 4847120a453d5d548a873ad470b788a1: 21300000
+    - d37e621a7042d684c9ef945c91c699ec: 21300000
+    - c9ffe21cda486df4481f213960e3823a: 21300000
+    - 367ec60d2c7951148b1878477e6448e6: 21300000
+    - e02de33dc856ea7439546261b0253c7c: 21300000
+    - 8c9ace0fca4acff4d970e026b4f4e68f: 21300000
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 6d159850d46968b41a841ff083e6b4d3, type: 3}
+  - {fileID: 21300000, guid: 2f91017044d14f645bba0166ebeaaf2b, type: 3}
+  - {fileID: 21300000, guid: dc0afcb09a9d20f4094e1161f0580488, type: 3}
+  - {fileID: 21300000, guid: 5ca2a9819b174dd48acee1d1f12282b4, type: 3}
+  - {fileID: 21300000, guid: 9a28e791aeb36f74488ee6f3f9a117dc, type: 3}
+  - {fileID: 21300000, guid: 91ff21e1368ecb041b9e67448e4437a0, type: 3}
+  - {fileID: 21300000, guid: a65659b25937fcf4485668a82174f346, type: 3}
+  - {fileID: 21300000, guid: 7edd934393616644685a80a791acac2a, type: 3}
+  - {fileID: 21300000, guid: 1176477351c1cc24f956ec498216b331, type: 3}
+  - {fileID: 21300000, guid: 206126146de6f2947971cc01987fd535, type: 3}
+  - {fileID: 21300000, guid: 417274b40a43709418feab8c9fb819ce, type: 3}
+  - {fileID: 21300000, guid: acad91d569472a947bd55e628f1c31c2, type: 3}
+  - {fileID: 21300000, guid: 16a3f496b2611fb4d9761e1c80b6d393, type: 3}
+  - {fileID: 21300000, guid: f6e589e827e36e3478c2128f5236dd26, type: 3}
+  - {fileID: 21300000, guid: 4847120a453d5d548a873ad470b788a1, type: 3}
+  - {fileID: 21300000, guid: d37e621a7042d684c9ef945c91c699ec, type: 3}
+  - {fileID: 21300000, guid: c9ffe21cda486df4481f213960e3823a, type: 3}
+  - {fileID: 21300000, guid: 367ec60d2c7951148b1878477e6448e6, type: 3}
+  - {fileID: 21300000, guid: e02de33dc856ea7439546261b0253c7c, type: 3}
+  - {fileID: 21300000, guid: 8c9ace0fca4acff4d970e026b4f4e68f, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - bttn17Lock
+  - bttn5Lock
+  - bttn9Lock
+  - bttn18Lock
+  - bttn14Lock
+  - bttn2Lock
+  - bttn16Lock
+  - bttn11Lock
+  - bttn8Lock
+  - bttn7Lock
+  - bttn4Lock
+  - bttn6Lock
+  - bttn19Lock
+  - bttn13Lock
+  - bttn20Lock
+  - bttn3Lock
+  - bttn12Lock
+  - bttn1Lock
+  - bttn10Lock
+  - bttn15Lock
+  m_RenderDataMap: {}
+  m_Tag: Locked Jobs Atlas
+  m_IsVariant: 0

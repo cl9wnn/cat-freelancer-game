@@ -10,7 +10,7 @@ using System.Collections;
 public class Boost : MonoBehaviour, ISaveLoad
 {
     private const float DEFAULT_BOOST_DURATION = 20f;
-    private const float DEFAULT_COOLDOWN_DURATION = 7200f;
+    private const float DEFAULT_COOLDOWN_DURATION = 300f;
 
     private const int MIN_AVAILABLE_COFFEE_FOR_DISPLAY = 2;
     private const float COOLDOWN_REWARD_THRESHOLD = 0.5f;
@@ -223,13 +223,13 @@ public class Boost : MonoBehaviour, ISaveLoad
 
     private string GetCooldownTime()
     {
-        if (remainingCooldown <= 3600)
-        {
-            return (((int)remainingCooldown / 60) % 60).ToString("0") + LanguageSystem.lng.time[2];
-        }
         if (remainingCooldown <= 60)
         {
             return (((int)remainingCooldown)).ToString("0") + LanguageSystem.lng.time[7];
+        }
+        if (remainingCooldown <= 3600)
+        {
+            return (((int)remainingCooldown / 60) % 60 + 1).ToString("0") + LanguageSystem.lng.time[2];
         }
         return (((int)remainingCooldown / 3600).ToString("0") + LanguageSystem.lng.time[5] + (((int)remainingCooldown / 60) % 60).ToString("0") + LanguageSystem.lng.time[2]);
     }

@@ -9671,12 +9671,12 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 30
+    m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 1
     m_RichText: 1
-    m_HorizontalOverflow: 1
-    m_VerticalOverflow: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u043A\u043E\u043F\u0438\u0440\u0430\u0439\u0442\u0438\u043D\u0433"
 --- !u!222 &208744505
@@ -11134,12 +11134,12 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 3
-    m_MaxSize: 30
+    m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 1
     m_RichText: 1
-    m_HorizontalOverflow: 1
-    m_VerticalOverflow: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u043A\u043E\u043F\u0438\u0440\u0430\u0439\u0442\u0438\u043D\u0433"
 --- !u!222 &244423351
@@ -11875,7 +11875,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.113218755}
   m_AnchorMax: {x: 0.5, y: 0.113218755}
-  m_AnchoredPosition: {x: 0, y: -95}
+  m_AnchoredPosition: {x: 0, y: -94.99997}
   m_SizeDelta: {x: 0, y: 85.6328}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &265865501
@@ -12141,12 +12141,12 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 3
-    m_MaxSize: 30
+    m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 1
     m_RichText: 1
-    m_HorizontalOverflow: 1
-    m_VerticalOverflow: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u043A\u043E\u043F\u0438\u0440\u0430\u0439\u0442\u0438\u043D\u0433"
 --- !u!222 &270443141
@@ -12615,12 +12615,12 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 3
-    m_MaxSize: 30
+    m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 1
     m_RichText: 1
-    m_HorizontalOverflow: 1
-    m_VerticalOverflow: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u041D\u0430\u043F\u0438\u0441\u0430\u043D\u0438\u0435 \u0431\u043E\u0442\u043E\u0432"
 --- !u!222 &284121833
@@ -30876,7 +30876,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -31137,12 +31137,12 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 3
-    m_MaxSize: 30
+    m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 1
     m_RichText: 1
-    m_HorizontalOverflow: 1
-    m_VerticalOverflow: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u043A\u043E\u043F\u0438\u0440\u0430\u0439\u0442\u0438\u043D\u0433"
 --- !u!222 &454434058
@@ -34386,12 +34386,12 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 3
-    m_MaxSize: 30
+    m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 1
     m_RichText: 1
-    m_HorizontalOverflow: 1
-    m_VerticalOverflow: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u043A\u043E\u043F\u0438\u0440\u0430\u0439\u0442\u0438\u043D\u0433"
 --- !u!222 &571524554
@@ -35332,12 +35332,12 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 30
+    m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 1
     m_RichText: 1
-    m_HorizontalOverflow: 1
-    m_VerticalOverflow: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u043A\u043E\u043F\u0438\u0440\u0430\u0439\u0442\u0438\u043D\u0433"
 --- !u!222 &589612902
@@ -50106,12 +50106,12 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 30
+    m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 1
     m_RichText: 1
-    m_HorizontalOverflow: 1
-    m_VerticalOverflow: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u041F\u0440\u043E\u0441\u043C\u043E\u0442\u0440 \u0440\u0435\u043A\u043B\u0430\u043C\u044B"
 --- !u!222 &778571887
@@ -51162,7 +51162,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 30
+    m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 1
     m_RichText: 1
@@ -51347,7 +51347,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -51496,12 +51496,12 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 30
+    m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 1
     m_RichText: 1
-    m_HorizontalOverflow: 1
-    m_VerticalOverflow: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "junior-\u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A"
 --- !u!222 &856879569
@@ -58524,12 +58524,12 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 30
+    m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 1
     m_RichText: 1
-    m_HorizontalOverflow: 1
-    m_VerticalOverflow: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u043A\u043E\u043F\u0438\u0440\u0430\u0439\u0442\u0438\u043D\u0433"
 --- !u!222 &907359085
@@ -59383,12 +59383,12 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 3
-    m_MaxSize: 30
+    m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 1
     m_RichText: 1
-    m_HorizontalOverflow: 1
-    m_VerticalOverflow: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u043A\u043E\u043F\u0438\u0440\u0430\u0439\u0442\u0438\u043D\u0433"
 --- !u!222 &948572323
@@ -71082,7 +71082,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 28a45c49a69c39f428bf6a8347a7b7f9, type: 3}
-    m_FontSize: 50
+    m_FontSize: 56
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -74701,7 +74701,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.020222224, y: 0.43878126}
   m_AnchorMax: {x: 0.23700002, y: 0.46100003}
-  m_AnchoredPosition: {x: 228.93994, y: -70}
+  m_AnchoredPosition: {x: 239.33, y: -68}
   m_SizeDelta: {x: -113.11987, y: 17.12}
   m_Pivot: {x: 0.4999999, y: 0.5}
 --- !u!114 &1165849370
@@ -76231,12 +76231,12 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 3
-    m_MaxSize: 30
+    m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 1
     m_RichText: 1
-    m_HorizontalOverflow: 1
-    m_VerticalOverflow: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u043A\u043E\u043F\u0438\u0440\u0430\u0439\u0442\u0438\u043D\u0433"
 --- !u!222 &1244403638
@@ -77219,12 +77219,12 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 3
-    m_MaxSize: 30
+    m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 1
     m_RichText: 1
-    m_HorizontalOverflow: 1
-    m_VerticalOverflow: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u043A\u043E\u043F\u0438\u0440\u0430\u0439\u0442\u0438\u043D\u0433"
 --- !u!222 &1294357317
@@ -82221,7 +82221,7 @@ GameObject:
   - component: {fileID: 1300464570}
   - component: {fileID: 1300464572}
   m_Layer: 5
-  m_Name: Game Event 5
+  m_Name: Game Event 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83458,12 +83458,12 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 3
-    m_MaxSize: 30
+    m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 1
     m_RichText: 1
-    m_HorizontalOverflow: 1
-    m_VerticalOverflow: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u0441\u0442\u0440\u0438\u043C\u0438\u043D\u0433"
 --- !u!222 &1355087216
@@ -84319,7 +84319,7 @@ GameObject:
   - component: {fileID: 1412245978}
   - component: {fileID: 1412245980}
   m_Layer: 5
-  m_Name: Game Event 4
+  m_Name: Game Event 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97878,8 +97878,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.2686081, y: 0}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 233.4816, y: -2.7280273}
-  m_SizeDelta: {x: 1.1615906, y: -0.10560095}
+  m_AnchoredPosition: {x: 264.83002, y: -2.7280273}
+  m_SizeDelta: {x: 0.33998108, y: -0.10560095}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1569695325
 MonoBehaviour:
@@ -99049,12 +99049,12 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 3
-    m_MaxSize: 30
+    m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 1
     m_RichText: 1
-    m_HorizontalOverflow: 1
-    m_VerticalOverflow: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u0440\u0435\u0441\u0435\u0439\u043B\u0438\u043D\u0433"
 --- !u!222 &1596980552
@@ -101019,8 +101019,8 @@ RectTransform:
   - {fileID: 34098761}
   - {fileID: 329321530}
   - {fileID: 1898819092}
-  - {fileID: 1412245977}
   - {fileID: 1300464568}
+  - {fileID: 1412245977}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -102761,12 +102761,12 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 3
-    m_MaxSize: 30
+    m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 1
     m_RichText: 1
-    m_HorizontalOverflow: 1
-    m_VerticalOverflow: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u043C\u043E\u043D\u0442\u0430\u0436 \u0432\u0438\u0434\u0435\u043E"
 --- !u!222 &1756819844
@@ -104565,12 +104565,12 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 3
-    m_MaxSize: 30
+    m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 1
     m_RichText: 1
-    m_HorizontalOverflow: 1
-    m_VerticalOverflow: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u043A\u043E\u043F\u0438\u0440\u0430\u0439\u0442\u0438\u043D\u0433"
 --- !u!222 &1813687065
@@ -113092,12 +113092,12 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 30
+    m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 1
     m_RichText: 1
-    m_HorizontalOverflow: 1
-    m_VerticalOverflow: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u043A\u043E\u043F\u0438\u0440\u0430\u0439\u0442\u0438\u043D\u0433"
 --- !u!222 &1928837712
@@ -118341,12 +118341,12 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 3
-    m_MaxSize: 30
+    m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 1
     m_RichText: 1
-    m_HorizontalOverflow: 1
-    m_VerticalOverflow: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u0412\u0432\u043E\u0434 \u043A\u0430\u043F\u0447"
 --- !u!222 &1973964696
@@ -118708,6 +118708,7 @@ MonoBehaviour:
     itsItemPerSec: 1
     bonusPerSec: 1
     itemIndex: 0
+    isUnlocked: 0
   - name: 1cec
     cost: 1000
     bonusIncrease: 0
@@ -118715,6 +118716,7 @@ MonoBehaviour:
     itsItemPerSec: 1
     bonusPerSec: 2
     itemIndex: 0
+    isUnlocked: 0
   - name: 2cec
     cost: 3700
     bonusIncrease: 0
@@ -118722,6 +118724,7 @@ MonoBehaviour:
     itsItemPerSec: 1
     bonusPerSec: 7
     itemIndex: 0
+    isUnlocked: 0
   - name: 3cec
     cost: 12000
     bonusIncrease: 0
@@ -118729,6 +118732,7 @@ MonoBehaviour:
     itsItemPerSec: 1
     bonusPerSec: 18
     itemIndex: 0
+    isUnlocked: 0
   - name: 4cec
     cost: 62000
     bonusIncrease: 0
@@ -118736,6 +118740,7 @@ MonoBehaviour:
     itsItemPerSec: 1
     bonusPerSec: 40
     itemIndex: 0
+    isUnlocked: 0
   - name: 5cec
     cost: 320000
     bonusIncrease: 0
@@ -118743,6 +118748,7 @@ MonoBehaviour:
     itsItemPerSec: 1
     bonusPerSec: 150
     itemIndex: 0
+    isUnlocked: 0
   - name: 6cec
     cost: 1000000
     bonusIncrease: 0
@@ -118750,6 +118756,7 @@ MonoBehaviour:
     itsItemPerSec: 1
     bonusPerSec: 350
     itemIndex: 0
+    isUnlocked: 0
   - name: 7cec
     cost: 3200000
     bonusIncrease: 0
@@ -118757,6 +118764,7 @@ MonoBehaviour:
     itsItemPerSec: 1
     bonusPerSec: 1000
     itemIndex: 0
+    isUnlocked: 0
   - name: 8cec
     cost: 11000000
     bonusIncrease: 0
@@ -118764,6 +118772,7 @@ MonoBehaviour:
     itsItemPerSec: 1
     bonusPerSec: 2500
     itemIndex: 0
+    isUnlocked: 0
   - name: 9cec
     cost: 30000000
     bonusIncrease: 0
@@ -118771,6 +118780,7 @@ MonoBehaviour:
     itsItemPerSec: 1
     bonusPerSec: 6000
     itemIndex: 0
+    isUnlocked: 0
   - name: 10cec
     cost: 120000000
     bonusIncrease: 0
@@ -118778,6 +118788,7 @@ MonoBehaviour:
     itsItemPerSec: 1
     bonusPerSec: 15000
     itemIndex: 0
+    isUnlocked: 0
   - name: 11cec
     cost: 350000000
     bonusIncrease: 0
@@ -118785,6 +118796,7 @@ MonoBehaviour:
     itsItemPerSec: 1
     bonusPerSec: 50000
     itemIndex: 0
+    isUnlocked: 0
   - name: 12cec
     cost: 1.4e+9
     bonusIncrease: 0
@@ -118792,6 +118804,7 @@ MonoBehaviour:
     itsItemPerSec: 1
     bonusPerSec: 180000
     itemIndex: 0
+    isUnlocked: 0
   - name: 13cec
     cost: 6e+9
     bonusIncrease: 0
@@ -118799,6 +118812,7 @@ MonoBehaviour:
     itsItemPerSec: 1
     bonusPerSec: 500000
     itemIndex: 0
+    isUnlocked: 0
   - name: 14cec
     cost: 2e+10
     bonusIncrease: 0
@@ -118806,6 +118820,7 @@ MonoBehaviour:
     itsItemPerSec: 1
     bonusPerSec: 1800000
     itemIndex: 0
+    isUnlocked: 0
   - name: 15cec
     cost: 8e+10
     bonusIncrease: 0
@@ -118813,6 +118828,7 @@ MonoBehaviour:
     itsItemPerSec: 1
     bonusPerSec: 4500000
     itemIndex: 0
+    isUnlocked: 0
   - name: 16cec
     cost: 3.1e+11
     bonusIncrease: 0
@@ -118820,6 +118836,7 @@ MonoBehaviour:
     itsItemPerSec: 1
     bonusPerSec: 12000000
     itemIndex: 0
+    isUnlocked: 0
   - name: 17cec
     cost: 1e+12
     bonusIncrease: 0
@@ -118827,6 +118844,7 @@ MonoBehaviour:
     itsItemPerSec: 1
     bonusPerSec: 30000000
     itemIndex: 0
+    isUnlocked: 0
   - name: 18cec
     cost: 3e+12
     bonusIncrease: 0
@@ -118834,6 +118852,7 @@ MonoBehaviour:
     itsItemPerSec: 1
     bonusPerSec: 75000000
     itemIndex: 0
+    isUnlocked: 0
   - name: 19cec
     cost: 5e+12
     bonusIncrease: 0
@@ -118841,6 +118860,7 @@ MonoBehaviour:
     itsItemPerSec: 1
     bonusPerSec: 150000000
     itemIndex: 0
+    isUnlocked: 0
   - name: Intel HD graphics
     cost: 110
     bonusIncrease: 1
@@ -118848,6 +118868,7 @@ MonoBehaviour:
     itsItemPerSec: 0
     bonusPerSec: 0
     itemIndex: 0
+    isUnlocked: 0
   - name: Radeon R5
     cost: 550
     bonusIncrease: 3
@@ -118855,6 +118876,7 @@ MonoBehaviour:
     itsItemPerSec: 0
     bonusPerSec: 0
     itemIndex: 0
+    isUnlocked: 0
   - name: GT 1030
     cost: 2100
     bonusIncrease: 10
@@ -118862,6 +118884,7 @@ MonoBehaviour:
     itsItemPerSec: 0
     bonusPerSec: 3
     itemIndex: 0
+    isUnlocked: 0
   - name: Rx 550
     cost: 8000
     bonusIncrease: 25
@@ -118869,6 +118892,7 @@ MonoBehaviour:
     itsItemPerSec: 0
     bonusPerSec: 3
     itemIndex: 0
+    isUnlocked: 0
   - name: GTX 1050
     cost: 28000
     bonusIncrease: 75
@@ -118876,6 +118900,7 @@ MonoBehaviour:
     itsItemPerSec: 0
     bonusPerSec: 3
     itemIndex: 0
+    isUnlocked: 0
   - name: GTX 960
     cost: 110000
     bonusIncrease: 200
@@ -118883,6 +118908,7 @@ MonoBehaviour:
     itsItemPerSec: 0
     bonusPerSec: 3
     itemIndex: 0
+    isUnlocked: 0
   - name: GTX 1060
     cost: 400000
     bonusIncrease: 420
@@ -118890,6 +118916,7 @@ MonoBehaviour:
     itsItemPerSec: 0
     bonusPerSec: 3
     itemIndex: 0
+    isUnlocked: 0
   - name: GTX 1650 s
     cost: 1500000
     bonusIncrease: 1400
@@ -118897,6 +118924,7 @@ MonoBehaviour:
     itsItemPerSec: 0
     bonusPerSec: 3
     itemIndex: 0
+    isUnlocked: 0
   - name: RX 590
     cost: 4200000
     bonusIncrease: 3000
@@ -118904,6 +118932,7 @@ MonoBehaviour:
     itsItemPerSec: 0
     bonusPerSec: 3
     itemIndex: 0
+    isUnlocked: 0
   - name: GTX 1660 Ti
     cost: 12000000
     bonusIncrease: 8000
@@ -118911,6 +118940,7 @@ MonoBehaviour:
     itsItemPerSec: 0
     bonusPerSec: 3
     itemIndex: 0
+    isUnlocked: 0
   - name: RX 5600 XT
     cost: 35000000
     bonusIncrease: 20000
@@ -118918,6 +118948,7 @@ MonoBehaviour:
     itsItemPerSec: 0
     bonusPerSec: 3
     itemIndex: 0
+    isUnlocked: 0
   - name: GTX 1080 Ti
     cost: 140000000
     bonusIncrease: 75000
@@ -118925,6 +118956,7 @@ MonoBehaviour:
     itsItemPerSec: 0
     bonusPerSec: 3
     itemIndex: 0
+    isUnlocked: 0
   - name: RTX 2080
     cost: 600000000
     bonusIncrease: 250000
@@ -118932,6 +118964,7 @@ MonoBehaviour:
     itsItemPerSec: 0
     bonusPerSec: 3
     itemIndex: 0
+    isUnlocked: 0
   - name: RX 6700 XT
     cost: 3.2e+9
     bonusIncrease: 800000
@@ -118939,6 +118972,7 @@ MonoBehaviour:
     itsItemPerSec: 0
     bonusPerSec: 3
     itemIndex: 0
+    isUnlocked: 0
   - name: RTX 3070 Ti
     cost: 1e+10
     bonusIncrease: 2400000
@@ -118946,6 +118980,7 @@ MonoBehaviour:
     itsItemPerSec: 0
     bonusPerSec: 3
     itemIndex: 0
+    isUnlocked: 0
   - name: RX 6800 XT
     cost: 3.5e+10
     bonusIncrease: 6000000
@@ -118953,6 +118988,7 @@ MonoBehaviour:
     itsItemPerSec: 0
     bonusPerSec: 3
     itemIndex: 0
+    isUnlocked: 0
   - name: RTX 3090
     cost: 1e+11
     bonusIncrease: 15000000
@@ -118960,6 +118996,7 @@ MonoBehaviour:
     itsItemPerSec: 0
     bonusPerSec: 3
     itemIndex: 0
+    isUnlocked: 0
   - name: RX 7900 XT
     cost: 2.6e+11
     bonusIncrease: 40000000
@@ -118967,6 +119004,7 @@ MonoBehaviour:
     itsItemPerSec: 0
     bonusPerSec: 3
     itemIndex: 0
+    isUnlocked: 0
   - name: RTX 4080
     cost: 8.4e+11
     bonusIncrease: 100000000
@@ -118974,6 +119012,7 @@ MonoBehaviour:
     itsItemPerSec: 0
     bonusPerSec: 3
     itemIndex: 0
+    isUnlocked: 0
   - name: RTX 4090
     cost: 2e+12
     bonusIncrease: 300000000
@@ -118981,6 +119020,7 @@ MonoBehaviour:
     itsItemPerSec: 0
     bonusPerSec: 1
     itemIndex: 0
+    isUnlocked: 0
   shopItemsText:
   - {fileID: 1054315937}
   - {fileID: 237637596}
@@ -119227,6 +119267,27 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 26b89319beffabe40b604b3469791db4, type: 3}
   - {fileID: 21300000, guid: e2b8b30df6fd5334595dcd48584bbd60, type: 3}
   - {fileID: 21300000, guid: 0c58eb9e9adacaa40a51fa93b17aca9e, type: 3}
+  shopBttnSpritesLocked:
+  - {fileID: 21300000, guid: 367ec60d2c7951148b1878477e6448e6, type: 3}
+  - {fileID: 21300000, guid: 91ff21e1368ecb041b9e67448e4437a0, type: 3}
+  - {fileID: 21300000, guid: d37e621a7042d684c9ef945c91c699ec, type: 3}
+  - {fileID: 21300000, guid: 417274b40a43709418feab8c9fb819ce, type: 3}
+  - {fileID: 21300000, guid: 2f91017044d14f645bba0166ebeaaf2b, type: 3}
+  - {fileID: 21300000, guid: acad91d569472a947bd55e628f1c31c2, type: 3}
+  - {fileID: 21300000, guid: 206126146de6f2947971cc01987fd535, type: 3}
+  - {fileID: 21300000, guid: 1176477351c1cc24f956ec498216b331, type: 3}
+  - {fileID: 21300000, guid: dc0afcb09a9d20f4094e1161f0580488, type: 3}
+  - {fileID: 21300000, guid: e02de33dc856ea7439546261b0253c7c, type: 3}
+  - {fileID: 21300000, guid: 7edd934393616644685a80a791acac2a, type: 3}
+  - {fileID: 21300000, guid: c9ffe21cda486df4481f213960e3823a, type: 3}
+  - {fileID: 21300000, guid: f6e589e827e36e3478c2128f5236dd26, type: 3}
+  - {fileID: 21300000, guid: 9a28e791aeb36f74488ee6f3f9a117dc, type: 3}
+  - {fileID: 21300000, guid: 8c9ace0fca4acff4d970e026b4f4e68f, type: 3}
+  - {fileID: 21300000, guid: a65659b25937fcf4485668a82174f346, type: 3}
+  - {fileID: 21300000, guid: 6d159850d46968b41a841ff083e6b4d3, type: 3}
+  - {fileID: 21300000, guid: 5ca2a9819b174dd48acee1d1f12282b4, type: 3}
+  - {fileID: 21300000, guid: 16a3f496b2611fb4d9761e1c80b6d393, type: 3}
+  - {fileID: 21300000, guid: 4847120a453d5d548a873ad470b788a1, type: 3}
   coinOpen: {fileID: -3338749442709606003, guid: 38031fb91fbbdf14f95777d7b58ba16f,
     type: 3}
   coinClose: {fileID: 21300000, guid: 59c5c5faa3b37b94d9b6109f5eeef86e, type: 3}
@@ -119492,40 +119553,40 @@ MonoBehaviour:
   - {fileID: 1122269544}
   - {fileID: 1207499959}
   - {fileID: 820530725}
-  - {fileID: 711115215}
   - {fileID: 1767111924}
+  - {fileID: 711115215}
   rewardText:
   - {fileID: 929191507}
   - {fileID: 265865501}
   - {fileID: 2116943677}
-  - {fileID: 1820656880}
   - {fileID: 1665711668}
+  - {fileID: 1820656880}
   ScoreTextEvent:
   - {fileID: 1278264845}
   - {fileID: 1062579187}
   - {fileID: 2108980738}
-  - {fileID: 1190735}
   - {fileID: 1574710537}
+  - {fileID: 1190735}
   plusminusString:
   - +
   - '-'
   - '-'
-  - '-'
   - +
+  - '-'
   startGameText: {fileID: 1375726791}
   languageText: {fileID: 1734659047}
   eventPanels:
   - {fileID: 34098758}
   - {fileID: 329321533}
   - {fileID: 1898819097}
-  - {fileID: 1412245980}
   - {fileID: 1300464572}
+  - {fileID: 1412245980}
   scoreCoefficent:
   - 400
   - 0.25
   - 0.5
-  - 1
   - 800
+  - 1
   total: 0
   moneyReward: 0
   fingerImg: {fileID: 5350611430967135236, guid: 7e587a718adba7a4ba51412ec8cd0715,
@@ -119573,7 +119634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spinDuration: 6
-  cooldownDuration: 7200
+  cooldownDuration: 600
   rewardTimer: 20
   circle: {fileID: 1783254561}
   spinButton: {fileID: 2044127552}
