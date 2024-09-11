@@ -73,7 +73,7 @@ public class Boost : MonoBehaviour, ISaveLoad
     }
     public void Load()
     {
-        var data = YandexGame.savesData.boostData;
+        var data = YandexGame.savesData.boostData; 
 
         if (data == null)
             return;

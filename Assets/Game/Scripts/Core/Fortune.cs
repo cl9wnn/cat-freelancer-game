@@ -239,6 +239,7 @@ public class Fortune : MonoBehaviour, ISaveLoad
         spinButton.interactable = true;
         waitText.text = LanguageSystem.lng.time[4];
         isAdAvailable = false;
+        UpdateUIForUnlockedBooster();
     }
 
     private string FormatTime(float time)
