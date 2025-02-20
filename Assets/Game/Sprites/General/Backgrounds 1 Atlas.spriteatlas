@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Backgrounds 1 Atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 4096
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 1
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_IgnorePlatformSupport: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    - serializedVersion: 3
+      m_BuildTarget: WebGL
+      m_MaxTextureSize: 8192
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 29
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 1
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_IgnorePlatformSupport: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: f67255cad9d68b54eb1ae1844bb0db2d, type: 3}
+    - {fileID: 2800000, guid: 01bcac70def803a4bbde759f3bbb43fe, type: 3}
+    - {fileID: 2800000, guid: f9516d564afb9a3418819bbc529b7cd7, type: 3}
+    - {fileID: 2800000, guid: ca4983e38f7e8ec4f8f6c258df93bd99, type: 3}
+    - {fileID: 2800000, guid: a17197135c980fe438c1565864445e0d, type: 3}
+    - {fileID: 2800000, guid: e214d83d7ddd7ff4f9d3c9f1d3a36279, type: 3}
+    - {fileID: 2800000, guid: 9676d2979fb8e7045b1575793f77c5fa, type: 3}
+    - {fileID: 2800000, guid: 21f0a09e254485b4b9fcee063ab1eaac, type: 3}
+    - {fileID: 2800000, guid: ba88d355cc091164797b154badda91b7, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - 01bcac70def803a4bbde759f3bbb43fe: 21300000
+    - a17197135c980fe438c1565864445e0d: 8055848797867857641
+    - ca4983e38f7e8ec4f8f6c258df93bd99: 21300000
+    - ba88d355cc091164797b154badda91b7: 21300000
+    - f9516d564afb9a3418819bbc529b7cd7: 21300000
+    - 9676d2979fb8e7045b1575793f77c5fa: 21300000
+    - f67255cad9d68b54eb1ae1844bb0db2d: 21300000
+    - e214d83d7ddd7ff4f9d3c9f1d3a36279: 21300000
+    - 21f0a09e254485b4b9fcee063ab1eaac: 21300000
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 01bcac70def803a4bbde759f3bbb43fe, type: 3}
+  - {fileID: 8055848797867857641, guid: a17197135c980fe438c1565864445e0d, type: 3}
+  - {fileID: 21300000, guid: ca4983e38f7e8ec4f8f6c258df93bd99, type: 3}
+  - {fileID: 21300000, guid: ba88d355cc091164797b154badda91b7, type: 3}
+  - {fileID: 21300000, guid: f9516d564afb9a3418819bbc529b7cd7, type: 3}
+  - {fileID: 21300000, guid: 9676d2979fb8e7045b1575793f77c5fa, type: 3}
+  - {fileID: 21300000, guid: f67255cad9d68b54eb1ae1844bb0db2d, type: 3}
+  - {fileID: 21300000, guid: e214d83d7ddd7ff4f9d3c9f1d3a36279, type: 3}
+  - {fileID: 21300000, guid: 21f0a09e254485b4b9fcee063ab1eaac, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - bgJob
+  - SettingsBg_0
+  - MainBgHD
+  - webBg3
+  - bgVideoCard 2
+  - startMenuBg
+  - backPanel
+  - skinBG 1
+  - statsList
+  m_RenderDataMap: {}
+  m_Tag: Backgrounds 1 Atlas
+  m_IsVariant: 0

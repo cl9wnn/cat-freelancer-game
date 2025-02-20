@@ -1,0 +1,189 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4645132edefd4c74968a0c941a98fb89, type: 3}
+  m_Name: Audio Database
+  m_EditorClassIdentifier: 
+  _items:
+  - Clip: {fileID: 8300000, guid: f053650d91a2e514fb73edf66a15b92d, type: 3}
+    Key: 'Switch Button '
+    FolderPath: Game\Audio\SFX\Settings\
+    Name: Switch Button.mp3
+    Preload: 1
+    _id: 6d60ecbf-1d34-4daa-923e-4297f3c97199
+  - Clip: {fileID: 8300000, guid: b01fb128bc351044bb235be458c59aca, type: 3}
+    Key: Achievement Notification
+    FolderPath: Game\Audio\SFX\Achievements\
+    Name: Achievement Notification.mp3
+    Preload: 1
+    _id: 15bdfa9b-94d2-4a7d-b199-9b89d1250343
+  - Clip: {fileID: 8300000, guid: c1d60b0b23af5494380e370feb2e4e4d, type: 3}
+    Key: Spin Wheel Of Fortune
+    FolderPath: Game\Audio\SFX\WheelOfFortune\
+    Name: Spin Wheel Of Fortune.mp3
+    Preload: 1
+    _id: 67e6f9b3-2c45-4a5b-aebb-c916dbb9a34e
+  - Clip: {fileID: 8300000, guid: 008f331b5af3bbc4382c0778c4f730d6, type: 3}
+    Key: Open Settings
+    FolderPath: Game\Audio\SFX\Settings\
+    Name: Open Settings.mp3
+    Preload: 1
+    _id: bea6d9f5-e3b7-4ed3-b7e2-cfebae2c8502
+  - Clip: {fileID: 8300000, guid: 0185d464096674e4881c5bf9255e5d98, type: 3}
+    Key: Open Boost Panel
+    FolderPath: Game\Audio\SFX\Boost\
+    Name: Open Boost Panel.mp3
+    Preload: 1
+    _id: a5f0f4cd-85a9-43fc-b0de-bd28adb195bd
+  - Clip: {fileID: 8300000, guid: c5349f1b45d786940b0996920b0b4ec3, type: 3}
+    Key: Open Achievemetns Book
+    FolderPath: Game\Audio\SFX\Achievements\
+    Name: Open Achievement Book.mp3
+    Preload: 1
+    _id: 65f81740-0907-4d8b-ad58-b7d36c470fab
+  - Clip: {fileID: 8300000, guid: fff575ce455477a43bd962ebe1b8e9d9, type: 3}
+    Key: Close Achievement Book
+    FolderPath: Game\Audio\SFX\Achievements\
+    Name: Close Achievement Book.mp3
+    Preload: 1
+    _id: 4d09aa64-25f4-4755-9361-a1d81542093d
+  - Clip: {fileID: 8300000, guid: a5ef7bc50765e504494b1a25198e9713, type: 3}
+    Key: Collect Money
+    FolderPath: Game\Audio\SFX\Main Scene\
+    Name: Collect Money.mp3
+    Preload: 1
+    _id: 9cc6c121-de58-422e-b14a-d9060ec719ed
+  - Clip: {fileID: 8300000, guid: 02aca63241138934ea57a185120c1ea4, type: 3}
+    Key: Collect Reward
+    FolderPath: Game\Audio\SFX\MiniGame\
+    Name: Collect Reward.mp3
+    Preload: 1
+    _id: ea79cc26-03c1-47bf-8d24-f36c2faef771
+  - Clip: {fileID: 8300000, guid: 8f05f67a0718755438c22a9668aaaec9, type: 3}
+    Key: Win Sound 1
+    FolderPath: Game\Audio\SFX\WheelOfFortune\
+    Name: Win Sound 1.mp3
+    Preload: 1
+    _id: ab68e6bf-87e1-4eba-9f4f-27ccb0a83e19
+  - Clip: {fileID: 8300000, guid: d9e62b3c20d9d7c46840ca8e46f4481c, type: 3}
+    Key: Win Sound 2
+    FolderPath: Game\Audio\SFX\WheelOfFortune\
+    Name: Win Sound 2.mp3
+    Preload: 1
+    _id: c439bd90-e0b6-45b6-a4c4-a059becab716
+  - Clip: {fileID: 8300000, guid: f6b39cbd36e29e242a0f2ef24df06804, type: 3}
+    Key: Lose
+    FolderPath: Game\Audio\SFX\WheelOfFortune\
+    Name: Lose Sound.mp3
+    Preload: 1
+    _id: 63a3f805-6932-44f2-8925-34d1b0ed6aea
+  - Clip: {fileID: 8300000, guid: d401a1d45a6658547a226d6580184659, type: 3}
+    Key: Countdown
+    FolderPath: Game\Audio\SFX\MiniGame\
+    Name: Countdown.mp3
+    Preload: 1
+    _id: 39b58803-53c3-4d3a-b6cc-e2272a530f93
+  - Clip: {fileID: 8300000, guid: e12e90260bb6653439cf567cb546e2d1, type: 3}
+    Key: Drink Coffee
+    FolderPath: Game\Audio\SFX\Boost\
+    Name: Drink Coffee.mp3
+    Preload: 1
+    _id: 874b996e-8e83-47ec-98dd-d04cae679a20
+  - Clip: {fileID: 8300000, guid: b270fb0b55a5eef4fae292cc5ff62f62, type: 3}
+    Key: Start Background
+    FolderPath: Game\Audio\Music\Start Scene\
+    Name: Start Background.mp3
+    Preload: 1
+    _id: 3b2c256f-06ca-4dd0-a51c-bfa4a7e96231
+  - Clip: {fileID: 8300000, guid: 185e8e1e569e39a4a9cb840f0ab8143b, type: 3}
+    Key: Boost Background
+    FolderPath: Game\Audio\Music\Boost\
+    Name: Boost Background.mp3
+    Preload: 1
+    _id: 57cecc95-a9dc-480d-9d1b-569def879e15
+  - Clip: {fileID: 8300000, guid: a93f04f20ade678408bd8ed963cd0649, type: 3}
+    Key: Main Background
+    FolderPath: Game\Audio\Music\Main Scene\
+    Name: Main Background.mp3
+    Preload: 1
+    _id: 8820525e-960c-4cbf-a26c-221d723e7e9c
+  - Clip: {fileID: 8300000, guid: e99725ddcad17f2419327bad5cc039e2, type: 3}
+    Key: 'MiniGame Background '
+    FolderPath: Game\Audio\Music\MiniGame\
+    Name: MiniGame Background.mp3
+    Preload: 1
+    _id: 1d0111df-6021-4832-8e47-2011d0475507
+  - Clip: {fileID: 8300000, guid: 57be2d59f82b7f6468b14b98cb5295ca, type: 3}
+    Key: Click Start Button
+    FolderPath: Game\Audio\SFX\Start Scene\
+    Name: Click Start Button.mp3
+    Preload: 1
+    _id: 7bcc1168-9c7c-4472-9d48-37e5ffc588a6
+  - Clip: {fileID: 8300000, guid: f9a619e6b6187ed459930bc9b1fe47e9, type: 3}
+    Key: Click Computer
+    FolderPath: Game\Audio\SFX\Main Scene\
+    Name: Click Computer.mp3
+    Preload: 1
+    _id: c437a187-9111-48f3-932d-fcdc7e6156b1
+  - Clip: {fileID: 8300000, guid: da34abe0893aecd49a1c98d08eba060a, type: 3}
+    Key: Click Falling Coin
+    FolderPath: Game\Audio\SFX\MiniGame\
+    Name: Click Falling Coin.mp3
+    Preload: 1
+    _id: ba9cd3af-88bf-4079-93f1-bf0c43beef14
+  - Clip: {fileID: 8300000, guid: ef6e089b9dcedd041b00b76e824fb02a, type: 3}
+    Key: Click Shop Button
+    FolderPath: Game\Audio\SFX\Main Scene\
+    Name: Click Shop Button.mp3
+    Preload: 1
+    _id: 1998c945-16c7-4e51-91c8-d5fc2b667965
+  - Clip: {fileID: 8300000, guid: 1c82b57b44fa3814d8406f07b57fa24c, type: 3}
+    Key: Purchase Upgrade
+    FolderPath: Game\Audio\SFX\Shops\
+    Name: Purchase Of Upgrade.mp3
+    Preload: 1
+    _id: 87100841-9ab5-467c-a322-5540308a8bae
+  - Clip: {fileID: 8300000, guid: 6c4f46ae08040bf429ad3cd11a1ad56d, type: 3}
+    Key: Purchase Computer
+    FolderPath: Game\Audio\SFX\Shops\
+    Name: Purchase Of Computer.mp3
+    Preload: 1
+    _id: 73c9ce3e-6f0d-45ca-bd8f-d78126ded3cd
+  - Clip: {fileID: 8300000, guid: b5ad94cba09f437458e01fda68340ec4, type: 3}
+    Key: Notification Message
+    FolderPath: Game\Audio\SFX\MiniGame\
+    Name: Notification Message.mp3
+    Preload: 1
+    _id: 0ce84dc9-28e1-4f14-bb70-c2de89fa3e71
+  - Clip: {fileID: 8300000, guid: 1e8cc9493cdba2a4ebceff255544d601, type: 3}
+    Key: Event Notification
+    FolderPath: Game\Audio\SFX\Events\
+    Name: Event Notification.mp3
+    Preload: 1
+    _id: fdae41bc-5087-40a9-947a-c9d3f15a7dc0
+  - Clip: {fileID: 8300000, guid: 4e63af34070de1f4bbfc89c93548a5b3, type: 3}
+    Key: Skip Message
+    FolderPath: Game\Audio\SFX\MiniGame\
+    Name: Skip Message.mp3
+    Preload: 1
+    _id: afdd2a53-a63e-4ae2-b8e4-9153145ebb7d
+  - Clip: {fileID: 8300000, guid: df39a4238cc765145bd8bcd45f3bb257, type: 3}
+    Key: Drop Daily Reward Panel
+    FolderPath: Game\Audio\SFX\Main Scene\
+    Name: Drop Daily Reward Panel.mp3
+    Preload: 1
+    _id: cb367328-d050-4845-bdc7-bf545142a565
+  - Clip: {fileID: 8300000, guid: f011dcbb7a8774d4e8731b10c9516f78, type: 3}
+    Key: Drop Result Panel
+    FolderPath: Game\Audio\SFX\MiniGame\
+    Name: Drop Result Panel.mp3
+    Preload: 1
+    _id: cadb4b59-4e02-4bb0-b242-f08f9805a8b9

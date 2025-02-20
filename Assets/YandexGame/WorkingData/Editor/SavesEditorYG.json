@@ -1,0 +1,484 @@
+{
+  "idSave": 1133,
+  "isFirstSession": false,
+  "language": "ru",
+  "promptDone": false,
+  "money": 1,
+  "newPlayerName": "Hello!",
+  "openLevels": [
+    false,
+    false,
+    false
+  ],
+  "achievementsData": {
+    "isAchievementDone": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      true,
+      false,
+      false
+    ],
+    "achievementsCount": 2
+  },
+  "boostData": {
+    "totalCoffeeConsumed": 0,
+    "availableCoffee": 1,
+    "cooldownDuration": 300.0,
+    "savedTime": 100000000
+  },
+  "fortuneData": {
+    "remainingCooldownTime": 586.8872,
+    "remainingRewardTime": 0.0,
+    "isAdAvailable": true,
+    "savedTime": 100000000
+  },
+  "gameData": {
+    "score": 3.31021988E+10,
+    "scoreIncrease": 1305300.0,
+    "scorePassive": 124031.0,
+    "totalClick": 22,
+    "offlineTime": 14400.0,
+    "shopItems": [
+      {
+        "name": "0cec",
+        "cost": 300.0,
+        "bonusIncrease": 0.0,
+        "levelOfItem": 3,
+        "itsItemPerSec": true,
+        "bonusPerSec": 1.0,
+        "itemIndex": 0,
+        "isUnlocked": true
+      },
+      {
+        "name": "1cec",
+        "cost": 1000.0,
+        "bonusIncrease": 0.0,
+        "levelOfItem": 4,
+        "itsItemPerSec": true,
+        "bonusPerSec": 2.0,
+        "itemIndex": 0,
+        "isUnlocked": true
+      },
+      {
+        "name": "2cec",
+        "cost": 3700.0,
+        "bonusIncrease": 0.0,
+        "levelOfItem": 2,
+        "itsItemPerSec": true,
+        "bonusPerSec": 7.0,
+        "itemIndex": 0,
+        "isUnlocked": true
+      },
+      {
+        "name": "3cec",
+        "cost": 12000.0,
+        "bonusIncrease": 0.0,
+        "levelOfItem": 2,
+        "itsItemPerSec": true,
+        "bonusPerSec": 18.0,
+        "itemIndex": 0,
+        "isUnlocked": true
+      },
+      {
+        "name": "4cec",
+        "cost": 62000.0,
+        "bonusIncrease": 0.0,
+        "levelOfItem": 3,
+        "itsItemPerSec": true,
+        "bonusPerSec": 40.0,
+        "itemIndex": 0,
+        "isUnlocked": true
+      },
+      {
+        "name": "5cec",
+        "cost": 320000.0,
+        "bonusIncrease": 0.0,
+        "levelOfItem": 3,
+        "itsItemPerSec": true,
+        "bonusPerSec": 150.0,
+        "itemIndex": 0,
+        "isUnlocked": true
+      },
+      {
+        "name": "6cec",
+        "cost": 1000000.0,
+        "bonusIncrease": 0.0,
+        "levelOfItem": 4,
+        "itsItemPerSec": true,
+        "bonusPerSec": 350.0,
+        "itemIndex": 0,
+        "isUnlocked": true
+      },
+      {
+        "name": "7cec",
+        "cost": 3200000.0,
+        "bonusIncrease": 0.0,
+        "levelOfItem": 1,
+        "itsItemPerSec": true,
+        "bonusPerSec": 1000.0,
+        "itemIndex": 0,
+        "isUnlocked": true
+      },
+      {
+        "name": "8cec",
+        "cost": 1.1E+07,
+        "bonusIncrease": 0.0,
+        "levelOfItem": 0,
+        "itsItemPerSec": true,
+        "bonusPerSec": 2500.0,
+        "itemIndex": 0,
+        "isUnlocked": true
+      },
+      {
+        "name": "9cec",
+        "cost": 3E+07,
+        "bonusIncrease": 0.0,
+        "levelOfItem": 1,
+        "itsItemPerSec": true,
+        "bonusPerSec": 6000.0,
+        "itemIndex": 0,
+        "isUnlocked": true
+      },
+      {
+        "name": "10cec",
+        "cost": 1.2E+08,
+        "bonusIncrease": 0.0,
+        "levelOfItem": 1,
+        "itsItemPerSec": true,
+        "bonusPerSec": 15000.0,
+        "itemIndex": 0,
+        "isUnlocked": true
+      },
+      {
+        "name": "11cec",
+        "cost": 3.5E+08,
+        "bonusIncrease": 0.0,
+        "levelOfItem": 2,
+        "itsItemPerSec": true,
+        "bonusPerSec": 50000.0,
+        "itemIndex": 0,
+        "isUnlocked": true
+      },
+      {
+        "name": "12cec",
+        "cost": 1.4E+09,
+        "bonusIncrease": 0.0,
+        "levelOfItem": 0,
+        "itsItemPerSec": true,
+        "bonusPerSec": 180000.0,
+        "itemIndex": 0,
+        "isUnlocked": true
+      },
+      {
+        "name": "13cec",
+        "cost": 6E+09,
+        "bonusIncrease": 0.0,
+        "levelOfItem": 0,
+        "itsItemPerSec": true,
+        "bonusPerSec": 500000.0,
+        "itemIndex": 0,
+        "isUnlocked": true
+      },
+      {
+        "name": "14cec",
+        "cost": 2E+10,
+        "bonusIncrease": 0.0,
+        "levelOfItem": 0,
+        "itsItemPerSec": true,
+        "bonusPerSec": 1800000.0,
+        "itemIndex": 0,
+        "isUnlocked": true
+      },
+      {
+        "name": "15cec",
+        "cost": 8E+10,
+        "bonusIncrease": 0.0,
+        "levelOfItem": 0,
+        "itsItemPerSec": true,
+        "bonusPerSec": 4500000.0,
+        "itemIndex": 0,
+        "isUnlocked": false
+      },
+      {
+        "name": "16cec",
+        "cost": 3.1E+11,
+        "bonusIncrease": 0.0,
+        "levelOfItem": 0,
+        "itsItemPerSec": true,
+        "bonusPerSec": 1.2E+07,
+        "itemIndex": 0,
+        "isUnlocked": false
+      },
+      {
+        "name": "17cec",
+        "cost": 1E+12,
+        "bonusIncrease": 0.0,
+        "levelOfItem": 0,
+        "itsItemPerSec": true,
+        "bonusPerSec": 3E+07,
+        "itemIndex": 0,
+        "isUnlocked": false
+      },
+      {
+        "name": "18cec",
+        "cost": 3E+12,
+        "bonusIncrease": 0.0,
+        "levelOfItem": 0,
+        "itsItemPerSec": true,
+        "bonusPerSec": 7.5E+07,
+        "itemIndex": 0,
+        "isUnlocked": false
+      },
+      {
+        "name": "19cec",
+        "cost": 5E+12,
+        "bonusIncrease": 0.0,
+        "levelOfItem": 0,
+        "itsItemPerSec": true,
+        "bonusPerSec": 1.5E+08,
+        "itemIndex": 0,
+        "isUnlocked": false
+      },
+      {
+        "name": "Intel HD graphics",
+        "cost": 110.0,
+        "bonusIncrease": 1.0,
+        "levelOfItem": 1,
+        "itsItemPerSec": false,
+        "bonusPerSec": 0.0,
+        "itemIndex": 0,
+        "isUnlocked": false
+      },
+      {
+        "name": "Radeon R5",
+        "cost": 550.0,
+        "bonusIncrease": 3.0,
+        "levelOfItem": 1,
+        "itsItemPerSec": false,
+        "bonusPerSec": 0.0,
+        "itemIndex": 0,
+        "isUnlocked": false
+      },
+      {
+        "name": "GT 1030",
+        "cost": 2100.0,
+        "bonusIncrease": 10.0,
+        "levelOfItem": 1,
+        "itsItemPerSec": false,
+        "bonusPerSec": 3.0,
+        "itemIndex": 0,
+        "isUnlocked": false
+      },
+      {
+        "name": "Rx 550",
+        "cost": 8000.0,
+        "bonusIncrease": 25.0,
+        "levelOfItem": 1,
+        "itsItemPerSec": false,
+        "bonusPerSec": 3.0,
+        "itemIndex": 0,
+        "isUnlocked": false
+      },
+      {
+        "name": "GTX 1050",
+        "cost": 28000.0,
+        "bonusIncrease": 75.0,
+        "levelOfItem": 0,
+        "itsItemPerSec": false,
+        "bonusPerSec": 3.0,
+        "itemIndex": 0,
+        "isUnlocked": false
+      },
+      {
+        "name": "GTX 960",
+        "cost": 110000.0,
+        "bonusIncrease": 200.0,
+        "levelOfItem": 1,
+        "itsItemPerSec": false,
+        "bonusPerSec": 3.0,
+        "itemIndex": 0,
+        "isUnlocked": false
+      },
+      {
+        "name": "GTX 1060",
+        "cost": 400000.0,
+        "bonusIncrease": 420.0,
+        "levelOfItem": 3,
+        "itsItemPerSec": false,
+        "bonusPerSec": 3.0,
+        "itemIndex": 0,
+        "isUnlocked": false
+      },
+      {
+        "name": "GTX 1650 s",
+        "cost": 1500000.0,
+        "bonusIncrease": 1400.0,
+        "levelOfItem": 2,
+        "itsItemPerSec": false,
+        "bonusPerSec": 3.0,
+        "itemIndex": 0,
+        "isUnlocked": false
+      },
+      {
+        "name": "RX 590",
+        "cost": 4200000.0,
+        "bonusIncrease": 3000.0,
+        "levelOfItem": 2,
+        "itsItemPerSec": false,
+        "bonusPerSec": 3.0,
+        "itemIndex": 0,
+        "isUnlocked": false
+      },
+      {
+        "name": "GTX 1660 Ti",
+        "cost": 1.2E+07,
+        "bonusIncrease": 8000.0,
+        "levelOfItem": 0,
+        "itsItemPerSec": false,
+        "bonusPerSec": 3.0,
+        "itemIndex": 0,
+        "isUnlocked": false
+      },
+      {
+        "name": "RX 5600 XT",
+        "cost": 3.5E+07,
+        "bonusIncrease": 20000.0,
+        "levelOfItem": 1,
+        "itsItemPerSec": false,
+        "bonusPerSec": 3.0,
+        "itemIndex": 0,
+        "isUnlocked": false
+      },
+      {
+        "name": "GTX 1080 Ti",
+        "cost": 1.4E+08,
+        "bonusIncrease": 75000.0,
+        "levelOfItem": 3,
+        "itsItemPerSec": false,
+        "bonusPerSec": 3.0,
+        "itemIndex": 0,
+        "isUnlocked": false
+      },
+      {
+        "name": "RTX 2080",
+        "cost": 6E+08,
+        "bonusIncrease": 250000.0,
+        "levelOfItem": 1,
+        "itsItemPerSec": false,
+        "bonusPerSec": 3.0,
+        "itemIndex": 0,
+        "isUnlocked": false
+      },
+      {
+        "name": "RX 6700 XT",
+        "cost": 3.2E+09,
+        "bonusIncrease": 800000.0,
+        "levelOfItem": 1,
+        "itsItemPerSec": false,
+        "bonusPerSec": 3.0,
+        "itemIndex": 0,
+        "isUnlocked": false
+      },
+      {
+        "name": "RTX 3070 Ti",
+        "cost": 1E+10,
+        "bonusIncrease": 2400000.0,
+        "levelOfItem": 0,
+        "itsItemPerSec": false,
+        "bonusPerSec": 3.0,
+        "itemIndex": 0,
+        "isUnlocked": false
+      },
+      {
+        "name": "RX 6800 XT",
+        "cost": 3.5E+10,
+        "bonusIncrease": 6000000.0,
+        "levelOfItem": 0,
+        "itsItemPerSec": false,
+        "bonusPerSec": 3.0,
+        "itemIndex": 0,
+        "isUnlocked": false
+      },
+      {
+        "name": "RTX 3090",
+        "cost": 1E+11,
+        "bonusIncrease": 1.5E+07,
+        "levelOfItem": 0,
+        "itsItemPerSec": false,
+        "bonusPerSec": 3.0,
+        "itemIndex": 0,
+        "isUnlocked": false
+      },
+      {
+        "name": "RX 7900 XT",
+        "cost": 2.6E+11,
+        "bonusIncrease": 4E+07,
+        "levelOfItem": 0,
+        "itsItemPerSec": false,
+        "bonusPerSec": 3.0,
+        "itemIndex": 0,
+        "isUnlocked": false
+      },
+      {
+        "name": "RTX 4080",
+        "cost": 8.4E+11,
+        "bonusIncrease": 1E+08,
+        "levelOfItem": 0,
+        "itsItemPerSec": false,
+        "bonusPerSec": 3.0,
+        "itemIndex": 0,
+        "isUnlocked": false
+      },
+      {
+        "name": "RTX 4090",
+        "cost": 2E+12,
+        "bonusIncrease": 3E+08,
+        "levelOfItem": 0,
+        "itsItemPerSec": false,
+        "bonusPerSec": 1.0,
+        "itemIndex": 0,
+        "isUnlocked": false
+      }
+    ],
+    "savedTime": 100000000,
+    "colClicks": 22,
+    "maxResult": 0,
+    "OfflineBonus": 0.0
+  },
+  "plotData": {
+    "isEventDone": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "total": 22,
+    "isStart": true,
+    "isEnd": false
+  },
+  "progressBarData": null,
+  "volumeData": {
+    "maserVolume": 1.0,
+    "isMuteBG": true
+  },
+  "skinCoinData": {
+    "bBttn": 2
+  },
+  "spawnDownData": {
+    "level": 0,
+    "speed": 0.9,
+    "spawnInterval": 0.5,
+    "isFirstLevel": true,
+    "isLastLevel": true
+  },
+  "statsData": {
+    "totalPlayTime": 226.244232
+  },
+  "timerData": {
+    "maxResult": 4.0
+  }
+}

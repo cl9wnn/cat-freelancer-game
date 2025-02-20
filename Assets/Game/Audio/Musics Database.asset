@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c649ca13c83d01d4aaa2e2a5f9d7ca1b, type: 3}
+  m_Name: Musics Database
+  m_EditorClassIdentifier: 
+  musics:
+  - clip:
+      _id: Null
+      _key: None
+    type: 0
+    mixerGroup: {fileID: -2998100470559032894, guid: 645cbca3a6ed62946a3663df53ea80c5,
+      type: 2}
+    snapshot: {fileID: 1979430203479516064, guid: 645cbca3a6ed62946a3663df53ea80c5,
+      type: 2}
+    volume: 1
+    pitch: 1
+    loop: 1
+    mute: 1
+    rolloffMode: 0
+  - clip:
+      _id: 3b2c256f-06ca-4dd0-a51c-bfa4a7e96231
+      _key: Start Background
+    type: 1
+    mixerGroup: {fileID: -2998100470559032894, guid: 645cbca3a6ed62946a3663df53ea80c5,
+      type: 2}
+    snapshot: {fileID: -1735477380665469888, guid: 645cbca3a6ed62946a3663df53ea80c5,
+      type: 2}
+    volume: 1
+    pitch: 1
+    loop: 1
+    mute: 0
+    rolloffMode: 0
+  - clip:
+      _id: 57cecc95-a9dc-480d-9d1b-569def879e15
+      _key: Boost Background
+    type: 2
+    mixerGroup: {fileID: -2998100470559032894, guid: 645cbca3a6ed62946a3663df53ea80c5,
+      type: 2}
+    snapshot: {fileID: 24500006, guid: 645cbca3a6ed62946a3663df53ea80c5, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 1
+    mute: 0
+    rolloffMode: 0
+  - clip:
+      _id: 8820525e-960c-4cbf-a26c-221d723e7e9c
+      _key: Main Background
+    type: 3
+    mixerGroup: {fileID: -2998100470559032894, guid: 645cbca3a6ed62946a3663df53ea80c5,
+      type: 2}
+    snapshot: {fileID: 1979430203479516064, guid: 645cbca3a6ed62946a3663df53ea80c5,
+      type: 2}
+    volume: 1
+    pitch: 1
+    loop: 1
+    mute: 0
+    rolloffMode: 0
+  - clip:
+      _id: 1d0111df-6021-4832-8e47-2011d0475507
+      _key: 'MiniGame Background '
+    type: 4
+    mixerGroup: {fileID: -2998100470559032894, guid: 645cbca3a6ed62946a3663df53ea80c5,
+      type: 2}
+    snapshot: {fileID: 2614985643039769806, guid: 645cbca3a6ed62946a3663df53ea80c5,
+      type: 2}
+    volume: 1
+    pitch: 1
+    loop: 1
+    mute: 0
+    rolloffMode: 0

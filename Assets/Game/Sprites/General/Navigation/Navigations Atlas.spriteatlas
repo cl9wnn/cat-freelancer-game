@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Navigations Atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 8192
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 1
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_IgnorePlatformSupport: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: a33cf87a8af12b74f9f6ff8b32494ea0, type: 3}
+    - {fileID: 2800000, guid: 76919ef9209709d43af24c894a319513, type: 3}
+    - {fileID: 2800000, guid: 1e20c9e01d2b25a48a8f273d1f4808fe, type: 3}
+    - {fileID: 2800000, guid: f9ebf7b85b7347045a88c8aa702803f6, type: 3}
+    - {fileID: 2800000, guid: e697385db867458499ce5f536d467e77, type: 3}
+    - {fileID: 2800000, guid: d153e220d8ca2a1469a1278c12cb5af7, type: 3}
+    - {fileID: 2800000, guid: 1d4e7c4929ee8e54c9e256fe013a604f, type: 3}
+    - {fileID: 2800000, guid: f5db793d769a4d841b0ad1a6005900d4, type: 3}
+    - {fileID: 2800000, guid: e8e671b0fc6fb764d90574574e52057e, type: 3}
+    - {fileID: 2800000, guid: 1b699725d6ab9834392b360a1f88352b, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - d153e220d8ca2a1469a1278c12cb5af7: 2890748231068906531
+    - e8e671b0fc6fb764d90574574e52057e: 6379587973745207255
+    - 1e20c9e01d2b25a48a8f273d1f4808fe: 2099595707710469266
+    - 1b699725d6ab9834392b360a1f88352b: -7594469558987048723
+    - f9ebf7b85b7347045a88c8aa702803f6: 5321619619330607049
+    - 1d4e7c4929ee8e54c9e256fe013a604f: 2629116660654481226
+    - 76919ef9209709d43af24c894a319513: -2771585948930570255
+    - a33cf87a8af12b74f9f6ff8b32494ea0: -1240903403304913649
+    - f5db793d769a4d841b0ad1a6005900d4: -7784004750119664296
+    - e697385db867458499ce5f536d467e77: 8681134950513227143
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 2890748231068906531, guid: d153e220d8ca2a1469a1278c12cb5af7, type: 3}
+  - {fileID: 6379587973745207255, guid: e8e671b0fc6fb764d90574574e52057e, type: 3}
+  - {fileID: 2099595707710469266, guid: 1e20c9e01d2b25a48a8f273d1f4808fe, type: 3}
+  - {fileID: -7594469558987048723, guid: 1b699725d6ab9834392b360a1f88352b, type: 3}
+  - {fileID: 5321619619330607049, guid: f9ebf7b85b7347045a88c8aa702803f6, type: 3}
+  - {fileID: 2629116660654481226, guid: 1d4e7c4929ee8e54c9e256fe013a604f, type: 3}
+  - {fileID: -2771585948930570255, guid: 76919ef9209709d43af24c894a319513, type: 3}
+  - {fileID: -1240903403304913649, guid: a33cf87a8af12b74f9f6ff8b32494ea0, type: 3}
+  - {fileID: -7784004750119664296, guid: f5db793d769a4d841b0ad1a6005900d4, type: 3}
+  - {fileID: 8681134950513227143, guid: e697385db867458499ce5f536d467e77, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - bttn3Re_0
+  - bttn5 1_0
+  - bttn2_0
+  - bttn5Re_0
+  - bttn2Re_0
+  - bttn4_0
+  - bttn1Re_0
+  - bttn1_0
+  - bttn4Re_0
+  - bttn3_0
+  m_RenderDataMap: {}
+  m_Tag: Navigations Atlas
+  m_IsVariant: 0
