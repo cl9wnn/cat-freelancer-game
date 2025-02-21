@@ -20,7 +20,7 @@ A clicker game where players have to develop their cat and upgrade their compute
 
 ## Gameplay
 
-![video](./examples/horizontal_movie.mp4)
+![video](./examples/horizontal_movie.gif)
 
 
 
